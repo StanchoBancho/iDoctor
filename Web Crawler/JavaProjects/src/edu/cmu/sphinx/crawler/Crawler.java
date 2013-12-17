@@ -16,7 +16,9 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.embedded.EmbeddedSolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocumentList;
+import org.apache.solr.common.params.SolrParams;
 import org.apache.solr.core.CoreContainer;
+import org.apache.solr.servlet.SolrRequestParsers;
 import org.xml.sax.SAXException;
 
 public class Crawler {
@@ -84,6 +86,8 @@ public class Crawler {
                         e.printStackTrace();
                         return;
                 }
+                
+                
                 EmbeddedSolrServer server = new EmbeddedSolrServer(coreContainer, "");
 
                 // Arguments for indexing
@@ -100,11 +104,18 @@ public class Crawler {
                 }
 
                 // Let's query for something!
+                
+                System.out.println("= = = = = = = = = = = = = = = = = First way to execute a query = = = = = = = = = = = = = = = = =");
+		        
+		        
                 SolrQuery query = new SolrQuery();
-                query.setQuery("title:queen"); // Searching queen in query
-                query.addSortField("title", SolrQuery.ORDER.asc);
+                query.setQuery("*:* "); // Searching queen in query
+                //query.addSortField("title", SolrQuery.ORDER.asc);
                 QueryResponse rsp;
                 try {
+                	//to test that    
+                	print(doFirstQuery(server));
+
                         rsp = server.query(query);
                 } catch (SolrServerException e) {
                         // TODO Auto-generated catch block
@@ -144,5 +155,89 @@ public class Crawler {
                 return tokens;
 
         }
+        
+        public static QueryResponse doFirstQuery(EmbeddedSolrServer server)
+    			throws SolrServerException {
+    		StringBuffer request = new StringBuffer();
+ 
+    		SolrParams solrParams = SolrRequestParsers.parseQueryString(request
+    				.toString());
 
+    		return server.query(solrParams);
+    	}
+        
+        /**
+    	 * Print documents and facets
+    	 * 
+    	 * @param response
+    	 */
+    	@SuppressWarnings("unchecked")
+    	public static void print(QueryResponse response) {
+//    		SolrDocumentList docs = response.getResults();
+//    		if (docs != null) {
+//    			System.out.println(docs.getNumFound() + " documents found, "
+//    					+ docs.size() + " returned : ");
+//    			for (int i = 0; i < docs.size(); i++) {
+//    				SolrDocument doc = docs.get(i);
+//    				System.out.println("\t" + doc.toString());
+//    			}
+//    		}
+//
+//    		List<FacetField> fieldFacets = response.getFacetFields();
+//    		if (fieldFacets != null && fieldFacets.isEmpty()) {
+//    			System.out.println("\nField Facets : ");
+//    			for (FacetField fieldFacet : fieldFacets) {
+//    				System.out.print("\t" + fieldFacet.getName() + " :\t");
+//    				if (fieldFacet.getValueCount() > 0) {
+//    					for (Count count : fieldFacet.getValues()) {
+//    						System.out.print(count.getName() + "["
+//    								+ count.getCount() + "]\t");
+//    					}
+//    				}
+//    				System.out.println("");
+//    			}
+//    		}
+//
+//    		Map<String, Integer> queryFacets = response.getFacetQuery();
+//    		if (queryFacets != null && !queryFacets.isEmpty()) {
+//    			System.out.println("\nQuery facets : ");
+//    			for (String queryFacet : queryFacets.keySet()) {
+//    				System.out.println("\t" + queryFacet + "\t["
+//    						+ queryFacets.get(queryFacet) + "]");
+//    			}
+//    			System.out.println("");
+//    		}
+//
+//    		NamedList<NamedList<Object>> spellCheckResponse = (NamedList<NamedList<Object>>) response
+//    				.getResponse().get("spellcheck");
+//
+//    		if (spellCheckResponse != null) {
+//    			Iterator<Entry<String, NamedList<Object>>> wordsIterator = spellCheckResponse
+//    					.iterator();
+//
+//    			while (wordsIterator.hasNext()) {
+//    				Entry<String, NamedList<Object>> entry = wordsIterator.next();
+//    				String word = entry.getKey();
+//    				NamedList<Object> spellCheckWordResponse = entry.getValue();
+//    				boolean correct = spellCheckWordResponse.get("frequency")
+//    						.equals(1);
+//    				System.out.println("Word: " + word + ",\tCorrect?: " + correct);
+//    				NamedList<Integer> suggestions = (NamedList<Integer>) spellCheckWordResponse
+//    						.get("suggestions");
+//    				if (suggestions != null && suggestions.size() > 0) {
+//    					System.out.println("Suggestions : ");
+//    					Iterator<Entry<String, Integer>> suggestionsIterator = suggestions
+//    							.iterator();
+//    					while (suggestionsIterator.hasNext()) {
+//    						System.out.println("\t"
+//    								+ suggestionsIterator.next().getKey());
+//    					}
+//
+//    				}
+//    				System.out.println("");
+//    			}
+
+    		}
+
+        
 }

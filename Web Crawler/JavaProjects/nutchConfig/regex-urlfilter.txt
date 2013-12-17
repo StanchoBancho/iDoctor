@@ -36,5 +36,5 @@
 -.*(/[^/]+)/[^/]+\1/[^/]+\1/
 
 # accept anything else
-+^http://edition.cnn.com/[0-9]+/[0-9]+/[0-9]+/world/[a-z]+/[a-z]+(-[a-z]+)*/index.html.*$+
++^http://edition.cnn.com/[0-9]+/[0-9]+/[0-9]+/world/[a-z]+/[a-z]+(-[a-z]+)*/index.html.*$
 +^http://edition.cnn.com/WORLD/$
