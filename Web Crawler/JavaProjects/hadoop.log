@@ -1,0 +1,1226 @@
+2013-12-17 17:51:02,209 WARN  crawl.Crawl - solrUrl is not set, indexing will be skipped...
+2013-12-17 17:51:02,299 INFO  crawl.Crawl - crawl started in: crawl
+2013-12-17 17:51:02,299 INFO  crawl.Crawl - rootUrlDir = urls
+2013-12-17 17:51:02,299 INFO  crawl.Crawl - threads = 5
+2013-12-17 17:51:02,299 INFO  crawl.Crawl - depth = 3
+2013-12-17 17:51:02,300 INFO  crawl.Crawl - solrUrl=null
+2013-12-17 17:51:02,300 INFO  crawl.Crawl - topN = 20
+2013-12-17 17:51:02,310 INFO  crawl.Injector - Injector: starting at 2013-12-17 17:51:02
+2013-12-17 17:51:02,310 INFO  crawl.Injector - Injector: crawlDb: crawl/crawldb
+2013-12-17 17:51:02,310 INFO  crawl.Injector - Injector: urlDir: urls
+2013-12-17 17:51:02,327 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-17 17:51:02,371 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-17 17:51:02,660 INFO  plugin.PluginRepository - Plugins: looking in: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/Web Crawler/JavaProjects/plugins
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - Plugin Auto-activation mode: [true]
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - Registered Plugins:
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	the nutch core extension points (nutch-extensionpoints)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Basic URL Normalizer (urlnormalizer-basic)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Html Parse Plug-in (parse-html)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Basic Indexing Filter (index-basic)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	HTTP Framework (lib-http)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Pass-through URL Normalizer (urlnormalizer-pass)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Regex URL Filter (urlfilter-regex)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Http Protocol Plug-in (protocol-http)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Regex URL Normalizer (urlnormalizer-regex)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Tika Parser Plug-in (parse-tika)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	OPIC Scoring Plug-in (scoring-opic)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	CyberNeko HTML Parser (lib-nekohtml)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Anchor Indexing Filter (index-anchor)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Regex URL Filter Framework (lib-regex-filter)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - Registered Extension-Points:
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Nutch URL Normalizer (org.apache.nutch.net.URLNormalizer)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Nutch Protocol (org.apache.nutch.protocol.Protocol)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Nutch Segment Merge Filter (org.apache.nutch.segment.SegmentMergeFilter)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Nutch URL Filter (org.apache.nutch.net.URLFilter)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	Nutch Indexing Filter (org.apache.nutch.indexer.IndexingFilter)
+2013-12-17 17:51:02,735 INFO  plugin.PluginRepository - 	HTML Parse Filter (org.apache.nutch.parse.HtmlParseFilter)
+2013-12-17 17:51:02,736 INFO  plugin.PluginRepository - 	Nutch Content Parser (org.apache.nutch.parse.Parser)
+2013-12-17 17:51:02,736 INFO  plugin.PluginRepository - 	Nutch Scoring (org.apache.nutch.scoring.ScoringFilter)
+2013-12-17 17:51:02,753 ERROR api.RegexURLFilterBase - Invalid first character: ^http://edition.cnn.com/[0-9]+/[0-9]+/[0-9]+/world/[a-z]+/[a-z]+(-[a-z]+)*/index.html.*$
+2013-12-17 17:51:02,754 WARN  mapred.LocalJobRunner - job_local_0001
+java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:432)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:372)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:212)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 5 more
+Caused by: java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapRunner.configure(MapRunner.java:34)
+	... 10 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 13 more
+Caused by: java.lang.RuntimeException: Invalid first character: ^http://edition.cnn.com/[0-9]+/[0-9]+/[0-9]+/world/[a-z]+/[a-z]+(-[a-z]+)*/index.html.*$
+	at org.apache.nutch.urlfilter.api.RegexURLFilterBase.setConf(RegexURLFilterBase.java:159)
+	at org.apache.nutch.plugin.Extension.getExtensionInstance(Extension.java:162)
+	at org.apache.nutch.net.URLFilters.<init>(URLFilters.java:57)
+	at org.apache.nutch.crawl.Injector$InjectMapper.configure(Injector.java:72)
+	... 18 more
+Caused by: java.io.IOException: Invalid first character: ^http://edition.cnn.com/[0-9]+/[0-9]+/[0-9]+/world/[a-z]+/[a-z]+(-[a-z]+)*/index.html.*$
+	at org.apache.nutch.urlfilter.api.RegexURLFilterBase.readRules(RegexURLFilterBase.java:200)
+	at org.apache.nutch.urlfilter.api.RegexURLFilterBase.setConf(RegexURLFilterBase.java:156)
+	... 21 more
+2013-12-17 18:18:30,774 WARN  crawl.Crawl - solrUrl is not set, indexing will be skipped...
+2013-12-17 18:18:30,864 INFO  crawl.Crawl - crawl started in: crawl
+2013-12-17 18:18:30,864 INFO  crawl.Crawl - rootUrlDir = urls
+2013-12-17 18:18:30,864 INFO  crawl.Crawl - threads = 5
+2013-12-17 18:18:30,864 INFO  crawl.Crawl - depth = 3
+2013-12-17 18:18:30,864 INFO  crawl.Crawl - solrUrl=null
+2013-12-17 18:18:30,864 INFO  crawl.Crawl - topN = 20
+2013-12-17 18:18:30,875 INFO  crawl.Injector - Injector: starting at 2013-12-17 18:18:30
+2013-12-17 18:18:30,875 INFO  crawl.Injector - Injector: crawlDb: crawl/crawldb
+2013-12-17 18:18:30,875 INFO  crawl.Injector - Injector: urlDir: urls
+2013-12-17 18:18:30,892 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-17 18:18:30,933 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-17 18:18:31,210 WARN  plugin.PluginRepository - Plugins: directory not found: plugins
+2013-12-17 18:18:31,211 INFO  plugin.PluginRepository - Plugin Auto-activation mode: [true]
+2013-12-17 18:18:31,211 INFO  plugin.PluginRepository - Registered Plugins:
+2013-12-17 18:18:31,211 INFO  plugin.PluginRepository - 	NONE
+2013-12-17 18:18:31,211 INFO  plugin.PluginRepository - Registered Extension-Points:
+2013-12-17 18:18:31,211 INFO  plugin.PluginRepository - 	NONE
+2013-12-17 18:18:31,212 WARN  mapred.LocalJobRunner - job_local_0001
+java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:432)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:372)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:212)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 5 more
+Caused by: java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapRunner.configure(MapRunner.java:34)
+	... 10 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 13 more
+Caused by: java.lang.RuntimeException: x point org.apache.nutch.net.URLNormalizer not found.
+	at org.apache.nutch.net.URLNormalizers.<init>(URLNormalizers.java:122)
+	at org.apache.nutch.crawl.Injector$InjectMapper.configure(Injector.java:70)
+	... 18 more
+2013-12-17 18:31:52,803 WARN  crawl.Crawl - solrUrl is not set, indexing will be skipped...
+2013-12-17 18:31:52,889 INFO  crawl.Crawl - crawl started in: crawl
+2013-12-17 18:31:52,889 INFO  crawl.Crawl - rootUrlDir = urls
+2013-12-17 18:31:52,889 INFO  crawl.Crawl - threads = 5
+2013-12-17 18:31:52,889 INFO  crawl.Crawl - depth = 3
+2013-12-17 18:31:52,889 INFO  crawl.Crawl - solrUrl=null
+2013-12-17 18:31:52,890 INFO  crawl.Crawl - topN = 20
+2013-12-17 18:31:52,900 INFO  crawl.Injector - Injector: starting at 2013-12-17 18:31:52
+2013-12-17 18:31:52,900 INFO  crawl.Injector - Injector: crawlDb: crawl/crawldb
+2013-12-17 18:31:52,900 INFO  crawl.Injector - Injector: urlDir: urls
+2013-12-17 18:31:52,918 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-17 18:31:52,958 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-17 18:31:53,211 WARN  plugin.PluginRepository - Plugins: directory not found: plugins
+2013-12-17 18:31:53,211 INFO  plugin.PluginRepository - Plugin Auto-activation mode: [true]
+2013-12-17 18:31:53,211 INFO  plugin.PluginRepository - Registered Plugins:
+2013-12-17 18:31:53,211 INFO  plugin.PluginRepository - 	NONE
+2013-12-17 18:31:53,211 INFO  plugin.PluginRepository - Registered Extension-Points:
+2013-12-17 18:31:53,211 INFO  plugin.PluginRepository - 	NONE
+2013-12-17 18:31:53,213 WARN  mapred.LocalJobRunner - job_local_0001
+java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:432)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:372)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:212)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 5 more
+Caused by: java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapRunner.configure(MapRunner.java:34)
+	... 10 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 13 more
+Caused by: java.lang.RuntimeException: x point org.apache.nutch.net.URLNormalizer not found.
+	at org.apache.nutch.net.URLNormalizers.<init>(URLNormalizers.java:122)
+	at org.apache.nutch.crawl.Injector$InjectMapper.configure(Injector.java:70)
+	... 18 more
+2013-12-17 18:34:39,815 WARN  crawl.Crawl - solrUrl is not set, indexing will be skipped...
+2013-12-17 18:34:39,901 INFO  crawl.Crawl - crawl started in: crawl
+2013-12-17 18:34:39,901 INFO  crawl.Crawl - rootUrlDir = urls
+2013-12-17 18:34:39,901 INFO  crawl.Crawl - threads = 5
+2013-12-17 18:34:39,901 INFO  crawl.Crawl - depth = 3
+2013-12-17 18:34:39,901 INFO  crawl.Crawl - solrUrl=null
+2013-12-17 18:34:39,901 INFO  crawl.Crawl - topN = 20
+2013-12-17 18:34:39,912 INFO  crawl.Injector - Injector: starting at 2013-12-17 18:34:39
+2013-12-17 18:34:39,912 INFO  crawl.Injector - Injector: crawlDb: crawl/crawldb
+2013-12-17 18:34:39,912 INFO  crawl.Injector - Injector: urlDir: urls
+2013-12-17 18:34:39,929 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-17 18:34:39,970 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-17 18:34:40,228 WARN  plugin.PluginRepository - Plugins: directory not found: plugins
+2013-12-17 18:34:40,229 INFO  plugin.PluginRepository - Plugin Auto-activation mode: [true]
+2013-12-17 18:34:40,229 INFO  plugin.PluginRepository - Registered Plugins:
+2013-12-17 18:34:40,229 INFO  plugin.PluginRepository - 	NONE
+2013-12-17 18:34:40,229 INFO  plugin.PluginRepository - Registered Extension-Points:
+2013-12-17 18:34:40,229 INFO  plugin.PluginRepository - 	NONE
+2013-12-17 18:34:40,230 WARN  mapred.LocalJobRunner - job_local_0001
+java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:432)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:372)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:212)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 5 more
+Caused by: java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapRunner.configure(MapRunner.java:34)
+	... 10 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 13 more
+Caused by: java.lang.RuntimeException: x point org.apache.nutch.net.URLNormalizer not found.
+	at org.apache.nutch.net.URLNormalizers.<init>(URLNormalizers.java:122)
+	at org.apache.nutch.crawl.Injector$InjectMapper.configure(Injector.java:70)
+	... 18 more
+2013-12-17 18:43:03,092 WARN  crawl.Crawl - solrUrl is not set, indexing will be skipped...
+2013-12-17 18:43:03,178 INFO  crawl.Crawl - crawl started in: crawl
+2013-12-17 18:43:03,178 INFO  crawl.Crawl - rootUrlDir = urls
+2013-12-17 18:43:03,178 INFO  crawl.Crawl - threads = 5
+2013-12-17 18:43:03,178 INFO  crawl.Crawl - depth = 3
+2013-12-17 18:43:03,178 INFO  crawl.Crawl - solrUrl=null
+2013-12-17 18:43:03,178 INFO  crawl.Crawl - topN = 20
+2013-12-17 18:43:03,188 INFO  crawl.Injector - Injector: starting at 2013-12-17 18:43:03
+2013-12-17 18:43:03,188 INFO  crawl.Injector - Injector: crawlDb: crawl/crawldb
+2013-12-17 18:43:03,188 INFO  crawl.Injector - Injector: urlDir: urls
+2013-12-17 18:43:03,206 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-17 18:43:03,246 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-17 18:43:03,498 WARN  plugin.PluginRepository - Plugins: directory not found: plugins
+2013-12-17 18:43:03,498 INFO  plugin.PluginRepository - Plugin Auto-activation mode: [true]
+2013-12-17 18:43:03,498 INFO  plugin.PluginRepository - Registered Plugins:
+2013-12-17 18:43:03,498 INFO  plugin.PluginRepository - 	NONE
+2013-12-17 18:43:03,498 INFO  plugin.PluginRepository - Registered Extension-Points:
+2013-12-17 18:43:03,498 INFO  plugin.PluginRepository - 	NONE
+2013-12-17 18:43:03,500 WARN  mapred.LocalJobRunner - job_local_0001
+java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:432)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:372)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:212)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 5 more
+Caused by: java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapRunner.configure(MapRunner.java:34)
+	... 10 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 13 more
+Caused by: java.lang.RuntimeException: x point org.apache.nutch.net.URLNormalizer not found.
+	at org.apache.nutch.net.URLNormalizers.<init>(URLNormalizers.java:122)
+	at org.apache.nutch.crawl.Injector$InjectMapper.configure(Injector.java:70)
+	... 18 more
+2013-12-17 18:55:31,698 WARN  crawl.Crawl - solrUrl is not set, indexing will be skipped...
+2013-12-17 18:55:31,784 INFO  crawl.Crawl - crawl started in: crawl
+2013-12-17 18:55:31,785 INFO  crawl.Crawl - rootUrlDir = urls
+2013-12-17 18:55:31,785 INFO  crawl.Crawl - threads = 5
+2013-12-17 18:55:31,785 INFO  crawl.Crawl - depth = 3
+2013-12-17 18:55:31,785 INFO  crawl.Crawl - solrUrl=null
+2013-12-17 18:55:31,785 INFO  crawl.Crawl - topN = 20
+2013-12-17 18:55:31,795 INFO  crawl.Injector - Injector: starting at 2013-12-17 18:55:31
+2013-12-17 18:55:31,795 INFO  crawl.Injector - Injector: crawlDb: crawl/crawldb
+2013-12-17 18:55:31,795 INFO  crawl.Injector - Injector: urlDir: urls
+2013-12-17 18:55:31,813 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-17 18:55:31,855 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-17 18:55:32,109 WARN  plugin.PluginRepository - Plugins: directory not found: plugins
+2013-12-17 18:55:32,109 INFO  plugin.PluginRepository - Plugin Auto-activation mode: [true]
+2013-12-17 18:55:32,110 INFO  plugin.PluginRepository - Registered Plugins:
+2013-12-17 18:55:32,110 INFO  plugin.PluginRepository - 	NONE
+2013-12-17 18:55:32,110 INFO  plugin.PluginRepository - Registered Extension-Points:
+2013-12-17 18:55:32,110 INFO  plugin.PluginRepository - 	NONE
+2013-12-17 18:55:32,111 WARN  mapred.LocalJobRunner - job_local_0001
+java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapTask.runOldMapper(MapTask.java:432)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:372)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:212)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 5 more
+Caused by: java.lang.RuntimeException: Error in configuring object
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:93)
+	at org.apache.hadoop.util.ReflectionUtils.setConf(ReflectionUtils.java:64)
+	at org.apache.hadoop.util.ReflectionUtils.newInstance(ReflectionUtils.java:117)
+	at org.apache.hadoop.mapred.MapRunner.configure(MapRunner.java:34)
+	... 10 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.hadoop.util.ReflectionUtils.setJobConf(ReflectionUtils.java:88)
+	... 13 more
+Caused by: java.lang.RuntimeException: x point org.apache.nutch.net.URLNormalizer not found.
+	at org.apache.nutch.net.URLNormalizers.<init>(URLNormalizers.java:122)
+	at org.apache.nutch.crawl.Injector$InjectMapper.configure(Injector.java:70)
+	... 18 more
+2013-12-17 19:02:03,157 WARN  crawl.Crawl - solrUrl is not set, indexing will be skipped...
+2013-12-17 19:02:03,243 INFO  crawl.Crawl - crawl started in: crawl
+2013-12-17 19:02:03,243 INFO  crawl.Crawl - rootUrlDir = urls
+2013-12-17 19:02:03,243 INFO  crawl.Crawl - threads = 5
+2013-12-17 19:02:03,243 INFO  crawl.Crawl - depth = 3
+2013-12-17 19:02:03,243 INFO  crawl.Crawl - solrUrl=null
+2013-12-17 19:02:03,243 INFO  crawl.Crawl - topN = 20
+2013-12-17 19:02:03,254 INFO  crawl.Injector - Injector: starting at 2013-12-17 19:02:03
+2013-12-17 19:02:03,254 INFO  crawl.Injector - Injector: crawlDb: crawl/crawldb
+2013-12-17 19:02:03,254 INFO  crawl.Injector - Injector: urlDir: urls
+2013-12-17 19:02:03,271 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-17 19:02:03,312 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-17 19:02:03,564 INFO  plugin.PluginRepository - Plugins: looking in: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/Web Crawler/JavaProjects/plugins
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - Plugin Auto-activation mode: [true]
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - Registered Plugins:
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	the nutch core extension points (nutch-extensionpoints)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Basic URL Normalizer (urlnormalizer-basic)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Html Parse Plug-in (parse-html)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Basic Indexing Filter (index-basic)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	HTTP Framework (lib-http)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Pass-through URL Normalizer (urlnormalizer-pass)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Regex URL Filter (urlfilter-regex)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Http Protocol Plug-in (protocol-http)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Regex URL Normalizer (urlnormalizer-regex)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Tika Parser Plug-in (parse-tika)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	OPIC Scoring Plug-in (scoring-opic)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	CyberNeko HTML Parser (lib-nekohtml)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Anchor Indexing Filter (index-anchor)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Regex URL Filter Framework (lib-regex-filter)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - Registered Extension-Points:
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Nutch URL Normalizer (org.apache.nutch.net.URLNormalizer)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Nutch Protocol (org.apache.nutch.protocol.Protocol)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Nutch Segment Merge Filter (org.apache.nutch.segment.SegmentMergeFilter)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Nutch URL Filter (org.apache.nutch.net.URLFilter)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Nutch Indexing Filter (org.apache.nutch.indexer.IndexingFilter)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	HTML Parse Filter (org.apache.nutch.parse.HtmlParseFilter)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Nutch Content Parser (org.apache.nutch.parse.Parser)
+2013-12-17 19:02:03,638 INFO  plugin.PluginRepository - 	Nutch Scoring (org.apache.nutch.scoring.ScoringFilter)
+2013-12-17 19:02:03,662 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-17 19:02:10,459 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-17 19:02:17,525 INFO  crawl.Injector - Injector: finished at 2013-12-17 19:02:17, elapsed: 00:00:14
+2013-12-17 19:02:17,527 INFO  crawl.Generator - Generator: starting at 2013-12-17 19:02:17
+2013-12-17 19:02:17,527 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-17 19:02:17,527 INFO  crawl.Generator - Generator: filtering: true
+2013-12-17 19:02:17,527 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-17 19:02:17,527 INFO  crawl.Generator - Generator: topN: 20
+2013-12-17 19:02:17,527 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-17 19:02:17,625 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-17 19:02:17,625 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-17 19:02:17,625 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-17 19:02:17,633 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-17 19:02:20,584 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-17 19:02:20,585 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-17 19:02:20,585 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-17 19:02:20,586 INFO  regex.RegexURLNormalizer - can't find rules for scope 'generate_host_count', using default
+2013-12-17 19:02:24,588 INFO  crawl.Generator - Generator: Partitioning selected urls for politeness.
+2013-12-17 19:02:25,588 INFO  crawl.Generator - Generator: segment: crawl/segments/20131217190225
+2013-12-17 19:02:25,677 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-17 19:02:32,634 INFO  crawl.Generator - Generator: finished at 2013-12-17 19:02:32, elapsed: 00:00:15
+2013-12-17 19:02:32,634 WARN  fetcher.Fetcher - Fetcher: Your 'http.agent.name' value should be listed first in 'http.robots.agents' property.
+2013-12-17 19:02:32,634 INFO  fetcher.Fetcher - Fetcher: starting at 2013-12-17 19:02:32
+2013-12-17 19:02:32,634 INFO  fetcher.Fetcher - Fetcher: segment: crawl/segments/20131217190225
+2013-12-17 19:02:32,715 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:02:32,715 INFO  fetcher.Fetcher - Fetcher: threads: 5
+2013-12-17 19:02:32,715 INFO  fetcher.Fetcher - Fetcher: time-out divisor: 2
+2013-12-17 19:02:32,717 INFO  fetcher.Fetcher - QueueFeeder finished: total 1 records + hit by time limit :0
+2013-12-17 19:02:32,728 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:02:32,729 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:02:32,730 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/WORLD/
+2013-12-17 19:02:32,730 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:02:32,730 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:02:32,732 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-17 19:02:32,733 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-17 19:02:32,734 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:02:32,734 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-17 19:02:32,734 INFO  fetcher.Fetcher - Fetcher: throughput threshold: -1
+2013-12-17 19:02:32,735 INFO  fetcher.Fetcher - Fetcher: throughput threshold retries: 5
+2013-12-17 19:02:32,735 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-17 19:02:32,740 INFO  http.Http - http.proxy.host = null
+2013-12-17 19:02:32,740 INFO  http.Http - http.proxy.port = 8080
+2013-12-17 19:02:32,740 INFO  http.Http - http.timeout = 10000
+2013-12-17 19:02:32,740 INFO  http.Http - http.content.limit = 65536
+2013-12-17 19:02:32,740 INFO  http.Http - http.agent = VeryCoolCrawlerName/Nutch-1.5
+2013-12-17 19:02:32,740 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2013-12-17 19:02:32,740 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2013-12-17 19:02:33,738 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:02:34,323 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=0
+2013-12-17 19:02:34,739 INFO  fetcher.Fetcher - -activeThreads=0, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:02:34,739 INFO  fetcher.Fetcher - -activeThreads=0
+2013-12-17 19:02:39,673 INFO  fetcher.Fetcher - Fetcher: finished at 2013-12-17 19:02:39, elapsed: 00:00:07
+2013-12-17 19:02:39,673 INFO  parse.ParseSegment - ParseSegment: starting at 2013-12-17 19:02:39
+2013-12-17 19:02:39,673 INFO  parse.ParseSegment - ParseSegment: segment: crawl/segments/20131217190225
+2013-12-17 19:02:39,969 INFO  crawl.SignatureFactory - Using Signature impl: org.apache.nutch.crawl.MD5Signature
+2013-12-17 19:02:39,976 INFO  parse.ParseSegment - Parsed (9ms):http://edition.cnn.com/WORLD/
+2013-12-17 19:02:42,737 INFO  regex.RegexURLNormalizer - can't find rules for scope 'outlink', using default
+2013-12-17 19:02:46,718 INFO  parse.ParseSegment - ParseSegment: finished at 2013-12-17 19:02:46, elapsed: 00:00:07
+2013-12-17 19:02:46,720 INFO  crawl.CrawlDb - CrawlDb update: starting at 2013-12-17 19:02:46
+2013-12-17 19:02:46,720 INFO  crawl.CrawlDb - CrawlDb update: db: crawl/crawldb
+2013-12-17 19:02:46,720 INFO  crawl.CrawlDb - CrawlDb update: segments: [crawl/segments/20131217190225]
+2013-12-17 19:02:46,721 INFO  crawl.CrawlDb - CrawlDb update: additions allowed: true
+2013-12-17 19:02:46,721 INFO  crawl.CrawlDb - CrawlDb update: URL normalizing: true
+2013-12-17 19:02:46,721 INFO  crawl.CrawlDb - CrawlDb update: URL filtering: true
+2013-12-17 19:02:46,721 INFO  crawl.CrawlDb - CrawlDb update: 404 purging: false
+2013-12-17 19:02:46,721 INFO  crawl.CrawlDb - CrawlDb update: Merging segment data into db.
+2013-12-17 19:02:46,785 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-17 19:02:49,824 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-17 19:02:52,817 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-17 19:02:55,780 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-17 19:02:55,780 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-17 19:02:55,780 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-17 19:02:59,771 INFO  crawl.CrawlDb - CrawlDb update: finished at 2013-12-17 19:02:59, elapsed: 00:00:13
+2013-12-17 19:02:59,772 INFO  crawl.Generator - Generator: starting at 2013-12-17 19:02:59
+2013-12-17 19:02:59,772 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-17 19:02:59,772 INFO  crawl.Generator - Generator: filtering: true
+2013-12-17 19:02:59,772 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-17 19:02:59,772 INFO  crawl.Generator - Generator: topN: 20
+2013-12-17 19:02:59,773 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-17 19:02:59,842 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-17 19:02:59,842 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-17 19:02:59,842 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-17 19:02:59,843 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-17 19:03:02,803 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-17 19:03:02,803 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-17 19:03:02,803 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-17 19:03:02,804 INFO  regex.RegexURLNormalizer - can't find rules for scope 'generate_host_count', using default
+2013-12-17 19:03:06,803 INFO  crawl.Generator - Generator: Partitioning selected urls for politeness.
+2013-12-17 19:03:07,804 INFO  crawl.Generator - Generator: segment: crawl/segments/20131217190307
+2013-12-17 19:03:07,888 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-17 19:03:14,833 INFO  crawl.Generator - Generator: finished at 2013-12-17 19:03:14, elapsed: 00:00:15
+2013-12-17 19:03:14,833 WARN  fetcher.Fetcher - Fetcher: Your 'http.agent.name' value should be listed first in 'http.robots.agents' property.
+2013-12-17 19:03:14,833 INFO  fetcher.Fetcher - Fetcher: starting at 2013-12-17 19:03:14
+2013-12-17 19:03:14,833 INFO  fetcher.Fetcher - Fetcher: segment: crawl/segments/20131217190307
+2013-12-17 19:03:14,902 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:03:14,902 INFO  fetcher.Fetcher - Fetcher: threads: 5
+2013-12-17 19:03:14,902 INFO  fetcher.Fetcher - Fetcher: time-out divisor: 2
+2013-12-17 19:03:14,905 INFO  fetcher.Fetcher - QueueFeeder finished: total 20 records + hit by time limit :0
+2013-12-17 19:03:14,908 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:03:14,908 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:03:14,911 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/13/world/europe/cyprus-the-ancient-island-of-aphrodite/index.html?hpt=wo_bn2
+2013-12-17 19:03:14,911 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:03:14,911 INFO  http.Http - http.proxy.host = null
+2013-12-17 19:03:14,911 INFO  http.Http - http.proxy.port = 8080
+2013-12-17 19:03:14,912 INFO  http.Http - http.timeout = 10000
+2013-12-17 19:03:14,912 INFO  http.Http - http.content.limit = 65536
+2013-12-17 19:03:14,912 INFO  http.Http - http.agent = VeryCoolCrawlerName/Nutch-1.5
+2013-12-17 19:03:14,912 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2013-12-17 19:03:14,912 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2013-12-17 19:03:14,912 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:03:14,913 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:03:14,913 INFO  fetcher.Fetcher - Fetcher: throughput threshold: -1
+2013-12-17 19:03:14,913 INFO  fetcher.Fetcher - Fetcher: throughput threshold retries: 5
+2013-12-17 19:03:15,914 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=2, fetchQueues.totalSize=19
+2013-12-17 19:03:16,915 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=3, fetchQueues.totalSize=19
+2013-12-17 19:03:17,915 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=19
+2013-12-17 19:03:18,916 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=19
+2013-12-17 19:03:19,917 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=19
+2013-12-17 19:03:20,918 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=19
+2013-12-17 19:03:21,919 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=19
+2013-12-17 19:03:22,389 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/09/29/world/meast/saudi-arabia-women-driving-cleric/index.html?hpt=wo_mid
+2013-12-17 19:03:22,920 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=18
+2013-12-17 19:03:23,921 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=18
+2013-12-17 19:03:24,922 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=18
+2013-12-17 19:03:25,148 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/09/world/asia/japan-on-the-road-elderly/index.html?hpt=wo_bn1
+2013-12-17 19:03:25,923 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=17
+2013-12-17 19:03:26,924 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=17
+2013-12-17 19:03:27,886 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/10/15/world/europe/london-zoo-newborn-tiger-cub-drowns/index.html?hpt=wo_mid
+2013-12-17 19:03:27,926 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=16
+2013-12-17 19:03:28,926 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=16
+2013-12-17 19:03:29,927 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=16
+2013-12-17 19:03:30,697 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/11/11/world/europe/european-bison-in-the-crosshairs-poland/index.html?hpt=wo_mid
+2013-12-17 19:03:30,928 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=15
+2013-12-17 19:03:31,929 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=15
+2013-12-17 19:03:32,930 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=15
+2013-12-17 19:03:33,745 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2012/10/11/world/gallery/international-day-of-the-girl/index.html?hpt=wo_bn5
+2013-12-17 19:03:33,931 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=14
+2013-12-17 19:03:34,933 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=14
+2013-12-17 19:03:35,934 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=14
+2013-12-17 19:03:36,370 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/16/world/meast/iraq-violence/index.html?hpt=wo_bn11
+2013-12-17 19:03:36,935 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=13
+2013-12-17 19:03:37,936 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=13
+2013-12-17 19:03:38,936 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=13
+2013-12-17 19:03:39,110 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/17/world/europe/germany-merkel/index.html?hpt=wo_c1
+2013-12-17 19:03:39,937 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=12
+2013-12-17 19:03:40,938 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=12
+2013-12-17 19:03:41,878 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/10/19/world/europe/titanic-violin-auction/index.html?hpt=wo_mid
+2013-12-17 19:03:41,940 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=11
+2013-12-17 19:03:42,941 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=11
+2013-12-17 19:03:43,941 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=11
+2013-12-17 19:03:44,642 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/12/world/asia/thailand-murder-charges/index.html?hpt=wo_bn7
+2013-12-17 19:03:44,941 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=10
+2013-12-17 19:03:45,943 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=10
+2013-12-17 19:03:46,944 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=10
+2013-12-17 19:03:47,724 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/05/world/europe/france-jewelry-heist/index.html?hpt=wo_mid
+2013-12-17 19:03:47,945 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=9
+2013-12-17 19:03:48,945 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=9
+2013-12-17 19:03:49,946 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=9
+2013-12-17 19:03:50,455 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/17/world/asia/china-education-gap-stout/index.html?hpt=wo_t4
+2013-12-17 19:03:50,948 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=8
+2013-12-17 19:03:51,949 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=8
+2013-12-17 19:03:52,950 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=8
+2013-12-17 19:03:53,175 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/15/world/americas/chile-presidential-election/index.html?hpt=wo_bn8
+2013-12-17 19:03:53,951 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=7
+2013-12-17 19:03:54,952 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=7
+2013-12-17 19:03:55,765 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/11/26/world/europe/france-central-african-republic/index.html?hpt=wo_bn10
+2013-12-17 19:03:55,953 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=6
+2013-12-17 19:03:56,954 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=6
+2013-12-17 19:03:57,955 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=6
+2013-12-17 19:03:58,956 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=6
+2013-12-17 19:03:59,957 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=6
+2013-12-17 19:04:00,285 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/10/03/world/meast/syria-civilians-displaced/index.html?hpt=wo_mid
+2013-12-17 19:04:00,958 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=5
+2013-12-17 19:04:01,959 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=5
+2013-12-17 19:04:02,959 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=5
+2013-12-17 19:04:03,215 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/10/02/world/europe/sweden-jellyfish-nuclear-shutdown/index.html?hpt=wo_mid
+2013-12-17 19:04:03,960 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=4
+2013-12-17 19:04:03,960 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:03,960 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:03,960 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:04:03,960 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:03,960 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:03,960 INFO  fetcher.Fetcher -   nextFetchTime = 1387299843111
+2013-12-17 19:04:03,960 INFO  fetcher.Fetcher -   now           = 1387299843960
+2013-12-17 19:04:03,960 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/09/26/world/europe/france-mountain-jewels/index.html?hpt=wo_mid
+2013-12-17 19:04:03,961 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:03,961 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:03,961 INFO  fetcher.Fetcher -   3. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=4
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher -   nextFetchTime = 1387299843111
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher -   now           = 1387299844962
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/09/26/world/europe/france-mountain-jewels/index.html?hpt=wo_mid
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:04,962 INFO  fetcher.Fetcher -   3. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:05,962 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=4
+2013-12-17 19:04:05,962 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:05,962 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:05,962 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:04:05,962 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:05,962 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:05,963 INFO  fetcher.Fetcher -   nextFetchTime = 1387299847687
+2013-12-17 19:04:05,963 INFO  fetcher.Fetcher -   now           = 1387299845963
+2013-12-17 19:04:05,963 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/09/26/world/europe/france-mountain-jewels/index.html?hpt=wo_mid
+2013-12-17 19:04:05,963 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:05,963 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:05,963 INFO  fetcher.Fetcher -   3. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=4
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher -   nextFetchTime = 1387299847687
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher -   now           = 1387299846964
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/09/26/world/europe/france-mountain-jewels/index.html?hpt=wo_mid
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:06,964 INFO  fetcher.Fetcher -   3. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:07,790 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/09/26/world/europe/france-mountain-jewels/index.html?hpt=wo_mid
+2013-12-17 19:04:07,965 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=3
+2013-12-17 19:04:07,965 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:07,965 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:07,965 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:04:07,966 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:07,966 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:07,966 INFO  fetcher.Fetcher -   nextFetchTime = 1387299847687
+2013-12-17 19:04:07,966 INFO  fetcher.Fetcher -   now           = 1387299847966
+2013-12-17 19:04:07,966 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:07,966 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:07,966 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=3
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher -   nextFetchTime = 1387299847687
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher -   now           = 1387299848966
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:08,966 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:09,967 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=3
+2013-12-17 19:04:09,968 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:09,968 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:09,968 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:04:09,968 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:09,968 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:09,968 INFO  fetcher.Fetcher -   nextFetchTime = 1387299847687
+2013-12-17 19:04:09,968 INFO  fetcher.Fetcher -   now           = 1387299849968
+2013-12-17 19:04:09,968 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:09,968 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:09,968 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=3
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher -   nextFetchTime = 1387299852594
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher -   now           = 1387299850969
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:10,969 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:11,970 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=3
+2013-12-17 19:04:11,971 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:11,971 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:11,971 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:04:11,971 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:11,971 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:11,971 INFO  fetcher.Fetcher -   nextFetchTime = 1387299852594
+2013-12-17 19:04:11,971 INFO  fetcher.Fetcher -   now           = 1387299851971
+2013-12-17 19:04:11,971 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:11,971 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:11,971 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:12,699 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:12,972 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=2
+2013-12-17 19:04:12,972 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:12,972 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:12,972 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:04:12,972 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:12,972 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:12,972 INFO  fetcher.Fetcher -   nextFetchTime = 1387299852594
+2013-12-17 19:04:12,972 INFO  fetcher.Fetcher -   now           = 1387299852972
+2013-12-17 19:04:12,972 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:12,972 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:13,973 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=2
+2013-12-17 19:04:13,973 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:13,974 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:13,974 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:04:13,974 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:13,974 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:13,974 INFO  fetcher.Fetcher -   nextFetchTime = 1387299855305
+2013-12-17 19:04:13,974 INFO  fetcher.Fetcher -   now           = 1387299853974
+2013-12-17 19:04:13,974 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:13,974 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:14,975 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=2
+2013-12-17 19:04:14,975 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:14,975 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:14,975 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:04:14,975 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:14,975 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:14,975 INFO  fetcher.Fetcher -   nextFetchTime = 1387299855305
+2013-12-17 19:04:14,975 INFO  fetcher.Fetcher -   now           = 1387299854975
+2013-12-17 19:04:14,975 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:14,975 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:15,414 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:15,976 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=1
+2013-12-17 19:04:15,976 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:15,976 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:15,976 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:04:15,976 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:15,976 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:15,976 INFO  fetcher.Fetcher -   nextFetchTime = 1387299855305
+2013-12-17 19:04:15,976 INFO  fetcher.Fetcher -   now           = 1387299855976
+2013-12-17 19:04:15,976 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:16,977 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=1
+2013-12-17 19:04:16,977 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:16,977 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:16,977 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:04:16,977 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:16,977 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:16,977 INFO  fetcher.Fetcher -   nextFetchTime = 1387299858109
+2013-12-17 19:04:16,977 INFO  fetcher.Fetcher -   now           = 1387299856977
+2013-12-17 19:04:16,977 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:17,978 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=1
+2013-12-17 19:04:17,978 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:04:17,978 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:04:17,978 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:04:17,978 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:04:17,978 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:04:17,978 INFO  fetcher.Fetcher -   nextFetchTime = 1387299858109
+2013-12-17 19:04:17,978 INFO  fetcher.Fetcher -   now           = 1387299857978
+2013-12-17 19:04:17,978 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:18,212 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid
+2013-12-17 19:04:18,485 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=4
+2013-12-17 19:04:18,485 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=3
+2013-12-17 19:04:18,485 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=2
+2013-12-17 19:04:18,535 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-17 19:04:18,980 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:19,981 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:20,982 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:21,983 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:22,983 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:23,985 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:24,986 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:25,987 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:26,988 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:27,989 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:28,356 ERROR http.Http - Failed to get protocol output
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:129)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:218)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:237)
+	at java.io.FilterInputStream.read(FilterInputStream.java:66)
+	at java.io.PushbackInputStream.read(PushbackInputStream.java:122)
+	at org.apache.nutch.protocol.http.HttpResponse.readLine(HttpResponse.java:405)
+	at org.apache.nutch.protocol.http.HttpResponse.parseStatusLine(HttpResponse.java:319)
+	at org.apache.nutch.protocol.http.HttpResponse.<init>(HttpResponse.java:154)
+	at org.apache.nutch.protocol.http.Http.getResponse(Http.java:64)
+	at org.apache.nutch.protocol.http.api.HttpBase.getProtocolOutput(HttpBase.java:142)
+	at org.apache.nutch.fetcher.Fetcher$FetcherThread.run(Fetcher.java:692)
+2013-12-17 19:04:28,357 INFO  fetcher.Fetcher - fetch of http://edition.cnn.com/2013/09/30/world/asia/north-korea-laos-defectors-hancocks/index.html?hpt=wo_mid failed with: java.net.SocketTimeoutException: Read timed out
+2013-12-17 19:04:28,357 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=0
+2013-12-17 19:04:28,990 INFO  fetcher.Fetcher - -activeThreads=0, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:04:28,990 INFO  fetcher.Fetcher - -activeThreads=0
+2013-12-17 19:04:32,938 INFO  fetcher.Fetcher - Fetcher: finished at 2013-12-17 19:04:32, elapsed: 00:01:18
+2013-12-17 19:04:32,938 INFO  parse.ParseSegment - ParseSegment: starting at 2013-12-17 19:04:32
+2013-12-17 19:04:32,938 INFO  parse.ParseSegment - ParseSegment: segment: crawl/segments/20131217190307
+2013-12-17 19:04:33,055 INFO  crawl.SignatureFactory - Using Signature impl: org.apache.nutch.crawl.MD5Signature
+2013-12-17 19:04:33,057 INFO  parse.ParseSegment - Parsed (2ms):http://edition.cnn.com/2012/10/11/world/gallery/international-day-of-the-girl/index.html?hpt=wo_bn5
+2013-12-17 19:04:33,097 INFO  parse.ParseSegment - Parsed (5ms):http://edition.cnn.com/2013/09/26/world/europe/france-mountain-jewels/index.html?hpt=wo_mid
+2013-12-17 19:04:33,136 INFO  parse.ParseSegment - Parsed (5ms):http://edition.cnn.com/2013/09/29/world/meast/saudi-arabia-women-driving-cleric/index.html?hpt=wo_mid
+2013-12-17 19:04:33,175 INFO  parse.ParseSegment - Parsed (2ms):http://edition.cnn.com/2013/10/02/world/europe/sweden-jellyfish-nuclear-shutdown/index.html?hpt=wo_mid
+2013-12-17 19:04:33,220 INFO  parse.ParseSegment - Parsed (5ms):http://edition.cnn.com/2013/10/03/world/meast/syria-civilians-displaced/index.html?hpt=wo_mid
+2013-12-17 19:04:33,262 INFO  parse.ParseSegment - Parsed (2ms):http://edition.cnn.com/2013/10/15/world/europe/london-zoo-newborn-tiger-cub-drowns/index.html?hpt=wo_mid
+2013-12-17 19:04:33,308 INFO  parse.ParseSegment - Parsed (3ms):http://edition.cnn.com/2013/10/19/world/europe/titanic-violin-auction/index.html?hpt=wo_mid
+2013-12-17 19:04:33,390 INFO  parse.ParseSegment - Parsed (3ms):http://edition.cnn.com/2013/11/11/world/europe/european-bison-in-the-crosshairs-poland/index.html?hpt=wo_mid
+2013-12-17 19:04:33,418 INFO  parse.ParseSegment - Parsed (3ms):http://edition.cnn.com/2013/11/20/world/europe/eu-malala-prize/index.html?hpt=wo_mid
+2013-12-17 19:04:33,449 INFO  parse.ParseSegment - Parsed (3ms):http://edition.cnn.com/2013/11/26/world/europe/france-central-african-republic/index.html?hpt=wo_bn10
+2013-12-17 19:04:33,465 INFO  parse.ParseSegment - Parsed (2ms):http://edition.cnn.com/2013/12/05/world/europe/france-jewelry-heist/index.html?hpt=wo_mid
+2013-12-17 19:04:33,481 INFO  parse.ParseSegment - Parsed (3ms):http://edition.cnn.com/2013/12/09/world/asia/japan-on-the-road-elderly/index.html?hpt=wo_bn1
+2013-12-17 19:04:33,496 INFO  parse.ParseSegment - Parsed (4ms):http://edition.cnn.com/2013/12/12/world/asia/thailand-murder-charges/index.html?hpt=wo_bn7
+2013-12-17 19:04:33,514 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/13/world/europe/cyprus-the-ancient-island-of-aphrodite/index.html?hpt=wo_bn2
+2013-12-17 19:04:33,529 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/15/world/americas/chile-presidential-election/index.html?hpt=wo_bn8
+2013-12-17 19:04:33,545 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/16/world/meast/iraq-violence/index.html?hpt=wo_bn11
+2013-12-17 19:04:33,562 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/17/world/asia/china-education-gap-stout/index.html?hpt=wo_t4
+2013-12-17 19:04:33,584 INFO  parse.ParseSegment - Parsed (3ms):http://edition.cnn.com/2013/12/17/world/europe/germany-merkel/index.html?hpt=wo_c1
+2013-12-17 19:04:33,612 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/17/world/europe/think-clowns-creepy-slava-polunin/index.html?hpt=wo_t3
+2013-12-17 19:04:35,974 INFO  regex.RegexURLNormalizer - can't find rules for scope 'outlink', using default
+2013-12-17 19:04:39,965 INFO  parse.ParseSegment - ParseSegment: finished at 2013-12-17 19:04:39, elapsed: 00:00:07
+2013-12-17 19:04:39,967 INFO  crawl.CrawlDb - CrawlDb update: starting at 2013-12-17 19:04:39
+2013-12-17 19:04:39,967 INFO  crawl.CrawlDb - CrawlDb update: db: crawl/crawldb
+2013-12-17 19:04:39,967 INFO  crawl.CrawlDb - CrawlDb update: segments: [crawl/segments/20131217190307]
+2013-12-17 19:04:39,967 INFO  crawl.CrawlDb - CrawlDb update: additions allowed: true
+2013-12-17 19:04:39,967 INFO  crawl.CrawlDb - CrawlDb update: URL normalizing: true
+2013-12-17 19:04:39,967 INFO  crawl.CrawlDb - CrawlDb update: URL filtering: true
+2013-12-17 19:04:39,967 INFO  crawl.CrawlDb - CrawlDb update: 404 purging: false
+2013-12-17 19:04:39,967 INFO  crawl.CrawlDb - CrawlDb update: Merging segment data into db.
+2013-12-17 19:04:40,040 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-17 19:04:43,039 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-17 19:04:46,041 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-17 19:04:49,002 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-17 19:04:49,002 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-17 19:04:49,002 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-17 19:04:53,005 INFO  crawl.CrawlDb - CrawlDb update: finished at 2013-12-17 19:04:53, elapsed: 00:00:13
+2013-12-17 19:04:53,007 INFO  crawl.Generator - Generator: starting at 2013-12-17 19:04:53
+2013-12-17 19:04:53,007 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-17 19:04:53,007 INFO  crawl.Generator - Generator: filtering: true
+2013-12-17 19:04:53,007 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-17 19:04:53,007 INFO  crawl.Generator - Generator: topN: 20
+2013-12-17 19:04:53,007 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-17 19:04:53,073 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-17 19:04:53,073 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-17 19:04:53,074 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-17 19:04:53,074 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-17 19:04:56,033 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-17 19:04:56,033 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-17 19:04:56,033 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-17 19:04:56,034 INFO  regex.RegexURLNormalizer - can't find rules for scope 'generate_host_count', using default
+2013-12-17 19:05:00,034 INFO  crawl.Generator - Generator: Partitioning selected urls for politeness.
+2013-12-17 19:05:01,035 INFO  crawl.Generator - Generator: segment: crawl/segments/20131217190501
+2013-12-17 19:05:01,102 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-17 19:05:08,063 INFO  crawl.Generator - Generator: finished at 2013-12-17 19:05:08, elapsed: 00:00:15
+2013-12-17 19:05:08,063 WARN  fetcher.Fetcher - Fetcher: Your 'http.agent.name' value should be listed first in 'http.robots.agents' property.
+2013-12-17 19:05:08,064 INFO  fetcher.Fetcher - Fetcher: starting at 2013-12-17 19:05:08
+2013-12-17 19:05:08,064 INFO  fetcher.Fetcher - Fetcher: segment: crawl/segments/20131217190501
+2013-12-17 19:05:08,130 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:05:08,130 INFO  fetcher.Fetcher - Fetcher: threads: 5
+2013-12-17 19:05:08,130 INFO  fetcher.Fetcher - Fetcher: time-out divisor: 2
+2013-12-17 19:05:08,131 INFO  fetcher.Fetcher - QueueFeeder finished: total 20 records + hit by time limit :0
+2013-12-17 19:05:08,135 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:05:08,136 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:05:08,136 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/17/world/asia/north-korea-kim-anniversary/index.html?hpt=wo_c2
+2013-12-17 19:05:08,136 INFO  http.Http - http.proxy.host = null
+2013-12-17 19:05:08,136 INFO  http.Http - http.proxy.port = 8080
+2013-12-17 19:05:08,136 INFO  http.Http - http.timeout = 10000
+2013-12-17 19:05:08,136 INFO  http.Http - http.content.limit = 65536
+2013-12-17 19:05:08,136 INFO  http.Http - http.agent = VeryCoolCrawlerName/Nutch-1.5
+2013-12-17 19:05:08,136 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2013-12-17 19:05:08,136 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2013-12-17 19:05:08,136 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:05:08,136 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:05:08,137 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-17 19:05:08,137 INFO  fetcher.Fetcher - Fetcher: throughput threshold: -1
+2013-12-17 19:05:08,137 INFO  fetcher.Fetcher - Fetcher: throughput threshold retries: 5
+2013-12-17 19:05:09,137 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=3, fetchQueues.totalSize=19
+2013-12-17 19:05:10,139 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=19
+2013-12-17 19:05:11,139 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=19
+2013-12-17 19:05:12,140 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=19
+2013-12-17 19:05:13,140 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=19
+2013-12-17 19:05:14,142 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=19
+2013-12-17 19:05:15,143 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=19
+2013-12-17 19:05:15,489 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/17/world/americas/snowden-nsa-brazil-letter/index.html
+2013-12-17 19:05:16,144 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=18
+2013-12-17 19:05:17,145 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=18
+2013-12-17 19:05:18,147 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=18
+2013-12-17 19:05:18,148 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/17/world/europe/ukraine-protests/index.html?hpt=wo_c2
+2013-12-17 19:05:19,148 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=17
+2013-12-17 19:05:20,149 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=17
+2013-12-17 19:05:21,150 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=17
+2013-12-17 19:05:21,152 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?iid=article_sidebar
+2013-12-17 19:05:22,151 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=16
+2013-12-17 19:05:23,153 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=16
+2013-12-17 19:05:24,154 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=16
+2013-12-17 19:05:24,155 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/10/world/americas/uruguay-marijuana-legalization/index.html?hpt=wo_bn8
+2013-12-17 19:05:25,155 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=15
+2013-12-17 19:05:26,156 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=15
+2013-12-17 19:05:27,157 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=15
+2013-12-17 19:05:28,158 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=15
+2013-12-17 19:05:29,158 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=15
+2013-12-17 19:05:30,160 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=15
+2013-12-17 19:05:30,865 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/14/world/europe/northern-ireland-explosion/index.html?hpt=wo_c2
+2013-12-17 19:05:31,161 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=14
+2013-12-17 19:05:32,162 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=14
+2013-12-17 19:05:33,163 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=14
+2013-12-17 19:05:33,748 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/17/world/americas/snowden-nsa-brazil-letter/index.html?hpt=wo_c2
+2013-12-17 19:05:34,164 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=13
+2013-12-17 19:05:35,166 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=13
+2013-12-17 19:05:36,167 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=13
+2013-12-17 19:05:36,464 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/15/world/asia/philippines-bus-crash/index.html?hpt=wo_bn7
+2013-12-17 19:05:37,168 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=12
+2013-12-17 19:05:38,169 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=12
+2013-12-17 19:05:39,170 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=11
+2013-12-17 19:05:39,170 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/16/world/asia/china-labor-camps-report/index.html?hpt=wo_c2
+2013-12-17 19:05:40,172 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=11
+2013-12-17 19:05:41,173 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=11
+2013-12-17 19:05:41,839 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/06/world/meast/syria-civil-war/index.html?hpt=wo_bn11
+2013-12-17 19:05:42,174 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=10
+2013-12-17 19:05:43,175 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=10
+2013-12-17 19:05:44,176 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=10
+2013-12-17 19:05:44,685 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/02/world/meast/syria-civil-war/index.html?hpt=wo_bn11
+2013-12-17 19:05:45,177 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=9
+2013-12-17 19:05:46,178 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=9
+2013-12-17 19:05:47,179 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=9
+2013-12-17 19:05:47,376 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/10/world/asia/china-shenzhen-fire/index.html?hpt=wo_bn7
+2013-12-17 19:05:48,180 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=8
+2013-12-17 19:05:49,181 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=8
+2013-12-17 19:05:50,091 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/17/world/asia/afghanistan-isaf-crash/index.html
+2013-12-17 19:05:50,182 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=7
+2013-12-17 19:05:51,184 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=7
+2013-12-17 19:05:52,185 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=7
+2013-12-17 19:05:53,186 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=7
+2013-12-17 19:05:53,352 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/16/world/europe/england-princess-diana/index.html
+2013-12-17 19:05:54,187 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=6
+2013-12-17 19:05:55,188 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=6
+2013-12-17 19:05:56,067 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/05/world/meast/yemen-violence/index.html?hpt=wo_c2
+2013-12-17 19:05:56,188 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=5
+2013-12-17 19:05:57,189 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=5
+2013-12-17 19:05:58,191 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=5
+2013-12-17 19:05:58,708 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/02/world/africa/boko-haram-attack/index.html?hpt=wo_bn10
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=4
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher -   nextFetchTime = 1387299958654
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher -   now           = 1387299959192
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/12/world/europe/scotland-helicopter-crash/index.html?hpt=wo_bn9
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/12/04/world/africa/mali-mass-grave/index.html?hpt=wo_bn10
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/11/27/world/americas/mexico-mass-graves/index.html?hpt=wo_bn8
+2013-12-17 19:05:59,192 INFO  fetcher.Fetcher -   3. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=4
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher -   nextFetchTime = 1387299961308
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher -   now           = 1387299960193
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/12/world/europe/scotland-helicopter-crash/index.html?hpt=wo_bn9
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/12/04/world/africa/mali-mass-grave/index.html?hpt=wo_bn10
+2013-12-17 19:06:00,193 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/11/27/world/americas/mexico-mass-graves/index.html?hpt=wo_bn8
+2013-12-17 19:06:00,194 INFO  fetcher.Fetcher -   3. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:01,194 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=4
+2013-12-17 19:06:01,194 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:01,194 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:01,194 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:06:01,194 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:01,194 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:01,194 INFO  fetcher.Fetcher -   nextFetchTime = 1387299961308
+2013-12-17 19:06:01,194 INFO  fetcher.Fetcher -   now           = 1387299961194
+2013-12-17 19:06:01,194 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/12/world/europe/scotland-helicopter-crash/index.html?hpt=wo_bn9
+2013-12-17 19:06:01,195 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/12/04/world/africa/mali-mass-grave/index.html?hpt=wo_bn10
+2013-12-17 19:06:01,195 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/11/27/world/americas/mexico-mass-graves/index.html?hpt=wo_bn8
+2013-12-17 19:06:01,195 INFO  fetcher.Fetcher -   3. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:01,415 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/12/world/europe/scotland-helicopter-crash/index.html?hpt=wo_bn9
+2013-12-17 19:06:02,195 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=3
+2013-12-17 19:06:02,195 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:02,196 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:02,196 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:06:02,196 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:02,196 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:02,196 INFO  fetcher.Fetcher -   nextFetchTime = 1387299961308
+2013-12-17 19:06:02,196 INFO  fetcher.Fetcher -   now           = 1387299962196
+2013-12-17 19:06:02,196 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/04/world/africa/mali-mass-grave/index.html?hpt=wo_bn10
+2013-12-17 19:06:02,196 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/11/27/world/americas/mexico-mass-graves/index.html?hpt=wo_bn8
+2013-12-17 19:06:02,196 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:03,196 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=3
+2013-12-17 19:06:03,196 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:03,197 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:03,197 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:06:03,197 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:03,197 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:03,197 INFO  fetcher.Fetcher -   nextFetchTime = 1387299964351
+2013-12-17 19:06:03,197 INFO  fetcher.Fetcher -   now           = 1387299963197
+2013-12-17 19:06:03,197 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/04/world/africa/mali-mass-grave/index.html?hpt=wo_bn10
+2013-12-17 19:06:03,197 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/11/27/world/americas/mexico-mass-graves/index.html?hpt=wo_bn8
+2013-12-17 19:06:03,197 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:04,197 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=3
+2013-12-17 19:06:04,198 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:04,198 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:04,198 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:06:04,198 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:04,198 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:04,198 INFO  fetcher.Fetcher -   nextFetchTime = 1387299964351
+2013-12-17 19:06:04,198 INFO  fetcher.Fetcher -   now           = 1387299964198
+2013-12-17 19:06:04,198 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/04/world/africa/mali-mass-grave/index.html?hpt=wo_bn10
+2013-12-17 19:06:04,198 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/11/27/world/americas/mexico-mass-graves/index.html?hpt=wo_bn8
+2013-12-17 19:06:04,198 INFO  fetcher.Fetcher -   2. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:04,447 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/04/world/africa/mali-mass-grave/index.html?hpt=wo_bn10
+2013-12-17 19:06:05,199 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=2
+2013-12-17 19:06:05,199 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:05,199 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:05,199 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:06:05,199 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:05,199 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:05,199 INFO  fetcher.Fetcher -   nextFetchTime = 1387299967056
+2013-12-17 19:06:05,199 INFO  fetcher.Fetcher -   now           = 1387299965199
+2013-12-17 19:06:05,199 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/11/27/world/americas/mexico-mass-graves/index.html?hpt=wo_bn8
+2013-12-17 19:06:05,199 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:06,200 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=2
+2013-12-17 19:06:06,200 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:06,200 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:06,200 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:06:06,200 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:06,200 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:06,200 INFO  fetcher.Fetcher -   nextFetchTime = 1387299967056
+2013-12-17 19:06:06,200 INFO  fetcher.Fetcher -   now           = 1387299966200
+2013-12-17 19:06:06,200 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/11/27/world/americas/mexico-mass-graves/index.html?hpt=wo_bn8
+2013-12-17 19:06:06,200 INFO  fetcher.Fetcher -   1. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:07,163 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/11/27/world/americas/mexico-mass-graves/index.html?hpt=wo_bn8
+2013-12-17 19:06:07,201 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=1
+2013-12-17 19:06:07,201 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:07,201 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:07,201 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:06:07,201 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:07,201 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:07,201 INFO  fetcher.Fetcher -   nextFetchTime = 1387299967056
+2013-12-17 19:06:07,201 INFO  fetcher.Fetcher -   now           = 1387299967201
+2013-12-17 19:06:07,201 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:08,202 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=4, fetchQueues.totalSize=1
+2013-12-17 19:06:08,202 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:08,202 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:08,202 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-17 19:06:08,202 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:08,202 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:08,202 INFO  fetcher.Fetcher -   nextFetchTime = 1387299967056
+2013-12-17 19:06:08,202 INFO  fetcher.Fetcher -   now           = 1387299968202
+2013-12-17 19:06:08,202 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:09,203 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=1
+2013-12-17 19:06:09,203 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:09,203 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:09,203 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:06:09,203 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:09,203 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:09,203 INFO  fetcher.Fetcher -   nextFetchTime = 1387299970901
+2013-12-17 19:06:09,203 INFO  fetcher.Fetcher -   now           = 1387299969203
+2013-12-17 19:06:09,203 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:10,204 INFO  fetcher.Fetcher - -activeThreads=5, spinWaiting=5, fetchQueues.totalSize=1
+2013-12-17 19:06:10,204 INFO  fetcher.Fetcher - * queue: http://edition.cnn.com
+2013-12-17 19:06:10,204 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-17 19:06:10,204 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-17 19:06:10,204 INFO  fetcher.Fetcher -   crawlDelay    = 1900
+2013-12-17 19:06:10,204 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-17 19:06:10,204 INFO  fetcher.Fetcher -   nextFetchTime = 1387299970901
+2013-12-17 19:06:10,204 INFO  fetcher.Fetcher -   now           = 1387299970204
+2013-12-17 19:06:10,204 INFO  fetcher.Fetcher -   0. http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:10,968 INFO  fetcher.Fetcher - fetching http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:11,005 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=4
+2013-12-17 19:06:11,205 INFO  fetcher.Fetcher - -activeThreads=4, spinWaiting=3, fetchQueues.totalSize=0
+2013-12-17 19:06:11,238 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=3
+2013-12-17 19:06:11,255 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=2
+2013-12-17 19:06:11,272 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-17 19:06:11,756 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=0
+2013-12-17 19:06:12,206 INFO  fetcher.Fetcher - -activeThreads=0, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-17 19:06:12,206 INFO  fetcher.Fetcher - -activeThreads=0
+2013-12-17 19:06:17,160 INFO  fetcher.Fetcher - Fetcher: finished at 2013-12-17 19:06:17, elapsed: 00:01:09
+2013-12-17 19:06:17,160 INFO  parse.ParseSegment - ParseSegment: starting at 2013-12-17 19:06:17
+2013-12-17 19:06:17,160 INFO  parse.ParseSegment - ParseSegment: segment: crawl/segments/20131217190501
+2013-12-17 19:06:17,251 INFO  crawl.SignatureFactory - Using Signature impl: org.apache.nutch.crawl.MD5Signature
+2013-12-17 19:06:17,252 INFO  parse.ParseSegment - Parsed (1ms):http://edition.cnn.com/2013/11/27/world/americas/mexico-mass-graves/index.html?hpt=wo_bn8
+2013-12-17 19:06:17,261 INFO  parse.ParseSegment - Parsed (1ms):http://edition.cnn.com/2013/12/02/world/africa/boko-haram-attack/index.html?hpt=wo_bn10
+2013-12-17 19:06:17,269 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/02/world/meast/syria-civil-war/index.html?hpt=wo_bn11
+2013-12-17 19:06:17,276 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/04/world/africa/mali-mass-grave/index.html?hpt=wo_bn10
+2013-12-17 19:06:17,285 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/05/world/meast/yemen-violence/index.html?hpt=wo_c2
+2013-12-17 19:06:17,293 INFO  parse.ParseSegment - Parsed (1ms):http://edition.cnn.com/2013/12/06/world/meast/syria-civil-war/index.html?hpt=wo_bn11
+2013-12-17 19:06:17,304 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/10/world/americas/uruguay-marijuana-legalization/index.html?hpt=wo_bn8
+2013-12-17 19:06:17,311 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/10/world/asia/china-shenzhen-fire/index.html?hpt=wo_bn7
+2013-12-17 19:06:17,332 INFO  parse.ParseSegment - Parsed (6ms):http://edition.cnn.com/2013/12/12/world/europe/scotland-helicopter-crash/index.html?hpt=wo_bn9
+2013-12-17 19:06:17,338 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/14/world/europe/northern-ireland-explosion/index.html?hpt=wo_c2
+2013-12-17 19:06:17,344 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/15/world/asia/philippines-bus-crash/index.html?hpt=wo_bn7
+2013-12-17 19:06:17,403 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/16/world/asia/china-labor-camps-report/index.html?hpt=wo_c2
+2013-12-17 19:06:17,413 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/16/world/europe/england-princess-diana/index.html
+2013-12-17 19:06:17,420 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/17/world/americas/snowden-nsa-brazil-letter/index.html
+2013-12-17 19:06:17,433 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/17/world/americas/snowden-nsa-brazil-letter/index.html?hpt=wo_c2
+2013-12-17 19:06:17,449 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/17/world/asia/afghanistan-isaf-crash/index.html
+2013-12-17 19:06:17,505 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/17/world/asia/north-korea-kim-anniversary/index.html?hpt=wo_c2
+2013-12-17 19:06:17,528 INFO  parse.ParseSegment - Parsed (1ms):http://edition.cnn.com/2013/12/17/world/europe/ukraine-protests/index.html?hpt=wo_c2
+2013-12-17 19:06:17,564 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?hpt=wo_c2
+2013-12-17 19:06:17,572 INFO  parse.ParseSegment - Parsed (0ms):http://edition.cnn.com/2013/12/17/world/meast/syria-civil-war/index.html?iid=article_sidebar
+2013-12-17 19:06:20,199 INFO  regex.RegexURLNormalizer - can't find rules for scope 'outlink', using default
+2013-12-17 19:06:24,189 INFO  parse.ParseSegment - ParseSegment: finished at 2013-12-17 19:06:24, elapsed: 00:00:07
+2013-12-17 19:06:24,191 INFO  crawl.CrawlDb - CrawlDb update: starting at 2013-12-17 19:06:24
+2013-12-17 19:06:24,191 INFO  crawl.CrawlDb - CrawlDb update: db: crawl/crawldb
+2013-12-17 19:06:24,191 INFO  crawl.CrawlDb - CrawlDb update: segments: [crawl/segments/20131217190501]
+2013-12-17 19:06:24,191 INFO  crawl.CrawlDb - CrawlDb update: additions allowed: true
+2013-12-17 19:06:24,191 INFO  crawl.CrawlDb - CrawlDb update: URL normalizing: true
+2013-12-17 19:06:24,191 INFO  crawl.CrawlDb - CrawlDb update: URL filtering: true
+2013-12-17 19:06:24,191 INFO  crawl.CrawlDb - CrawlDb update: 404 purging: false
+2013-12-17 19:06:24,191 INFO  crawl.CrawlDb - CrawlDb update: Merging segment data into db.
+2013-12-17 19:06:24,233 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-17 19:06:27,273 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-17 19:06:30,270 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-17 19:06:33,227 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-17 19:06:33,227 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-17 19:06:33,227 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-17 19:06:37,230 INFO  crawl.CrawlDb - CrawlDb update: finished at 2013-12-17 19:06:37, elapsed: 00:00:13
+2013-12-17 19:06:37,233 INFO  crawl.LinkDb - LinkDb: starting at 2013-12-17 19:06:37
+2013-12-17 19:06:37,233 INFO  crawl.LinkDb - LinkDb: linkdb: crawl/linkdb
+2013-12-17 19:06:37,233 INFO  crawl.LinkDb - LinkDb: URL normalize: true
+2013-12-17 19:06:37,233 INFO  crawl.LinkDb - LinkDb: URL filter: true
+2013-12-17 19:06:37,233 INFO  crawl.LinkDb - LinkDb: internal links will be ignored.
+2013-12-17 19:06:37,233 INFO  crawl.LinkDb - LinkDb: adding segment: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/Web Crawler/JavaProjects/crawl/segments/20131217190225
+2013-12-17 19:06:37,234 INFO  crawl.LinkDb - LinkDb: adding segment: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/Web Crawler/JavaProjects/crawl/segments/20131217190307
+2013-12-17 19:06:37,234 INFO  crawl.LinkDb - LinkDb: adding segment: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/Web Crawler/JavaProjects/crawl/segments/20131217190501
+2013-12-17 19:06:37,306 INFO  regex.RegexURLNormalizer - can't find rules for scope 'linkdb', using default
+2013-12-17 19:06:40,307 INFO  regex.RegexURLNormalizer - can't find rules for scope 'linkdb', using default
+2013-12-17 19:06:43,308 INFO  regex.RegexURLNormalizer - can't find rules for scope 'linkdb', using default
+2013-12-17 19:06:50,268 INFO  crawl.LinkDb - LinkDb: finished at 2013-12-17 19:06:50, elapsed: 00:00:13
+2013-12-17 19:06:50,268 INFO  crawl.Crawl - crawl finished: crawl
+2013-12-17 19:06:50,279 INFO  segment.SegmentReader - SegmentReader: dump segment: crawl/segments/*
+2013-12-17 19:06:50,281 WARN  mapred.JobClient - Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+2013-12-17 19:07:03,330 INFO  segment.SegmentReader - SegmentReader: done
+2013-12-17 19:07:03,340 INFO  core.SolrResourceLoader - JNDI not configured for solr (NoInitialContextEx)
+2013-12-17 19:07:03,340 INFO  core.SolrResourceLoader - using system property solr.solr.home: /home/emre/solr
+2013-12-17 19:07:03,342 INFO  core.CoreContainer - looking for solr.xml: /home/emre/solr/solr.xml
+2013-12-17 19:07:03,342 INFO  core.SolrResourceLoader - JNDI not configured for solr (NoInitialContextEx)
+2013-12-17 19:07:03,342 INFO  core.SolrResourceLoader - using system property solr.solr.home: /home/emre/solr
+2013-12-17 19:07:03,342 INFO  core.CoreContainer - New CoreContainer: solrHome=/home/emre/solr/ instance=709611891
+2013-12-17 19:07:03,361 INFO  core.SolrResourceLoader - Solr home set to '/home/emre/solr/'
+2013-12-17 19:07:03,432 INFO  core.SolrResourceLoader - Solr home set to '/home/emre/solr/./'
+2013-12-17 19:07:03,463 INFO  core.SolrConfig - Adding specified lib dirs to ClassLoader
+2013-12-17 19:07:03,610 INFO  core.SolrConfig - Using Lucene MatchVersion: LUCENE_34
+2013-12-17 19:07:03,779 INFO  core.Config - Loaded SolrConfig: solrconfig.xml
+2013-12-17 19:07:03,795 INFO  schema.IndexSchema - Reading Solr Schema
+2013-12-17 19:07:03,800 INFO  schema.IndexSchema - Schema name=nutch
+2013-12-17 19:07:03,810 INFO  plugin.AbstractPluginLoader - created string: org.apache.solr.schema.StrField
+2013-12-17 19:07:03,817 INFO  plugin.AbstractPluginLoader - created long: org.apache.solr.schema.TrieLongField
+2013-12-17 19:07:03,819 INFO  plugin.AbstractPluginLoader - created float: org.apache.solr.schema.TrieFloatField
+2013-12-17 19:07:03,821 INFO  plugin.AbstractPluginLoader - created date: org.apache.solr.schema.TrieDateField
+2013-12-17 19:07:03,828 INFO  plugin.AbstractPluginLoader - created : org.apache.solr.analysis.WhitespaceTokenizerFactory
+2013-12-17 19:07:03,830 INFO  plugin.AbstractPluginLoader - created : org.apache.solr.analysis.StopFilterFactory
+2013-12-17 19:07:03,831 INFO  plugin.AbstractPluginLoader - created : org.apache.solr.analysis.WordDelimiterFilterFactory
+2013-12-17 19:07:03,832 INFO  plugin.AbstractPluginLoader - created : org.apache.solr.analysis.LowerCaseFilterFactory
+2013-12-17 19:07:03,835 INFO  plugin.AbstractPluginLoader - created : org.apache.solr.analysis.EnglishPorterFilterFactory
+2013-12-17 19:07:03,835 WARN  analysis.BaseTokenStreamFactory - EnglishPorterFilterFactory is deprecated. use PorterStemFilterFactory (Porter1) or SnowballPorterFilterFactory with 'English' (Porter2) instead
+2013-12-17 19:07:03,836 INFO  plugin.AbstractPluginLoader - created : org.apache.solr.analysis.RemoveDuplicatesTokenFilterFactory
+2013-12-17 19:07:03,836 INFO  plugin.AbstractPluginLoader - created text: org.apache.solr.schema.TextField
+2013-12-17 19:07:03,840 INFO  plugin.AbstractPluginLoader - created : org.apache.solr.analysis.StandardTokenizerFactory
+2013-12-17 19:07:03,840 INFO  plugin.AbstractPluginLoader - created : org.apache.solr.analysis.LowerCaseFilterFactory
+2013-12-17 19:07:03,840 INFO  plugin.AbstractPluginLoader - created : org.apache.solr.analysis.WordDelimiterFilterFactory
+2013-12-17 19:07:03,840 INFO  plugin.AbstractPluginLoader - created url: org.apache.solr.schema.TextField
+2013-12-17 19:07:03,846 INFO  schema.IndexSchema - default search field is content
+2013-12-17 19:07:03,847 INFO  schema.IndexSchema - query parser default operator is OR
+2013-12-17 19:07:03,847 INFO  schema.IndexSchema - unique key field: id
+2013-12-17 19:07:03,891 INFO  core.SolrCore - [] Opening new SolrCore at /home/emre/solr/./, dataDir=/home/emre/solr/./data/
+2013-12-17 19:07:03,894 INFO  core.JmxMonitoredMap - No JMX servers found, not exposing Solr information with JMX.
+2013-12-17 19:07:03,897 INFO  core.SolrCore - [] Added SolrEventListener for newSearcher: org.apache.solr.core.QuerySenderListener{queries=[]}
+2013-12-17 19:07:03,897 INFO  core.SolrCore - [] Added SolrEventListener for firstSearcher: org.apache.solr.core.QuerySenderListener{queries=[{q=static firstSearcher warming in solrconfig.xml}]}
+2013-12-17 19:07:03,972 WARN  core.SolrCore - [] Solr index directory '/home/emre/solr/./data/index' doesn't exist. Creating new index...
+2013-12-17 19:07:04,250 ERROR core.CoreContainer - java.lang.RuntimeException: java.io.IOException: Cannot create directory: /home/emre/solr/./data/index
+	at org.apache.solr.core.SolrCore.initIndex(SolrCore.java:407)
+	at org.apache.solr.core.SolrCore.<init>(SolrCore.java:552)
+	at org.apache.solr.core.CoreContainer.create(CoreContainer.java:463)
+	at org.apache.solr.core.CoreContainer.load(CoreContainer.java:316)
+	at org.apache.solr.core.CoreContainer$Initializer.initialize(CoreContainer.java:133)
+	at edu.cmu.sphinx.crawler.Crawler.main(Crawler.java:72)
+Caused by: java.io.IOException: Cannot create directory: /home/emre/solr/./data/index
+	at org.apache.lucene.store.NativeFSLock.obtain(NativeFSLockFactory.java:171)
+	at org.apache.lucene.store.Lock.obtain(Lock.java:72)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:1112)
+	at org.apache.solr.update.SolrIndexWriter.<init>(SolrIndexWriter.java:83)
+	at org.apache.solr.core.SolrCore.initIndex(SolrCore.java:402)
+	... 5 more
+
+2013-12-17 19:07:04,268 INFO  solr.SolrIndexer - SolrIndexer: starting at 2013-12-17 19:07:04
+2013-12-17 19:07:04,270 INFO  indexer.IndexerMapReduce - IndexerMapReduce: crawldb: crawl/crawldb
+2013-12-17 19:07:04,270 INFO  indexer.IndexerMapReduce - IndexerMapReduce: linkdb: crawl/linkdb
+2013-12-17 19:07:04,270 INFO  indexer.IndexerMapReduce - IndexerMapReduces: adding segment: crawl/segments/*
+2013-12-17 19:07:04,317 INFO  plugin.PluginRepository - Plugins: looking in: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/Web Crawler/JavaProjects/plugins
+2013-12-17 19:07:04,345 ERROR core.SolrCore - REFCOUNT ERROR: unreferenced org.apache.solr.core.SolrCore@62a34b91 () has a reference count of 1
+2013-12-17 19:07:04,345 ERROR update.SolrIndexWriter - SolrIndexWriter was not closed prior to finalize(), indicates a bug -- POSSIBLE RESOURCE LEAK!!!
+2013-12-17 19:07:04,379 INFO  plugin.PluginRepository - Plugin Auto-activation mode: [true]
+2013-12-17 19:07:04,379 INFO  plugin.PluginRepository - Registered Plugins:
+2013-12-17 19:07:04,379 INFO  plugin.PluginRepository - 	the nutch core extension points (nutch-extensionpoints)
+2013-12-17 19:07:04,379 INFO  plugin.PluginRepository - 	Basic URL Normalizer (urlnormalizer-basic)
+2013-12-17 19:07:04,379 INFO  plugin.PluginRepository - 	Html Parse Plug-in (parse-html)
+2013-12-17 19:07:04,379 INFO  plugin.PluginRepository - 	Basic Indexing Filter (index-basic)
+2013-12-17 19:07:04,379 INFO  plugin.PluginRepository - 	HTTP Framework (lib-http)
+2013-12-17 19:07:04,379 INFO  plugin.PluginRepository - 	Pass-through URL Normalizer (urlnormalizer-pass)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Regex URL Filter (urlfilter-regex)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Http Protocol Plug-in (protocol-http)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Regex URL Normalizer (urlnormalizer-regex)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Tika Parser Plug-in (parse-tika)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	OPIC Scoring Plug-in (scoring-opic)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	CyberNeko HTML Parser (lib-nekohtml)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Anchor Indexing Filter (index-anchor)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Regex URL Filter Framework (lib-regex-filter)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - Registered Extension-Points:
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Nutch URL Normalizer (org.apache.nutch.net.URLNormalizer)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Nutch Protocol (org.apache.nutch.protocol.Protocol)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Nutch Segment Merge Filter (org.apache.nutch.segment.SegmentMergeFilter)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Nutch URL Filter (org.apache.nutch.net.URLFilter)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Nutch Indexing Filter (org.apache.nutch.indexer.IndexingFilter)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	HTML Parse Filter (org.apache.nutch.parse.HtmlParseFilter)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Nutch Content Parser (org.apache.nutch.parse.Parser)
+2013-12-17 19:07:04,380 INFO  plugin.PluginRepository - 	Nutch Scoring (org.apache.nutch.scoring.ScoringFilter)
+2013-12-17 19:07:04,381 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:04,382 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:04,382 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:07,373 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:07,373 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:07,373 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:10,360 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:10,360 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:10,360 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:13,359 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:13,360 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:13,360 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:16,363 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:16,363 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:16,363 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:19,363 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:19,363 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:19,363 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:22,365 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:22,365 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:22,365 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:25,367 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:25,367 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:25,367 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:28,368 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:28,368 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:28,368 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:31,371 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:31,371 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:31,371 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:34,373 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:34,373 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:34,373 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:37,377 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:37,377 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:37,377 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:40,379 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:40,379 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:40,379 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:43,377 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:43,377 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:43,377 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:46,347 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-17 19:07:46,347 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-17 19:07:46,347 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-17 19:07:46,349 INFO  solr.SolrMappingReader - source: content dest: content
+2013-12-17 19:07:46,349 INFO  solr.SolrMappingReader - source: title dest: title
+2013-12-17 19:07:46,349 INFO  solr.SolrMappingReader - source: host dest: host
+2013-12-17 19:07:46,349 INFO  solr.SolrMappingReader - source: segment dest: segment
+2013-12-17 19:07:46,349 INFO  solr.SolrMappingReader - source: boost dest: boost
+2013-12-17 19:07:46,349 INFO  solr.SolrMappingReader - source: digest dest: digest
+2013-12-17 19:07:46,349 INFO  solr.SolrMappingReader - source: tstamp dest: tstamp
+2013-12-17 19:07:46,349 INFO  solr.SolrMappingReader - source: url dest: id
+2013-12-17 19:07:46,349 INFO  solr.SolrMappingReader - source: url dest: url
+2013-12-17 19:07:46,383 INFO  solr.SolrWriter - Indexing 40 documents
+2013-12-17 19:07:46,389 WARN  mapred.LocalJobRunner - job_local_0020
+org.apache.solr.common.SolrException: No such core: 
+	at org.apache.solr.client.solrj.embedded.EmbeddedSolrServer.request(EmbeddedSolrServer.java:104)
+	at org.apache.solr.client.solrj.request.AbstractUpdateRequest.process(AbstractUpdateRequest.java:105)
+	at org.apache.nutch.indexer.solr.SolrWriter.close(SolrWriter.java:142)
+	at org.apache.nutch.indexer.IndexerOutputFormat$1.close(IndexerOutputFormat.java:48)
+	at org.apache.hadoop.mapred.ReduceTask$OldTrackingRecordWriter.close(ReduceTask.java:466)
+	at org.apache.hadoop.mapred.ReduceTask.runOldReducer(ReduceTask.java:530)
+	at org.apache.hadoop.mapred.ReduceTask.run(ReduceTask.java:420)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:260)
+2013-12-17 19:07:47,387 ERROR solr.SolrIndexer - java.io.IOException: Job failed!
