@@ -1,0 +1,1915 @@
+2013-12-18 16:44:38,283 INFO  crawl.Crawl - crawl started in: crawl-20131218164438
+2013-12-18 16:44:38,283 INFO  crawl.Crawl - rootUrlDir = urls
+2013-12-18 16:44:38,283 INFO  crawl.Crawl - threads = 10
+2013-12-18 16:44:38,283 INFO  crawl.Crawl - depth = 3
+2013-12-18 16:44:38,283 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 16:44:38,283 INFO  crawl.Crawl - topN = 5
+2013-12-18 16:44:38,294 INFO  crawl.Injector - Injector: starting at 2013-12-18 16:44:38
+2013-12-18 16:44:38,294 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218164438/crawldb
+2013-12-18 16:44:38,294 INFO  crawl.Injector - Injector: urlDir: urls
+2013-12-18 16:44:38,295 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 16:44:38,324 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 16:44:38,368 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 16:44:38,371 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/urls
+2013-12-18 16:45:23,165 INFO  crawl.Crawl - crawl started in: crawl-20131218164522
+2013-12-18 16:45:23,165 INFO  crawl.Crawl - rootUrlDir = null
+2013-12-18 16:45:23,165 INFO  crawl.Crawl - threads = 10
+2013-12-18 16:45:23,165 INFO  crawl.Crawl - depth = 3
+2013-12-18 16:45:23,165 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 16:45:23,165 INFO  crawl.Crawl - topN = 5
+2013-12-18 16:45:23,175 INFO  crawl.Injector - Injector: starting at 2013-12-18 16:45:23
+2013-12-18 16:45:23,175 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218164522/crawldb
+2013-12-18 16:45:23,175 INFO  crawl.Injector - Injector: urlDir: null
+2013-12-18 16:45:23,175 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 16:45:56,156 INFO  crawl.Crawl - crawl started in: crawl-20131218164555
+2013-12-18 16:45:56,156 INFO  crawl.Crawl - rootUrlDir = ../urls
+2013-12-18 16:45:56,156 INFO  crawl.Crawl - threads = 10
+2013-12-18 16:45:56,156 INFO  crawl.Crawl - depth = 3
+2013-12-18 16:45:56,156 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 16:45:56,156 INFO  crawl.Crawl - topN = 5
+2013-12-18 16:45:56,166 INFO  crawl.Injector - Injector: starting at 2013-12-18 16:45:56
+2013-12-18 16:45:56,166 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218164555/crawldb
+2013-12-18 16:45:56,166 INFO  crawl.Injector - Injector: urlDir: ../urls
+2013-12-18 16:45:56,166 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 16:45:56,196 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 16:45:56,239 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 16:45:56,603 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 16:45:57,378 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 16:45:57,378 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 16:45:57,378 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 16:45:58,443 INFO  crawl.Injector - Injector: finished at 2013-12-18 16:45:58, elapsed: 00:00:02
+2013-12-18 16:45:58,445 INFO  crawl.Generator - Generator: starting at 2013-12-18 16:45:58
+2013-12-18 16:45:58,445 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 16:45:58,445 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 16:45:58,445 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 16:45:58,445 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 16:45:58,446 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 16:45:58,536 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 16:45:58,536 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 16:45:58,536 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 16:45:58,547 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 16:45:58,547 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 16:45:58,547 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 16:45:59,492 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 16:45:59,493 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 16:45:59,493 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 16:45:59,493 INFO  crawl.Crawl - crawl finished: crawl-20131218164555
+2013-12-18 16:49:54,752 INFO  crawl.Crawl - crawl started in: crawl-20131218164954
+2013-12-18 16:49:54,752 INFO  crawl.Crawl - rootUrlDir = ../urls
+2013-12-18 16:49:54,752 INFO  crawl.Crawl - threads = 10
+2013-12-18 16:49:54,752 INFO  crawl.Crawl - depth = 3
+2013-12-18 16:49:54,752 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 16:49:54,752 INFO  crawl.Crawl - topN = 5
+2013-12-18 16:49:54,762 INFO  crawl.Injector - Injector: starting at 2013-12-18 16:49:54
+2013-12-18 16:49:54,762 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218164954/crawldb
+2013-12-18 16:49:54,762 INFO  crawl.Injector - Injector: urlDir: ../urls
+2013-12-18 16:49:54,763 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 16:49:54,793 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 16:49:54,835 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 16:49:54,839 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:java.io.IOException: Not a file: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/crawl-20131218164555
+2013-12-18 16:50:49,680 INFO  crawl.Crawl - crawl started in: crawl-20131218165049
+2013-12-18 16:50:49,680 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 16:50:49,680 INFO  crawl.Crawl - threads = 10
+2013-12-18 16:50:49,680 INFO  crawl.Crawl - depth = 3
+2013-12-18 16:50:49,680 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 16:50:49,680 INFO  crawl.Crawl - topN = 5
+2013-12-18 16:50:49,690 INFO  crawl.Injector - Injector: starting at 2013-12-18 16:50:49
+2013-12-18 16:50:49,691 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218165049/crawldb
+2013-12-18 16:50:49,691 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 16:50:49,691 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 16:50:49,724 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 16:50:49,768 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 16:50:49,772 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:java.io.IOException: Not a file: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/crawl-20131218164555
+2013-12-18 16:56:12,678 INFO  crawl.Crawl - crawl started in: crawl-20131218165612
+2013-12-18 16:56:12,678 INFO  crawl.Crawl - rootUrlDir = urls
+2013-12-18 16:56:12,678 INFO  crawl.Crawl - threads = 10
+2013-12-18 16:56:12,678 INFO  crawl.Crawl - depth = 3
+2013-12-18 16:56:12,678 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 16:56:12,678 INFO  crawl.Crawl - topN = 5
+2013-12-18 16:56:12,688 INFO  crawl.Injector - Injector: starting at 2013-12-18 16:56:12
+2013-12-18 16:56:12,688 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218165612/crawldb
+2013-12-18 16:56:12,689 INFO  crawl.Injector - Injector: urlDir: urls
+2013-12-18 16:56:12,689 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 16:56:12,719 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 16:56:12,762 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 16:56:12,766 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/urls
+2013-12-18 16:56:22,604 INFO  crawl.Crawl - crawl started in: crawl-20131218165622
+2013-12-18 16:56:22,604 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 16:56:22,604 INFO  crawl.Crawl - threads = 10
+2013-12-18 16:56:22,604 INFO  crawl.Crawl - depth = 3
+2013-12-18 16:56:22,604 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 16:56:22,604 INFO  crawl.Crawl - topN = 5
+2013-12-18 16:56:22,614 INFO  crawl.Injector - Injector: starting at 2013-12-18 16:56:22
+2013-12-18 16:56:22,615 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218165622/crawldb
+2013-12-18 16:56:22,615 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 16:56:22,615 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 16:56:22,645 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 16:56:22,688 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 16:56:23,048 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 16:56:23,826 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 16:56:23,826 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 16:56:23,826 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 16:56:24,892 INFO  crawl.Injector - Injector: finished at 2013-12-18 16:56:24, elapsed: 00:00:02
+2013-12-18 16:56:24,894 INFO  crawl.Generator - Generator: starting at 2013-12-18 16:56:24
+2013-12-18 16:56:24,894 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 16:56:24,894 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 16:56:24,894 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 16:56:24,894 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 16:56:24,894 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 16:56:24,985 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 16:56:24,985 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 16:56:24,985 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 16:56:24,994 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 16:56:24,995 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 16:56:24,995 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 16:56:25,934 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 16:56:25,935 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 16:56:25,935 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 16:56:25,935 INFO  crawl.Crawl - crawl finished: crawl-20131218165622
+2013-12-18 16:57:17,859 INFO  crawl.Crawl - crawl started in: crawl-20131218165717
+2013-12-18 16:57:17,859 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 16:57:17,859 INFO  crawl.Crawl - threads = 10
+2013-12-18 16:57:17,859 INFO  crawl.Crawl - depth = 3
+2013-12-18 16:57:17,859 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 16:57:17,859 INFO  crawl.Crawl - topN = 5
+2013-12-18 16:57:17,869 INFO  crawl.Injector - Injector: starting at 2013-12-18 16:57:17
+2013-12-18 16:57:17,869 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218165717/crawldb
+2013-12-18 16:57:17,869 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 16:57:17,869 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 16:57:17,899 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 16:57:17,941 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 16:57:18,300 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 16:57:19,079 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 16:57:19,079 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 16:57:19,079 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 16:57:20,144 INFO  crawl.Injector - Injector: finished at 2013-12-18 16:57:20, elapsed: 00:00:02
+2013-12-18 16:57:20,146 INFO  crawl.Generator - Generator: starting at 2013-12-18 16:57:20
+2013-12-18 16:57:20,146 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 16:57:20,146 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 16:57:20,146 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 16:57:20,146 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 16:57:20,147 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 16:57:20,236 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 16:57:20,236 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 16:57:20,236 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 16:57:20,246 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 16:57:20,246 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 16:57:20,246 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 16:57:21,186 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 16:57:21,187 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 16:57:21,187 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 16:57:21,187 INFO  crawl.Crawl - crawl finished: crawl-20131218165717
+2013-12-18 16:57:42,654 INFO  crawl.Crawl - crawl started in: crawl-20131218165742
+2013-12-18 16:57:42,654 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 16:57:42,654 INFO  crawl.Crawl - threads = 10
+2013-12-18 16:57:42,654 INFO  crawl.Crawl - depth = 3
+2013-12-18 16:57:42,654 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 16:57:42,654 INFO  crawl.Crawl - topN = 5
+2013-12-18 16:57:42,664 INFO  crawl.Injector - Injector: starting at 2013-12-18 16:57:42
+2013-12-18 16:57:42,664 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218165742/crawldb
+2013-12-18 16:57:42,664 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 16:57:42,665 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 16:57:42,695 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 16:57:42,738 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 16:57:42,743 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:java.io.IOException: Not a file: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/crawl-20131218165717
+2013-12-18 17:00:09,299 INFO  crawl.Crawl - crawl started in: crawl-20131218170009
+2013-12-18 17:00:09,299 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 17:00:09,299 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:00:09,299 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:00:09,299 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:00:09,300 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:00:09,309 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:00:09
+2013-12-18 17:00:09,309 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218170009/crawldb
+2013-12-18 17:00:09,310 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 17:00:09,310 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:00:09,341 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:00:09,383 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:00:09,388 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:java.io.IOException: Not a file: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/crawl-20131218165717
+2013-12-18 17:00:33,665 INFO  crawl.Crawl - crawl started in: crawl-20131218170033
+2013-12-18 17:00:33,665 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 17:00:33,665 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:00:33,665 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:00:33,665 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:00:33,665 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:00:33,675 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:00:33
+2013-12-18 17:00:33,675 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218170033/crawldb
+2013-12-18 17:00:33,676 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 17:00:33,676 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:00:33,706 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:00:33,748 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:00:33,753 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:java.io.IOException: Not a file: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/crawl-20131218165717
+2013-12-18 17:00:57,671 INFO  crawl.Crawl - crawl started in: crawl-20131218170057
+2013-12-18 17:00:57,671 INFO  crawl.Crawl - rootUrlDir = ../urls
+2013-12-18 17:00:57,671 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:00:57,671 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:00:57,671 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:00:57,671 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:00:57,681 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:00:57
+2013-12-18 17:00:57,681 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218170057/crawldb
+2013-12-18 17:00:57,682 INFO  crawl.Injector - Injector: urlDir: ../urls
+2013-12-18 17:00:57,682 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:00:57,712 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:00:57,755 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:00:57,759 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:java.io.IOException: Not a file: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/crawl-20131218165717
+2013-12-18 17:01:42,768 INFO  crawl.Crawl - crawl started in: crawl-20131218170142
+2013-12-18 17:01:42,768 INFO  crawl.Crawl - rootUrlDir = ../urls
+2013-12-18 17:01:42,768 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:01:42,769 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:01:42,769 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:01:42,769 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:01:42,779 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:01:42
+2013-12-18 17:01:42,779 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218170142/crawldb
+2013-12-18 17:01:42,779 INFO  crawl.Injector - Injector: urlDir: ../urls
+2013-12-18 17:01:42,779 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:01:42,809 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:01:42,851 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:01:42,856 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:java.io.IOException: Not a file: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/crawl-20131218165717
+2013-12-18 17:02:30,932 INFO  crawl.Crawl - crawl started in: crawl-20131218170230
+2013-12-18 17:02:30,932 INFO  crawl.Crawl - rootUrlDir = ../urls
+2013-12-18 17:02:30,932 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:02:30,932 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:02:30,932 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:02:30,933 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:02:30,943 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:02:30
+2013-12-18 17:02:30,943 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218170230/crawldb
+2013-12-18 17:02:30,943 INFO  crawl.Injector - Injector: urlDir: ../urls
+2013-12-18 17:02:30,943 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:02:30,973 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:02:31,016 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:02:31,377 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 17:02:32,154 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 17:02:32,154 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 17:02:32,154 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 17:02:33,219 INFO  crawl.Injector - Injector: finished at 2013-12-18 17:02:33, elapsed: 00:00:02
+2013-12-18 17:02:33,221 INFO  crawl.Generator - Generator: starting at 2013-12-18 17:02:33
+2013-12-18 17:02:33,221 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 17:02:33,221 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 17:02:33,221 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 17:02:33,221 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 17:02:33,221 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 17:02:33,312 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:02:33,312 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:02:33,312 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:02:33,322 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:02:33,322 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:02:33,322 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:02:34,261 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 17:02:34,262 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 17:02:34,262 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 17:02:34,262 INFO  crawl.Crawl - crawl finished: crawl-20131218170230
+2013-12-18 17:03:01,689 INFO  crawl.Crawl - crawl started in: crawl-20131218170301
+2013-12-18 17:03:01,689 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 17:03:01,689 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:03:01,689 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:03:01,689 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:03:01,689 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:03:01,699 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:03:01
+2013-12-18 17:03:01,699 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218170301/crawldb
+2013-12-18 17:03:01,699 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 17:03:01,700 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:03:01,730 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:03:01,772 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:03:01,777 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:java.io.IOException: Not a file: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/crawl-20131218170230
+2013-12-18 17:39:48,236 INFO  indexer.IndexingJob - Indexer: starting at 2013-12-18 17:39:48
+2013-12-18 17:39:48,290 INFO  indexer.IndexingJob - Indexer: deleting gone documents: false
+2013-12-18 17:39:48,290 INFO  indexer.IndexingJob - Indexer: URL filtering: false
+2013-12-18 17:39:48,290 INFO  indexer.IndexingJob - Indexer: URL normalizing: false
+2013-12-18 17:39:48,431 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.solr.SolrIndexWriter
+2013-12-18 17:39:48,431 INFO  indexer.IndexingJob - Active IndexWriters :
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : use authentication (default false)
+	solr.auth : username for authentication
+	solr.auth.password : password for authentication
+
+
+2013-12-18 17:39:48,434 INFO  indexer.IndexerMapReduce - IndexerMapReduce: crawldb: crawl/crawldb
+2013-12-18 17:39:48,434 INFO  indexer.IndexerMapReduce - IndexerMapReduce: linkdb: crawl/linkdb
+2013-12-18 17:39:48,434 INFO  indexer.IndexerMapReduce - IndexerMapReduces: adding segment: crawl/segments/*
+2013-12-18 17:39:48,544 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:39:48,589 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:org.apache.hadoop.mapred.InvalidInputException: Input Pattern file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/segments/*/crawl_fetch matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/segments/*/crawl_parse matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/segments/*/parse_data matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/segments/*/parse_text matches 0 files
+Input path does not exist: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/crawldb/current
+Input path does not exist: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/linkdb/current
+2013-12-18 17:39:48,590 ERROR indexer.IndexingJob - Indexer: org.apache.hadoop.mapred.InvalidInputException: Input Pattern file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/segments/*/crawl_fetch matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/segments/*/crawl_parse matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/segments/*/parse_data matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/segments/*/parse_text matches 0 files
+Input path does not exist: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/crawldb/current
+Input path does not exist: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-solr-3.6.2/example/crawl/linkdb/current
+	at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:197)
+	at org.apache.hadoop.mapred.SequenceFileInputFormat.listStatus(SequenceFileInputFormat.java:40)
+	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:208)
+	at org.apache.hadoop.mapred.JobClient.writeOldSplits(JobClient.java:1081)
+	at org.apache.hadoop.mapred.JobClient.writeSplits(JobClient.java:1073)
+	at org.apache.hadoop.mapred.JobClient.access$700(JobClient.java:179)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:983)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:936)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:394)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1190)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:936)
+	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:910)
+	at org.apache.hadoop.mapred.JobClient.runJob(JobClient.java:1353)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:123)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:185)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:195)
+
+2013-12-18 17:41:03,221 INFO  crawl.Crawl - crawl started in: crawl-20131218174103
+2013-12-18 17:41:03,222 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 17:41:03,222 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:41:03,222 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:41:03,222 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:41:03,222 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:41:03,232 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:41:03
+2013-12-18 17:41:03,233 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218174103/crawldb
+2013-12-18 17:41:03,233 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 17:41:03,233 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:41:03,265 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:41:03,314 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:41:03,320 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:java.io.IOException: Not a file: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/crawl-20131218170230
+2013-12-18 17:44:55,918 INFO  crawl.Crawl - crawl started in: crawl-20131218174455
+2013-12-18 17:44:55,918 INFO  crawl.Crawl - rootUrlDir = urls
+2013-12-18 17:44:55,919 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:44:55,919 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:44:55,919 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:44:55,919 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:44:55,930 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:44:55
+2013-12-18 17:44:55,930 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218174455/crawldb
+2013-12-18 17:44:55,931 INFO  crawl.Injector - Injector: urlDir: urls
+2013-12-18 17:44:55,931 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:44:55,961 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:44:56,003 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:44:56,007 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: file:/Users/stanimir.nikolov/urls
+2013-12-18 17:45:19,622 INFO  crawl.Crawl - crawl started in: crawl-20131218174519
+2013-12-18 17:45:19,623 INFO  crawl.Crawl - rootUrlDir = ..urls
+2013-12-18 17:45:19,623 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:45:19,623 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:45:19,623 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:45:19,623 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:45:19,633 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:45:19
+2013-12-18 17:45:19,634 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218174519/crawldb
+2013-12-18 17:45:19,634 INFO  crawl.Injector - Injector: urlDir: ..urls
+2013-12-18 17:45:19,634 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:45:19,665 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:45:19,709 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:45:19,712 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: file:/Users/stanimir.nikolov/..urls
+2013-12-18 17:45:56,052 INFO  crawl.Crawl - crawl started in: crawl-20131218174555
+2013-12-18 17:45:56,052 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 17:45:56,052 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:45:56,052 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:45:56,052 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:45:56,052 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:45:56,062 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:45:56
+2013-12-18 17:45:56,062 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218174555/crawldb
+2013-12-18 17:45:56,062 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 17:45:56,063 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:45:56,093 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:45:56,136 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:45:56,141 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:java.io.IOException: Not a file: file:/Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls/crawl-20131218170230
+2013-12-18 17:46:48,671 INFO  crawl.Crawl - crawl started in: crawl-20131218174648
+2013-12-18 17:46:48,672 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 17:46:48,672 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:46:48,672 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:46:48,672 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:46:48,672 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:46:48,684 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:46:48
+2013-12-18 17:46:48,684 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218174648/crawldb
+2013-12-18 17:46:48,684 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 17:46:48,684 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:46:48,717 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:46:48,768 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:46:49,153 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 17:46:49,917 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 17:46:49,917 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 17:46:49,917 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 17:46:50,989 INFO  crawl.Injector - Injector: finished at 2013-12-18 17:46:50, elapsed: 00:00:02
+2013-12-18 17:46:50,990 INFO  crawl.Generator - Generator: starting at 2013-12-18 17:46:50
+2013-12-18 17:46:50,991 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 17:46:50,991 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 17:46:50,991 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 17:46:50,991 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 17:46:50,991 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 17:46:51,085 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:46:51,086 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:46:51,086 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:46:51,096 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:46:51,096 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:46:51,096 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:46:52,039 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 17:46:52,040 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 17:46:52,040 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 17:46:52,040 INFO  crawl.Crawl - crawl finished: crawl-20131218174648
+2013-12-18 17:47:40,692 INFO  crawl.Crawl - crawl started in: crawl-20131218174740
+2013-12-18 17:47:40,692 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 17:47:40,693 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:47:40,693 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:47:40,693 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:47:40,693 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:47:40,703 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:47:40
+2013-12-18 17:47:40,703 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218174740/crawldb
+2013-12-18 17:47:40,703 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 17:47:40,703 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:47:40,733 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:47:40,777 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:47:41,146 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 17:47:41,916 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 17:47:41,917 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 17:47:41,917 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 17:47:42,985 INFO  crawl.Injector - Injector: finished at 2013-12-18 17:47:42, elapsed: 00:00:02
+2013-12-18 17:47:42,987 INFO  crawl.Generator - Generator: starting at 2013-12-18 17:47:42
+2013-12-18 17:47:42,987 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 17:47:42,987 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 17:47:42,987 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 17:47:42,987 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 17:47:42,988 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 17:47:43,084 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:47:43,084 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:47:43,084 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:47:43,094 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:47:43,094 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:47:43,094 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:47:44,034 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 17:47:44,035 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 17:47:44,035 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 17:47:44,035 INFO  crawl.Crawl - crawl finished: crawl-20131218174740
+2013-12-18 17:49:24,179 INFO  crawl.Crawl - crawl started in: crawl-20131218174924
+2013-12-18 17:49:24,179 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 17:49:24,179 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:49:24,179 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:49:24,179 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:49:24,179 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:49:24,190 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:49:24
+2013-12-18 17:49:24,190 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218174924/crawldb
+2013-12-18 17:49:24,190 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 17:49:24,190 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:49:24,226 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:49:24,270 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:49:24,652 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 17:49:25,409 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 17:49:25,409 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 17:49:25,409 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 17:49:26,476 INFO  crawl.Injector - Injector: finished at 2013-12-18 17:49:26, elapsed: 00:00:02
+2013-12-18 17:49:26,478 INFO  crawl.Generator - Generator: starting at 2013-12-18 17:49:26
+2013-12-18 17:49:26,478 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 17:49:26,478 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 17:49:26,478 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 17:49:26,478 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 17:49:26,478 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 17:49:26,573 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:49:26,573 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:49:26,573 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:49:26,585 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:49:26,585 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:49:26,585 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:49:27,525 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 17:49:27,526 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 17:49:27,526 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 17:49:27,526 INFO  crawl.Crawl - crawl finished: crawl-20131218174924
+2013-12-18 17:51:09,939 INFO  crawl.Crawl - crawl started in: crawl-20131218175109
+2013-12-18 17:51:09,940 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 17:51:09,940 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:51:09,940 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:51:09,940 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:51:09,940 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:51:09,950 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:51:09
+2013-12-18 17:51:09,950 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218175109/crawldb
+2013-12-18 17:51:09,950 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 17:51:09,950 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:51:09,979 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:51:10,022 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:51:10,398 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 17:51:11,160 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 0
+2013-12-18 17:51:11,160 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 1
+2013-12-18 17:51:11,160 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 17:51:12,225 INFO  crawl.Injector - Injector: finished at 2013-12-18 17:51:12, elapsed: 00:00:02
+2013-12-18 17:51:12,227 INFO  crawl.Generator - Generator: starting at 2013-12-18 17:51:12
+2013-12-18 17:51:12,227 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 17:51:12,227 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 17:51:12,227 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 17:51:12,227 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 17:51:12,228 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 17:51:12,322 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:51:12,322 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:51:12,322 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:51:12,328 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-18 17:51:12,338 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:51:12,338 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:51:12,338 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:51:12,339 INFO  regex.RegexURLNormalizer - can't find rules for scope 'generate_host_count', using default
+2013-12-18 17:51:13,275 INFO  crawl.Generator - Generator: Partitioning selected urls for politeness.
+2013-12-18 17:51:14,276 INFO  crawl.Generator - Generator: segment: crawl-20131218175109/segments/20131218175114
+2013-12-18 17:51:14,369 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-18 17:51:15,318 INFO  crawl.Generator - Generator: finished at 2013-12-18 17:51:15, elapsed: 00:00:03
+2013-12-18 17:51:15,318 WARN  fetcher.Fetcher - Fetcher: Your 'http.agent.name' value should be listed first in 'http.robots.agents' property.
+2013-12-18 17:51:15,318 INFO  fetcher.Fetcher - Fetcher: starting at 2013-12-18 17:51:15
+2013-12-18 17:51:15,318 INFO  fetcher.Fetcher - Fetcher: segment: crawl-20131218175109/segments/20131218175114
+2013-12-18 17:51:15,406 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,407 INFO  fetcher.Fetcher - Fetcher: threads: 10
+2013-12-18 17:51:15,407 INFO  fetcher.Fetcher - Fetcher: time-out divisor: 2
+2013-12-18 17:51:15,410 INFO  fetcher.Fetcher - QueueFeeder finished: total 1 records + hit by time limit :0
+2013-12-18 17:51:15,420 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,421 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,421 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/ (queue crawl delay=5000ms)
+2013-12-18 17:51:15,421 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,423 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,423 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=2
+2013-12-18 17:51:15,424 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-18 17:51:15,425 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,425 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-18 17:51:15,427 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,427 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-18 17:51:15,427 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,429 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-18 17:51:15,431 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,431 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,431 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-18 17:51:15,431 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-18 17:51:15,433 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:15,433 INFO  fetcher.Fetcher - Fetcher: throughput threshold: -1
+2013-12-18 17:51:15,433 INFO  fetcher.Fetcher - Fetcher: throughput threshold retries: 5
+2013-12-18 17:51:15,433 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-18 17:51:15,433 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-18 17:51:15,439 ERROR protocol.RobotRulesParser - Agent we advertise (My Working Nutch Spider) not listed first in 'http.robots.agents' property!
+2013-12-18 17:51:15,439 INFO  http.Http - http.proxy.host = null
+2013-12-18 17:51:15,439 INFO  http.Http - http.proxy.port = 8080
+2013-12-18 17:51:15,439 INFO  http.Http - http.timeout = 10000
+2013-12-18 17:51:15,439 INFO  http.Http - http.content.limit = 65536
+2013-12-18 17:51:15,439 INFO  http.Http - http.agent = My Working Nutch Spider/Nutch-1.7
+2013-12-18 17:51:15,439 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2013-12-18 17:51:15,439 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2013-12-18 17:51:16,436 INFO  fetcher.Fetcher - -activeThreads=1, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-18 17:51:16,666 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=0
+2013-12-18 17:51:17,437 INFO  fetcher.Fetcher - -activeThreads=0, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-18 17:51:17,437 INFO  fetcher.Fetcher - -activeThreads=0
+2013-12-18 17:51:18,358 INFO  fetcher.Fetcher - Fetcher: finished at 2013-12-18 17:51:18, elapsed: 00:00:03
+2013-12-18 17:51:18,358 INFO  parse.ParseSegment - ParseSegment: starting at 2013-12-18 17:51:18
+2013-12-18 17:51:18,358 INFO  parse.ParseSegment - ParseSegment: segment: crawl-20131218175109/segments/20131218175114
+2013-12-18 17:51:18,622 INFO  crawl.SignatureFactory - Using Signature impl: org.apache.nutch.crawl.MD5Signature
+2013-12-18 17:51:18,627 INFO  parse.ParseSegment - Parsed (7ms):http://nutch.apache.org/
+2013-12-18 17:51:18,647 INFO  regex.RegexURLNormalizer - can't find rules for scope 'outlink', using default
+2013-12-18 17:51:19,400 INFO  parse.ParseSegment - ParseSegment: finished at 2013-12-18 17:51:19, elapsed: 00:00:01
+2013-12-18 17:51:19,401 INFO  crawl.CrawlDb - CrawlDb update: starting at 2013-12-18 17:51:19
+2013-12-18 17:51:19,401 INFO  crawl.CrawlDb - CrawlDb update: db: crawl-20131218175109/crawldb
+2013-12-18 17:51:19,401 INFO  crawl.CrawlDb - CrawlDb update: segments: [crawl-20131218175109/segments/20131218175114]
+2013-12-18 17:51:19,401 INFO  crawl.CrawlDb - CrawlDb update: additions allowed: true
+2013-12-18 17:51:19,402 INFO  crawl.CrawlDb - CrawlDb update: URL normalizing: true
+2013-12-18 17:51:19,402 INFO  crawl.CrawlDb - CrawlDb update: URL filtering: true
+2013-12-18 17:51:19,402 INFO  crawl.CrawlDb - CrawlDb update: 404 purging: false
+2013-12-18 17:51:19,402 INFO  crawl.CrawlDb - CrawlDb update: Merging segment data into db.
+2013-12-18 17:51:19,500 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-18 17:51:19,567 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-18 17:51:19,625 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-18 17:51:19,640 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:51:19,640 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:51:19,640 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:51:20,448 INFO  crawl.CrawlDb - CrawlDb update: finished at 2013-12-18 17:51:20, elapsed: 00:00:01
+2013-12-18 17:51:20,450 INFO  crawl.Generator - Generator: starting at 2013-12-18 17:51:20
+2013-12-18 17:51:20,450 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 17:51:20,450 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 17:51:20,450 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 17:51:20,450 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 17:51:20,450 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 17:51:20,526 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:51:20,526 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:51:20,526 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:51:20,526 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-18 17:51:20,544 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:51:20,544 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:51:20,544 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:51:20,544 INFO  regex.RegexURLNormalizer - can't find rules for scope 'generate_host_count', using default
+2013-12-18 17:51:21,475 INFO  crawl.Generator - Generator: Partitioning selected urls for politeness.
+2013-12-18 17:51:22,475 INFO  crawl.Generator - Generator: segment: crawl-20131218175109/segments/20131218175122
+2013-12-18 17:51:22,549 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-18 17:51:23,499 INFO  crawl.Generator - Generator: finished at 2013-12-18 17:51:23, elapsed: 00:00:03
+2013-12-18 17:51:23,499 WARN  fetcher.Fetcher - Fetcher: Your 'http.agent.name' value should be listed first in 'http.robots.agents' property.
+2013-12-18 17:51:23,499 INFO  fetcher.Fetcher - Fetcher: starting at 2013-12-18 17:51:23
+2013-12-18 17:51:23,499 INFO  fetcher.Fetcher - Fetcher: segment: crawl-20131218175109/segments/20131218175122
+2013-12-18 17:51:23,569 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,569 INFO  fetcher.Fetcher - Fetcher: threads: 10
+2013-12-18 17:51:23,569 INFO  fetcher.Fetcher - Fetcher: time-out divisor: 2
+2013-12-18 17:51:23,570 INFO  fetcher.Fetcher - QueueFeeder finished: total 5 records + hit by time limit :0
+2013-12-18 17:51:23,573 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,574 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,574 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,574 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,574 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,574 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,575 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,575 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,575 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,575 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:23,575 INFO  fetcher.Fetcher - Fetcher: throughput threshold: -1
+2013-12-18 17:51:23,575 INFO  fetcher.Fetcher - Fetcher: throughput threshold retries: 5
+2013-12-18 17:51:23,575 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/apidocs-1.7/index.html (queue crawl delay=5000ms)
+2013-12-18 17:51:23,576 ERROR protocol.RobotRulesParser - Agent we advertise (My Working Nutch Spider) not listed first in 'http.robots.agents' property!
+2013-12-18 17:51:23,576 INFO  http.Http - http.proxy.host = null
+2013-12-18 17:51:23,576 INFO  http.Http - http.proxy.port = 8080
+2013-12-18 17:51:23,576 INFO  http.Http - http.timeout = 10000
+2013-12-18 17:51:23,576 INFO  http.Http - http.content.limit = 65536
+2013-12-18 17:51:23,576 INFO  http.Http - http.agent = My Working Nutch Spider/Nutch-1.7
+2013-12-18 17:51:23,576 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2013-12-18 17:51:23,576 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2013-12-18 17:51:24,577 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=4
+2013-12-18 17:51:24,577 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:24,577 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:24,577 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:24,577 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:24,577 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:24,577 INFO  fetcher.Fetcher -   nextFetchTime = 1387381889001
+2013-12-18 17:51:24,577 INFO  fetcher.Fetcher -   now           = 1387381884577
+2013-12-18 17:51:24,577 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/downloads.html
+2013-12-18 17:51:24,577 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:24,578 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:24,578 INFO  fetcher.Fetcher -   3. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=4
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher -   nextFetchTime = 1387381889001
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher -   now           = 1387381885578
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/downloads.html
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:25,578 INFO  fetcher.Fetcher -   3. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:26,578 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=4
+2013-12-18 17:51:26,578 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:26,579 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:26,579 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:26,579 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:26,579 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:26,579 INFO  fetcher.Fetcher -   nextFetchTime = 1387381889001
+2013-12-18 17:51:26,579 INFO  fetcher.Fetcher -   now           = 1387381886579
+2013-12-18 17:51:26,579 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/downloads.html
+2013-12-18 17:51:26,579 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:26,579 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:26,579 INFO  fetcher.Fetcher -   3. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=6, fetchQueues.totalSize=4
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher -   nextFetchTime = 1387381889001
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher -   now           = 1387381887580
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/downloads.html
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:27,580 INFO  fetcher.Fetcher -   3. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:28,581 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=7, fetchQueues.totalSize=4
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher -   nextFetchTime = 1387381889001
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher -   now           = 1387381888582
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/downloads.html
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:28,582 INFO  fetcher.Fetcher -   3. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:29,011 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/downloads.html (queue crawl delay=5000ms)
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=4, fetchQueues.totalSize=3
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher -   inProgress    = 1
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher -   nextFetchTime = 1387381889001
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher -   now           = 1387381889583
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:29,583 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:30,584 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=9, fetchQueues.totalSize=3
+2013-12-18 17:51:30,584 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:30,584 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:30,584 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:30,584 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:30,584 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:30,584 INFO  fetcher.Fetcher -   nextFetchTime = 1387381894638
+2013-12-18 17:51:30,584 INFO  fetcher.Fetcher -   now           = 1387381890584
+2013-12-18 17:51:30,584 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:30,584 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:30,585 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=4, fetchQueues.totalSize=3
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher -   nextFetchTime = 1387381894638
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher -   now           = 1387381891586
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:31,586 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:32,587 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=5, fetchQueues.totalSize=3
+2013-12-18 17:51:32,587 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:32,587 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:32,587 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:32,587 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:32,587 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:32,588 INFO  fetcher.Fetcher -   nextFetchTime = 1387381894638
+2013-12-18 17:51:32,588 INFO  fetcher.Fetcher -   now           = 1387381892588
+2013-12-18 17:51:32,588 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:32,588 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:32,588 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:33,588 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=3
+2013-12-18 17:51:33,588 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:33,588 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:33,588 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:33,588 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:33,588 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:33,588 INFO  fetcher.Fetcher -   nextFetchTime = 1387381894638
+2013-12-18 17:51:33,588 INFO  fetcher.Fetcher -   now           = 1387381893588
+2013-12-18 17:51:33,588 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:33,588 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:33,589 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=5, fetchQueues.totalSize=3
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher -   nextFetchTime = 1387381894638
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher -   now           = 1387381894590
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/wiki.html
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:34,590 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:34,649 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/wiki.html (queue crawl delay=5000ms)
+2013-12-18 17:51:35,591 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=5, fetchQueues.totalSize=2
+2013-12-18 17:51:35,591 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:35,591 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:35,591 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:35,591 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:35,591 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:35,591 INFO  fetcher.Fetcher -   nextFetchTime = 1387381900068
+2013-12-18 17:51:35,591 INFO  fetcher.Fetcher -   now           = 1387381895591
+2013-12-18 17:51:35,591 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:35,591 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:36,592 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=7, fetchQueues.totalSize=2
+2013-12-18 17:51:36,592 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:36,592 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:36,592 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:36,592 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:36,592 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:36,592 INFO  fetcher.Fetcher -   nextFetchTime = 1387381900068
+2013-12-18 17:51:36,593 INFO  fetcher.Fetcher -   now           = 1387381896592
+2013-12-18 17:51:36,593 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:36,593 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:37,593 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=2
+2013-12-18 17:51:37,593 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:37,593 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:37,593 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:37,593 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:37,593 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:37,593 INFO  fetcher.Fetcher -   nextFetchTime = 1387381900068
+2013-12-18 17:51:37,593 INFO  fetcher.Fetcher -   now           = 1387381897593
+2013-12-18 17:51:37,593 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:37,593 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:38,594 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=2
+2013-12-18 17:51:38,594 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:38,594 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:38,594 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:38,594 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:38,594 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:38,594 INFO  fetcher.Fetcher -   nextFetchTime = 1387381900068
+2013-12-18 17:51:38,594 INFO  fetcher.Fetcher -   now           = 1387381898594
+2013-12-18 17:51:38,594 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:38,594 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:39,595 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=6, fetchQueues.totalSize=2
+2013-12-18 17:51:39,595 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:39,595 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:39,595 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:39,595 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:39,595 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:39,595 INFO  fetcher.Fetcher -   nextFetchTime = 1387381900068
+2013-12-18 17:51:39,595 INFO  fetcher.Fetcher -   now           = 1387381899595
+2013-12-18 17:51:39,595 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:39,595 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:40,078 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/apidocs-2.2.1/index.html (queue crawl delay=5000ms)
+2013-12-18 17:51:40,595 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=1
+2013-12-18 17:51:40,596 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:40,596 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:40,596 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:40,596 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:40,596 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:40,596 INFO  fetcher.Fetcher -   nextFetchTime = 1387381905499
+2013-12-18 17:51:40,596 INFO  fetcher.Fetcher -   now           = 1387381900596
+2013-12-18 17:51:40,596 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:41,597 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=1
+2013-12-18 17:51:41,597 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:41,597 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:41,597 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:41,597 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:41,597 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:41,597 INFO  fetcher.Fetcher -   nextFetchTime = 1387381905499
+2013-12-18 17:51:41,597 INFO  fetcher.Fetcher -   now           = 1387381901597
+2013-12-18 17:51:41,597 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:42,598 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=5, fetchQueues.totalSize=1
+2013-12-18 17:51:42,598 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:42,598 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:42,598 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:42,598 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:42,599 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:42,599 INFO  fetcher.Fetcher -   nextFetchTime = 1387381905499
+2013-12-18 17:51:42,599 INFO  fetcher.Fetcher -   now           = 1387381902599
+2013-12-18 17:51:42,599 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:43,599 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=8, fetchQueues.totalSize=1
+2013-12-18 17:51:43,600 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:43,600 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:43,600 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:43,600 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:43,600 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:43,600 INFO  fetcher.Fetcher -   nextFetchTime = 1387381905499
+2013-12-18 17:51:43,600 INFO  fetcher.Fetcher -   now           = 1387381903600
+2013-12-18 17:51:43,600 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:44,601 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=6, fetchQueues.totalSize=1
+2013-12-18 17:51:44,601 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:44,601 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:44,601 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:44,601 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:44,601 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:44,601 INFO  fetcher.Fetcher -   nextFetchTime = 1387381905499
+2013-12-18 17:51:44,601 INFO  fetcher.Fetcher -   now           = 1387381904601
+2013-12-18 17:51:44,601 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:45,507 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/mailing_lists.html (queue crawl delay=5000ms)
+2013-12-18 17:51:45,602 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=8
+2013-12-18 17:51:45,602 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=8
+2013-12-18 17:51:45,602 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=7
+2013-12-18 17:51:45,602 INFO  fetcher.Fetcher - -activeThreads=8, spinWaiting=6, fetchQueues.totalSize=0
+2013-12-18 17:51:45,602 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-18 17:51:45,602 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=2
+2013-12-18 17:51:45,602 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=5
+2013-12-18 17:51:45,602 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=3
+2013-12-18 17:51:45,602 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=4
+2013-12-18 17:51:45,602 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=6
+2013-12-18 17:51:45,737 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=0
+2013-12-18 17:51:46,603 INFO  fetcher.Fetcher - -activeThreads=0, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-18 17:51:46,603 INFO  fetcher.Fetcher - -activeThreads=0
+2013-12-18 17:51:47,542 INFO  fetcher.Fetcher - Fetcher: finished at 2013-12-18 17:51:47, elapsed: 00:00:24
+2013-12-18 17:51:47,542 INFO  parse.ParseSegment - ParseSegment: starting at 2013-12-18 17:51:47
+2013-12-18 17:51:47,542 INFO  parse.ParseSegment - ParseSegment: segment: crawl-20131218175109/segments/20131218175122
+2013-12-18 17:51:47,618 INFO  crawl.SignatureFactory - Using Signature impl: org.apache.nutch.crawl.MD5Signature
+2013-12-18 17:51:47,618 INFO  parse.ParseSegment - Parsed (0ms):http://nutch.apache.org/apidocs-1.7/index.html
+2013-12-18 17:51:47,623 INFO  parse.ParseSegment - Parsed (0ms):http://nutch.apache.org/apidocs-2.2.1/index.html
+2013-12-18 17:51:47,647 INFO  parse.ParseSegment - Parsed (0ms):http://nutch.apache.org/downloads.html
+2013-12-18 17:51:47,667 INFO  parse.ParseSegment - Parsed (1ms):http://nutch.apache.org/mailing_lists.html
+2013-12-18 17:51:47,680 INFO  parse.ParseSegment - Parsed (0ms):http://nutch.apache.org/wiki.html
+2013-12-18 17:51:47,692 INFO  regex.RegexURLNormalizer - can't find rules for scope 'outlink', using default
+2013-12-18 17:51:48,565 INFO  parse.ParseSegment - ParseSegment: finished at 2013-12-18 17:51:48, elapsed: 00:00:01
+2013-12-18 17:51:48,566 INFO  crawl.CrawlDb - CrawlDb update: starting at 2013-12-18 17:51:48
+2013-12-18 17:51:48,566 INFO  crawl.CrawlDb - CrawlDb update: db: crawl-20131218175109/crawldb
+2013-12-18 17:51:48,566 INFO  crawl.CrawlDb - CrawlDb update: segments: [crawl-20131218175109/segments/20131218175122]
+2013-12-18 17:51:48,566 INFO  crawl.CrawlDb - CrawlDb update: additions allowed: true
+2013-12-18 17:51:48,566 INFO  crawl.CrawlDb - CrawlDb update: URL normalizing: true
+2013-12-18 17:51:48,566 INFO  crawl.CrawlDb - CrawlDb update: URL filtering: true
+2013-12-18 17:51:48,566 INFO  crawl.CrawlDb - CrawlDb update: 404 purging: false
+2013-12-18 17:51:48,567 INFO  crawl.CrawlDb - CrawlDb update: Merging segment data into db.
+2013-12-18 17:51:48,642 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-18 17:51:48,717 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-18 17:51:48,775 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-18 17:51:48,790 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:51:48,790 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:51:48,790 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:51:49,592 INFO  crawl.CrawlDb - CrawlDb update: finished at 2013-12-18 17:51:49, elapsed: 00:00:01
+2013-12-18 17:51:49,593 INFO  crawl.Generator - Generator: starting at 2013-12-18 17:51:49
+2013-12-18 17:51:49,593 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 17:51:49,594 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 17:51:49,594 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 17:51:49,594 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 17:51:49,594 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 17:51:49,671 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:51:49,671 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:51:49,671 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:51:49,672 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-18 17:51:49,690 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:51:49,690 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:51:49,690 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:51:49,691 INFO  regex.RegexURLNormalizer - can't find rules for scope 'generate_host_count', using default
+2013-12-18 17:51:50,615 INFO  crawl.Generator - Generator: Partitioning selected urls for politeness.
+2013-12-18 17:51:51,616 INFO  crawl.Generator - Generator: segment: crawl-20131218175109/segments/20131218175151
+2013-12-18 17:51:51,689 INFO  regex.RegexURLNormalizer - can't find rules for scope 'partition', using default
+2013-12-18 17:51:52,638 INFO  crawl.Generator - Generator: finished at 2013-12-18 17:51:52, elapsed: 00:00:03
+2013-12-18 17:51:52,638 WARN  fetcher.Fetcher - Fetcher: Your 'http.agent.name' value should be listed first in 'http.robots.agents' property.
+2013-12-18 17:51:52,638 INFO  fetcher.Fetcher - Fetcher: starting at 2013-12-18 17:51:52
+2013-12-18 17:51:52,638 INFO  fetcher.Fetcher - Fetcher: segment: crawl-20131218175109/segments/20131218175151
+2013-12-18 17:51:52,710 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,710 INFO  fetcher.Fetcher - Fetcher: threads: 10
+2013-12-18 17:51:52,710 INFO  fetcher.Fetcher - Fetcher: time-out divisor: 2
+2013-12-18 17:51:52,710 INFO  fetcher.Fetcher - QueueFeeder finished: total 5 records + hit by time limit :0
+2013-12-18 17:51:52,714 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,714 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,714 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,714 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,715 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,715 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,715 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,715 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,716 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,716 INFO  fetcher.Fetcher - Using queue mode : byHost
+2013-12-18 17:51:52,716 INFO  fetcher.Fetcher - Fetcher: throughput threshold: -1
+2013-12-18 17:51:52,716 INFO  fetcher.Fetcher - Fetcher: throughput threshold retries: 5
+2013-12-18 17:51:52,718 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/nightly.html (queue crawl delay=5000ms)
+2013-12-18 17:51:52,718 ERROR protocol.RobotRulesParser - Agent we advertise (My Working Nutch Spider) not listed first in 'http.robots.agents' property!
+2013-12-18 17:51:52,718 INFO  http.Http - http.proxy.host = null
+2013-12-18 17:51:52,718 INFO  http.Http - http.proxy.port = 8080
+2013-12-18 17:51:52,718 INFO  http.Http - http.timeout = 10000
+2013-12-18 17:51:52,718 INFO  http.Http - http.content.limit = 65536
+2013-12-18 17:51:52,718 INFO  http.Http - http.agent = My Working Nutch Spider/Nutch-1.7
+2013-12-18 17:51:52,718 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2013-12-18 17:51:52,718 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2013-12-18 17:51:53,717 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=4
+2013-12-18 17:51:53,717 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:53,717 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:53,717 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:53,717 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:53,717 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:53,717 INFO  fetcher.Fetcher -   nextFetchTime = 1387381917800
+2013-12-18 17:51:53,717 INFO  fetcher.Fetcher -   now           = 1387381913717
+2013-12-18 17:51:53,717 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/old_downloads.html
+2013-12-18 17:51:53,718 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/index.html
+2013-12-18 17:51:53,718 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/version_control.html
+2013-12-18 17:51:53,718 INFO  fetcher.Fetcher -   3. http://nutch.apache.org/tutorial.html
+2013-12-18 17:51:54,718 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=4
+2013-12-18 17:51:54,718 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:54,718 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:54,718 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:54,718 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:54,718 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:54,718 INFO  fetcher.Fetcher -   nextFetchTime = 1387381917800
+2013-12-18 17:51:54,718 INFO  fetcher.Fetcher -   now           = 1387381914718
+2013-12-18 17:51:54,719 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/old_downloads.html
+2013-12-18 17:51:54,719 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/index.html
+2013-12-18 17:51:54,719 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/version_control.html
+2013-12-18 17:51:54,719 INFO  fetcher.Fetcher -   3. http://nutch.apache.org/tutorial.html
+2013-12-18 17:51:55,719 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=4
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher -   nextFetchTime = 1387381917800
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher -   now           = 1387381915720
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/old_downloads.html
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/index.html
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/version_control.html
+2013-12-18 17:51:55,720 INFO  fetcher.Fetcher -   3. http://nutch.apache.org/tutorial.html
+2013-12-18 17:51:56,720 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=4
+2013-12-18 17:51:56,720 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:56,720 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:56,720 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:56,720 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:56,720 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:56,720 INFO  fetcher.Fetcher -   nextFetchTime = 1387381917800
+2013-12-18 17:51:56,721 INFO  fetcher.Fetcher -   now           = 1387381916721
+2013-12-18 17:51:56,721 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/old_downloads.html
+2013-12-18 17:51:56,721 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/index.html
+2013-12-18 17:51:56,721 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/version_control.html
+2013-12-18 17:51:56,721 INFO  fetcher.Fetcher -   3. http://nutch.apache.org/tutorial.html
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=4
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher -   nextFetchTime = 1387381917800
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher -   now           = 1387381917722
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/old_downloads.html
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/index.html
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/version_control.html
+2013-12-18 17:51:57,722 INFO  fetcher.Fetcher -   3. http://nutch.apache.org/tutorial.html
+2013-12-18 17:51:57,808 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/old_downloads.html (queue crawl delay=5000ms)
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=3
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher -   nextFetchTime = 1387381922887
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher -   now           = 1387381918724
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/index.html
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/version_control.html
+2013-12-18 17:51:58,724 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/tutorial.html
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=3
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher -   nextFetchTime = 1387381922887
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher -   now           = 1387381919725
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/index.html
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/version_control.html
+2013-12-18 17:51:59,725 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:00,726 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=3
+2013-12-18 17:52:00,726 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:00,726 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:00,726 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:00,726 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:00,726 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:00,726 INFO  fetcher.Fetcher -   nextFetchTime = 1387381922887
+2013-12-18 17:52:00,726 INFO  fetcher.Fetcher -   now           = 1387381920726
+2013-12-18 17:52:00,726 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/index.html
+2013-12-18 17:52:00,727 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/version_control.html
+2013-12-18 17:52:00,727 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=3
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher -   nextFetchTime = 1387381922887
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher -   now           = 1387381921728
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/index.html
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/version_control.html
+2013-12-18 17:52:01,728 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:02,729 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=3
+2013-12-18 17:52:02,729 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:02,729 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:02,729 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:02,729 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:02,729 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:02,729 INFO  fetcher.Fetcher -   nextFetchTime = 1387381922887
+2013-12-18 17:52:02,729 INFO  fetcher.Fetcher -   now           = 1387381922729
+2013-12-18 17:52:02,729 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/index.html
+2013-12-18 17:52:02,729 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/version_control.html
+2013-12-18 17:52:02,730 INFO  fetcher.Fetcher -   2. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:02,900 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/index.html (queue crawl delay=5000ms)
+2013-12-18 17:52:03,731 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=2
+2013-12-18 17:52:03,731 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:03,731 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:03,731 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:03,731 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:03,731 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:03,731 INFO  fetcher.Fetcher -   nextFetchTime = 1387381928019
+2013-12-18 17:52:03,731 INFO  fetcher.Fetcher -   now           = 1387381923731
+2013-12-18 17:52:03,731 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/version_control.html
+2013-12-18 17:52:03,731 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:04,732 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=2
+2013-12-18 17:52:04,732 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:04,732 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:04,732 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:04,732 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:04,732 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:04,732 INFO  fetcher.Fetcher -   nextFetchTime = 1387381928019
+2013-12-18 17:52:04,732 INFO  fetcher.Fetcher -   now           = 1387381924732
+2013-12-18 17:52:04,733 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/version_control.html
+2013-12-18 17:52:04,733 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:05,734 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=2
+2013-12-18 17:52:05,734 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:05,734 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:05,734 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:05,734 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:05,734 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:05,734 INFO  fetcher.Fetcher -   nextFetchTime = 1387381928019
+2013-12-18 17:52:05,734 INFO  fetcher.Fetcher -   now           = 1387381925734
+2013-12-18 17:52:05,734 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/version_control.html
+2013-12-18 17:52:05,734 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:06,735 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=2
+2013-12-18 17:52:06,735 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:06,735 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:06,735 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:06,735 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:06,735 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:06,735 INFO  fetcher.Fetcher -   nextFetchTime = 1387381928019
+2013-12-18 17:52:06,735 INFO  fetcher.Fetcher -   now           = 1387381926735
+2013-12-18 17:52:06,735 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/version_control.html
+2013-12-18 17:52:06,736 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:07,736 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=2
+2013-12-18 17:52:07,736 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:07,736 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:07,736 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:07,736 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:07,736 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:07,736 INFO  fetcher.Fetcher -   nextFetchTime = 1387381928019
+2013-12-18 17:52:07,736 INFO  fetcher.Fetcher -   now           = 1387381927736
+2013-12-18 17:52:07,737 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/version_control.html
+2013-12-18 17:52:07,737 INFO  fetcher.Fetcher -   1. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:08,029 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/version_control.html (queue crawl delay=5000ms)
+2013-12-18 17:52:08,738 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=1
+2013-12-18 17:52:08,738 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:08,738 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:08,738 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:08,738 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:08,738 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:08,738 INFO  fetcher.Fetcher -   nextFetchTime = 1387381933111
+2013-12-18 17:52:08,738 INFO  fetcher.Fetcher -   now           = 1387381928738
+2013-12-18 17:52:08,738 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:09,739 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=1
+2013-12-18 17:52:09,739 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:09,739 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:09,739 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:09,739 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:09,739 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:09,739 INFO  fetcher.Fetcher -   nextFetchTime = 1387381933111
+2013-12-18 17:52:09,739 INFO  fetcher.Fetcher -   now           = 1387381929739
+2013-12-18 17:52:09,739 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:10,739 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=1
+2013-12-18 17:52:10,740 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:10,740 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:10,740 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:10,740 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:10,740 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:10,740 INFO  fetcher.Fetcher -   nextFetchTime = 1387381933111
+2013-12-18 17:52:10,740 INFO  fetcher.Fetcher -   now           = 1387381930740
+2013-12-18 17:52:10,740 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:11,741 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=1
+2013-12-18 17:52:11,741 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:11,741 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:11,741 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:11,741 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:11,741 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:11,741 INFO  fetcher.Fetcher -   nextFetchTime = 1387381933111
+2013-12-18 17:52:11,741 INFO  fetcher.Fetcher -   now           = 1387381931741
+2013-12-18 17:52:11,741 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:12,742 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=1
+2013-12-18 17:52:12,742 INFO  fetcher.Fetcher - * queue: http://nutch.apache.org
+2013-12-18 17:52:12,743 INFO  fetcher.Fetcher -   maxThreads    = 1
+2013-12-18 17:52:12,743 INFO  fetcher.Fetcher -   inProgress    = 0
+2013-12-18 17:52:12,743 INFO  fetcher.Fetcher -   crawlDelay    = 5000
+2013-12-18 17:52:12,743 INFO  fetcher.Fetcher -   minCrawlDelay = 0
+2013-12-18 17:52:12,743 INFO  fetcher.Fetcher -   nextFetchTime = 1387381933111
+2013-12-18 17:52:12,743 INFO  fetcher.Fetcher -   now           = 1387381932743
+2013-12-18 17:52:12,743 INFO  fetcher.Fetcher -   0. http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:13,119 INFO  fetcher.Fetcher - fetching http://nutch.apache.org/tutorial.html (queue crawl delay=5000ms)
+2013-12-18 17:52:13,200 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=9
+2013-12-18 17:52:13,248 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=6
+2013-12-18 17:52:13,248 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=4
+2013-12-18 17:52:13,248 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=1
+2013-12-18 17:52:13,248 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=6
+2013-12-18 17:52:13,248 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=6
+2013-12-18 17:52:13,248 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=5
+2013-12-18 17:52:13,248 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=0
+2013-12-18 17:52:13,248 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=2
+2013-12-18 17:52:13,248 INFO  fetcher.Fetcher - -finishing thread FetcherThread, activeThreads=3
+2013-12-18 17:52:13,743 INFO  fetcher.Fetcher - -activeThreads=0, spinWaiting=0, fetchQueues.totalSize=0
+2013-12-18 17:52:13,743 INFO  fetcher.Fetcher - -activeThreads=0
+2013-12-18 17:52:14,679 INFO  fetcher.Fetcher - Fetcher: finished at 2013-12-18 17:52:14, elapsed: 00:00:22
+2013-12-18 17:52:14,679 INFO  parse.ParseSegment - ParseSegment: starting at 2013-12-18 17:52:14
+2013-12-18 17:52:14,680 INFO  parse.ParseSegment - ParseSegment: segment: crawl-20131218175109/segments/20131218175151
+2013-12-18 17:52:14,787 INFO  crawl.SignatureFactory - Using Signature impl: org.apache.nutch.crawl.MD5Signature
+2013-12-18 17:52:14,789 INFO  parse.ParseSegment - Parsed (2ms):http://nutch.apache.org/index.html
+2013-12-18 17:52:14,801 INFO  parse.ParseSegment - Parsed (1ms):http://nutch.apache.org/nightly.html
+2013-12-18 17:52:14,810 INFO  parse.ParseSegment - Parsed (0ms):http://nutch.apache.org/old_downloads.html
+2013-12-18 17:52:14,820 INFO  parse.ParseSegment - Parsed (0ms):http://nutch.apache.org/tutorial.html
+2013-12-18 17:52:14,833 INFO  parse.ParseSegment - Parsed (0ms):http://nutch.apache.org/version_control.html
+2013-12-18 17:52:14,853 INFO  regex.RegexURLNormalizer - can't find rules for scope 'outlink', using default
+2013-12-18 17:52:15,701 INFO  parse.ParseSegment - ParseSegment: finished at 2013-12-18 17:52:15, elapsed: 00:00:01
+2013-12-18 17:52:15,703 INFO  crawl.CrawlDb - CrawlDb update: starting at 2013-12-18 17:52:15
+2013-12-18 17:52:15,703 INFO  crawl.CrawlDb - CrawlDb update: db: crawl-20131218175109/crawldb
+2013-12-18 17:52:15,703 INFO  crawl.CrawlDb - CrawlDb update: segments: [crawl-20131218175109/segments/20131218175151]
+2013-12-18 17:52:15,703 INFO  crawl.CrawlDb - CrawlDb update: additions allowed: true
+2013-12-18 17:52:15,703 INFO  crawl.CrawlDb - CrawlDb update: URL normalizing: true
+2013-12-18 17:52:15,703 INFO  crawl.CrawlDb - CrawlDb update: URL filtering: true
+2013-12-18 17:52:15,703 INFO  crawl.CrawlDb - CrawlDb update: 404 purging: false
+2013-12-18 17:52:15,703 INFO  crawl.CrawlDb - CrawlDb update: Merging segment data into db.
+2013-12-18 17:52:15,778 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-18 17:52:15,855 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-18 17:52:15,918 INFO  regex.RegexURLNormalizer - can't find rules for scope 'crawldb', using default
+2013-12-18 17:52:15,932 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:52:15,932 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:52:15,932 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:52:16,728 INFO  crawl.CrawlDb - CrawlDb update: finished at 2013-12-18 17:52:16, elapsed: 00:00:01
+2013-12-18 17:52:16,730 INFO  crawl.LinkDb - LinkDb: starting at 2013-12-18 17:52:16
+2013-12-18 17:52:16,730 INFO  crawl.LinkDb - LinkDb: linkdb: crawl-20131218175109/linkdb
+2013-12-18 17:52:16,730 INFO  crawl.LinkDb - LinkDb: URL normalize: true
+2013-12-18 17:52:16,730 INFO  crawl.LinkDb - LinkDb: URL filter: true
+2013-12-18 17:52:16,730 INFO  crawl.LinkDb - LinkDb: internal links will be ignored.
+2013-12-18 17:52:16,730 INFO  crawl.LinkDb - LinkDb: adding segment: file:/Users/stanimir.nikolov/crawl-20131218175109/segments/20131218175114
+2013-12-18 17:52:16,730 INFO  crawl.LinkDb - LinkDb: adding segment: file:/Users/stanimir.nikolov/crawl-20131218175109/segments/20131218175122
+2013-12-18 17:52:16,731 INFO  crawl.LinkDb - LinkDb: adding segment: file:/Users/stanimir.nikolov/crawl-20131218175109/segments/20131218175151
+2013-12-18 17:52:16,810 INFO  regex.RegexURLNormalizer - can't find rules for scope 'linkdb', using default
+2013-12-18 17:52:16,867 INFO  regex.RegexURLNormalizer - can't find rules for scope 'linkdb', using default
+2013-12-18 17:52:16,933 INFO  regex.RegexURLNormalizer - can't find rules for scope 'linkdb', using default
+2013-12-18 17:52:17,752 INFO  crawl.LinkDb - LinkDb: finished at 2013-12-18 17:52:17, elapsed: 00:00:01
+2013-12-18 17:52:17,753 INFO  indexer.IndexingJob - Indexer: starting at 2013-12-18 17:52:17
+2013-12-18 17:52:17,754 INFO  indexer.IndexingJob - Indexer: deleting gone documents: false
+2013-12-18 17:52:17,754 INFO  indexer.IndexingJob - Indexer: URL filtering: false
+2013-12-18 17:52:17,754 INFO  indexer.IndexingJob - Indexer: URL normalizing: false
+2013-12-18 17:52:17,757 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.solr.SolrIndexWriter
+2013-12-18 17:52:17,757 INFO  indexer.IndexingJob - Active IndexWriters :
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : use authentication (default false)
+	solr.auth : username for authentication
+	solr.auth.password : password for authentication
+
+
+2013-12-18 17:52:17,758 INFO  indexer.IndexerMapReduce - IndexerMapReduce: crawldb: crawl-20131218175109/crawldb
+2013-12-18 17:52:17,758 INFO  indexer.IndexerMapReduce - IndexerMapReduce: linkdb: crawl-20131218175109/linkdb
+2013-12-18 17:52:17,758 INFO  indexer.IndexerMapReduce - IndexerMapReduces: adding segment: file:/Users/stanimir.nikolov/crawl-20131218175109/segments/20131218175114
+2013-12-18 17:52:17,758 INFO  indexer.IndexerMapReduce - IndexerMapReduces: adding segment: file:/Users/stanimir.nikolov/crawl-20131218175109/segments/20131218175122
+2013-12-18 17:52:17,758 INFO  indexer.IndexerMapReduce - IndexerMapReduces: adding segment: file:/Users/stanimir.nikolov/crawl-20131218175109/segments/20131218175151
+2013-12-18 17:52:17,840 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:17,841 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:17,841 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:17,904 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:17,904 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:17,904 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:17,971 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:17,971 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:17,971 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,026 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,026 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,026 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,092 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,092 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,092 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,149 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,149 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,149 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,215 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,215 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,215 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,268 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,268 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,268 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,335 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,335 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,335 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,387 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,387 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,387 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,451 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,451 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,451 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,504 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,504 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,504 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,569 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,569 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,569 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,621 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,622 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,622 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,642 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2013-12-18 17:52:18,642 INFO  anchor.AnchorIndexingFilter - Anchor deduplication is: off
+2013-12-18 17:52:18,643 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.anchor.AnchorIndexingFilter
+2013-12-18 17:52:18,643 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.solr.SolrIndexWriter
+2013-12-18 17:52:18,666 INFO  solr.SolrMappingReader - source: content dest: content
+2013-12-18 17:52:18,666 INFO  solr.SolrMappingReader - source: title dest: title
+2013-12-18 17:52:18,666 INFO  solr.SolrMappingReader - source: host dest: host
+2013-12-18 17:52:18,666 INFO  solr.SolrMappingReader - source: segment dest: segment
+2013-12-18 17:52:18,666 INFO  solr.SolrMappingReader - source: boost dest: boost
+2013-12-18 17:52:18,667 INFO  solr.SolrMappingReader - source: digest dest: digest
+2013-12-18 17:52:18,667 INFO  solr.SolrMappingReader - source: tstamp dest: tstamp
+2013-12-18 17:52:18,667 INFO  solr.SolrMappingReader - source: url dest: id
+2013-12-18 17:52:18,667 INFO  solr.SolrMappingReader - source: url dest: url
+2013-12-18 17:52:18,686 INFO  solr.SolrIndexWriter - Indexing 11 documents
+2013-12-18 17:52:19,790 INFO  solr.SolrMappingReader - source: content dest: content
+2013-12-18 17:52:19,790 INFO  solr.SolrMappingReader - source: title dest: title
+2013-12-18 17:52:19,790 INFO  solr.SolrMappingReader - source: host dest: host
+2013-12-18 17:52:19,790 INFO  solr.SolrMappingReader - source: segment dest: segment
+2013-12-18 17:52:19,790 INFO  solr.SolrMappingReader - source: boost dest: boost
+2013-12-18 17:52:19,790 INFO  solr.SolrMappingReader - source: digest dest: digest
+2013-12-18 17:52:19,790 INFO  solr.SolrMappingReader - source: tstamp dest: tstamp
+2013-12-18 17:52:19,790 INFO  solr.SolrMappingReader - source: url dest: id
+2013-12-18 17:52:19,790 INFO  solr.SolrMappingReader - source: url dest: url
+2013-12-18 17:52:19,853 INFO  indexer.IndexingJob - Indexer: finished at 2013-12-18 17:52:19, elapsed: 00:00:02
+2013-12-18 17:52:19,854 INFO  solr.SolrDeleteDuplicates - SolrDeleteDuplicates: starting at 2013-12-18 17:52:19
+2013-12-18 17:52:19,854 INFO  solr.SolrDeleteDuplicates - SolrDeleteDuplicates: Solr url: http://localhost:8983/solr/
+2013-12-18 17:52:19,965 INFO  solr.SolrDeleteDuplicates - SolrDeleteDuplicates: deleting 1 duplicates
+2013-12-18 17:52:19,984 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2013-12-18 17:52:20,894 INFO  solr.SolrDeleteDuplicates - SolrDeleteDuplicates: finished at 2013-12-18 17:52:20, elapsed: 00:00:01
+2013-12-18 17:52:20,894 INFO  crawl.Crawl - crawl finished: crawl-20131218175109
+2013-12-18 17:59:20,710 INFO  crawl.Crawl - crawl started in: crawl-20131218175920
+2013-12-18 17:59:20,710 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 17:59:20,710 INFO  crawl.Crawl - threads = 10
+2013-12-18 17:59:20,711 INFO  crawl.Crawl - depth = 3
+2013-12-18 17:59:20,711 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 17:59:20,711 INFO  crawl.Crawl - topN = 5
+2013-12-18 17:59:20,721 INFO  crawl.Injector - Injector: starting at 2013-12-18 17:59:20
+2013-12-18 17:59:20,721 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218175920/crawldb
+2013-12-18 17:59:20,721 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 17:59:20,721 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 17:59:20,750 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 17:59:20,792 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 17:59:21,180 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 17:59:21,931 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 17:59:21,931 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 17:59:21,931 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 17:59:22,998 INFO  crawl.Injector - Injector: finished at 2013-12-18 17:59:22, elapsed: 00:00:02
+2013-12-18 17:59:23,000 INFO  crawl.Generator - Generator: starting at 2013-12-18 17:59:23
+2013-12-18 17:59:23,000 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 17:59:23,000 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 17:59:23,000 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 17:59:23,000 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 17:59:23,001 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 17:59:23,090 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:59:23,090 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:59:23,090 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:59:23,101 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 17:59:23,102 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 17:59:23,102 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 17:59:24,040 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 17:59:24,040 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 17:59:24,040 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 17:59:24,040 INFO  crawl.Crawl - crawl finished: crawl-20131218175920
+2013-12-18 18:00:12,451 INFO  crawl.Crawl - crawl started in: crawl-20131218180012
+2013-12-18 18:00:12,451 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 18:00:12,452 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:00:12,452 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:00:12,452 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:00:12,452 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:00:12,461 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:00:12
+2013-12-18 18:00:12,461 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218180012/crawldb
+2013-12-18 18:00:12,462 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 18:00:12,462 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:00:12,493 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:00:12,541 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:00:12,916 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:00:13,689 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:00:13,689 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:00:13,689 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:00:14,755 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:00:14, elapsed: 00:00:02
+2013-12-18 18:00:14,756 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:00:14
+2013-12-18 18:00:14,756 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:00:14,756 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:00:14,757 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:00:14,757 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:00:14,757 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:00:14,850 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:00:14,851 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:00:14,851 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:00:14,860 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:00:14,860 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:00:14,860 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:00:15,805 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:00:15,806 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:00:15,806 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:00:15,806 INFO  crawl.Crawl - crawl finished: crawl-20131218180012
+2013-12-18 18:00:35,763 INFO  crawl.Crawl - crawl started in: crawl-20131218180035
+2013-12-18 18:00:35,763 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 18:00:35,763 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:00:35,763 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:00:35,763 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:00:35,763 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:00:35,773 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:00:35
+2013-12-18 18:00:35,773 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218180035/crawldb
+2013-12-18 18:00:35,773 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 18:00:35,774 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:00:35,803 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:00:35,846 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:00:36,213 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:00:36,985 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:00:36,985 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:00:36,985 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:00:38,052 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:00:38, elapsed: 00:00:02
+2013-12-18 18:00:38,054 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:00:38
+2013-12-18 18:00:38,054 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:00:38,054 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:00:38,054 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:00:38,054 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:00:38,055 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:00:38,148 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:00:38,149 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:00:38,149 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:00:38,159 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:00:38,159 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:00:38,159 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:00:39,103 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:00:39,103 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:00:39,103 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:00:39,103 INFO  crawl.Crawl - crawl finished: crawl-20131218180035
+2013-12-18 18:04:41,229 INFO  crawl.Crawl - crawl started in: crawl-20131218180441
+2013-12-18 18:04:41,229 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 18:04:41,229 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:04:41,229 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:04:41,229 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:04:41,229 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:04:41,239 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:04:41
+2013-12-18 18:04:41,239 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218180441/crawldb
+2013-12-18 18:04:41,239 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 18:04:41,239 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:04:41,270 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:04:41,312 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:04:41,679 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:04:42,452 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:04:42,452 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:04:42,452 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:04:43,518 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:04:43, elapsed: 00:00:02
+2013-12-18 18:04:43,520 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:04:43
+2013-12-18 18:04:43,520 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:04:43,520 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:04:43,520 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:04:43,520 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:04:43,520 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:04:43,614 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:04:43,615 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:04:43,615 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:04:43,626 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:04:43,626 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:04:43,626 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:04:44,566 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:04:44,567 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:04:44,567 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:04:44,567 INFO  crawl.Crawl - crawl finished: crawl-20131218180441
+2013-12-18 18:05:47,710 INFO  crawl.Crawl - crawl started in: crawl-20131218180547
+2013-12-18 18:05:47,710 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 18:05:47,710 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:05:47,710 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:05:47,710 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:05:47,710 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:05:47,720 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:05:47
+2013-12-18 18:05:47,720 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218180547/crawldb
+2013-12-18 18:05:47,720 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls2
+2013-12-18 18:05:47,720 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:05:47,753 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:05:47,801 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:05:48,175 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:05:48,949 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:05:48,950 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:05:48,950 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:05:50,016 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:05:50, elapsed: 00:00:02
+2013-12-18 18:05:50,018 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:05:50
+2013-12-18 18:05:50,018 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:05:50,018 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:05:50,018 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:05:50,018 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:05:50,019 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:05:50,109 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:05:50,110 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:05:50,110 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:05:50,119 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:05:50,119 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:05:50,119 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:05:51,057 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:05:51,058 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:05:51,058 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:05:51,058 INFO  crawl.Crawl - crawl finished: crawl-20131218180547
+2013-12-18 18:06:48,450 INFO  crawl.Crawl - crawl started in: crawl-20131218180648
+2013-12-18 18:06:48,450 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:06:48,450 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:06:48,450 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:06:48,450 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:06:48,451 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:06:48,461 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:06:48
+2013-12-18 18:06:48,461 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218180648/crawldb
+2013-12-18 18:06:48,462 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:06:48,462 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:06:48,491 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:06:48,534 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:06:48,902 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:06:49,674 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:06:49,674 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:06:49,674 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:06:50,742 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:06:50, elapsed: 00:00:02
+2013-12-18 18:06:50,744 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:06:50
+2013-12-18 18:06:50,744 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:06:50,744 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:06:50,744 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:06:50,744 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:06:50,744 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:06:50,837 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:06:50,837 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:06:50,837 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:06:50,847 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:06:50,847 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:06:50,847 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:06:51,790 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:06:51,791 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:06:51,791 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:06:51,791 INFO  crawl.Crawl - crawl finished: crawl-20131218180648
+2013-12-18 18:12:37,447 INFO  crawl.Crawl - crawl started in: crawl-20131218181237
+2013-12-18 18:12:37,447 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:12:37,447 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:12:37,447 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:12:37,447 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:12:37,448 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:12:37,458 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:12:37
+2013-12-18 18:12:37,458 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218181237/crawldb
+2013-12-18 18:12:37,458 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:12:37,458 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:12:37,488 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:12:37,531 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:12:37,896 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:12:38,670 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:12:38,670 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:12:38,670 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:12:39,736 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:12:39, elapsed: 00:00:02
+2013-12-18 18:12:39,738 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:12:39
+2013-12-18 18:12:39,738 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:12:39,738 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:12:39,738 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:12:39,738 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:12:39,738 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:12:39,829 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:12:39,830 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:12:39,830 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:12:39,839 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:12:39,839 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:12:39,839 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:12:40,778 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:12:40,779 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:12:40,779 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:12:40,779 INFO  crawl.Crawl - crawl finished: crawl-20131218181237
+2013-12-18 18:13:09,433 INFO  crawl.Crawl - crawl started in: crawl-20131218181309
+2013-12-18 18:13:09,433 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:13:09,433 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:13:09,433 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:13:09,433 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:13:09,433 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:13:09,444 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:13:09
+2013-12-18 18:13:09,444 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218181309/crawldb
+2013-12-18 18:13:09,444 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:13:09,444 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:13:09,474 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:13:09,516 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:13:09,883 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:13:10,656 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:13:10,656 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:13:10,657 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:13:11,722 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:13:11, elapsed: 00:00:02
+2013-12-18 18:13:11,724 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:13:11
+2013-12-18 18:13:11,724 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:13:11,724 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:13:11,724 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:13:11,724 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:13:11,725 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:13:11,819 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:13:11,819 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:13:11,819 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:13:11,829 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:13:11,829 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:13:11,829 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:13:12,774 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:13:12,774 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:13:12,774 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:13:12,774 INFO  crawl.Crawl - crawl finished: crawl-20131218181309
+2013-12-18 18:13:53,406 INFO  crawl.Crawl - crawl started in: crawl-20131218181353
+2013-12-18 18:13:53,407 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:13:53,407 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:13:53,407 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:13:53,407 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:13:53,407 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:13:53,417 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:13:53
+2013-12-18 18:13:53,417 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218181353/crawldb
+2013-12-18 18:13:53,417 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:13:53,417 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:13:53,448 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:13:53,491 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:13:53,854 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:13:54,630 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:13:54,630 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:13:54,630 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:13:55,698 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:13:55, elapsed: 00:00:02
+2013-12-18 18:13:55,700 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:13:55
+2013-12-18 18:13:55,700 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:13:55,700 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:13:55,700 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:13:55,700 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:13:55,701 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:13:55,791 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:13:55,791 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:13:55,792 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:13:55,801 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:13:55,801 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:13:55,801 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:13:56,740 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:13:56,741 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:13:56,741 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:13:56,741 INFO  crawl.Crawl - crawl finished: crawl-20131218181353
+2013-12-18 18:16:15,795 INFO  crawl.Crawl - crawl started in: crawl-20131218181615
+2013-12-18 18:16:15,795 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:16:15,795 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:16:15,795 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:16:15,795 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:16:15,795 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:16:15,806 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:16:15
+2013-12-18 18:16:15,806 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218181615/crawldb
+2013-12-18 18:16:15,806 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:16:15,806 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:16:15,835 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:16:15,878 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:16:16,240 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:16:17,015 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:16:17,015 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:16:17,015 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:16:18,084 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:16:18, elapsed: 00:00:02
+2013-12-18 18:16:18,086 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:16:18
+2013-12-18 18:16:18,086 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:16:18,086 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:16:18,086 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:16:18,086 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:16:18,087 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:16:18,176 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:16:18,177 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:16:18,177 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:16:18,186 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:16:18,187 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:16:18,187 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:16:19,126 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:16:19,127 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:16:19,127 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:16:19,127 INFO  crawl.Crawl - crawl finished: crawl-20131218181615
+2013-12-18 18:17:13,921 INFO  crawl.Crawl - crawl started in: crawl-20131218181713
+2013-12-18 18:17:13,921 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:17:13,921 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:17:13,921 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:17:13,921 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:17:13,922 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:17:13,931 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:17:13
+2013-12-18 18:17:13,931 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218181713/crawldb
+2013-12-18 18:17:13,931 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:17:13,932 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:17:13,962 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:17:14,010 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:17:14,382 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:17:15,157 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:17:15,157 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:17:15,157 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:17:16,223 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:17:16, elapsed: 00:00:02
+2013-12-18 18:17:16,225 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:17:16
+2013-12-18 18:17:16,225 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:17:16,225 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:17:16,225 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:17:16,225 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:17:16,225 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:17:16,317 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:17:16,317 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:17:16,317 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:17:16,327 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:17:16,327 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:17:16,327 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:17:17,264 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:17:17,265 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:17:17,265 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:17:17,265 INFO  crawl.Crawl - crawl finished: crawl-20131218181713
+2013-12-18 18:18:40,992 INFO  crawl.Crawl - crawl started in: crawl-20131218181840
+2013-12-18 18:18:40,992 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:18:40,992 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:18:40,992 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:18:40,992 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:18:40,992 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:18:41,002 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:18:41
+2013-12-18 18:18:41,002 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218181840/crawldb
+2013-12-18 18:18:41,002 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:18:41,003 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:18:41,033 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:18:41,075 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:18:41,443 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:18:42,212 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:18:42,212 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:18:42,212 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:18:43,277 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:18:43, elapsed: 00:00:02
+2013-12-18 18:18:43,279 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:18:43
+2013-12-18 18:18:43,279 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:18:43,279 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:18:43,279 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:18:43,279 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:18:43,280 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:18:43,375 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:18:43,376 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:18:43,376 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:18:43,387 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:18:43,387 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:18:43,387 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:18:44,327 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:18:44,328 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:18:44,328 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:18:44,328 INFO  crawl.Crawl - crawl finished: crawl-20131218181840
+2013-12-18 18:20:07,328 INFO  crawl.Crawl - crawl started in: crawl-20131218182007
+2013-12-18 18:20:07,329 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:20:07,329 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:20:07,329 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:20:07,329 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:20:07,329 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:20:07,339 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:20:07
+2013-12-18 18:20:07,339 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218182007/crawldb
+2013-12-18 18:20:07,339 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:20:07,339 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:20:07,369 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:20:07,411 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:20:07,781 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:20:08,554 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:20:08,554 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:20:08,554 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:20:09,620 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:20:09, elapsed: 00:00:02
+2013-12-18 18:20:09,622 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:20:09
+2013-12-18 18:20:09,622 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:20:09,622 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:20:09,622 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:20:09,622 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:20:09,622 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:20:09,714 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:20:09,714 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:20:09,714 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:20:09,724 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:20:09,724 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:20:09,724 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:20:10,662 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:20:10,663 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:20:10,663 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:20:10,663 INFO  crawl.Crawl - crawl finished: crawl-20131218182007
+2013-12-18 18:21:21,713 INFO  crawl.Crawl - crawl started in: crawl-20131218182121
+2013-12-18 18:21:21,714 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:21:21,714 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:21:21,714 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:21:21,714 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:21:21,714 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:21:21,724 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:21:21
+2013-12-18 18:21:21,724 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218182121/crawldb
+2013-12-18 18:21:21,724 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls3
+2013-12-18 18:21:21,724 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:21:21,754 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:21:21,796 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:21:22,159 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:21:22,934 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:21:22,934 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:21:22,934 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:21:23,998 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:21:23, elapsed: 00:00:02
+2013-12-18 18:21:24,000 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:21:24
+2013-12-18 18:21:24,000 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:21:24,000 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:21:24,000 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:21:24,000 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:21:24,001 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:21:24,093 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:21:24,093 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:21:24,093 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:21:24,104 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:21:24,104 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:21:24,104 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:21:25,041 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:21:25,041 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:21:25,042 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:21:25,042 INFO  crawl.Crawl - crawl finished: crawl-20131218182121
+2013-12-18 18:22:55,721 INFO  crawl.Crawl - crawl started in: crawl-20131218182255
+2013-12-18 18:22:55,721 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 18:22:55,721 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:22:55,721 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:22:55,722 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:22:55,722 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:22:55,731 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:22:55
+2013-12-18 18:22:55,732 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218182255/crawldb
+2013-12-18 18:22:55,732 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 18:22:55,732 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:22:55,761 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:22:55,803 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:22:56,173 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:22:56,943 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:22:56,943 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:22:56,943 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:22:58,009 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:22:58, elapsed: 00:00:02
+2013-12-18 18:22:58,010 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:22:58
+2013-12-18 18:22:58,011 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:22:58,011 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:22:58,011 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:22:58,011 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:22:58,011 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:22:58,104 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:22:58,105 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:22:58,105 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:22:58,115 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:22:58,115 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:22:58,115 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:22:59,060 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:22:59,060 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:22:59,060 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:22:59,060 INFO  crawl.Crawl - crawl finished: crawl-20131218182255
+2013-12-18 18:23:46,266 INFO  indexer.IndexingJob - Indexer: starting at 2013-12-18 18:23:46
+2013-12-18 18:23:46,319 INFO  indexer.IndexingJob - Indexer: deleting gone documents: false
+2013-12-18 18:23:46,319 INFO  indexer.IndexingJob - Indexer: URL filtering: false
+2013-12-18 18:23:46,319 INFO  indexer.IndexingJob - Indexer: URL normalizing: false
+2013-12-18 18:23:46,456 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.solr.SolrIndexWriter
+2013-12-18 18:23:46,457 INFO  indexer.IndexingJob - Active IndexWriters :
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : use authentication (default false)
+	solr.auth : username for authentication
+	solr.auth.password : password for authentication
+
+
+2013-12-18 18:23:46,459 INFO  indexer.IndexerMapReduce - IndexerMapReduce: crawldb: crawl/crawldb
+2013-12-18 18:23:46,459 INFO  indexer.IndexerMapReduce - IndexerMapReduce: linkdb: crawl/linkdb
+2013-12-18 18:23:46,459 INFO  indexer.IndexerMapReduce - IndexerMapReduces: adding segment: crawl/segments/*
+2013-12-18 18:23:46,563 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:23:46,604 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:org.apache.hadoop.mapred.InvalidInputException: Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/crawl_fetch matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/crawl_parse matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/parse_data matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/parse_text matches 0 files
+Input path does not exist: file:/Users/stanimir.nikolov/crawl/crawldb/current
+Input path does not exist: file:/Users/stanimir.nikolov/crawl/linkdb/current
+2013-12-18 18:23:46,605 ERROR indexer.IndexingJob - Indexer: org.apache.hadoop.mapred.InvalidInputException: Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/crawl_fetch matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/crawl_parse matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/parse_data matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/parse_text matches 0 files
+Input path does not exist: file:/Users/stanimir.nikolov/crawl/crawldb/current
+Input path does not exist: file:/Users/stanimir.nikolov/crawl/linkdb/current
+	at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:197)
+	at org.apache.hadoop.mapred.SequenceFileInputFormat.listStatus(SequenceFileInputFormat.java:40)
+	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:208)
+	at org.apache.hadoop.mapred.JobClient.writeOldSplits(JobClient.java:1081)
+	at org.apache.hadoop.mapred.JobClient.writeSplits(JobClient.java:1073)
+	at org.apache.hadoop.mapred.JobClient.access$700(JobClient.java:179)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:983)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:936)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:394)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1190)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:936)
+	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:910)
+	at org.apache.hadoop.mapred.JobClient.runJob(JobClient.java:1353)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:123)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:185)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:195)
+
+2013-12-18 18:23:56,684 INFO  crawl.Crawl - crawl started in: crawl-20131218182356
+2013-12-18 18:23:56,684 INFO  crawl.Crawl - rootUrlDir = /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 18:23:56,684 INFO  crawl.Crawl - threads = 10
+2013-12-18 18:23:56,684 INFO  crawl.Crawl - depth = 3
+2013-12-18 18:23:56,685 INFO  crawl.Crawl - solrUrl=http://localhost:8983/solr/
+2013-12-18 18:23:56,685 INFO  crawl.Crawl - topN = 5
+2013-12-18 18:23:56,695 INFO  crawl.Injector - Injector: starting at 2013-12-18 18:23:56
+2013-12-18 18:23:56,695 INFO  crawl.Injector - Injector: crawlDb: crawl-20131218182356/crawldb
+2013-12-18 18:23:56,695 INFO  crawl.Injector - Injector: urlDir: /Users/stanimir.nikolov/Documents/Education/FMI/AI/iDoctor/WebCrawler2/apache-nutch-1-7/urls
+2013-12-18 18:23:56,695 INFO  crawl.Injector - Injector: Converting injected urls to crawl db entries.
+2013-12-18 18:23:56,724 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:23:56,766 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2013-12-18 18:23:57,132 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2013-12-18 18:23:57,905 INFO  crawl.Injector - Injector: total number of urls rejected by filters: 1
+2013-12-18 18:23:57,905 INFO  crawl.Injector - Injector: total number of urls injected after normalization and filtering: 0
+2013-12-18 18:23:57,905 INFO  crawl.Injector - Injector: Merging injected urls into crawl db.
+2013-12-18 18:23:58,972 INFO  crawl.Injector - Injector: finished at 2013-12-18 18:23:58, elapsed: 00:00:02
+2013-12-18 18:23:58,974 INFO  crawl.Generator - Generator: starting at 2013-12-18 18:23:58
+2013-12-18 18:23:58,974 INFO  crawl.Generator - Generator: Selecting best-scoring urls due for fetch.
+2013-12-18 18:23:58,974 INFO  crawl.Generator - Generator: filtering: true
+2013-12-18 18:23:58,974 INFO  crawl.Generator - Generator: normalizing: true
+2013-12-18 18:23:58,974 INFO  crawl.Generator - Generator: topN: 5
+2013-12-18 18:23:58,974 INFO  crawl.Generator - Generator: jobtracker is 'local', generating exactly one partition.
+2013-12-18 18:23:59,064 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:23:59,065 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:23:59,065 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:23:59,075 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.DefaultFetchSchedule
+2013-12-18 18:23:59,075 INFO  crawl.AbstractFetchSchedule - defaultInterval=2592000
+2013-12-18 18:23:59,075 INFO  crawl.AbstractFetchSchedule - maxInterval=7776000
+2013-12-18 18:24:00,020 WARN  crawl.Generator - Generator: 0 records selected for fetching, exiting ...
+2013-12-18 18:24:00,022 INFO  crawl.Crawl - Stopping at depth=0 - no more URLs to fetch.
+2013-12-18 18:24:00,022 WARN  crawl.Crawl - No URLs to fetch - check your seed list and URL filters.
+2013-12-18 18:24:00,022 INFO  crawl.Crawl - crawl finished: crawl-20131218182356
+2013-12-18 18:24:03,302 INFO  indexer.IndexingJob - Indexer: starting at 2013-12-18 18:24:03
+2013-12-18 18:24:03,357 INFO  indexer.IndexingJob - Indexer: deleting gone documents: false
+2013-12-18 18:24:03,357 INFO  indexer.IndexingJob - Indexer: URL filtering: false
+2013-12-18 18:24:03,357 INFO  indexer.IndexingJob - Indexer: URL normalizing: false
+2013-12-18 18:24:03,494 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.solr.SolrIndexWriter
+2013-12-18 18:24:03,494 INFO  indexer.IndexingJob - Active IndexWriters :
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : use authentication (default false)
+	solr.auth : username for authentication
+	solr.auth.password : password for authentication
+
+
+2013-12-18 18:24:03,496 INFO  indexer.IndexerMapReduce - IndexerMapReduce: crawldb: crawl/crawldb
+2013-12-18 18:24:03,496 INFO  indexer.IndexerMapReduce - IndexerMapReduce: linkdb: crawl/linkdb
+2013-12-18 18:24:03,496 INFO  indexer.IndexerMapReduce - IndexerMapReduces: adding segment: crawl/segments/*
+2013-12-18 18:24:03,602 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-18 18:24:03,643 ERROR security.UserGroupInformation - PriviledgedActionException as:stanimir.nikolov cause:org.apache.hadoop.mapred.InvalidInputException: Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/crawl_fetch matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/crawl_parse matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/parse_data matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/parse_text matches 0 files
+Input path does not exist: file:/Users/stanimir.nikolov/crawl/crawldb/current
+Input path does not exist: file:/Users/stanimir.nikolov/crawl/linkdb/current
+2013-12-18 18:24:03,644 ERROR indexer.IndexingJob - Indexer: org.apache.hadoop.mapred.InvalidInputException: Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/crawl_fetch matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/crawl_parse matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/parse_data matches 0 files
+Input Pattern file:/Users/stanimir.nikolov/crawl/segments/*/parse_text matches 0 files
+Input path does not exist: file:/Users/stanimir.nikolov/crawl/crawldb/current
+Input path does not exist: file:/Users/stanimir.nikolov/crawl/linkdb/current
+	at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:197)
+	at org.apache.hadoop.mapred.SequenceFileInputFormat.listStatus(SequenceFileInputFormat.java:40)
+	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:208)
+	at org.apache.hadoop.mapred.JobClient.writeOldSplits(JobClient.java:1081)
+	at org.apache.hadoop.mapred.JobClient.writeSplits(JobClient.java:1073)
+	at org.apache.hadoop.mapred.JobClient.access$700(JobClient.java:179)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:983)
+	at org.apache.hadoop.mapred.JobClient$2.run(JobClient.java:936)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:394)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1190)
+	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:936)
+	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:910)
+	at org.apache.hadoop.mapred.JobClient.runJob(JobClient.java:1353)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:123)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:185)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:195)
+
