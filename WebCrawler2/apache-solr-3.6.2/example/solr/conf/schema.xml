@@ -117,8 +117,6 @@
             
         <!-- fields for tld plugin -->    
         <field name="tld" type="string" stored="false" indexed="false"/>
-        
-        <field name="_version_" type="long" indexed="true" stored="true"/>
     </fields>
     <uniqueKey>id</uniqueKey>
     <defaultSearchField>content</defaultSearchField>

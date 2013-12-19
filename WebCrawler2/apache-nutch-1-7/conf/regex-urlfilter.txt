@@ -36,5 +36,6 @@
 -.*(/[^/]+)/[^/]+\1/[^/]+\1/
 
 # accept anything else
-+^http://([a-z0-9]*\.)*medicines.org.uk/
-#+^http://([a-z0-9]*\.)*nutch.apache.org/
+#+^http://hardwarebg.com/
+ +^http://([a-z0-9A-Z]*\.)*www.medicines.org.uk/emc/medicine/
+# +^http://([a-z0-9]*\.)*nutch.apache.org/
