@@ -8,4 +8,12 @@
  <name>http.agent.name</name>
  <value>My Working Nutch Spider</value>
 </property>
+
+<property>
+  <name>urlfilter.regex.file</name>
+  <value>regex-urlfilter.txt</value>
+  <description>Name of file on CLASSPATH containing regular expressions
+  used by urlfilter-regex (RegexURLFilter) plugin.</description>
+</property>
+
 </configuration>

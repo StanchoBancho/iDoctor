@@ -1,1 +1,3 @@
-www.medicines.org.uk
+http://fdb.rxlist.com/drugs/
+http://edition.cnn.com/WORLD/
+http://www.medicines.org.uk/emc/browsedocuments.aspx
