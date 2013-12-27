@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E588B7F18688A580074004C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E588B7E18688A580074004C /* Cocoa.framework */; };
+		2E588B8918688A580074004C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E588B8718688A580074004C /* InfoPlist.strings */; };
+		2E588B8B18688A580074004C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E588B8A18688A580074004C /* main.m */; };
+		2E588B8F18688A580074004C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2E588B8D18688A580074004C /* Credits.rtf */; };
+		2E588B9218688A580074004C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E588B9118688A580074004C /* AppDelegate.m */; };
+		2E588B9518688A580074004C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E588B9318688A580074004C /* MainMenu.xib */; };
+		2E588B9818688A580074004C /* MedicineDataBaseCreator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E588B9618688A580074004C /* MedicineDataBaseCreator.xcdatamodeld */; };
+		2E588B9A18688A580074004C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E588B9918688A580074004C /* Images.xcassets */; };
+		2E588BA118688A580074004C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E588BA018688A580074004C /* XCTest.framework */; };
+		2E588BA218688A580074004C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E588B7E18688A580074004C /* Cocoa.framework */; };
+		2E588BAA18688A580074004C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E588BA818688A580074004C /* InfoPlist.strings */; };
+		2E588BAC18688A580074004C /* MedicineDataBaseCreatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E588BAB18688A580074004C /* MedicineDataBaseCreatorTests.m */; };
+		2E588BB718688B760074004C /* MDBCFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E588BB618688B760074004C /* MDBCFileParser.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2E588BA318688A580074004C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E588B7318688A580074004C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E588B7A18688A580074004C;
+			remoteInfo = MedicineDataBaseCreator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2E588B7B18688A580074004C /* MedicineDataBaseCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicineDataBaseCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E588B7E18688A580074004C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2E588B8118688A580074004C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		2E588B8218688A580074004C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2E588B8318688A580074004C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2E588B8618688A580074004C /* MedicineDataBaseCreator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MedicineDataBaseCreator-Info.plist"; sourceTree = "<group>"; };
+		2E588B8818688A580074004C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2E588B8A18688A580074004C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2E588B8C18688A580074004C /* MedicineDataBaseCreator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MedicineDataBaseCreator-Prefix.pch"; sourceTree = "<group>"; };
+		2E588B8E18688A580074004C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2E588B9018688A580074004C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2E588B9118688A580074004C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2E588B9418688A580074004C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2E588B9718688A580074004C /* MedicineDataBaseCreator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MedicineDataBaseCreator.xcdatamodel; sourceTree = "<group>"; };
+		2E588B9918688A580074004C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2E588B9F18688A580074004C /* MedicineDataBaseCreatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MedicineDataBaseCreatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E588BA018688A580074004C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2E588BA718688A580074004C /* MedicineDataBaseCreatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MedicineDataBaseCreatorTests-Info.plist"; sourceTree = "<group>"; };
+		2E588BA918688A580074004C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2E588BAB18688A580074004C /* MedicineDataBaseCreatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MedicineDataBaseCreatorTests.m; sourceTree = "<group>"; };
+		2E588BB518688B760074004C /* MDBCFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDBCFileParser.h; sourceTree = "<group>"; };
+		2E588BB618688B760074004C /* MDBCFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDBCFileParser.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2E588B7818688A580074004C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E588B7F18688A580074004C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E588B9C18688A580074004C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E588BA218688A580074004C /* Cocoa.framework in Frameworks */,
+				2E588BA118688A580074004C /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E588B7218688A580074004C = {
+			isa = PBXGroup;
+			children = (
+				2E588B8418688A580074004C /* MedicineDataBaseCreator */,
+				2E588BA518688A580074004C /* MedicineDataBaseCreatorTests */,
+				2E588B7D18688A580074004C /* Frameworks */,
+				2E588B7C18688A580074004C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2E588B7C18688A580074004C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E588B7B18688A580074004C /* MedicineDataBaseCreator.app */,
+				2E588B9F18688A580074004C /* MedicineDataBaseCreatorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E588B7D18688A580074004C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E588B7E18688A580074004C /* Cocoa.framework */,
+				2E588BA018688A580074004C /* XCTest.framework */,
+				2E588B8018688A580074004C /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E588B8018688A580074004C /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E588B8118688A580074004C /* AppKit.framework */,
+				2E588B8218688A580074004C /* CoreData.framework */,
+				2E588B8318688A580074004C /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		2E588B8418688A580074004C /* MedicineDataBaseCreator */ = {
+			isa = PBXGroup;
+			children = (
+				2E588B9018688A580074004C /* AppDelegate.h */,
+				2E588B9118688A580074004C /* AppDelegate.m */,
+				2E588BB518688B760074004C /* MDBCFileParser.h */,
+				2E588BB618688B760074004C /* MDBCFileParser.m */,
+				2E588B9318688A580074004C /* MainMenu.xib */,
+				2E588B9918688A580074004C /* Images.xcassets */,
+				2E588B9618688A580074004C /* MedicineDataBaseCreator.xcdatamodeld */,
+				2E588B8518688A580074004C /* Supporting Files */,
+			);
+			path = MedicineDataBaseCreator;
+			sourceTree = "<group>";
+		};
+		2E588B8518688A580074004C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2E588B8618688A580074004C /* MedicineDataBaseCreator-Info.plist */,
+				2E588B8718688A580074004C /* InfoPlist.strings */,
+				2E588B8A18688A580074004C /* main.m */,
+				2E588B8C18688A580074004C /* MedicineDataBaseCreator-Prefix.pch */,
+				2E588B8D18688A580074004C /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2E588BA518688A580074004C /* MedicineDataBaseCreatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				2E588BAB18688A580074004C /* MedicineDataBaseCreatorTests.m */,
+				2E588BA618688A580074004C /* Supporting Files */,
+			);
+			path = MedicineDataBaseCreatorTests;
+			sourceTree = "<group>";
+		};
+		2E588BA618688A580074004C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2E588BA718688A580074004C /* MedicineDataBaseCreatorTests-Info.plist */,
+				2E588BA818688A580074004C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E588B7A18688A580074004C /* MedicineDataBaseCreator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E588BAF18688A580074004C /* Build configuration list for PBXNativeTarget "MedicineDataBaseCreator" */;
+			buildPhases = (
+				2E588B7718688A580074004C /* Sources */,
+				2E588B7818688A580074004C /* Frameworks */,
+				2E588B7918688A580074004C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MedicineDataBaseCreator;
+			productName = MedicineDataBaseCreator;
+			productReference = 2E588B7B18688A580074004C /* MedicineDataBaseCreator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2E588B9E18688A580074004C /* MedicineDataBaseCreatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E588BB218688A580074004C /* Build configuration list for PBXNativeTarget "MedicineDataBaseCreatorTests" */;
+			buildPhases = (
+				2E588B9B18688A580074004C /* Sources */,
+				2E588B9C18688A580074004C /* Frameworks */,
+				2E588B9D18688A580074004C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E588BA418688A580074004C /* PBXTargetDependency */,
+			);
+			name = MedicineDataBaseCreatorTests;
+			productName = MedicineDataBaseCreatorTests;
+			productReference = 2E588B9F18688A580074004C /* MedicineDataBaseCreatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2E588B7318688A580074004C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Stanimir Nikolov";
+				TargetAttributes = {
+					2E588B9E18688A580074004C = {
+						TestTargetID = 2E588B7A18688A580074004C;
+					};
+				};
+			};
+			buildConfigurationList = 2E588B7618688A580074004C /* Build configuration list for PBXProject "MedicineDataBaseCreator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2E588B7218688A580074004C;
+			productRefGroup = 2E588B7C18688A580074004C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2E588B7A18688A580074004C /* MedicineDataBaseCreator */,
+				2E588B9E18688A580074004C /* MedicineDataBaseCreatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E588B7918688A580074004C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E588B8918688A580074004C /* InfoPlist.strings in Resources */,
+				2E588B9A18688A580074004C /* Images.xcassets in Resources */,
+				2E588B8F18688A580074004C /* Credits.rtf in Resources */,
+				2E588B9518688A580074004C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E588B9D18688A580074004C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E588BAA18688A580074004C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E588B7718688A580074004C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E588B9818688A580074004C /* MedicineDataBaseCreator.xcdatamodeld in Sources */,
+				2E588B9218688A580074004C /* AppDelegate.m in Sources */,
+				2E588BB718688B760074004C /* MDBCFileParser.m in Sources */,
+				2E588B8B18688A580074004C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E588B9B18688A580074004C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E588BAC18688A580074004C /* MedicineDataBaseCreatorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E588BA418688A580074004C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E588B7A18688A580074004C /* MedicineDataBaseCreator */;
+			targetProxy = 2E588BA318688A580074004C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2E588B8718688A580074004C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E588B8818688A580074004C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2E588B8D18688A580074004C /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E588B8E18688A580074004C /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		2E588B9318688A580074004C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E588B9418688A580074004C /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		2E588BA818688A580074004C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E588BA918688A580074004C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2E588BAD18688A580074004C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2E588BAE18688A580074004C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2E588BB018688A580074004C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MedicineDataBaseCreator/MedicineDataBaseCreator-Prefix.pch";
+				INFOPLIST_FILE = "MedicineDataBaseCreator/MedicineDataBaseCreator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2E588BB118688A580074004C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MedicineDataBaseCreator/MedicineDataBaseCreator-Prefix.pch";
+				INFOPLIST_FILE = "MedicineDataBaseCreator/MedicineDataBaseCreator-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2E588BB318688A580074004C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MedicineDataBaseCreator.app/Contents/MacOS/MedicineDataBaseCreator";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MedicineDataBaseCreator/MedicineDataBaseCreator-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MedicineDataBaseCreatorTests/MedicineDataBaseCreatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2E588BB418688A580074004C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MedicineDataBaseCreator.app/Contents/MacOS/MedicineDataBaseCreator";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MedicineDataBaseCreator/MedicineDataBaseCreator-Prefix.pch";
+				INFOPLIST_FILE = "MedicineDataBaseCreatorTests/MedicineDataBaseCreatorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E588B7618688A580074004C /* Build configuration list for PBXProject "MedicineDataBaseCreator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E588BAD18688A580074004C /* Debug */,
+				2E588BAE18688A580074004C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E588BAF18688A580074004C /* Build configuration list for PBXNativeTarget "MedicineDataBaseCreator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E588BB018688A580074004C /* Debug */,
+				2E588BB118688A580074004C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2E588BB218688A580074004C /* Build configuration list for PBXNativeTarget "MedicineDataBaseCreatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E588BB318688A580074004C /* Debug */,
+				2E588BB418688A580074004C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2E588B9618688A580074004C /* MedicineDataBaseCreator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2E588B9718688A580074004C /* MedicineDataBaseCreator.xcdatamodel */,
+			);
+			currentVersion = 2E588B9718688A580074004C /* MedicineDataBaseCreator.xcdatamodel */;
+			path = MedicineDataBaseCreator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2E588B7318688A580074004C /* Project object */;
+}
