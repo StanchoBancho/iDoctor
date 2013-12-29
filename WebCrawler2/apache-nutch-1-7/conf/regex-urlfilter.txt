@@ -37,9 +37,9 @@
 
 # accept anything else
 +^http://fdb.rxlist.com/drugs/drug-.*.aspx.*$
-+^http://fdb.rxlist.com/drugs/
-+^http://fdb.rxlist.com/drugs/drug-.*
-+^http://fdb.rxlist.com/drugs/.*
+#+^http://fdb.rxlist.com/drugs/
++^http://fdb.rxlist.com/drugs/drug-.*$
+#+^http://fdb.rxlist.com/drugs/.*
 
 
 #+^http://www.medicines.org.uk/emc/browsedocuments.aspx
