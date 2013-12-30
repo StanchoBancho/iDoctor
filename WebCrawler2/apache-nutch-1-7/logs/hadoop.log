@@ -18109,3 +18109,37 @@ Caused by: java.lang.OutOfMemoryError: unable to create new native thread
 2013-12-29 11:02:28,271 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=500
 2013-12-29 11:02:29,273 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=500
 2013-12-29 11:02:30,273 INFO  fetcher.Fetcher - -activeThreads=10, spinWaiting=10, fetchQueues.totalSize=500
+2013-12-30 13:17:36,789 INFO  segment.SegmentReader - SegmentReader: dump segment: /Users/stanimir.nikolov/Documents/crawl-20131222143036/segments/20131222143041
+2013-12-30 13:17:36,846 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-30 13:17:36,849 WARN  mapred.JobClient - Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+2013-12-30 13:17:38,062 INFO  segment.SegmentReader - SegmentReader: done
+2013-12-30 13:28:56,646 INFO  segment.SegmentReader - SegmentReader: dump segment: /Users/stanimir.nikolov/Documents/crawl-20131222143036/segments/20131222143041
+2013-12-30 13:28:56,684 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-30 13:28:56,687 WARN  mapred.JobClient - Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+2013-12-30 13:28:57,884 INFO  segment.SegmentReader - SegmentReader: done
+2013-12-30 13:32:53,747 INFO  crawl.CrawlDbReader - CrawlDb statistics start: /Users/stanimir.nikolov/Documents/crawl-20131222143036/crawldb
+2013-12-30 13:32:53,943 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-30 13:32:53,946 WARN  mapred.JobClient - Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+2013-12-30 13:32:55,138 INFO  crawl.CrawlDbReader - Statistics for CrawlDb: /Users/stanimir.nikolov/Documents/crawl-20131222143036/crawldb
+2013-12-30 13:32:55,138 INFO  crawl.CrawlDbReader - TOTAL urls:	10764
+2013-12-30 13:32:55,138 INFO  crawl.CrawlDbReader - retry 0:	10764
+2013-12-30 13:32:55,138 INFO  crawl.CrawlDbReader - min score:	0.0
+2013-12-30 13:32:55,138 INFO  crawl.CrawlDbReader - avg score:	2.1915644E-4
+2013-12-30 13:32:55,138 INFO  crawl.CrawlDbReader - max score:	1.089
+2013-12-30 13:32:55,138 INFO  crawl.CrawlDbReader - status 1 (db_unfetched):	10367
+2013-12-30 13:32:55,138 INFO  crawl.CrawlDbReader - status 2 (db_fetched):	397
+2013-12-30 13:32:55,139 INFO  crawl.CrawlDbReader - CrawlDb statistics: done
+2013-12-30 13:34:42,915 INFO  segment.SegmentReader - SegmentReader: dump segment: /Users/stanimir.nikolov/Documents/crawl-20131222143036/segments/20131222143041
+2013-12-30 13:34:42,955 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-30 13:34:42,958 WARN  mapred.JobClient - Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+2013-12-30 13:34:44,182 INFO  segment.SegmentReader - SegmentReader: done
+2013-12-30 13:38:32,541 INFO  crawl.CrawlDbReader - CrawlDb dump: starting
+2013-12-30 13:38:32,541 INFO  crawl.CrawlDbReader - CrawlDb db: /Users/stanimir.nikolov/Documents/crawl-20131222143036/crawldb
+2013-12-30 13:38:32,735 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-30 13:38:32,737 WARN  mapred.JobClient - Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+2013-12-30 13:38:34,917 INFO  crawl.CrawlDbReader - CrawlDb dump: done
+2013-12-30 13:39:17,731 INFO  crawl.CrawlDbReader - CrawlDb dump: starting
+2013-12-30 13:39:17,731 INFO  crawl.CrawlDbReader - CrawlDb db: /Users/stanimir.nikolov/Documents/crawl-20131222143036/crawldb
+2013-12-30 13:39:17,927 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2013-12-30 13:39:17,930 WARN  mapred.JobClient - Use GenericOptionsParser for parsing the arguments. Applications should implement Tool for the same.
+2013-12-30 13:39:20,109 INFO  crawl.CrawlDbReader - CrawlDb dump: done

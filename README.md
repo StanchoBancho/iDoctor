@@ -18,7 +18,7 @@ http://stackoverflow.com/questions/10772031/nutch-data-read-and-adding-metadata
 
 
 
-
+1000 = 2013-12-30 15:07:41.878 - 2013-12-30 14:55:57.235  = ~12m => 10184 ~ 120m = 2h
 
 
 

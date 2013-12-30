@@ -75,6 +75,7 @@
 		2EB086DC186D7695005628BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2EB086DE186D7695005628BE /* iDoctorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDoctorTests.m; sourceTree = "<group>"; };
 		2EB086EA186D7AFD005628BE /* URLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = URLs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A2C428A418719386004D2BDB /* LatestURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LatestURLs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +110,7 @@
 				2E32F8B8186D984800B7B79B /* CoreDataManager.h */,
 				2E32F8B9186D984800B7B79B /* CoreDataManager.m */,
 				2EB086EA186D7AFD005628BE /* URLs.h */,
+				A2C428A418719386004D2BDB /* LatestURLs.h */,
 				2E32F8B5186D962A00B7B79B /* Medicine.h */,
 				2E32F8B6186D962A00B7B79B /* Medicine.m */,
 			);

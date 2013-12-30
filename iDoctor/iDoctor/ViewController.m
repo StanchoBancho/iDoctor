@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "URLs.h"
+#import "LatestURLs.h"
 #import "TFHpple.h"
 #import "CoreDataManager.h"
 
@@ -36,30 +37,12 @@
 
 -(void)startFetching
 {
-    for(int i = 0; i < 10763; i++)
+    for(int i = 0; i < 10184; i++)
     {
-        
-//        if([CoreDataManager sharedManager].document.documentState != UIDocumentStateNormal){
-//            i--;
-//            continue;
-//        }
-        
-        NSString* url = kURLs[i];
+        NSString* url = kLatestURLs[i];
         if ([[url substringToIndex:33] isEqualToString:@"http://fdb.rxlist.com/drugs/drug-"]){
             [self downloadAndParseTheDataForUrl:url shouldSave:(i % 100 == 0)];
         }
-//        if(i % 10 == 0){
-//            NSLog(@"START SAVING");
-//            
-//            [[CoreDataManager sharedManager].document saveToURL:[CoreDataManager sharedManager].document.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
-//                if(success){
-//                    NSLog(@"SAVING SUCCESSFULL");
-//                }
-//                else{
-//                    NSLog(@"ERROR ON SAVING FOR %d", i);
-//                }
-//            }];
-//        }
     }
 }
 

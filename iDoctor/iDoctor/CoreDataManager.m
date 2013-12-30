@@ -60,9 +60,11 @@ static CoreDataManager* sharedManager;
 
 - (void)updateMedicineWithName:(NSString*)name andURL:(NSString*)url shouldSave:(BOOL)shouldSave;
 {
-    NSManagedObjectContext* context = self.document.managedObjectContext;
-    
     [self.document.managedObjectContext performBlockAndWait:^{
+        
+        
+        
+        NSManagedObjectContext* context = self.document.managedObjectContext;
         
         //fetch all existing tags
         NSFetchRequest *medicineRequest = [NSFetchRequest fetchRequestWithEntityName:@"Medicine"];
@@ -83,7 +85,22 @@ static CoreDataManager* sharedManager;
             [newMedicine setDescriptionUrl:url];
         }
         NSLog(@"updating medicine number: %d with name :%@ and url %@ ",count ++, name, url);
+        
+        NSSet *inserts = [self.document.managedObjectContext insertedObjects];
+        
+        if ([inserts count])
+        {
+            NSError * error = nil;
+            
+            if ([self.document.managedObjectContext obtainPermanentIDsForObjects:[inserts allObjects] error:&error] == NO)
+            {
+                NSLog(@"Error getting permanent ID for object! %@", error);
+            }
+        }
+        
+        [self.document updateChangeCount:UIDocumentChangeDone];
     }];
+    
 }
 
 
