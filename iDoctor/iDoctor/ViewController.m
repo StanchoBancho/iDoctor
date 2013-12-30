@@ -11,29 +11,72 @@
 #import "LatestURLs.h"
 #import "TFHpple.h"
 #import "CoreDataManager.h"
+#import <CoreData/CoreData.h>
+#import "Medicine.h"
 
-@interface ViewController ()
+
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) IBOutlet UITableView* tableView;
 
 @end
 
 @implementation ViewController
 
+- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
+{
+    if (fetchedResultsController != _fetchedResultsController) {
+        _fetchedResultsController = fetchedResultsController;
+        _fetchedResultsController.delegate = self;
+        
+        if (_fetchedResultsController) {
+            NSError *error;
+            [_fetchedResultsController performFetch:&error];
+            if (error) {
+                NSLog(@"setFetchedResultsController: %@ (%@)", [error localizedDescription], [error localizedFailureReason]);
+            }
+        }
+    }
+    
+    [self.tableView reloadData];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [[CoreDataManager sharedManager] setupDocument:^(UIManagedDocument *document, NSError *error) {
+        if(!error && document){
+            //         [self startFetching];
+            
+            
+            
+            
+            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Medicine"];
+            NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+            request.sortDescriptors = @[ sortDescriptor ];
+            
+            self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                                managedObjectContext:document.managedObjectContext
+                                                                                  sectionNameKeyPath:nil
+                                                                                           cacheName:nil];
+            
+        }
+    }];
+
+    
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [[CoreDataManager sharedManager] setupDocument:^(UIManagedDocument *document, NSError *error) {
-        if(!error && document){
-            [self startFetching];
-        }
-    }];
 }
+
+#pragma mark - Creating / updating the database
 
 -(void)startFetching
 {
@@ -75,6 +118,89 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - TableView Data Source Methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    NSInteger result = [[self.fetchedResultsController sections] count];
+    return result;
+}
+
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    NSInteger result = [sectionInfo numberOfObjects];
+    return result;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"medicineCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    Medicine *medicine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = medicine.name;
+    return cell;
+}
+
+#pragma mark - NSFetchedResultsController delegate methods
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
 }
 
 @end
