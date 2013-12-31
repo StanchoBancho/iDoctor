@@ -6,23 +6,23 @@
 //  Copyright (c) 2013 Stanimir Nikolov. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AllMedicinePresentingViewController.h"
 #import "URLs.h"
 #import "LatestURLs.h"
 #import "TFHpple.h"
 #import "CoreDataManager.h"
 #import <CoreData/CoreData.h>
 #import "Medicine.h"
+#import "MedicineDetailViewController.h"
 
-
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+@interface AllMedicinePresentingViewController ()<UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) IBOutlet UITableView* tableView;
 
 @end
 
-@implementation ViewController
+@implementation AllMedicinePresentingViewController
 
 - (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
 {
@@ -143,6 +143,18 @@
     cell.textLabel.text = medicine.name;
     return cell;
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"DetailViewSegue"]){
+        MedicineDetailViewController* detailViewController = segue.destinationViewController;
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        Medicine* selectedMedicine = [self.fetchedResultsController objectAtIndexPath:path];
+        [detailViewController setMedicineUrl:selectedMedicine.descriptionUrl];
+        [detailViewController setTitle:selectedMedicine.name];
+    }
+}
+
 
 #pragma mark - NSFetchedResultsController delegate methods
 
