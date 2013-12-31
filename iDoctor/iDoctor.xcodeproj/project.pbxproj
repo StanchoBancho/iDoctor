@@ -14,6 +14,9 @@
 		2E32F8C7186DB56F00B7B79B /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E32F8C3186DB56F00B7B79B /* TFHppleElement.m */; };
 		2E32F8C8186DB56F00B7B79B /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E32F8C5186DB56F00B7B79B /* XPathQuery.m */; };
 		2E32F8CA186DB7A800B7B79B /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E32F8C9186DB7A800B7B79B /* libxml2.dylib */; };
+		2E555A651872C19E00F2D8B8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E555A641872C19E00F2D8B8 /* MainViewController.m */; };
+		2E555A681872C1E900F2D8B8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E555A671872C1E900F2D8B8 /* SettingsViewController.m */; };
+		2E555A6B1872C91000F2D8B8 /* MedicineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E555A6A1872C91000F2D8B8 /* MedicineDetailViewController.m */; };
 		2EB086B1186D7695005628BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB086B0186D7695005628BE /* Foundation.framework */; };
 		2EB086B3186D7695005628BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB086B2186D7695005628BE /* CoreGraphics.framework */; };
 		2EB086B5186D7695005628BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB086B4186D7695005628BE /* UIKit.framework */; };
@@ -22,7 +25,7 @@
 		2EB086C1186D7695005628BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB086C0186D7695005628BE /* AppDelegate.m */; };
 		2EB086C4186D7695005628BE /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB086C2186D7695005628BE /* Main_iPhone.storyboard */; };
 		2EB086C7186D7695005628BE /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EB086C5186D7695005628BE /* Main_iPad.storyboard */; };
-		2EB086CA186D7695005628BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB086C9186D7695005628BE /* ViewController.m */; };
+		2EB086CA186D7695005628BE /* AllMedicinePresentingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB086C9186D7695005628BE /* AllMedicinePresentingViewController.m */; };
 		2EB086CC186D7695005628BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EB086CB186D7695005628BE /* Images.xcassets */; };
 		2EB086D3186D7695005628BE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB086D2186D7695005628BE /* XCTest.framework */; };
 		2EB086D4186D7695005628BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB086B0186D7695005628BE /* Foundation.framework */; };
@@ -54,6 +57,12 @@
 		2E32F8C4186DB56F00B7B79B /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		2E32F8C5186DB56F00B7B79B /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		2E32F8C9186DB7A800B7B79B /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		2E555A631872C19E00F2D8B8 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		2E555A641872C19E00F2D8B8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		2E555A661872C1E900F2D8B8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		2E555A671872C1E900F2D8B8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		2E555A691872C91000F2D8B8 /* MedicineDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineDetailViewController.h; sourceTree = "<group>"; };
+		2E555A6A1872C91000F2D8B8 /* MedicineDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineDetailViewController.m; sourceTree = "<group>"; };
 		2EB086AD186D7695005628BE /* iDoctor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDoctor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB086B0186D7695005628BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2EB086B2186D7695005628BE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,8 +75,8 @@
 		2EB086C0186D7695005628BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2EB086C3186D7695005628BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		2EB086C6186D7695005628BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		2EB086C8186D7695005628BE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2EB086C9186D7695005628BE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2EB086C8186D7695005628BE /* AllMedicinePresentingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllMedicinePresentingViewController.h; sourceTree = "<group>"; };
+		2EB086C9186D7695005628BE /* AllMedicinePresentingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllMedicinePresentingViewController.m; sourceTree = "<group>"; };
 		2EB086CB186D7695005628BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2EB086D1186D7695005628BE /* iDoctorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iDoctorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB086D2186D7695005628BE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -168,8 +177,20 @@
 				2EB086C0186D7695005628BE /* AppDelegate.m */,
 				2EB086C2186D7695005628BE /* Main_iPhone.storyboard */,
 				2EB086C5186D7695005628BE /* Main_iPad.storyboard */,
+<<<<<<< HEAD
 				2EB086C8186D7695005628BE /* ViewController.h */,
 				2EB086C9186D7695005628BE /* ViewController.m */,
+				C7F443991872C20300242E27 /* 23Tree */,
+=======
+				2E555A631872C19E00F2D8B8 /* MainViewController.h */,
+				2E555A641872C19E00F2D8B8 /* MainViewController.m */,
+				2E555A661872C1E900F2D8B8 /* SettingsViewController.h */,
+				2E555A671872C1E900F2D8B8 /* SettingsViewController.m */,
+				2EB086C8186D7695005628BE /* AllMedicinePresentingViewController.h */,
+				2EB086C9186D7695005628BE /* AllMedicinePresentingViewController.m */,
+				2E555A691872C91000F2D8B8 /* MedicineDetailViewController.h */,
+				2E555A6A1872C91000F2D8B8 /* MedicineDetailViewController.m */,
+>>>>>>> 1437df2770adb556fd92e5e336fef1d7e29fafea
 				2E32F8BE186DB53E00B7B79B /* Model */,
 				2EB086CB186D7695005628BE /* Images.xcassets */,
 				2EB086B7186D7695005628BE /* Supporting Files */,
@@ -205,6 +226,13 @@
 				2EB086DB186D7695005628BE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7F443991872C20300242E27 /* 23Tree */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = 23Tree;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,10 +336,13 @@
 				2E32F8C7186DB56F00B7B79B /* TFHppleElement.m in Sources */,
 				2E32F8BA186D984800B7B79B /* CoreDataManager.m in Sources */,
 				2E32F8B7186D962A00B7B79B /* Medicine.m in Sources */,
+				2E555A651872C19E00F2D8B8 /* MainViewController.m in Sources */,
 				2E32F8B4186D951700B7B79B /* Model0.xcdatamodeld in Sources */,
 				2E32F8C8186DB56F00B7B79B /* XPathQuery.m in Sources */,
 				2E32F8C6186DB56F00B7B79B /* TFHpple.m in Sources */,
-				2EB086CA186D7695005628BE /* ViewController.m in Sources */,
+				2EB086CA186D7695005628BE /* AllMedicinePresentingViewController.m in Sources */,
+				2E555A681872C1E900F2D8B8 /* SettingsViewController.m in Sources */,
+				2E555A6B1872C91000F2D8B8 /* MedicineDetailViewController.m in Sources */,
 				2EB086C1186D7695005628BE /* AppDelegate.m in Sources */,
 				2EB086BD186D7695005628BE /* main.m in Sources */,
 			);
@@ -459,6 +490,7 @@
 				);
 				INFOPLIST_FILE = "iDoctor/iDoctor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -477,6 +509,7 @@
 				);
 				INFOPLIST_FILE = "iDoctor/iDoctor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
