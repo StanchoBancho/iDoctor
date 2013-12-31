@@ -177,11 +177,7 @@
 				2EB086C0186D7695005628BE /* AppDelegate.m */,
 				2EB086C2186D7695005628BE /* Main_iPhone.storyboard */,
 				2EB086C5186D7695005628BE /* Main_iPad.storyboard */,
-<<<<<<< HEAD
-				2EB086C8186D7695005628BE /* ViewController.h */,
-				2EB086C9186D7695005628BE /* ViewController.m */,
 				C7F443991872C20300242E27 /* 23Tree */,
-=======
 				2E555A631872C19E00F2D8B8 /* MainViewController.h */,
 				2E555A641872C19E00F2D8B8 /* MainViewController.m */,
 				2E555A661872C1E900F2D8B8 /* SettingsViewController.h */,
@@ -190,7 +186,6 @@
 				2EB086C9186D7695005628BE /* AllMedicinePresentingViewController.m */,
 				2E555A691872C91000F2D8B8 /* MedicineDetailViewController.h */,
 				2E555A6A1872C91000F2D8B8 /* MedicineDetailViewController.m */,
->>>>>>> 1437df2770adb556fd92e5e336fef1d7e29fafea
 				2E32F8BE186DB53E00B7B79B /* Model */,
 				2EB086CB186D7695005628BE /* Images.xcassets */,
 				2EB086B7186D7695005628BE /* Supporting Files */,
