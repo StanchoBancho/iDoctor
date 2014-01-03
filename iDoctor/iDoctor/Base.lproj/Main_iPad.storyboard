@@ -105,15 +105,30 @@
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="od8-MK-NwJ" eventType="touchUpInside" id="w75-LC-Tdn"/>
+                                </connections>
                             </button>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eII-3n-42L" userLabel="Suggestion Table View">
+                                <rect key="frame" x="20" y="132" width="450" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="450" id="VOg-Yu-xlc"/>
+                                    <constraint firstAttribute="height" constant="460" id="t0F-le-RZL"/>
+                                </constraints>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9xp-ek-BfC" firstAttribute="leading" secondItem="7bx-AA-JLQ" secondAttribute="trailing" constant="40" id="2Ag-V7-HSQ"/>
                             <constraint firstItem="Kbm-8C-jbU" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="5ts-LB-LXv"/>
                             <constraint firstAttribute="trailing" secondItem="g73-qc-zD2" secondAttribute="trailing" constant="40" id="5wP-UE-S8e"/>
+                            <constraint firstItem="eII-3n-42L" firstAttribute="top" secondItem="7bx-AA-JLQ" secondAttribute="bottom" constant="6" id="FE2-uZ-xWz"/>
                             <constraint firstAttribute="centerY" secondItem="g73-qc-zD2" secondAttribute="centerY" id="G9T-mK-Ww5"/>
                             <constraint firstAttribute="trailing" secondItem="Kbm-8C-jbU" secondAttribute="trailing" constant="20" id="IUu-Xq-2Zm"/>
+                            <constraint firstItem="eII-3n-42L" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="PDc-aU-Zvg"/>
                             <constraint firstItem="7bx-AA-JLQ" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="c4j-QO-Smr"/>
                             <constraint firstItem="Kbm-8C-jbU" firstAttribute="top" secondItem="9xp-ek-BfC" secondAttribute="bottom" constant="30" id="eTh-DB-oGL"/>
                             <constraint firstAttribute="trailing" secondItem="9xp-ek-BfC" secondAttribute="trailing" constant="20" id="k1i-jS-MXB"/>
@@ -140,6 +155,11 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="suggestionsTableView" destination="eII-3n-42L" id="g7b-M5-HcE"/>
+                        <outlet property="tableView" destination="Kbm-8C-jbU" id="A64-x0-QWp"/>
+                        <outlet property="textField" destination="7bx-AA-JLQ" id="vbw-iU-9wu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kJ-tz-C7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,7 +225,7 @@
         <!--Medicine Detail View Controller-->
         <scene sceneID="MLB-Iw-Lsq">
             <objects>
-                <viewController id="kxN-cQ-nZs" customClass="MedicineDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MedicineDetailViewController" id="kxN-cQ-nZs" customClass="MedicineDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g2O-5q-xzl"/>
                         <viewControllerLayoutGuide type="bottom" id="QTW-Cf-KQV"/>
