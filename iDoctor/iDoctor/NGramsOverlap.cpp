@@ -7,3 +7,7 @@
 //
 
 #include "NGramsOverlap.h"
+
+void insertNGramsForWord(string word) {
+    
+}

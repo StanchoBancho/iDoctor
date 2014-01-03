@@ -84,7 +84,7 @@ static CoreDataManager* sharedManager;
             [newMedicine setName:name];
             [newMedicine setDescriptionUrl:url];
         }
-        NSLog(@"updating medicine number: %d with name :%@ and url %@ ",count ++, name, url);
+        NSLog(@"updating medicine number: %ld with name :%@ and url %@ ",(long)count ++, name, url);
         
         NSSet *inserts = [self.document.managedObjectContext insertedObjects];
         

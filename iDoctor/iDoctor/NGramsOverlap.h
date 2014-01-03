@@ -10,5 +10,10 @@
 #define ___3Tree__NGramsOverlap__
 
 #include <iostream>
+#include <string>
+
+using namespace std;
+
+void insertNGramsForWord(string word);
 
 #endif /* defined(___3Tree__NGramsOverlap__) */
