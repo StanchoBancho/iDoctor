@@ -99,6 +99,17 @@
             string cpp_str([m.name UTF8String], [m.name lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
             tree->insertData(cpp_str);
         }
+//        tree->insertData("aaa");
+//        tree->insertData("aba");
+//
+//        tree->insertData("aab");
+//        tree->insertData("bbb");
+//        tree->insertData("bbc");
+//        tree->insertData("aac");
+//        tree->insertData("aa%");
+//        tree->insertData("aak");
+
+
     }
 }
 
@@ -132,13 +143,13 @@
 {
     NSString* enteredText = textField.text;
     string cpp_str([enteredText UTF8String], [enteredText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-    Node* node = tree->searchData(cpp_str);
-    if(node){
-        NSLog(@"we have match");
-    }
-    else{
-        NSLog(@"we do not have match");
-    }
+    vector<Node*> node = tree->findDataWithPrefix(cpp_str);
+//    if(node){
+//        NSLog(@"we have match");
+//    }
+//    else{
+//        NSLog(@"we do not have match");
+//    }
 }
 
 

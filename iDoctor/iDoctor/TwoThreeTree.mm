@@ -41,7 +41,7 @@ void TwoThreeTree::insertData(string data) {
                 newMinKey.assign(data);
                 newMidKey.assign(this->root->minKey);
                 newMaxKey.assign(this->root->maxKey);
-            } else if (this->root->minKey.compare(data) >= 0 && data.compare(this->root->maxKey) < 0) {
+            } else if (this->root->minKey.compare(data) <= 0 && data.compare(this->root->maxKey) < 0) {
                 newMinKey.assign(this->root->minKey);
                 newMidKey.assign(data);
                 newMaxKey.assign(this->root->maxKey);
@@ -130,11 +130,6 @@ void TwoThreeTree::insertDataIntoParentTree(Node *parent, string data) {
 }
 
 void TwoThreeTree::split(Node *node, string data) {
-    //printf("%d", data);
-    cout << data << "\n";
-    cout << "node min" << node->minKey << "\n";
-    cout << "node max" << node->maxKey << "\n";
-    
     Node *parent = node->parent;
     bool isNewParent = false;
     if (parent == NULL) {
@@ -145,11 +140,11 @@ void TwoThreeTree::split(Node *node, string data) {
     }
     
     string newMinKey, newMidKey, newMaxKey;
-    if (data < node->minKey) {
+    if (data.compare(node->minKey) < 0) {
         newMinKey.assign(data);
         newMidKey.assign(node->minKey);
         newMaxKey.assign(node->maxKey);
-    } else if (node->minKey <= data && data < node->maxKey) {
+    } else if (node->minKey.compare(data) <= 0 && data.compare(node->maxKey) < 0) {
         newMinKey.assign(node->minKey);
         newMidKey.assign(data);
         newMaxKey.assign(node->maxKey);
@@ -188,15 +183,15 @@ void TwoThreeTree::split(Node *node, string data) {
             node2->children[i]->parent = node2;
         }
     }
-    node->parent = NULL;
-    node = NULL;
-    //delete node;
+
+    delete node;
+    
     if (isNewParent) {
         parent->minKey.assign(newMidKey);
         parent->numberOfItems = 1;
         this->root = parent;
     } else if (parent->numberOfItems == 1) {
-        if (newMidKey < parent->minKey) {
+        if (newMidKey.compare(parent->minKey) < 0) {
             string temp;
             temp.assign(parent->minKey);
             parent->minKey.assign(newMidKey);
@@ -235,4 +230,45 @@ Node *TwoThreeTree::searchDataInRoot(Node *node, string data) {
     return NULL;
 }
 
+vector<Node*> TwoThreeTree::findDataWithPrefix(string prefix) {
+    vector<Node*> nodes;
+    
+    Node *parent = findFirstNodeWithPrefix(this->root, prefix);
+    
+    
+    return nodes;
+}
+
+Node *TwoThreeTree::findFirstNodeWithPrefix(Node *node, string prefix) {
+    if (checkPrefix(prefix, node->minKey) || checkPrefix(prefix, node->maxKey)) {
+        return node;
+    } else if (node->numberOfChildren == 0) {
+        return NULL;
+    } else if (prefix.compare(node->minKey) < 0) {
+        return findFirstNodeWithPrefix(node->children[0], prefix);
+    } else {
+        if (node->numberOfItems == 2) {
+            if (prefix.compare(node->minKey) > 0 && prefix.compare(node->maxKey) < 0) {
+                return findFirstNodeWithPrefix(node->children[1], prefix);
+            } else {
+                return findFirstNodeWithPrefix(node->children[2], prefix);
+            }
+        } else {
+            return findFirstNodeWithPrefix(node->children[1], prefix);
+        }
+    }
+    return NULL;
+}
+
+bool TwoThreeTree::checkPrefix(string prefix, string str) {
+    if (str == "") {
+        return false;
+    }
+    string strPrefix = str.substr(0, prefix.length());
+    if (prefix == strPrefix) {
+        return true;
+    }
+    
+    return false;
+}
 

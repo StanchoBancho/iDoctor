@@ -10,6 +10,7 @@
 #define ___3Tree__TwoThreeTree__
 
 #include "Node.h"
+#include <vector>
 
 using namespace std;
 
@@ -19,6 +20,7 @@ public:
     Node *root;
     void insertData(string data);
     Node *searchData(string data);
+    vector<Node*> findDataWithPrefix(string prefix);
 TwoThreeTree();
     
 private:
@@ -26,6 +28,8 @@ private:
     void split(Node *leaf, string data);
     Node *findParent(Node *node, string data);
     Node *searchDataInRoot(Node *node, string data);
+    bool checkPrefix(string prefix, string str);
+    Node *findFirstNodeWithPrefix(Node *node, string prefix);
 };
 
 #endif /* defined(___3Tree__TwoThreeTree__) */
