@@ -13,12 +13,13 @@
 #import "TwoThreeTree.h"
 
 
-@interface MainViewController ()<UITextFieldDelegate>
+@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     TwoThreeTree* tree;
 }
 @property (nonatomic, strong) CoreDataManager* sharedManager;
-
+@property (nonatomic, strong) UITableView* tableView;
+@property (nonatomic, strong) NSMutableArray* medicineNames;
 @end
 
 @implementation MainViewController
@@ -35,6 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.medicineNames = [NSMutableArray array];
     self.sharedManager = [CoreDataManager sharedManager];
     [self.sharedManager setupDocument:^(UIManagedDocument *document, NSError *error) {
         [self loadTree];
@@ -102,5 +104,33 @@
     }
 }
 
+#pragma mark - UITableView data source
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.medicineNames.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MedicineCell"];
+    NSString* medicineTitle = self.medicineNames[indexPath.row];
+    cell.textLabel.text = medicineTitle;
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    return cell;
+}
+
+#pragma mark - Action methods
+
+-(IBAction)addButtonPressed:(id)sender
+{
+
+
+}
 
 @end

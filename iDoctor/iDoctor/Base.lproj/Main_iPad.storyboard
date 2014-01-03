@@ -56,8 +56,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7bx-AA-JLQ">
-                                <rect key="frame" x="20" y="95" width="900" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type new medicine name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7bx-AA-JLQ">
+                                <rect key="frame" x="20" y="93" width="898" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -65,17 +65,66 @@
                                     <outlet property="delegate" destination="od8-MK-NwJ" id="6XS-cn-MIH"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xp-ek-BfC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xp-ek-BfC">
                                 <rect key="frame" x="958" y="95" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AC0-bZ-3mZ"/>
+                                    <constraint firstAttribute="width" constant="46" id="vYh-g0-TRB"/>
+                                </constraints>
                                 <state key="normal" title="Add">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-8C-jbU">
+                                <rect key="frame" x="20" y="155" width="984" height="593"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineCell" id="lbu-dr-4JC">
+                                        <rect key="frame" x="0.0" y="22" width="984" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lbu-dr-4JC" id="5ng-l9-eY0">
+                                            <rect key="frame" x="0.0" y="0.0" width="984" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="od8-MK-NwJ" id="yoD-Lj-JTW"/>
+                                    <outlet property="delegate" destination="od8-MK-NwJ" id="OCj-i8-8Dj"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g73-qc-zD2">
+                                <rect key="frame" x="934" y="359" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="03R-qk-x9w"/>
+                                    <constraint firstAttribute="height" constant="50" id="cO8-Sy-F3K"/>
+                                </constraints>
+                                <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9xp-ek-BfC" firstAttribute="leading" secondItem="7bx-AA-JLQ" secondAttribute="trailing" constant="40" id="2Ag-V7-HSQ"/>
+                            <constraint firstItem="Kbm-8C-jbU" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="5ts-LB-LXv"/>
+                            <constraint firstAttribute="trailing" secondItem="g73-qc-zD2" secondAttribute="trailing" constant="40" id="5wP-UE-S8e"/>
+                            <constraint firstAttribute="centerY" secondItem="g73-qc-zD2" secondAttribute="centerY" id="G9T-mK-Ww5"/>
+                            <constraint firstAttribute="trailing" secondItem="Kbm-8C-jbU" secondAttribute="trailing" constant="20" id="IUu-Xq-2Zm"/>
+                            <constraint firstItem="7bx-AA-JLQ" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="c4j-QO-Smr"/>
+                            <constraint firstItem="Kbm-8C-jbU" firstAttribute="top" secondItem="9xp-ek-BfC" secondAttribute="bottom" constant="30" id="eTh-DB-oGL"/>
+                            <constraint firstAttribute="trailing" secondItem="9xp-ek-BfC" secondAttribute="trailing" constant="20" id="k1i-jS-MXB"/>
+                            <constraint firstItem="9xp-ek-BfC" firstAttribute="top" secondItem="w3v-as-DXq" secondAttribute="bottom" constant="31" id="n02-as-WUu"/>
+                            <constraint firstItem="7bx-AA-JLQ" firstAttribute="top" secondItem="w3v-as-DXq" secondAttribute="bottom" constant="29" id="pM7-z3-QcH"/>
+                            <constraint firstItem="Kbm-8C-jbU" firstAttribute="top" secondItem="7bx-AA-JLQ" secondAttribute="bottom" constant="29" id="sMt-mr-Ki2"/>
+                            <constraint firstItem="EYP-zX-pkw" firstAttribute="top" secondItem="Kbm-8C-jbU" secondAttribute="bottom" constant="20" id="xG5-pb-r9s"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="VvL-nO-LxB">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="6aS-Wt-rWb">
                             <connections>
@@ -89,6 +138,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kJ-tz-C7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
