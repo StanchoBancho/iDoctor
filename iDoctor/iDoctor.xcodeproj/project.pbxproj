@@ -32,6 +32,10 @@
 		2EB086D5186D7695005628BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB086B4186D7695005628BE /* UIKit.framework */; };
 		2EB086DD186D7695005628BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EB086DB186D7695005628BE /* InfoPlist.strings */; };
 		2EB086DF186D7695005628BE /* iDoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB086DE186D7695005628BE /* iDoctorTests.m */; };
+		C7F4439E1872D4A200242E27 /* TwoThreeTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C7F4439A1872D4A200242E27 /* TwoThreeTree.cpp */; };
+		C7F4439F1872D4A200242E27 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C7F4439C1872D4A200242E27 /* Node.cpp */; };
+		C7F443A51872D4CE00242E27 /* EditDistance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C7F443A11872D4CE00242E27 /* EditDistance.cpp */; };
+		C7F443A61872D4CE00242E27 /* NGramsOverlap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C7F443A31872D4CE00242E27 /* NGramsOverlap.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,14 @@
 		2EB086DE186D7695005628BE /* iDoctorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDoctorTests.m; sourceTree = "<group>"; };
 		2EB086EA186D7AFD005628BE /* URLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = URLs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A2C428A418719386004D2BDB /* LatestURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LatestURLs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C7F4439A1872D4A200242E27 /* TwoThreeTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TwoThreeTree.cpp; sourceTree = "<group>"; };
+		C7F4439B1872D4A200242E27 /* TwoThreeTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoThreeTree.h; sourceTree = "<group>"; };
+		C7F4439C1872D4A200242E27 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		C7F4439D1872D4A200242E27 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		C7F443A11872D4CE00242E27 /* EditDistance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EditDistance.cpp; sourceTree = "<group>"; };
+		C7F443A21872D4CE00242E27 /* EditDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDistance.h; sourceTree = "<group>"; };
+		C7F443A31872D4CE00242E27 /* NGramsOverlap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NGramsOverlap.cpp; sourceTree = "<group>"; };
+		C7F443A41872D4CE00242E27 /* NGramsOverlap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGramsOverlap.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +190,7 @@
 				2EB086C2186D7695005628BE /* Main_iPhone.storyboard */,
 				2EB086C5186D7695005628BE /* Main_iPad.storyboard */,
 				C7F443991872C20300242E27 /* 23Tree */,
+				C7F443A01872D4A900242E27 /* Autocorrection */,
 				2E555A631872C19E00F2D8B8 /* MainViewController.h */,
 				2E555A641872C19E00F2D8B8 /* MainViewController.m */,
 				2E555A661872C1E900F2D8B8 /* SettingsViewController.h */,
@@ -226,8 +239,23 @@
 		C7F443991872C20300242E27 /* 23Tree */ = {
 			isa = PBXGroup;
 			children = (
+				C7F4439A1872D4A200242E27 /* TwoThreeTree.cpp */,
+				C7F4439B1872D4A200242E27 /* TwoThreeTree.h */,
+				C7F4439C1872D4A200242E27 /* Node.cpp */,
+				C7F4439D1872D4A200242E27 /* Node.h */,
 			);
 			name = 23Tree;
+			sourceTree = "<group>";
+		};
+		C7F443A01872D4A900242E27 /* Autocorrection */ = {
+			isa = PBXGroup;
+			children = (
+				C7F443A11872D4CE00242E27 /* EditDistance.cpp */,
+				C7F443A21872D4CE00242E27 /* EditDistance.h */,
+				C7F443A31872D4CE00242E27 /* NGramsOverlap.cpp */,
+				C7F443A41872D4CE00242E27 /* NGramsOverlap.h */,
+			);
+			name = Autocorrection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,14 +357,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E32F8C7186DB56F00B7B79B /* TFHppleElement.m in Sources */,
+				C7F4439F1872D4A200242E27 /* Node.cpp in Sources */,
 				2E32F8BA186D984800B7B79B /* CoreDataManager.m in Sources */,
+				C7F443A61872D4CE00242E27 /* NGramsOverlap.cpp in Sources */,
 				2E32F8B7186D962A00B7B79B /* Medicine.m in Sources */,
 				2E555A651872C19E00F2D8B8 /* MainViewController.m in Sources */,
 				2E32F8B4186D951700B7B79B /* Model0.xcdatamodeld in Sources */,
 				2E32F8C8186DB56F00B7B79B /* XPathQuery.m in Sources */,
 				2E32F8C6186DB56F00B7B79B /* TFHpple.m in Sources */,
 				2EB086CA186D7695005628BE /* AllMedicinePresentingViewController.m in Sources */,
+				C7F443A51872D4CE00242E27 /* EditDistance.cpp in Sources */,
 				2E555A681872C1E900F2D8B8 /* SettingsViewController.m in Sources */,
+				C7F4439E1872D4A200242E27 /* TwoThreeTree.cpp in Sources */,
 				2E555A6B1872C91000F2D8B8 /* MedicineDetailViewController.m in Sources */,
 				2EB086C1186D7695005628BE /* AppDelegate.m in Sources */,
 				2EB086BD186D7695005628BE /* main.m in Sources */,
