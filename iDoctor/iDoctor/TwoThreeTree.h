@@ -9,16 +9,18 @@
 #ifndef ___3Tree__TwoThreeTree__
 #define ___3Tree__TwoThreeTree__
 
-#include <iostream>
 #include "Node.h"
 
+using namespace std;
 
 class TwoThreeTree {
+
 public:
     Node *root;
     void insertData(string data);
     Node *searchData(string data);
 TwoThreeTree();
+    
 private:
     void insertDataIntoParentTree(Node *parent, string data);
     void split(Node *leaf, string data);
