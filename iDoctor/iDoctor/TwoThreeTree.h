@@ -20,7 +20,7 @@ public:
     Node *root;
     void insertData(string data);
     Node *searchData(string data);
-    vector<Node*> findDataWithPrefix(string prefix);
+    vector<string> findDataWithPrefix(string prefix);
 TwoThreeTree();
     
 private:

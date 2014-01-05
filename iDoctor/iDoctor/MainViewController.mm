@@ -84,6 +84,7 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     NSError *error;
+    
     NSArray *array = [context executeFetchRequest:request error:&error];
     if (error || array == nil){
         NSLog(@"GOLQM ERROR :%@", error);
@@ -143,7 +144,7 @@
 {
     NSString* enteredText = textField.text;
     string cpp_str([enteredText UTF8String], [enteredText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-    vector<Node*> node = tree->findDataWithPrefix(cpp_str);
+    vector<string> node = tree->findDataWithPrefix(cpp_str);
 //    if(node){
 //        NSLog(@"we have match");
 //    }
