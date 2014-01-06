@@ -113,7 +113,7 @@
         
     }
     
-    jaccardIndex("abcdfghij", "abcd");
+    float c = jaccardIndex("abcdfghij", "abcd00");
     
 }
 

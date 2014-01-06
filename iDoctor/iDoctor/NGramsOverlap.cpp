@@ -22,6 +22,9 @@ vector<string> insertNGramsForWord(string word) {
 }
 
 float jaccardIndex(string word, string otherWord) {
+    if (word.length() == 0 || otherWord.length() == 0) {
+        return 0.0;
+    }
     string wordLow, otherWordLow;
     wordLow.assign(word);
     otherWordLow.assign(otherWord);
@@ -32,7 +35,46 @@ float jaccardIndex(string word, string otherWord) {
     vector<string> otherWordsNGrams = insertNGramsForWord(otherWordLow);
     
     vector<string> intersectionSet;
-
+    for (int i = 0; i < wordNGrams.size(); ++i) {
+        string iNGram = wordNGrams[i];
+        for (int j = 0; j < otherWordsNGrams.size(); ++j) {
+            string jNgram = otherWordsNGrams[j];
+            if (iNGram.compare(jNgram) == 0) {
+                intersectionSet.push_back(iNGram);
+                break;
+            }
+        }
+    }
     
-    return 0.0;
+    vector<string> unionSet;
+    for (int i = 0; i < wordNGrams.size(); ++i) {
+        string iNGram = wordNGrams[i];
+        bool isIn = false;
+        for (int j = 0; j < unionSet.size(); ++j) {
+            string jNGram = unionSet[j];
+            if (iNGram.compare(jNGram) == 0) {
+                isIn = true;
+                break;
+            }
+        }
+        if (!isIn) {
+            unionSet.push_back(iNGram);
+        }
+    }
+    for (int i = 0; i < otherWordsNGrams.size(); ++i) {
+        string iNGram = otherWordsNGrams[i];
+        bool isIn = false;
+        for (int j = 0; j < unionSet.size(); ++j) {
+            string jNGram = unionSet[j];
+            if (iNGram.compare(jNGram) == 0) {
+                isIn = true;
+                break;
+            }
+        }
+        if (!isIn) {
+            unionSet.push_back(iNGram);
+        }
+    }
+    
+    return (float)intersectionSet.size()/(float)unionSet.size();
 }
