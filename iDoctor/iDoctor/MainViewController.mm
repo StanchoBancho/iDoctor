@@ -12,6 +12,8 @@
 #import "Medicine.h"
 #import "TwoThreeTree.h"
 #import "MedicineDetailViewController.h"
+#import "NGramsOverlap.h"
+
 
 @interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -112,6 +114,9 @@
         
         
     }
+    
+    jaccardIndex("abcdfghij", "abcd");
+    
 }
 
 #pragma mark - Autocompletion methods

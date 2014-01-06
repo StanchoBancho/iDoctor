@@ -10,10 +10,12 @@
 #define ___3Tree__NGramsOverlap__
 
 #include <iostream>
+#include <vector>
 #include <string>
 
 using namespace std;
 
-void insertNGramsForWord(string word);
+vector<string> insertNGramsForWord(string word);
+float jaccardIndex(string word, string otherWord);
 
 #endif /* defined(___3Tree__NGramsOverlap__) */
