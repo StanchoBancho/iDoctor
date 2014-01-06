@@ -47,28 +47,18 @@
 {
     [super viewDidLoad];
     
-    [[CoreDataManager sharedManager] setupDocument:^(UIManagedDocument *document, NSError *error) {
-        if(!error && document){
-            //         [self startFetching];
-            
-            
-            
-            
-            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Medicine"];
-            NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-            request.sortDescriptors = @[ sortDescriptor ];
-            
-            self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                                                                managedObjectContext:document.managedObjectContext
-                                                                                  sectionNameKeyPath:nil
-                                                                                           cacheName:nil];
-            
-        }
-    }];
-
     
-
-    // Do any additional setup after loading the view, typically from a nib.
+    //         [self startFetching];
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Medicine"];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    request.sortDescriptors = @[ sortDescriptor ];
+    
+    UIManagedDocument* document = [CoreDataManager sharedManager].document;
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:document.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated

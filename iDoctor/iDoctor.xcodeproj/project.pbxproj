@@ -32,6 +32,7 @@
 		2EB086D5186D7695005628BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EB086B4186D7695005628BE /* UIKit.framework */; };
 		2EB086DD186D7695005628BE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EB086DB186D7695005628BE /* InfoPlist.strings */; };
 		2EB086DF186D7695005628BE /* iDoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB086DE186D7695005628BE /* iDoctorTests.m */; };
+		A29BE6E4187AF5170099AC5C /* Medicine in Resources */ = {isa = PBXBuildFile; fileRef = A29BE6E3187AF5170099AC5C /* Medicine */; };
 		C7F4439E1872D4A200242E27 /* TwoThreeTree.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F4439A1872D4A200242E27 /* TwoThreeTree.mm */; };
 		C7F4439F1872D4A200242E27 /* Node.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F4439C1872D4A200242E27 /* Node.mm */; };
 		C7F443A51872D4CE00242E27 /* EditDistance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C7F443A11872D4CE00242E27 /* EditDistance.cpp */; };
@@ -88,6 +89,7 @@
 		2EB086DC186D7695005628BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2EB086DE186D7695005628BE /* iDoctorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDoctorTests.m; sourceTree = "<group>"; };
 		2EB086EA186D7AFD005628BE /* URLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = URLs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A29BE6E3187AF5170099AC5C /* Medicine */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Medicine; sourceTree = "<group>"; };
 		A2C428A418719386004D2BDB /* LatestURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LatestURLs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C7F4439A1872D4A200242E27 /* TwoThreeTree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TwoThreeTree.mm; sourceTree = "<group>"; };
 		C7F4439B1872D4A200242E27 /* TwoThreeTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoThreeTree.h; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		2E32F8BE186DB53E00B7B79B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A29BE6E3187AF5170099AC5C /* Medicine */,
 				2E32F8BF186DB54F00B7B79B /* hpple */,
 				2E32F8B8186D984800B7B79B /* CoreDataManager.h */,
 				2E32F8B9186D984800B7B79B /* CoreDataManager.m */,
@@ -313,6 +316,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Stanimir Nikolov";
 				TargetAttributes = {
+					2EB086AC186D7695005628BE = {
+						DevelopmentTeam = M352RPT82H;
+					};
 					2EB086D0186D7695005628BE = {
 						TestTargetID = 2EB086AC186D7695005628BE;
 					};
@@ -342,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A29BE6E4187AF5170099AC5C /* Medicine in Resources */,
 				2EB086C7186D7695005628BE /* Main_iPad.storyboard in Resources */,
 				2EB086CC186D7695005628BE /* Images.xcassets in Resources */,
 				2EB086C4186D7695005628BE /* Main_iPhone.storyboard in Resources */,
@@ -454,6 +461,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -472,6 +480,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -494,7 +503,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -505,6 +515,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -516,6 +527,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iDoctor/iDoctor-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -525,6 +538,7 @@
 				);
 				INFOPLIST_FILE = "iDoctor/iDoctor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -535,6 +549,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iDoctor/iDoctor-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -544,6 +560,7 @@
 				);
 				INFOPLIST_FILE = "iDoctor/iDoctor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};

@@ -25,6 +25,40 @@
             </objects>
             <point key="canvasLocation" x="-61" y="-1731"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="NLw-sO-GXF">
+            <objects>
+                <viewController id="CNQ-KQ-I9e" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xAl-rd-jZ6"/>
+                        <viewControllerLayoutGuide type="bottom" id="bOC-iw-WqR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yo9-2f-xzj">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0m-jP-f3F">
+                                <rect key="frame" x="464" y="370" width="97" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FKT-ba-SVu">
+                                <rect key="frame" x="569" y="374" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69d-Dl-PMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1288" y="549"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Rl-5r-nHg">
             <objects>
@@ -38,6 +72,7 @@
                     </navigationBar>
                     <connections>
                         <segue destination="od8-MK-NwJ" kind="relationship" relationship="rootViewController" id="H5j-OE-1Wc"/>
+                        <segue destination="CNQ-KQ-I9e" kind="modal" id="kCa-pd-eFx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2nG-83-BSk" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,12 +7,31 @@
 //
 
 #import "AppDelegate.h"
+#import "CoreDataManager.h"
+@interface AppDelegate()
+{
 
+}
+
+@end
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [[CoreDataManager sharedManager] setupDocument:^(UIManagedDocument *document, NSError *error) {
+        if (document && !error) {
+            //dissmiss loading screen
+            [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
+        }
+        else{
+            //display error and do nothing
+            UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error with the opening of the database. Please restart the app. If this doesn`t help. Try deleting the app and installing it again. Thanks." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alerView show];
+        }
+    }];
+    
     return YES;
 }
 							

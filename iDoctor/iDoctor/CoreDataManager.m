@@ -106,31 +106,26 @@ static CoreDataManager* sharedManager;
 
 #pragma mark - Core Data Document Methods
 
-- (void)documentReady:(UIManagedDocument *)document
-{
-    if(self.setupCompletion){
-        self.setupCompletion(document, nil);
-    }
-}
-
-- (void)reportDocumentOpenError
-{
-    UIAlertView* __alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"System Error", @"") message:[NSString stringWithFormat:NSLocalizedString(@"An unexpected error has occurred trying to create application data. Possible causes may be due to inadequate storage capacity or hardware failure.", @""), NSProcessInfo.processInfo.processName] delegate:nil cancelButtonTitle:NSLocalizedString(@"Quit", @"") otherButtonTitles:nil];
-    
-    //abort();
-    
-#warning  TO MAKE ABORT or something else
-    [__alertView show];
-}
-
 - (void)setUpDocument:(BOOL)retry;
 {
-    NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    url = [url URLByAppendingPathComponent:@"Medicine"];
-    
+    //check do we have to copy the preloaded database
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSString *documentsFolderPath = [documentsDirectory stringByAppendingPathComponent:@"Medicine"];
+    if (![fileManager fileExistsAtPath:documentsFolderPath]) {
+        //copy the preloaded database
+        NSError *error = nil;
+        NSString *bundlePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Medicine"];
+        if([fileManager copyItemAtPath:bundlePath toPath:documentsFolderPath error:&error]) {
+            
+            NSLog(@"copying of preload data done.");
+        }
+    }
     
-    self.document = [[UIManagedDocument alloc] initWithFileURL:url];
+    //open the document
+    NSURL *documentsUrl = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    documentsUrl = [documentsUrl URLByAppendingPathComponent:@"Medicine"];
+    self.document = [[UIManagedDocument alloc] initWithFileURL:documentsUrl];
     // NSLog(@"Type of document %d", self.document.managedObjectContext );
     if (![fileManager fileExistsAtPath:[self.document.fileURL path]]) {
         // Not created on disk yet, so create it
@@ -146,7 +141,7 @@ static CoreDataManager* sharedManager;
                 NSLog(@"Error creating document, deleting and starting over");
                 self.document = nil;
                 NSError *error = nil;
-                if (![fileManager removeItemAtURL:url error:&error]) {
+                if (![fileManager removeItemAtURL:documentsUrl error:&error]) {
                     NSLog(@"Error deleting document: %@", error);
                     [self reportDocumentOpenError];
                 }
@@ -170,7 +165,7 @@ static CoreDataManager* sharedManager;
                 DLog(@"Error opening document, deleting and starting over");
                 self.document = nil;
                 NSError *error = nil;
-                if (![fileManager removeItemAtURL:url error:&error]) {
+                if (![fileManager removeItemAtURL:documentsUrl error:&error]) {
                     DLog(@"Error deleting document: %@", error);
                     [self reportDocumentOpenError];
                 }
@@ -180,6 +175,23 @@ static CoreDataManager* sharedManager;
             }
         }];
     }
+}
+
+- (void)documentReady:(UIManagedDocument *)document
+{
+    if(self.setupCompletion){
+        self.setupCompletion(document, nil);
+    }
+}
+
+- (void)reportDocumentOpenError
+{
+    UIAlertView* __alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"System Error", @"") message:[NSString stringWithFormat:NSLocalizedString(@"An unexpected error has occurred trying to create application data. Possible causes may be due to inadequate storage capacity or hardware failure.", @""), NSProcessInfo.processInfo.processName] delegate:nil cancelButtonTitle:NSLocalizedString(@"Quit", @"") otherButtonTitles:nil];
+    
+    //abort();
+    
+#warning  TO MAKE ABORT or something else
+    [__alertView show];
 }
 
 @end

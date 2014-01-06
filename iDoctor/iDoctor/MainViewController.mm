@@ -49,10 +49,7 @@
     [super viewDidLoad];
     self.choosedMedicineNames = [NSMutableArray array];
     self.typedText = [[NSMutableString alloc] init];
-    self.sharedManager = [CoreDataManager sharedManager];
-    [self.sharedManager setupDocument:^(UIManagedDocument *document, NSError *error) {
-        [self loadTree];
-    }];
+    [self loadTree];
 	
     [self.suggestionsTableView.layer setCornerRadius:2.0];
     [self.suggestionsTableView.layer setBorderColor:[[UIColor grayColor] CGColor]];
@@ -81,6 +78,7 @@
     // instead of dereferencing the NULL pointer from UTF8String.
     
     //fetch all medicines
+    self.sharedManager = [CoreDataManager sharedManager];
     NSManagedObjectContext* context = self.sharedManager.document.managedObjectContext;
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Medicine" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
