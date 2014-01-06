@@ -75,6 +75,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="od8-MK-NwJ" eventType="touchUpInside" id="5lo-ni-SGS"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-8C-jbU">
                                 <rect key="frame" x="20" y="155" width="984" height="593"/>
@@ -105,19 +108,30 @@
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="addButtonPressed:" destination="od8-MK-NwJ" eventType="touchUpInside" id="w75-LC-Tdn"/>
-                                </connections>
                             </button>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eII-3n-42L" userLabel="Suggestion Table View">
-                                <rect key="frame" x="20" y="132" width="450" height="460"/>
+                                <rect key="frame" x="20" y="132" width="450" height="280"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="450" id="VOg-Yu-xlc"/>
-                                    <constraint firstAttribute="height" constant="460" id="t0F-le-RZL"/>
+                                    <constraint firstAttribute="height" constant="280" id="t0F-le-RZL"/>
                                 </constraints>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuggestedMedicineCell" id="0y0-Bi-aFj">
+                                        <rect key="frame" x="0.0" y="22" width="450" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0y0-Bi-aFj" id="Pwe-Ee-gLz">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="od8-MK-NwJ" id="Zeb-V0-tuc"/>
+                                    <outlet property="delegate" destination="od8-MK-NwJ" id="HMp-8e-G1h"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

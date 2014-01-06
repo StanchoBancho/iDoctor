@@ -100,34 +100,69 @@
             string cpp_str([m.name UTF8String], [m.name lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
             tree->insertData(cpp_str);
         }
-//        tree->insertData("aaa");
-//        tree->insertData("aba");
-//
-//        tree->insertData("aab");
-//        tree->insertData("bbb");
-//        tree->insertData("bbc");
-//        tree->insertData("aac");
-//        tree->insertData("aa%");
-//        tree->insertData("aak");
-
-
+        //        tree->insertData("aaa");
+        //        tree->insertData("aba");
+        //
+        //        tree->insertData("aab");
+        //        tree->insertData("bbb");
+        //        tree->insertData("bbc");
+        //        tree->insertData("aac");
+        //        tree->insertData("aa%");
+        //        tree->insertData("aak");
+        
+        
     }
 }
 
-#pragma marl - Autocompletion methods
+#pragma mark - Autocompletion methods
 
 -(void)showApropriateSuggestionsForString:(NSString*)typedText
 {
+    self.suggestedMedicineNames = [NSMutableArray array];
     if([typedText isEqualToString:@""]){
         [self.suggestionsTableView setHidden:YES];
     }
     else{
         [self.suggestionsTableView setHidden:NO];
+        
+        string cpp_str([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+        vector<string> result = tree->findDataWithPrefix(cpp_str);
+        
+        for (int i = 0; i < result.size(); i++) {
+            NSString* medicineName = [NSString stringWithCString: result[i].c_str() encoding:NSUTF8StringEncoding];
+            [self.suggestedMedicineNames addObject:medicineName];
+        }
+        //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
     }
-    
-    //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
-    
     [self.suggestionsTableView reloadData];
+}
+
+
+-(BOOL)isMedicineExising:(NSString*)medicineTitle
+{
+    NSManagedObjectContext* context = self.sharedManager.document.managedObjectContext;
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Medicine" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"name like %@",medicineTitle]];
+    NSError *error;
+    NSArray *array = [context executeFetchRequest:request error:&error];
+    if (error || array == nil || array.count != 1){
+        NSLog(@"GOLQM ERROR :%@", error);
+        return NO;
+    }
+    return YES;
+}
+
+-(void)handleMedicine:(NSString*)medicineTitle isItExistingOne:(BOOL)isExisting
+{
+    NSDictionary* newObject = @{@"name":medicineTitle, @"isExisting":@(isExisting)};
+    [self.choosedMedicineNames insertObject:newObject atIndex:0];
+    self.typedText =  [NSMutableString string];
+    [self.textField setText:@""];
+    [self.suggestionsTableView setHidden:YES];
+    [self.tableView reloadData];
+    [self.textField resignFirstResponder];
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -142,15 +177,17 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSString* enteredText = textField.text;
-    string cpp_str([enteredText UTF8String], [enteredText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-    vector<string> node = tree->findDataWithPrefix(cpp_str);
-//    if(node){
-//        NSLog(@"we have match");
-//    }
-//    else{
-//        NSLog(@"we do not have match");
-//    }
+    //    NSString* enteredText = textField.text;
+    //    string cpp_str([enteredText UTF8String], [enteredText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    //    vector<string> result = tree->findDataWithPrefix(cpp_str);
+    //
+    //
+    ////    if(node){
+    ////        NSLog(@"we have match");
+    ////    }
+    ////    else{
+    ////        NSLog(@"we do not have match");
+    ////    }
 }
 
 
@@ -174,9 +211,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if(tableView == self.suggestionsTableView){
-        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MedicineCell"];
+        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"SuggestedMedicineCell"];
         NSString* medicineTitle = self.suggestedMedicineNames[indexPath.row];
         cell.textLabel.text = medicineTitle;
         return cell;
@@ -199,6 +235,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(tableView == self.tableView){
         BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:@"isExisting"] boolValue];
         if (isExisting) {
@@ -219,6 +256,7 @@
                 if(selectedMedicine && selectedMedicine.descriptionUrl){
                     MedicineDetailViewController* detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MedicineDetailViewController"];
                     [detailViewController setMedicineUrl:selectedMedicine.descriptionUrl];
+                    [self.navigationController pushViewController:detailViewController animated:YES];
                 }
             }
         }
@@ -226,14 +264,9 @@
     else{
         //chose selected medicine
         NSString* medicineTitle = self.suggestedMedicineNames[indexPath.row];
-        NSDictionary* newObject = @{@"name":medicineTitle, @"isExisting":@NO};
-        [self.choosedMedicineNames insertObject:newObject atIndex:0];
-        [self.textField setText:@""];
-        [self.tableView reloadData];
+        [self handleMedicine: medicineTitle isItExistingOne:YES];
     }
 }
-
-
 
 #pragma mark - Action methods
 
@@ -242,9 +275,8 @@
     NSCharacterSet* whiteSpaces = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     NSString* typedText = [self.textField.text stringByTrimmingCharactersInSet:whiteSpaces];
     if (![typedText isEqualToString:@""]) {
-        NSDictionary* newObject = @{@"name":typedText, @"isExisting":@NO};
-        [self.choosedMedicineNames insertObject:newObject atIndex:0];
-        [self.textField setText:@""];
+        BOOL isExisting = [self isMedicineExising: typedText];
+        [self handleMedicine:typedText isItExistingOne:isExisting];
     }
 }
 
