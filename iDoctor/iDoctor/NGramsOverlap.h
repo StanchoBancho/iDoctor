@@ -23,6 +23,7 @@ public:
     TwoThreeTree *ngramTree;
     void insertWordInNGramTree(string word);
     float jaccardIndex(string word, string otherWord);
+    vector<string> getNearestWordsForWord(string word);
     
     NGramsOverlap();
 private:
