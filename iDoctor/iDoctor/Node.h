@@ -23,12 +23,6 @@ class Node {
         int numberOfItems;
         int numberOfChildren;
         Node(string minKey, Node *parent);
-//        ~Node(){
-//            for (int i = 0; i < numberOfChildren; i++) {
-//                delete children[i];
-//            }
-//    }
-    
 };
 
 #endif /* defined(___3Tree__Node__) */

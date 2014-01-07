@@ -12,10 +12,20 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "TwoThreeTree.h"
+#include "NGramNode.h"
+
 
 using namespace std;
 
-vector<string> insertNGramsForWord(string word);
-float jaccardIndex(string word, string otherWord);
-
+class NGramsOverlap {
+public:
+    TwoThreeTree<NGramNode> *ngramTree;
+    void insertWordInNGramTree(string word);
+    float jaccardIndex(string word, string otherWord);
+    
+    NGramsOverlap();
+private:
+    vector<string> getNGramsForWord(string word);
+};
 #endif /* defined(___3Tree__NGramsOverlap__) */
