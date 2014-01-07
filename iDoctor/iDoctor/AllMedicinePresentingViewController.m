@@ -53,6 +53,7 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Medicine"];
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     request.sortDescriptors = @[ sortDescriptor ];
+    [request setFetchBatchSize:20];
     
     UIManagedDocument* document = [CoreDataManager sharedManager].document;
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
