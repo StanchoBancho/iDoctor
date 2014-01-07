@@ -22,6 +22,7 @@ class Node {
         vector <Node*> children;
         int numberOfItems;
         int numberOfChildren;
+        vector<string> words;
         Node(string minKey, Node *parent);
 };
 

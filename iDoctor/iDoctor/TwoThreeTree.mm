@@ -259,6 +259,9 @@ void TwoThreeTree::split(Node *node, string data) {
 }
 
 Node *TwoThreeTree::searchData(string data) {
+    if (this->root == NULL) {
+        return NULL;
+    }
     return searchDataInRoot(this->root, data);
 }
 

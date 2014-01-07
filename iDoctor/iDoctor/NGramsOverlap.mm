@@ -16,31 +16,68 @@ NGramsOverlap::NGramsOverlap() {
 }
 
 void NGramsOverlap::insertWordInNGramTree(string word) {
-    
+    vector<string> ngrams = getNGramsForWord(word);
+    for (int i = 0; i < ngrams.size(); ++i) {
+        string ngram = ngrams[i];
+        Node *ngramNode = ngramTree->searchData(ngram);
+        if (ngramNode != NULL) {
+            ngramNode->words.push_back(word);
+        } else {
+            ngramTree->insertData(ngram);
+            Node *ngramNode = ngramTree->searchData(ngram);
+            ngramNode->words.push_back(word);
+        }
+    }
 }
 
-vector<string> getNGramsForWord(string word) {
+vector<string> NGramsOverlap::getNearestWordsForWord(string word) {
+    vector<string> words;
+    
+    vector<string> ngrams = getNGramsForWord(word);
+    for (int i = 0; i < ngrams.size(); ++i) {
+        string ngram = ngrams[i];
+        Node *ngramNode = ngramTree->searchData(ngram);
+        if (ngramNode != NULL) {
+            for (int j = 0; j < ngramNode->words.size(); ++j) {
+                words.push_back(ngramNode->words[j]);
+            }
+        }
+    }
+    
+    return words;
+}
+
+vector<string> NGramsOverlap::getNGramsForWord(string word) {
     vector<string> ngrams;
     
-    for (int i = 0; i < word.length() - 1; ++i) {
-        string ngram = word.substr(i, 2);
-        ngrams.push_back(ngram);
+    string wordLow;
+    wordLow.assign(word);
+    transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
+    
+    for (int i = 0; i < wordLow.length() - 1; ++i) {
+        string ngram = wordLow.substr(i, 2);
+        bool shouldInsertNGram = true;
+        for (int j = 0; j < ngrams.size(); ++j) {
+            string insertedNGram = ngrams[j];
+            if (insertedNGram.compare(ngram) == 0) {
+                shouldInsertNGram = false;
+                break;
+            }
+        }
+        if (shouldInsertNGram) {
+            ngrams.push_back(ngram);
+        }
     }
     return ngrams;
 }
 
-float jaccardIndex(string word, string otherWord) {
+float NGramsOverlap::jaccardIndex(string word, string otherWord) {
     if (word.length() == 0 || otherWord.length() == 0) {
         return 0.0;
     }
-    string wordLow, otherWordLow;
-    wordLow.assign(word);
-    otherWordLow.assign(otherWord);
-    transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
-    transform(otherWordLow.begin(), otherWordLow.end(), otherWordLow.begin(), ::tolower);
     
-    vector<string> wordNGrams = getNGramsForWord(wordLow);
-    vector<string> otherWordsNGrams = getNGramsForWord(otherWordLow);
+    vector<string> wordNGrams = getNGramsForWord(word);
+    vector<string> otherWordsNGrams = getNGramsForWord(otherWord);
     
     vector<string> intersectionSet;
     for (int i = 0; i < wordNGrams.size(); ++i) {

@@ -12,11 +12,13 @@
 #import "Medicine.h"
 #import "TwoThreeTree.h"
 #import "MedicineDetailViewController.h"
+#import "NGramsOverlap.h"
 
 
 @interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     TwoThreeTree* tree;
+    NGramsOverlap *ngramOverlap;
 }
 @property (nonatomic, strong) CoreDataManager* sharedManager;
 
@@ -92,6 +94,8 @@
         //create tree
 
         tree = new TwoThreeTree();
+        ngramOverlap = new NGramsOverlap();
+
         for(Medicine* m in array){
             if(m.name == nil || [m.name isEqualToString:@""]){
                 NSLog(@"a sega");
@@ -99,6 +103,7 @@
             }
             string cpp_str([m.name UTF8String], [m.name lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
             tree->insertData(cpp_str);
+            ngramOverlap->insertWordInNGramTree(cpp_str);
         }
         //        tree->insertData("aaa");
         //        tree->insertData("aba");
@@ -275,6 +280,10 @@
 
 -(IBAction)addButtonPressed:(id)sender
 {
+    string cpp_str([self.textField.text UTF8String], [self.textField.text lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    
+    vector<string> words = ngramOverlap->getNearestWordsForWord(cpp_str);
+    
     NSCharacterSet* whiteSpaces = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     NSString* typedText = [self.textField.text stringByTrimmingCharactersInSet:whiteSpaces];
     if (![typedText isEqualToString:@""]) {
@@ -284,3 +293,4 @@
 }
 
 @end
+
