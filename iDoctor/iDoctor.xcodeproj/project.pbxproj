@@ -264,12 +264,12 @@
 		C7F443A01872D4A900242E27 /* Autocorrection */ = {
 			isa = PBXGroup;
 			children = (
-				C7F443A11872D4CE00242E27 /* EditDistance.mm */,
 				C7F443A21872D4CE00242E27 /* EditDistance.h */,
-				C7F443A31872D4CE00242E27 /* NGramsOverlap.mm */,
+				C7F443A11872D4CE00242E27 /* EditDistance.mm */,
 				C7F443A41872D4CE00242E27 /* NGramsOverlap.h */,
-				94CC4652187C1ABC007534C8 /* NGramNode.mm */,
+				C7F443A31872D4CE00242E27 /* NGramsOverlap.mm */,
 				94CC4653187C1ABC007534C8 /* NGramNode.h */,
+				94CC4652187C1ABC007534C8 /* NGramNode.mm */,
 			);
 			name = Autocorrection;
 			sourceTree = "<group>";

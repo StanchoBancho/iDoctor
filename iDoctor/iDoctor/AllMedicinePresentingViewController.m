@@ -46,8 +46,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     //         [self startFetching];
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Medicine"];

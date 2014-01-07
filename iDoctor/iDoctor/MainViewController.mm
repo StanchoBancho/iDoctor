@@ -12,18 +12,25 @@
 #import "Medicine.h"
 #import "TwoThreeTree.h"
 #import "MedicineDetailViewController.h"
+#import "EditDistance.h"
 
+#define kAutocorectionCheckDeltaTime 5.0
 
 @interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     TwoThreeTree* tree;
+    vector<string> allMedicineNames;
 }
 @property (nonatomic, strong) CoreDataManager* sharedManager;
 
+@property (nonatomic, strong) NSMutableArray* autocorectedMedicineNames;
 @property (nonatomic, strong) NSMutableArray* suggestedMedicineNames;
 @property (nonatomic, strong) NSMutableArray* choosedMedicineNames;
 @property (nonatomic, strong) NSMutableString* typedText;
+@property (nonatomic, assign) CFAbsoluteTime lastTimeTextIsEntered;
+@property (nonatomic, strong) NSTimer* timer;
 
+@property (nonatomic, strong) IBOutlet UITableView* autocorectionTableView;
 @property (nonatomic, strong) IBOutlet UITableView* suggestionsTableView;
 @property (nonatomic, strong) IBOutlet UITableView* tableView;
 @property (nonatomic, strong) IBOutlet UITextField* textField;
@@ -53,6 +60,11 @@
     [self.suggestionsTableView.layer setCornerRadius:2.0];
     [self.suggestionsTableView.layer setBorderColor:[[UIColor grayColor] CGColor]];
     [self.suggestionsTableView.layer setBorderWidth:1.0];
+    
+    [self.autocorectionTableView.layer setCornerRadius:2.0];
+    [self.autocorectionTableView.layer setBorderColor:[[UIColor redColor] CGColor]];
+    [self.autocorectionTableView.layer setBorderWidth:1.0];
+
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -71,6 +83,8 @@
     delete tree;
 }
 
+#pragma mark - Autocompletion methods
+
 - (void)loadTree
 {
     // NOTE: if str is nil this will produce an empty C++ string
@@ -80,8 +94,12 @@
     self.sharedManager = [CoreDataManager sharedManager];
     NSManagedObjectContext* context = self.sharedManager.document.managedObjectContext;
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Medicine" inManagedObjectContext:context];
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setResultType:NSDictionaryResultType];
+
     [request setEntity:entityDescription];
+    [request setPropertiesToFetch:@[@"name"]];
     NSError *error;
     
     NSArray *array = [context executeFetchRequest:request error:&error];
@@ -90,14 +108,14 @@
     }
     else{
         //create tree
-
         tree = new TwoThreeTree();
-        for(Medicine* m in array){
-            if(m.name == nil || [m.name isEqualToString:@""]){
+        for(NSDictionary* m in array){
+            if(m[@"name"] == nil || [m[@"name"] isEqualToString:@""]){
                 NSLog(@"a sega");
                 
             }
-            string cpp_str([m.name UTF8String], [m.name lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+            string cpp_str([m[@"name"] UTF8String], [m[@"name"] lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+            allMedicineNames.push_back(cpp_str);
             tree->insertData(cpp_str);
         }
         //        tree->insertData("aaa");
@@ -113,11 +131,9 @@
         
     }
     
-    //float c = jaccardIndex("abcdfghij", "abcd00");
+    //float c = jaccardIndex("abcdfghij", "abcd00");    
     
 }
-
-#pragma mark - Autocompletion methods
 
 -(void)showApropriateSuggestionsForString:(NSString*)typedText
 {
@@ -168,6 +184,38 @@
     [self.textField resignFirstResponder];
 }
 
+#pragma mark - Autocorection methods
+
+-(void)tryToAutoCorrectTheTypedText
+{
+    if([self.typedText isEqualToString:@""]){
+        [self.autocorectionTableView setHidden:YES];
+        return;
+    }
+    string cpp_typed_str([self.typedText UTF8String], [self.typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    int minEditDistance = 1000;
+    self.autocorectedMedicineNames = [[NSMutableArray alloc] init];
+    for (int i = 0; i < allMedicineNames.size(); i++) {
+        int current_distance = edit_distance(cpp_typed_str, allMedicineNames[i]);
+        if(current_distance < minEditDistance){
+            NSString* string = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
+            self.autocorectedMedicineNames = [NSMutableArray arrayWithObject:string];
+            minEditDistance = current_distance;
+        }
+        else if(current_distance == minEditDistance){
+            NSString* string = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
+            [self.autocorectedMedicineNames addObject:string];
+        }
+    }
+    if(self.autocorectedMedicineNames.count > 0){
+        [self.autocorectionTableView setHidden:NO];
+        [self.autocorectionTableView reloadData];
+    }
+    else{
+        [self.autocorectionTableView setHidden:YES];
+    }
+}
+
 #pragma mark - UITextFieldDelegate methods
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -175,23 +223,12 @@
     [self.typedText replaceCharactersInRange:range withString:string];
     [self showApropriateSuggestionsForString:self.typedText];
     
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(tryToAutoCorrectTheTypedText) userInfo:nil repeats:NO];
+
     return YES;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    //    NSString* enteredText = textField.text;
-    //    string cpp_str([enteredText UTF8String], [enteredText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-    //    vector<string> result = tree->findDataWithPrefix(cpp_str);
-    //
-    //
-    ////    if(node){
-    ////        NSLog(@"we have match");
-    ////    }
-    ////    else{
-    ////        NSLog(@"we do not have match");
-    ////    }
-}
+
 
 
 
@@ -207,8 +244,11 @@
     if (tableView == self.suggestionsTableView) {
         return self.suggestedMedicineNames.count;
     }
-    else{
+    else if(tableView == self.tableView){
         return self.choosedMedicineNames.count;
+    }
+    else{
+        return self.autocorectedMedicineNames.count;
     }
 }
 
@@ -220,7 +260,7 @@
         cell.textLabel.text = medicineTitle;
         return cell;
     }
-    else
+    else if(tableView == self.tableView)
     {
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MedicineCell"];
         NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"name"];
@@ -232,6 +272,12 @@
         else{
             [cell setAccessoryType:UITableViewCellAccessoryNone];
         }
+        return cell;
+    }
+    else{
+        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"AutocorectedMedicineCell"];
+        NSString* medicineTitle = self.autocorectedMedicineNames[indexPath.row];
+        cell.textLabel.text = medicineTitle;
         return cell;
     }
 }
