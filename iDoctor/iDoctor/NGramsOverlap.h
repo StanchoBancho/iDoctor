@@ -20,7 +20,7 @@ using namespace std;
 
 class NGramsOverlap {
 public:
-    TwoThreeTree<NGramNode> *ngramTree;
+    TwoThreeTree *ngramTree;
     void insertWordInNGramTree(string word);
     float jaccardIndex(string word, string otherWord);
     
