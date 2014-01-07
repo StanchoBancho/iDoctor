@@ -13,6 +13,7 @@
 #import "TwoThreeTree.h"
 #import "MedicineDetailViewController.h"
 #import "EditDistance.h"
+#import "NGramsOverlap.h"
 
 #define kAutocorectionCheckDeltaTime 5.0
 
@@ -20,6 +21,7 @@
 {
     TwoThreeTree* tree;
     vector<string> allMedicineNames;
+    NGramsOverlap *ngramOverlap;
 }
 @property (nonatomic, strong) CoreDataManager* sharedManager;
 
@@ -109,6 +111,7 @@
     else{
         //create tree
         tree = new TwoThreeTree();
+        ngramOverlap = new NGramsOverlap();
         for(NSDictionary* m in array){
             if(m[@"name"] == nil || [m[@"name"] isEqualToString:@""]){
                 NSLog(@"a sega");
