@@ -11,7 +11,15 @@
 #include <string>
 #include <algorithm>
 
-vector<string> insertNGramsForWord(string word) {
+NGramsOverlap::NGramsOverlap() {
+    this->ngramTree = new TwoThreeTree<NGramNode>();
+}
+
+void NGramsOverlap::insertWordInNGramTree(string word) {
+    
+}
+
+vector<string> getNGramsForWord(string word) {
     vector<string> ngrams;
     
     for (int i = 0; i < word.length() - 1; ++i) {
@@ -31,8 +39,8 @@ float jaccardIndex(string word, string otherWord) {
     transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
     transform(otherWordLow.begin(), otherWordLow.end(), otherWordLow.begin(), ::tolower);
     
-    vector<string> wordNGrams = insertNGramsForWord(wordLow);
-    vector<string> otherWordsNGrams = insertNGramsForWord(otherWordLow);
+    vector<string> wordNGrams = getNGramsForWord(wordLow);
+    vector<string> otherWordsNGrams = getNGramsForWord(otherWordLow);
     
     vector<string> intersectionSet;
     for (int i = 0; i < wordNGrams.size(); ++i) {
@@ -78,3 +86,4 @@ float jaccardIndex(string word, string otherWord) {
     
     return (float)intersectionSet.size()/(float)unionSet.size();
 }
+

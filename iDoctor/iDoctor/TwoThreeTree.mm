@@ -14,11 +14,11 @@
 
 using namespace std;
 
-TwoThreeTree::TwoThreeTree() {
+template <class NodeType> TwoThreeTree<NodeType>::TwoThreeTree() {
     this->root = NULL;
 }
 
-void TwoThreeTree::insertData(string data) {
+template <class NodeType> void TwoThreeTree<NodeType>::insertData(string data) {
     //empty tree
     if (this->root == NULL) {
         this->root = new Node(data, NULL);
@@ -81,7 +81,7 @@ void TwoThreeTree::insertData(string data) {
     }
 }
 
-Node *TwoThreeTree::findParent(Node *node, string data) {
+template <class NodeType> NodeType *TwoThreeTree<NodeType>::findParent(NodeType *node, string data) {
     Node *leftChild = node->children[0];
     Node *middleChild = node->children[1];
     Node *rightChild = node->children[2];
@@ -116,7 +116,7 @@ Node *TwoThreeTree::findParent(Node *node, string data) {
     return NULL;
 }
 
-void TwoThreeTree::insertDataIntoParentTree(Node *parent, string data) {
+template <class NodeType> void TwoThreeTree<NodeType>::insertDataIntoParentTree(NodeType *parent, string data) {
     Node *leaf = NULL;
     //find leaf node to insert data
     
@@ -165,7 +165,7 @@ void TwoThreeTree::insertDataIntoParentTree(Node *parent, string data) {
     }
 }
 
-void TwoThreeTree::split(Node *node, string data) {
+template <class NodeType> void TwoThreeTree<NodeType>::split(NodeType *node, string data) {
     Node *parent = node->parent;
     bool isNewParent = false;
     if (parent == NULL) {
@@ -258,11 +258,11 @@ void TwoThreeTree::split(Node *node, string data) {
     }
 }
 
-Node *TwoThreeTree::searchData(string data) {
+template <class NodeType> NodeType *TwoThreeTree<NodeType>::searchData(string data) {
     return searchDataInRoot(this->root, data);
 }
 
-Node *TwoThreeTree::searchDataInRoot(Node *node, string data) {
+template <class NodeType> NodeType *TwoThreeTree<NodeType>::searchDataInRoot(NodeType *node, string data) {
     string minKey, maxKey;
     minKey.assign(node->minKey);
     maxKey.assign(node->maxKey);
@@ -290,7 +290,7 @@ Node *TwoThreeTree::searchDataInRoot(Node *node, string data) {
     return NULL;
 }
 
-vector<string> TwoThreeTree::findDataWithPrefix(string prefix) {
+template <class NodeType> vector<string> TwoThreeTree<NodeType>::findDataWithPrefix(string prefix) {
     vector<string> nodes;
     transform(prefix.begin(), prefix.end(), prefix.begin(), ::tolower);
     
@@ -330,7 +330,7 @@ vector<string> TwoThreeTree::findDataWithPrefix(string prefix) {
     return nodes;
 }
 
-Node *TwoThreeTree::findFirstNodeWithPrefix(Node *node, string prefix) {
+template <class NodeType> NodeType *TwoThreeTree<NodeType>::findFirstNodeWithPrefix(NodeType *node, string prefix) {
     
     string minKey, maxKey;
     minKey.assign(node->minKey);
@@ -359,7 +359,7 @@ Node *TwoThreeTree::findFirstNodeWithPrefix(Node *node, string prefix) {
     return NULL;
 }
 
-bool TwoThreeTree::checkPrefix(string prefix, string str) {
+template <class NodeType> bool TwoThreeTree<NodeType>::checkPrefix(string prefix, string str) {
     if (str == "") {
         return false;
     }
@@ -371,3 +371,9 @@ bool TwoThreeTree::checkPrefix(string prefix, string str) {
     return false;
 }
 
+
+template <class NodeType> void TwoThreeTree<NodeType>:: test(){
+   TwoThreeTree<Node>* tree = new TwoThreeTree<Node>();
+    
+
+}

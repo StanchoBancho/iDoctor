@@ -12,12 +12,11 @@
 #import "Medicine.h"
 #import "TwoThreeTree.h"
 #import "MedicineDetailViewController.h"
-#import "NGramsOverlap.h"
 
 
 @interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 {
-    TwoThreeTree* tree;
+    TwoThreeTree<Node>* tree;
 }
 @property (nonatomic, strong) CoreDataManager* sharedManager;
 
@@ -91,7 +90,8 @@
     }
     else{
         //create tree
-        tree = new TwoThreeTree();
+
+//        tree = new TwoThreeTree<Node>();
         for(Medicine* m in array){
             if(m.name == nil || [m.name isEqualToString:@""]){
                 NSLog(@"a sega");
@@ -113,7 +113,7 @@
         
     }
     
-    float c = jaccardIndex("abcdfghij", "abcd00");
+    //float c = jaccardIndex("abcdfghij", "abcd00");
     
 }
 
