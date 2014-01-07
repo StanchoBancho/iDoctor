@@ -16,7 +16,7 @@
 
 @interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 {
-    TwoThreeTree<Node>* tree;
+    TwoThreeTree* tree;
 }
 @property (nonatomic, strong) CoreDataManager* sharedManager;
 
@@ -91,7 +91,7 @@
     else{
         //create tree
 
-//        tree = new TwoThreeTree<Node>();
+        tree = new TwoThreeTree();
         for(Medicine* m in array){
             if(m.name == nil || [m.name isEqualToString:@""]){
                 NSLog(@"a sega");

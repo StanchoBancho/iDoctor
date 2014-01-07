@@ -12,7 +12,7 @@
 #include <algorithm>
 
 NGramsOverlap::NGramsOverlap() {
-    this->ngramTree = new TwoThreeTree<NGramNode>();
+    this->ngramTree = new TwoThreeTree();
 }
 
 void NGramsOverlap::insertWordInNGramTree(string word) {
