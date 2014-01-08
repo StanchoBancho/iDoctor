@@ -14,6 +14,9 @@
 #import "MedicineDetailViewController.h"
 #import "EditDistance.h"
 #import "NGramsOverlap.h"
+#import "Constants.h"
+
+
 
 #define kAutocorectionCheckDeltaTime 5.0
 
@@ -22,6 +25,7 @@
     TwoThreeTree* tree;
     vector<string> allMedicineNames;
     NGramsOverlap *ngramOverlap;
+    dispatch_queue_t workingQueue;
 }
 @property (nonatomic, strong) CoreDataManager* sharedManager;
 
@@ -36,7 +40,7 @@
 @property (nonatomic, strong) IBOutlet UITableView* suggestionsTableView;
 @property (nonatomic, strong) IBOutlet UITableView* tableView;
 @property (nonatomic, strong) IBOutlet UITextField* textField;
-
+@property (nonatomic, strong) NSUserDefaults* standartsDefaults;
 @end
 
 @implementation MainViewController
@@ -66,7 +70,9 @@
     [self.autocorectionTableView.layer setCornerRadius:2.0];
     [self.autocorectionTableView.layer setBorderColor:[[UIColor redColor] CGColor]];
     [self.autocorectionTableView.layer setBorderWidth:1.0];
-
+    
+    self.standartsDefaults = [NSUserDefaults standardUserDefaults];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -99,7 +105,7 @@
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setResultType:NSDictionaryResultType];
-
+    
     [request setEntity:entityDescription];
     [request setPropertiesToFetch:@[@"name"]];
     NSError *error;
@@ -135,12 +141,13 @@
         
     }
     
-    //float c = jaccardIndex("abcdfghij", "abcd00");    
+    //float c = jaccardIndex("abcdfghij", "abcd00");
     
 }
 
--(void)showApropriateSuggestionsForString:(NSString*)typedText
+-(void)showApropriateSuggestionsUsing23TreeSearch:(NSString*)typedText
 {
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
     self.suggestedMedicineNames = [NSMutableArray array];
     if([typedText isEqualToString:@""]){
         [self.suggestionsTableView setHidden:YES];
@@ -157,6 +164,36 @@
         }
         //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
     }
+    CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
+    NSLog(@"Time needed for autocompletion with 2-3 TREE SEARCH is %f", endTime - startTime);
+    [self.suggestionsTableView reloadData];
+}
+
+-(void)showApropriateSuggestionsUsingLinearSearch:(NSString*)typedText
+{
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+    self.suggestedMedicineNames = [NSMutableArray array];
+    if([typedText isEqualToString:@""]){
+        [self.suggestionsTableView setHidden:YES];
+    }
+    else{
+        [self.suggestionsTableView setHidden:NO];
+        
+        string typed_cpp_string([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+        std::transform(typed_cpp_string.begin(), typed_cpp_string.end(), typed_cpp_string.begin(), ::tolower);
+
+        for (int i = 0; i < allMedicineNames.size(); i++) {
+            string medicineName = allMedicineNames[i];
+            std::transform(medicineName.begin(), medicineName.end(), medicineName.begin(), ::tolower);
+            if(medicineName.find(typed_cpp_string) == 0){
+                NSString* medicineName = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
+                [self.suggestedMedicineNames addObject:medicineName];
+            }
+        }
+        //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
+    }
+    CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
+    NSLog(@"Time needed for autocompletion with LINEAR SEARCH is %f", endTime - startTime);
     [self.suggestionsTableView reloadData];
 }
 
@@ -184,6 +221,8 @@
     self.typedText =  [NSMutableString string];
     [self.textField setText:@""];
     [self.suggestionsTableView setHidden:YES];
+    [self.autocorectionTableView setHidden:YES];
+    
     [self.tableView reloadData];
     [self.textField resignFirstResponder];
 }
@@ -192,31 +231,50 @@
 
 -(void)tryToAutoCorrectTheTypedText
 {
-    if([self.typedText isEqualToString:@""]){
-        [self.autocorectionTableView setHidden:YES];
-        return;
-    }
-    string cpp_typed_str([self.typedText UTF8String], [self.typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-    int minEditDistance = 1000;
-    self.autocorectedMedicineNames = [[NSMutableArray alloc] init];
-    for (int i = 0; i < allMedicineNames.size(); i++) {
-        int current_distance = edit_distance(cpp_typed_str, allMedicineNames[i]);
-        if(current_distance < minEditDistance){
-            NSString* string = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
-            self.autocorectedMedicineNames = [NSMutableArray arrayWithObject:string];
-            minEditDistance = current_distance;
+    if ([self.standartsDefaults integerForKey:kAutocorectionType] == AutocorectionEditDistance) {
+        if(!workingQueue){
+            workingQueue = dispatch_queue_create("AutocorectionQueue", DISPATCH_QUEUE_SERIAL);
         }
-        else if(current_distance == minEditDistance){
-            NSString* string = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
-            [self.autocorectedMedicineNames addObject:string];
-        }
+        dispatch_async(workingQueue, ^{
+            
+            //start checking for autocorection match
+            if([self.typedText isEqualToString:@""]){
+                [self.autocorectionTableView setHidden:YES];
+                return;
+            }
+            string cpp_typed_str([self.typedText UTF8String], [self.typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+            int minEditDistance = 1000;
+            self.autocorectedMedicineNames = [[NSMutableArray alloc] init];
+            for (int i = 0; i < allMedicineNames.size(); i++) {
+                int current_distance = edit_distance(cpp_typed_str, allMedicineNames[i]);
+                BOOL areTypedTextCloseToExistingWord = current_distance <= cpp_typed_str.length() / 3;
+                
+                if(current_distance < minEditDistance && areTypedTextCloseToExistingWord){
+                    NSString* string = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
+                    self.autocorectedMedicineNames = [NSMutableArray arrayWithObject:string];
+                    minEditDistance = current_distance;
+                }
+                else if(current_distance == minEditDistance && areTypedTextCloseToExistingWord){
+                    NSString* string = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
+                    [self.autocorectedMedicineNames addObject:string];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(self.autocorectedMedicineNames.count > 0){
+                    [self.autocorectionTableView setHidden:NO];
+                    [self.autocorectionTableView reloadData];
+                }
+                else{
+                    [self.autocorectionTableView setHidden:YES];
+                }
+            });
+        });
     }
-    if(self.autocorectedMedicineNames.count > 0){
-        [self.autocorectionTableView setHidden:NO];
-        [self.autocorectionTableView reloadData];
+    else if([self.standartsDefaults integerForKey:kAutocorectionType] == AutocorectionTypeNGram){
+        
     }
     else{
-        [self.autocorectionTableView setHidden:YES];
+        
     }
 }
 
@@ -224,11 +282,28 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    //auto completion
     [self.typedText replaceCharactersInRange:range withString:string];
-    [self showApropriateSuggestionsForString:self.typedText];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(tryToAutoCorrectTheTypedText) userInfo:nil repeats:NO];
+    if([self.standartsDefaults integerForKey:kAutocompetionType] == AutocompetionType23Tree){
+        [self showApropriateSuggestionsUsing23TreeSearch:self.typedText];
+    }
+    else{
+        [self showApropriateSuggestionsUsingLinearSearch:self.typedText];
 
+    }
+    
+    //auto correction
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    if(newLength < textField.text.length){
+        //we are deleting => hide the auto correction
+        [self.autocorectionTableView setHidden:YES];
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+    [self.timer invalidate];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(tryToAutoCorrectTheTypedText) userInfo:nil repeats:NO];
+    
     return YES;
 }
 
@@ -314,9 +389,14 @@
             }
         }
     }
-    else{
+    else if(tableView == self.suggestionsTableView){
         //chose selected medicine
         NSString* medicineTitle = self.suggestedMedicineNames[indexPath.row];
+        [self handleMedicine: medicineTitle isItExistingOne:YES];
+    }
+    else {
+        //chose autocorected medicine
+        NSString* medicineTitle = self.autocorectedMedicineNames[indexPath.row];
         [self handleMedicine: medicineTitle isItExistingOne:YES];
     }
 }

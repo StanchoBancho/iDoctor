@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "CoreDataManager.h"
+#import "Constants.h"
+
 @interface AppDelegate()
 {
 
@@ -19,6 +21,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSUserDefaults* standartDefaults = [NSUserDefaults standardUserDefaults];
+    if([standartDefaults integerForKey:kAutocompetionType]){
+        [standartDefaults setInteger:AutocompetionType23Tree forKey:kAutocompetionType];
+        [standartDefaults setInteger:AutocorectionEditDistance forKey:kAutocorectionType];
+    }
     
     [[CoreDataManager sharedManager] setupDocument:^(UIManagedDocument *document, NSError *error) {
         if (document && !error) {
