@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#import <set>
 
 NGramsOverlap::NGramsOverlap() {
     this->ngramTree = new TwoThreeTree();
@@ -30,22 +31,41 @@ void NGramsOverlap::insertWordInNGramTree(string word) {
     }
 }
 
-vector<string> NGramsOverlap::getNearestWordsForWord(string word) {
-    vector<string> words;
-    
+bool wayToSort(pair<string, float>  i, pair<string, float> j)
+{
+    return i.second > j.second;
+}
+
+vector<pair<string, float> > NGramsOverlap::getNearestWordsForWord(string word) {
+    vector<pair<string, float> > words;
+    set<string> existingWord;
     vector<string> ngrams = getNGramsForWord(word);
     for (int i = 0; i < ngrams.size(); ++i) {
         string ngram = ngrams[i];
         Node *ngramNode = ngramTree->searchData(ngram);
         if (ngramNode != NULL) {
             for (int j = 0; j < ngramNode->words.size(); ++j) {
-                words.push_back(ngramNode->words[j]);
+                string autocorectionWord = ngramNode->words[j];
+                const bool is_in = existingWord.find(autocorectionWord) != existingWord.end();
+                
+                if(!is_in){
+                    float distance = this->jaccardIndex(word, autocorectionWord);
+                    words.push_back(make_pair(autocorectionWord, distance));
+                    existingWord.insert(autocorectionWord);
+                }
             }
         }
     }
     
+    sort(words.begin(), words.end(), wayToSort);
+    words.erase(words.begin() + 10, words.end());
+    
+    
     return words;
 }
+
+
+
 
 vector<string> NGramsOverlap::getNGramsForWord(string word) {
     vector<string> ngrams;

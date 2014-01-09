@@ -17,8 +17,4 @@ using namespace std;
 
 unsigned int edit_distance(const string& s1, const string& s2);
 
-int OptimalStringAlignmentDistance(string str1, string str2);
-
-int editDistance(string text, string target);
-
 #endif /* defined(___3Tree__EditDistance__) */

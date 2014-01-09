@@ -36,22 +36,22 @@
 	//set autocompletion segment controll
     self.standardDefaults = [NSUserDefaults standardUserDefaults];
 
-    if([self.standardDefaults integerForKey:kAutocorectionType] == AutocompetionTypeLinear){
-        [self.autocorectionSegmentControll setSelectedSegmentIndex:0];
+    if([self.standardDefaults integerForKey:kAutocompetionType] == AutocompetionTypeLinear){
+        [self.autocompletionSegmentControll setSelectedSegmentIndex:0];
     }
     else {
-        [self.autocorectionSegmentControll setSelectedSegmentIndex:1];
+        [self.autocompletionSegmentControll setSelectedSegmentIndex:1];
     }
 
     //set autocompletion segment controll
-    if([self.standardDefaults integerForKey:kAutocompetionType] == AutocorectionTypeNGram){
-        [self.autocompletionSegmentControll setSelectedSegmentIndex:0];
+    if([self.standardDefaults integerForKey:kAutocorectionType] == AutocorectionTypeNGram){
+        [self.autocorectionSegmentControll setSelectedSegmentIndex:0];
     }
-    else if([self.standardDefaults integerForKey:kAutocompetionType] == AutocorectionEditDistance){
-        [self.autocompletionSegmentControll setSelectedSegmentIndex:1];
+    else if([self.standardDefaults integerForKey:kAutocorectionType] == AutocorectionEditDistance){
+        [self.autocorectionSegmentControll setSelectedSegmentIndex:1];
     }
     else{
-        [self.autocompletionSegmentControll setSelectedSegmentIndex:2];
+        [self.autocorectionSegmentControll setSelectedSegmentIndex:2];
     }
     
 }
@@ -65,24 +65,26 @@
 -(IBAction)autocorectionSegmentControllerTouched:(id)sender
 {
     if([(UISegmentedControl*)sender selectedSegmentIndex] == 0){
-        [self.standardDefaults setInteger:AutocompetionTypeLinear forKey:kAutocorectionType];
+        [self.standardDefaults setInteger:AutocorectionTypeNGram forKey:kAutocorectionType];
+    }
+    else if([(UISegmentedControl*)sender selectedSegmentIndex] == 1) {
+        [self.standardDefaults setInteger:AutocorectionEditDistance forKey:kAutocorectionType];
     }
     else{
-        [self.standardDefaults setInteger:AutocompetionType23Tree forKey:kAutocorectionType];
+        [self.standardDefaults setInteger:AutocorectionThird forKey:kAutocorectionType];
     }
+    [self.standardDefaults synchronize];
 }
 
 -(IBAction)autocompletionSegmentControllerTouched:(id)sender
-{
+{    
     if([(UISegmentedControl*)sender selectedSegmentIndex] == 0){
-        [self.standardDefaults setInteger:AutocorectionTypeNGram forKey:kAutocompetionType];
-    }
-    else if([(UISegmentedControl*)sender selectedSegmentIndex] == 1) {
-        [self.standardDefaults setInteger:AutocorectionEditDistance forKey:kAutocompetionType];
+        [self.standardDefaults setInteger:AutocompetionTypeLinear forKey:kAutocompetionType];
     }
     else{
-        [self.standardDefaults setInteger:AutocorectionTypeNGram forKey:kAutocompetionType];
+        [self.standardDefaults setInteger:AutocompetionType23Tree forKey:kAutocompetionType];
     }
+    [self.standardDefaults synchronize];
 }
 
 @end

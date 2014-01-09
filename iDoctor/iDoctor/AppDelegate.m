@@ -22,7 +22,7 @@
 {
     // Override point for customization after application launch.
     NSUserDefaults* standartDefaults = [NSUserDefaults standardUserDefaults];
-    if([standartDefaults integerForKey:kAutocompetionType]){
+    if([standartDefaults integerForKey:kAutocompetionType] < 1){
         [standartDefaults setInteger:AutocompetionType23Tree forKey:kAutocompetionType];
         [standartDefaults setInteger:AutocorectionEditDistance forKey:kAutocorectionType];
     }
@@ -50,7 +50,9 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    NSUserDefaults* standartDefaults = [NSUserDefaults standardUserDefaults];
+    [standartDefaults synchronize];
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

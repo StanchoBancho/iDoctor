@@ -181,7 +181,7 @@
         
         string typed_cpp_string([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
         std::transform(typed_cpp_string.begin(), typed_cpp_string.end(), typed_cpp_string.begin(), ::tolower);
-
+        
         for (int i = 0; i < allMedicineNames.size(); i++) {
             string medicineName = allMedicineNames[i];
             std::transform(medicineName.begin(), medicineName.end(), medicineName.begin(), ::tolower);
@@ -231,20 +231,21 @@
 
 -(void)tryToAutoCorrectTheTypedText
 {
-    if ([self.standartsDefaults integerForKey:kAutocorectionType] == AutocorectionEditDistance) {
-        if(!workingQueue){
-            workingQueue = dispatch_queue_create("AutocorectionQueue", DISPATCH_QUEUE_SERIAL);
-        }
-        dispatch_async(workingQueue, ^{
-            
+    if(!workingQueue){
+        workingQueue = dispatch_queue_create("AutocorectionQueue", DISPATCH_QUEUE_SERIAL);
+    }
+    dispatch_async(workingQueue, ^{
+        string cpp_typed_str([self.typedText UTF8String], [self.typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+        self.autocorectedMedicineNames = [[NSMutableArray alloc] init];
+
+        if ([self.standartsDefaults integerForKey:kAutocorectionType] == AutocorectionEditDistance) {
+
             //start checking for autocorection match
             if([self.typedText isEqualToString:@""]){
                 [self.autocorectionTableView setHidden:YES];
                 return;
             }
-            string cpp_typed_str([self.typedText UTF8String], [self.typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
             int minEditDistance = 1000;
-            self.autocorectedMedicineNames = [[NSMutableArray alloc] init];
             for (int i = 0; i < allMedicineNames.size(); i++) {
                 int current_distance = edit_distance(cpp_typed_str, allMedicineNames[i]);
                 BOOL areTypedTextCloseToExistingWord = current_distance <= cpp_typed_str.length() / 3;
@@ -259,23 +260,30 @@
                     [self.autocorectedMedicineNames addObject:string];
                 }
             }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if(self.autocorectedMedicineNames.count > 0){
-                    [self.autocorectionTableView setHidden:NO];
-                    [self.autocorectionTableView reloadData];
-                }
-                else{
-                    [self.autocorectionTableView setHidden:YES];
-                }
-            });
+        }
+        else if([self.standartsDefaults integerForKey:kAutocorectionType] == AutocorectionTypeNGram){
+            vector<pair<string, float> > words = ngramOverlap->getNearestWordsForWord(cpp_typed_str);
+            for(int i = 0; i < words.size(); i++){
+                NSString* string = [NSString stringWithCString:words[i].first.c_str() encoding:NSUTF8StringEncoding];
+                [self.autocorectedMedicineNames addObject:string];
+            }
+        }
+        else{
+            
+        }
+        
+        //update UI
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(self.autocorectedMedicineNames.count > 0){
+                [self.autocorectionTableView setHidden:NO];
+                [self.autocorectionTableView reloadData];
+            }
+            else{
+                [self.autocorectionTableView setHidden:YES];
+            }
         });
-    }
-    else if([self.standartsDefaults integerForKey:kAutocorectionType] == AutocorectionTypeNGram){
         
-    }
-    else{
-        
-    }
+    });
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -290,7 +298,7 @@
     }
     else{
         [self showApropriateSuggestionsUsingLinearSearch:self.typedText];
-
+        
     }
     
     //auto correction
@@ -302,7 +310,7 @@
         self.timer = nil;
     }
     [self.timer invalidate];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(tryToAutoCorrectTheTypedText) userInfo:nil repeats:NO];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tryToAutoCorrectTheTypedText) userInfo:nil repeats:NO];
     
     return YES;
 }
@@ -405,10 +413,6 @@
 
 -(IBAction)addButtonPressed:(id)sender
 {
-    string cpp_str([self.textField.text UTF8String], [self.textField.text lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-    
-    vector<string> words = ngramOverlap->getNearestWordsForWord(cpp_str);
-    
     NSCharacterSet* whiteSpaces = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     NSString* typedText = [self.textField.text stringByTrimmingCharactersInSet:whiteSpaces];
     if (![typedText isEqualToString:@""]) {

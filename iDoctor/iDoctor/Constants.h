@@ -15,7 +15,7 @@
 typedef NS_ENUM(NSInteger, AutocorectionType){
     AutocorectionTypeNGram = 1,
     AutocorectionEditDistance,
-    AutocorectionThirt
+    AutocorectionThird
 };
 
 typedef NS_ENUM(NSInteger, AutocompetionType){
