@@ -31,8 +31,7 @@ void NGramsOverlap::insertWordInNGramTree(string word) {
     }
 }
 
-bool wayToSort(pair<string, float>  i, pair<string, float> j)
-{
+bool wayToSort(pair<string, float>  i, pair<string, float> j) {
     return i.second > j.second;
 }
 
@@ -63,9 +62,6 @@ vector<pair<string, float> > NGramsOverlap::getNearestWordsForWord(string word) 
     
     return words;
 }
-
-
-
 
 vector<string> NGramsOverlap::getNGramsForWord(string word) {
     vector<string> ngrams;

@@ -15,7 +15,7 @@
 #import "EditDistance.h"
 #import "NGramsOverlap.h"
 #import "Constants.h"
-
+#import "SettingsViewController.h"
 
 
 #define kAutocorectionCheckDeltaTime 5.0
@@ -41,6 +41,9 @@
 @property (nonatomic, strong) IBOutlet UITableView* tableView;
 @property (nonatomic, strong) IBOutlet UITextField* textField;
 @property (nonatomic, strong) NSUserDefaults* standartsDefaults;
+
+@property (nonatomic, strong) UIPopoverController *settingsPopover;
+
 @end
 
 @implementation MainViewController
@@ -419,6 +422,19 @@
         BOOL isExisting = [self isMedicineExising: typedText];
         [self handleMedicine:typedText isItExistingOne:isExisting];
     }
+}
+
+- (IBAction)settingsButtonTapped:(id)sender {
+    if (self.settingsPopover.isPopoverVisible) {
+        [self.settingsPopover dismissPopoverAnimated:YES];
+        return;
+    } else if (!self.settingsPopover) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:[NSBundle mainBundle]];
+        SettingsViewController *myController = [storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+        
+        self.settingsPopover = [[UIPopoverController alloc] initWithContentViewController:myController];
+    }
+    [self.settingsPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
 
 @end

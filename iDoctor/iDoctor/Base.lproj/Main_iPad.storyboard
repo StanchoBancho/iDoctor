@@ -7,24 +7,24 @@
         <!--Settings View Controller-->
         <scene sceneID="wTK-AD-f2p">
             <objects>
-                <viewController id="6TH-ah-TaE" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="6TH-ah-TaE" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J7w-3s-058"/>
                         <viewControllerLayoutGuide type="bottom" id="kUh-eW-L3f"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uTF-zm-VCA">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Autocompletion type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnM-UI-EPk">
-                                <rect key="frame" x="20" y="97" width="160" height="21"/>
+                                <rect key="frame" x="80" y="76" width="160" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="l8B-RU-SHq">
-                                <rect key="frame" x="323" y="94" width="123" height="29"/>
+                                <rect key="frame" x="74" y="105" width="173" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Linear"/>
@@ -35,29 +35,38 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Autocorection type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5f4-oT-zPu">
-                                <rect key="frame" x="20" y="170" width="146" height="21"/>
+                                <rect key="frame" x="87" y="170" width="146" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gXF-Gy-295">
-                                <rect key="frame" x="323" y="167" width="284" height="29"/>
+                                <rect key="frame" x="74" y="199" width="173" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="N-gram"/>
                                     <segment title="Edit Distance"/>
-                                    <segment title="Something"/>
                                 </segments>
                                 <connections>
                                     <action selector="autocorectionSegmentControllerTouched:" destination="6TH-ah-TaE" eventType="valueChanged" id="vIe-XO-RF5"/>
                                 </connections>
                             </segmentedControl>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bdz-X3-uKi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Settings" id="mBg-EZ-sJU"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="lw2-jg-6H0"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="autocompletionSegmentControll" destination="l8B-RU-SHq" id="ZyO-ev-5AP"/>
                         <outlet property="autocorectionSegmentControll" destination="gXF-Gy-295" id="mxE-eN-WtX"/>
@@ -133,8 +142,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type new medicine name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7bx-AA-JLQ">
-                                <rect key="frame" x="20" y="93" width="898" height="33"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type new medicine name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7bx-AA-JLQ">
+                                <rect key="frame" x="20" y="95" width="944" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -142,30 +151,31 @@
                                     <outlet property="delegate" destination="od8-MK-NwJ" id="6XS-cn-MIH"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xp-ek-BfC">
-                                <rect key="frame" x="958" y="95" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xp-ek-BfC">
+                                <rect key="frame" x="982" y="97" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="AC0-bZ-3mZ"/>
                                     <constraint firstAttribute="width" constant="46" id="vYh-g0-TRB"/>
                                 </constraints>
-                                <state key="normal" title="Add">
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="addButtonPressed:" destination="od8-MK-NwJ" eventType="touchUpInside" id="5lo-ni-SGS"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-8C-jbU">
-                                <rect key="frame" x="20" y="155" width="984" height="593"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-8C-jbU">
+                                <rect key="frame" x="0.0" y="147" width="1024" height="621"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineCell" id="lbu-dr-4JC">
-                                        <rect key="frame" x="0.0" y="22" width="984" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lbu-dr-4JC" id="5ng-l9-eY0">
-                                            <rect key="frame" x="0.0" y="0.0" width="984" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -186,8 +196,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ym8-nO-d2A">
-                                <rect key="frame" x="554" y="132" width="450" height="280"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ym8-nO-d2A">
+                                <rect key="frame" x="554" y="124" width="450" height="280"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -209,8 +219,8 @@
                                     <outlet property="delegate" destination="od8-MK-NwJ" id="eWK-DM-wAO"/>
                                 </connections>
                             </tableView>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eII-3n-42L" userLabel="Suggestion Table View">
-                                <rect key="frame" x="20" y="132" width="450" height="280"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eII-3n-42L" userLabel="Suggestion Table View">
+                                <rect key="frame" x="20" y="129" width="450" height="280"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -259,7 +269,7 @@
                     <navigationItem key="navigationItem" id="VvL-nO-LxB">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="6aS-Wt-rWb">
                             <connections>
-                                <segue destination="6TH-ah-TaE" kind="push" id="IuE-79-X2j"/>
+                                <action selector="settingsButtonTapped:" destination="od8-MK-NwJ" id="XlQ-co-VK4"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="A-Z" id="d6b-Jd-k71">
