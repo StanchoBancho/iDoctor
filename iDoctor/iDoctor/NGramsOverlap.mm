@@ -55,10 +55,11 @@ vector<pair<string, float> > NGramsOverlap::getNearestWordsForWord(string word) 
             }
         }
     }
-    
     sort(words.begin(), words.end(), wayToSort);
-    words.erase(words.begin() + 10, words.end());
-    
+
+    if(words.size() > 10){
+        words.erase(words.begin() + 10, words.end());
+    }
     
     return words;
 }
