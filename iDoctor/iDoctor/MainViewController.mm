@@ -17,6 +17,7 @@
 #import "Constants.h"
 #import "SettingsViewController.h"
 #include <string>
+#include <set>
 
 #define kAutocorectionCheckDeltaTime 5.0
 
@@ -24,6 +25,7 @@
 {
     TwoThreeTree* tree;
     vector<string> allMedicineNames;
+    set<string> allMedicineNamesWords;
     NGramsOverlap *ngramOverlap;
     dispatch_queue_t workingQueue;
 }
@@ -121,7 +123,6 @@
         //create tree
         // @autoreleasepool {
         tree = new TwoThreeTree();
-        NSMutableSet* set = [NSMutableSet set];
         ngramOverlap = new NGramsOverlap();
         for(NSDictionary* m in array){
             if(m[@"name"] == nil || [m[@"name"] isEqualToString:@""]){
@@ -129,20 +130,22 @@
                 
             }
             string cpp_str([m[@"name"] UTF8String], [m[@"name"] lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-            allMedicineNames.push_back(cpp_str);
             tree->insertData(cpp_str);
+            allMedicineNames.push_back(cpp_str);
             
             //create ngramoverlap structure
             NSArray* allWordsOfTheMedicine = [((NSString*)m[@"name"]).lowercaseString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             for (NSString* word in allWordsOfTheMedicine) {
-                if(![set containsObject:word] && ![word isEqualToString:@""]){
-                    [set addObject:word];
+                if(![word isEqualToString:@""]){
                     string cpp_word([word UTF8String], [word lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-                    ngramOverlap->insertWordInNGramTree(cpp_word);
+                    if(allMedicineNamesWords.count(cpp_str) == 0){
+                        allMedicineNamesWords.insert(cpp_word);
+                        ngramOverlap->insertWordInNGramTree(cpp_word);
+                    }
                 }
             }
+            // }
         }
-        // }
     }
 }
 
@@ -232,50 +235,58 @@
 
 -(void)populateAutoCorectionsWordsViaNgrams
 {
-    string cpp_typed_str([self.typedText UTF8String], [self.typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-    
     NSArray* allTypedWords = [self.typedText.lowercaseString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     for (NSString* word in allTypedWords) {
         if(![word isEqualToString:@""]){
+            NSMutableArray* autocorectionForWord = [NSMutableArray array];
             string cpp_typed_word([word UTF8String], [word lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-
             vector<pair<string, float> > words = ngramOverlap->getNearestWordsForWord(cpp_typed_word);
             for(int i = 0; i < words.size(); i++){
                 if(cpp_typed_word.compare(words[i].first) == 0){
+                    autocorectionForWord = nil;
                     break;
                 }
                 NSString* string = [NSString stringWithCString:words[i].first.c_str() encoding:NSUTF8StringEncoding];
                 NSString* cellText = [NSString stringWithFormat:@"%@ -> %@", word, string];
-                [self.autocorectedMedicineNames addObject:cellText];
+                [autocorectionForWord addObject:cellText];
             }
+            [self.autocorectedMedicineNames addObjectsFromArray:autocorectionForWord];
         }
     }
 }
 
 -(void)populateAutoCorectionsWordsViaEdigDistance
 {
-    string cpp_typed_str([self.typedText UTF8String], [self.typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-    //start checking for autocorection match
-    if([self.typedText isEqualToString:@""]){
-        [self.autocorectionTableView setHidden:YES];
-        return;
-    }
-    int minEditDistance = 1000;
-    for (int i = 0; i < allMedicineNames.size(); i++) {
-        int current_distance = edit_distance(cpp_typed_str, allMedicineNames[i]);
-        BOOL areTypedTextCloseToExistingWord = current_distance <= cpp_typed_str.length() / 3;
-        
-        if(current_distance < minEditDistance && areTypedTextCloseToExistingWord){
-            NSString* string = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
-            self.autocorectedMedicineNames = [NSMutableArray arrayWithObject:string];
-            minEditDistance = current_distance;
+    NSArray* allTypedWords = [self.typedText.lowercaseString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    for (NSString* word in allTypedWords) {
+        if(![word isEqualToString:@""]){
+            int minEditDistance = (int)word.length;
+            string cpp_typed_word([word UTF8String], [word lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+            
+            NSMutableArray* autocorectionForWord = [NSMutableArray array];
+            for (set<string>::iterator it=allMedicineNamesWords.begin(); it!=allMedicineNamesWords.end(); ++it){
+                string existing_word = *it;
+                if(existing_word.compare(cpp_typed_word) == 0){
+                    autocorectionForWord = nil;
+                    break;
+                }
+                int current_distance = edit_distance(cpp_typed_word, existing_word);
+                BOOL areTypedTextCloseToExistingWord = current_distance <= existing_word.length() / 3;
+                if(current_distance < minEditDistance && areTypedTextCloseToExistingWord){
+                    NSString* existingWord = [NSString stringWithCString:existing_word.c_str() encoding:NSUTF8StringEncoding];
+                    NSString* autocorectionText =[NSString stringWithFormat:@"%@ -> %@", word, existingWord];
+                    autocorectionForWord = [NSMutableArray arrayWithObject:autocorectionText];
+                    minEditDistance = current_distance;
+                }
+                else if(current_distance == minEditDistance && areTypedTextCloseToExistingWord){
+                    NSString* existingWord = [NSString stringWithCString:existing_word.c_str() encoding:NSUTF8StringEncoding];
+                    NSString* autocorectionText =[NSString stringWithFormat:@"%@ -> %@", word, existingWord];
+                    [autocorectionForWord addObject:autocorectionText];
+                }
+            }
+            [self.autocorectedMedicineNames addObjectsFromArray:autocorectionForWord];
         }
-        else if(current_distance == minEditDistance && areTypedTextCloseToExistingWord){
-            NSString* string = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
-            [self.autocorectedMedicineNames addObject:string];
-        }
     }
-    
 }
 
 -(void)tryToAutoCorrectTheTypedText
