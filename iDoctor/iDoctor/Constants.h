@@ -12,6 +12,9 @@
 #define kAutocorectionType @"AutocorectionType"
 #define kAutocompetionType @"AutocompetionType"
 
+#define kWrongWordKey @"wrongWord"
+#define kAutoCorrectedWordKey @"autocorection"
+
 typedef NS_ENUM(NSInteger, AutocorectionType){
     AutocorectionTypeNGram = 1,
     AutocorectionEditDistance,

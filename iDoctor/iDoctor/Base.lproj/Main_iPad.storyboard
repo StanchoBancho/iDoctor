@@ -196,40 +196,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eII-3n-42L" userLabel="Suggestion Table View">
-                                <rect key="frame" x="20" y="132" width="450" height="280"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="450" id="VOg-Yu-xlc"/>
-                                    <constraint firstAttribute="height" constant="280" id="t0F-le-RZL"/>
-                                </constraints>
-                                <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SuggestedMedicineCell" id="0y0-Bi-aFj">
-                                        <rect key="frame" x="0.0" y="22" width="450" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0y0-Bi-aFj" id="Pwe-Ee-gLz">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="od8-MK-NwJ" id="Zeb-V0-tuc"/>
-                                    <outlet property="delegate" destination="od8-MK-NwJ" id="HMp-8e-G1h"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9xp-ek-BfC" firstAttribute="leading" secondItem="7bx-AA-JLQ" secondAttribute="trailing" constant="40" id="2Ag-V7-HSQ"/>
                             <constraint firstItem="Kbm-8C-jbU" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="5ts-LB-LXv"/>
                             <constraint firstAttribute="trailing" secondItem="g73-qc-zD2" secondAttribute="trailing" constant="40" id="5wP-UE-S8e"/>
-                            <constraint firstItem="eII-3n-42L" firstAttribute="top" secondItem="7bx-AA-JLQ" secondAttribute="bottom" constant="6" id="FE2-uZ-xWz"/>
                             <constraint firstAttribute="centerY" secondItem="g73-qc-zD2" secondAttribute="centerY" id="G9T-mK-Ww5"/>
                             <constraint firstAttribute="trailing" secondItem="Kbm-8C-jbU" secondAttribute="trailing" constant="20" id="IUu-Xq-2Zm"/>
-                            <constraint firstItem="eII-3n-42L" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="PDc-aU-Zvg"/>
                             <constraint firstItem="7bx-AA-JLQ" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="c4j-QO-Smr"/>
                             <constraint firstItem="Kbm-8C-jbU" firstAttribute="top" secondItem="9xp-ek-BfC" secondAttribute="bottom" constant="30" id="eTh-DB-oGL"/>
                             <constraint firstAttribute="trailing" secondItem="9xp-ek-BfC" secondAttribute="trailing" constant="20" id="k1i-jS-MXB"/>
@@ -257,7 +231,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="suggestionsTableView" destination="eII-3n-42L" id="g7b-M5-HcE"/>
                         <outlet property="tableView" destination="Kbm-8C-jbU" id="A64-x0-QWp"/>
                         <outlet property="textField" destination="7bx-AA-JLQ" id="vbw-iU-9wu"/>
                     </connections>

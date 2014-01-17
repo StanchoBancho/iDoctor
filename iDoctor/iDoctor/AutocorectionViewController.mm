@@ -10,7 +10,7 @@
 #import "EditDistance.h"
 #import "Constants.h"
 
-@interface AutocorectionViewController ()
+@interface AutocorectionViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     set<string> allMedicineNamesWords;
     NGramsOverlap *ngramOverlap;
@@ -80,7 +80,7 @@
                     break;
                 }
                 NSString* string = [NSString stringWithCString:words[i].first.c_str() encoding:NSUTF8StringEncoding];
-                [autocorectionForWord addObject:@{@"wrongWord": word, @"autocorection": string}];
+                [autocorectionForWord addObject:@{kWrongWordKey: word, kAutoCorrectedWordKey: string}];
             }
             [self.autocorectedMedicineNames addObjectsFromArray:autocorectionForWord];
         }
@@ -106,12 +106,12 @@
                 BOOL areTypedTextCloseToExistingWord = current_distance <= existing_word.length() / 3;
                 if(current_distance < minEditDistance && areTypedTextCloseToExistingWord){
                     NSString* existingWord = [NSString stringWithCString:existing_word.c_str() encoding:NSUTF8StringEncoding];
-                    autocorectionForWord = [NSMutableArray arrayWithObject:@{@"wrongWord": word, @"autocorection": existingWord}];
+                    autocorectionForWord = [NSMutableArray arrayWithObject:@{kWrongWordKey: word, kAutoCorrectedWordKey: existingWord}];
                     minEditDistance = current_distance;
                 }
                 else if(current_distance == minEditDistance && areTypedTextCloseToExistingWord){
                     NSString* existingWord = [NSString stringWithCString:existing_word.c_str() encoding:NSUTF8StringEncoding];
-                    [autocorectionForWord addObject:@{@"wrongWord": word, @"autocorection": existingWord}];
+                    [autocorectionForWord addObject:@{kWrongWordKey: word, kAutoCorrectedWordKey: existingWord}];
                 }
             }
             [self.autocorectedMedicineNames addObjectsFromArray:autocorectionForWord];
@@ -122,12 +122,12 @@
 -(void)tryToAutoCorrectTheTypedText
 {
     self.typedText = nil;
-    if([self.delegate respondsToSelector:@selector(typedTextForAutocorrection)]){
-        self.typedText = [self.delegate typedTextForAutocorrection];
+    if([self.delegate respondsToSelector:@selector(typedTextForTypingHelper)]){
+        self.typedText = [self.delegate typedTextForTypingHelper];
     }
     if(!self.typedText){
-        if([self.delegate respondsToSelector:@selector(hideAutocorectionViewController)]){
-            [self.delegate hideAutocorectionViewController];
+        if([self.delegate respondsToSelector:@selector(hideTypingHelperViewController:)]){
+            [self.delegate hideTypingHelperViewController:self];
         }
         return;
     }
@@ -147,16 +147,15 @@
         
         //update UI
         dispatch_async(dispatch_get_main_queue(), ^{
-            
             if(self.autocorectedMedicineNames.count > 0){
-                if ([self.delegate respondsToSelector:@selector(presentAutocorectionViewController)]) {
-                    [self.delegate presentAutocorectionViewController];
+                if ([self.delegate respondsToSelector:@selector(presentTypingHelperViewController:)]) {
+                    [self.delegate presentTypingHelperViewController:self];
                 }
                 [self.autocorectionTableView reloadData];
             }
             else{
-                if ([self.delegate respondsToSelector:@selector(hideAutocorectionViewController)]) {
-                    [self.delegate hideAutocorectionViewController];
+                if ([self.delegate respondsToSelector:@selector(hideTypingHelperViewController:)]) {
+                    [self.delegate hideTypingHelperViewController:self];
                 }
             }
         });
@@ -177,12 +176,13 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"AutocorectedMedicineCell"];
+    static NSString* autocorectionCellIdentifier = @"AutocorectedMedicineCell";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:autocorectionCellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AutocorectedMedicineCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:autocorectionCellIdentifier];
     }
-    NSString* wrongWord =[self.autocorectedMedicineNames[indexPath.row] objectForKey:@"wrongWord"];
-    NSString* autocorection =[self.autocorectedMedicineNames[indexPath.row] objectForKey:@"autocorection"];
+    NSString* wrongWord =[self.autocorectedMedicineNames[indexPath.row] objectForKey:kWrongWordKey];
+    NSString* autocorection =[self.autocorectedMedicineNames[indexPath.row] objectForKey:kAutoCorrectedWordKey];
     NSString* medicineTitle = [NSString stringWithFormat:@"%@ -> %@", wrongWord, autocorection];
     cell.textLabel.text = medicineTitle;
     return cell;
@@ -192,12 +192,12 @@
 {
    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if([self.delegate respondsToSelector:@selector(replaceWrongWords:withAutocorectedWords:)]){
-        NSString* wrongWord =[self.autocorectedMedicineNames[indexPath.row] objectForKey:@"wrongWord"];
-        NSString* autocorection =[self.autocorectedMedicineNames[indexPath.row] objectForKey:@"autocorection"];
+        NSString* wrongWord =[self.autocorectedMedicineNames[indexPath.row] objectForKey:kWrongWordKey];
+        NSString* autocorection =[self.autocorectedMedicineNames[indexPath.row] objectForKey:kAutoCorrectedWordKey];
         [self.delegate replaceWrongWords:wrongWord withAutocorectedWords:autocorection];
     }
-    if ([self.delegate respondsToSelector:@selector(hideAutocorectionViewController)]) {
-        [self.delegate hideAutocorectionViewController];
+    if ([self.delegate respondsToSelector:@selector(hideTypingHelperViewController:)]) {
+        [self.delegate hideTypingHelperViewController:self];
     }
 }
 

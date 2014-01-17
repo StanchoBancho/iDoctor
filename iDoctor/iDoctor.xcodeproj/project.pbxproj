@@ -36,6 +36,8 @@
 		A29BE6E4187AF5170099AC5C /* Medicine in Resources */ = {isa = PBXBuildFile; fileRef = A29BE6E3187AF5170099AC5C /* Medicine */; };
 		A2D53FA4188969D60041B654 /* AutocorectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2D53FA2188969D60041B654 /* AutocorectionViewController.mm */; };
 		A2D53FA5188969D60041B654 /* AutocorectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2D53FA3188969D60041B654 /* AutocorectionViewController.xib */; };
+		A2D53FAC188996530041B654 /* AutocompletionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2D53FAA188996530041B654 /* AutocompletionViewController.mm */; };
+		A2D53FAD188996530041B654 /* AutocompletionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2D53FAB188996530041B654 /* AutocompletionViewController.xib */; };
 		C7F4439E1872D4A200242E27 /* TwoThreeTree.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F4439A1872D4A200242E27 /* TwoThreeTree.mm */; };
 		C7F4439F1872D4A200242E27 /* Node.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F4439C1872D4A200242E27 /* Node.mm */; };
 		C7F443A51872D4CE00242E27 /* EditDistance.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F443A11872D4CE00242E27 /* EditDistance.mm */; };
@@ -100,6 +102,10 @@
 		A2D53FA1188969D60041B654 /* AutocorectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocorectionViewController.h; sourceTree = "<group>"; };
 		A2D53FA2188969D60041B654 /* AutocorectionViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AutocorectionViewController.mm; sourceTree = "<group>"; };
 		A2D53FA3188969D60041B654 /* AutocorectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocorectionViewController.xib; sourceTree = "<group>"; };
+		A2D53FA9188996530041B654 /* AutocompletionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompletionViewController.h; sourceTree = "<group>"; };
+		A2D53FAA188996530041B654 /* AutocompletionViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AutocompletionViewController.mm; sourceTree = "<group>"; };
+		A2D53FAB188996530041B654 /* AutocompletionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompletionViewController.xib; sourceTree = "<group>"; };
+		A2D53FAF1889982D0041B654 /* TypingHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypingHelper.h; sourceTree = "<group>"; };
 		C7F4439A1872D4A200242E27 /* TwoThreeTree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TwoThreeTree.mm; sourceTree = "<group>"; };
 		C7F4439B1872D4A200242E27 /* TwoThreeTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoThreeTree.h; sourceTree = "<group>"; };
 		C7F4439C1872D4A200242E27 /* Node.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Node.mm; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 				2EB086C2186D7695005628BE /* Main_iPhone.storyboard */,
 				2EB086C5186D7695005628BE /* Main_iPad.storyboard */,
 				A2D53FA3188969D60041B654 /* AutocorectionViewController.xib */,
+				A2D53FAB188996530041B654 /* AutocompletionViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -277,8 +284,7 @@
 				2E555A641872C19E00F2D8B8 /* MainViewController.mm */,
 				2E555A661872C1E900F2D8B8 /* SettingsViewController.h */,
 				2E555A671872C1E900F2D8B8 /* SettingsViewController.m */,
-				A2D53FA1188969D60041B654 /* AutocorectionViewController.h */,
-				A2D53FA2188969D60041B654 /* AutocorectionViewController.mm */,
+				A2D53FAE188997D20041B654 /* Typing helpers scenes */,
 			);
 			name = "Main scene";
 			sourceTree = "<group>";
@@ -299,6 +305,18 @@
 				2EB086C9186D7695005628BE /* AllMedicinePresentingViewController.m */,
 			);
 			name = "All Medicines";
+			sourceTree = "<group>";
+		};
+		A2D53FAE188997D20041B654 /* Typing helpers scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A2D53FAF1889982D0041B654 /* TypingHelper.h */,
+				A2D53FA1188969D60041B654 /* AutocorectionViewController.h */,
+				A2D53FA2188969D60041B654 /* AutocorectionViewController.mm */,
+				A2D53FA9188996530041B654 /* AutocompletionViewController.h */,
+				A2D53FAA188996530041B654 /* AutocompletionViewController.mm */,
+			);
+			name = "Typing helpers scenes";
 			sourceTree = "<group>";
 		};
 		C7F443991872C20300242E27 /* 23Tree */ = {
@@ -405,6 +423,7 @@
 			files = (
 				A2D53FA5188969D60041B654 /* AutocorectionViewController.xib in Resources */,
 				A29BE6E4187AF5170099AC5C /* Medicine in Resources */,
+				A2D53FAD188996530041B654 /* AutocompletionViewController.xib in Resources */,
 				2EB086C7186D7695005628BE /* Main_iPad.storyboard in Resources */,
 				2EB086CC186D7695005628BE /* Images.xcassets in Resources */,
 				2EB086C4186D7695005628BE /* Main_iPhone.storyboard in Resources */,
@@ -435,6 +454,7 @@
 				2E555A651872C19E00F2D8B8 /* MainViewController.mm in Sources */,
 				94CC4654187C1ABC007534C8 /* NGramNode.mm in Sources */,
 				2E32F8B4186D951700B7B79B /* Model0.xcdatamodeld in Sources */,
+				A2D53FAC188996530041B654 /* AutocompletionViewController.mm in Sources */,
 				2E32F8C8186DB56F00B7B79B /* XPathQuery.m in Sources */,
 				2E32F8C6186DB56F00B7B79B /* TFHpple.m in Sources */,
 				2EB086CA186D7695005628BE /* AllMedicinePresentingViewController.m in Sources */,

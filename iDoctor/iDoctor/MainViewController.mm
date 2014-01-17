@@ -13,6 +13,7 @@
 #import "TwoThreeTree.h"
 #import "MedicineDetailViewController.h"
 #import "AutocorectionViewController.h"
+#import "AutocompletionViewController.h"
 #import "Constants.h"
 #import "SettingsViewController.h"
 #include <string>
@@ -20,10 +21,9 @@
 
 #define kAutocorectionCheckDeltaTime 5.0
 
-@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, AutocorectionDataProviderAndPresenter>
+@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, AutocorectionTypingHelper, AutocompletionTypeHelper>
 {
-    TwoThreeTree* tree;
-    vector<string> allMedicineNames;
+    
 }
 @property (nonatomic, strong) CoreDataManager* sharedManager;
 
@@ -34,8 +34,8 @@
 @property (nonatomic, strong) NSTimer* timer;
 
 @property (nonatomic, strong) AutocorectionViewController* autocorectionViewController;
+@property (nonatomic, strong) AutocompletionViewController* autocompletionViewController;
 
-@property (nonatomic, strong) IBOutlet UITableView* suggestionsTableView;
 @property (nonatomic, strong) IBOutlet UITableView* tableView;
 @property (nonatomic, strong) IBOutlet UITextField* textField;
 @property (nonatomic, strong) NSUserDefaults* standartsDefaults;
@@ -62,14 +62,10 @@
     [super viewDidLoad];
     self.choosedMedicineNames = [NSMutableArray array];
     self.typedText = [[NSMutableString alloc] init];
-
-    [self setupAutocorectionPresentation];
+    
+    [self setupAutocorectionViewController];
+    [self setupAutocompletionViewController];
     [self loadTree];
-
-	
-    [self.suggestionsTableView.layer setCornerRadius:2.0];
-    [self.suggestionsTableView.layer setBorderColor:[[UIColor grayColor] CGColor]];
-    [self.suggestionsTableView.layer setBorderWidth:1.0];
     
     self.standartsDefaults = [NSUserDefaults standardUserDefaults];
     
@@ -87,20 +83,14 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)dealloc
-{
-    delete tree;
-}
-
 #pragma mark - Initialization
 
--(void)setupAutocorectionPresentation
+-(void)setupAutocorectionViewController
 {
     self.autocorectionViewController = [[AutocorectionViewController alloc] initWithNibName:@"AutocorectionViewController" bundle:nil];
     [self.autocorectionViewController setDelegate:self];
     [self addChildViewController:self.autocorectionViewController];
     [self.view addSubview:self.autocorectionViewController.view];
-    
     
     NSDictionary *views = @{@"v1" : self.autocorectionViewController.view, @"v2" : self.textField};
     [self.autocorectionViewController.view setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -111,6 +101,25 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[v2]-6-[v1]" options:0 metrics:nil views:views]];
     [self.autocorectionViewController.view setHidden:YES];
     [self.autocorectionViewController didMoveToParentViewController:self];
+}
+
+-(void)setupAutocompletionViewController
+{
+    self.autocompletionViewController = [[AutocompletionViewController alloc] initWithNibName:@"AutocompletionViewController" bundle:nil];
+    [self.autocompletionViewController setDelegate:self];
+    
+    [self addChildViewController:self.autocompletionViewController];
+    [self.view addSubview:self.autocompletionViewController.view];
+    
+    NSDictionary *views = @{@"v1" : self.autocompletionViewController.view, @"v2" : self.textField};
+    [self.autocompletionViewController.view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[v1(280@1000)]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[v1(450@1000)]" options:0 metrics:nil views:views]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[v1]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[v2]-6-[v1]" options:0 metrics:nil views:views]];
+    [self.autocompletionViewController.view setHidden:YES];
+    [self.autocompletionViewController didMoveToParentViewController:self];
 }
 
 - (void)loadTree
@@ -137,7 +146,8 @@
     else{
         //create tree
         // @autoreleasepool {
-        tree = new TwoThreeTree();
+        vector<string> allMedicineNames;
+        TwoThreeTree* tree = new TwoThreeTree();
         NGramsOverlap* ngramOverlap = new NGramsOverlap();
         set<string>allMedicineNamesWords;
         for(NSDictionary* m in array){
@@ -165,63 +175,13 @@
         [self.autocorectionViewController setNGramDataStructure:ngramOverlap];
         [self.autocorectionViewController setAllMedicineNamesWords:allMedicineNamesWords];
         ngramOverlap = NULL;
+        
+        [self.autocompletionViewController setTwoThreeTreeDataStructure:tree];
+        [self.autocompletionViewController setAllMedicineNames:allMedicineNames];
     }
 }
 
-#pragma mark - Autocompletion methods
-
--(void)showApropriateSuggestionsUsing23TreeSearch:(NSString*)typedText
-{
-    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
-    self.suggestedMedicineNames = [NSMutableArray array];
-    if([typedText isEqualToString:@""]){
-        [self.suggestionsTableView setHidden:YES];
-    }
-    else{
-        [self.suggestionsTableView setHidden:NO];
-        
-        string cpp_str([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-        vector<string> result = tree->findDataWithPrefix(cpp_str);
-        
-        for (int i = 0; i < result.size(); i++) {
-            NSString* medicineName = [NSString stringWithCString: result[i].c_str() encoding:NSUTF8StringEncoding];
-            [self.suggestedMedicineNames addObject:medicineName];
-        }
-        //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
-    }
-    CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
-    NSLog(@"Time needed for autocompletion with 2-3 TREE SEARCH is %f", endTime - startTime);
-    [self.suggestionsTableView reloadData];
-}
-
--(void)showApropriateSuggestionsUsingLinearSearch:(NSString*)typedText
-{
-    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
-    self.suggestedMedicineNames = [NSMutableArray array];
-    if([typedText isEqualToString:@""]){
-        [self.suggestionsTableView setHidden:YES];
-    }
-    else{
-        [self.suggestionsTableView setHidden:NO];
-        
-        string typed_cpp_string([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-        std::transform(typed_cpp_string.begin(), typed_cpp_string.end(), typed_cpp_string.begin(), ::tolower);
-        
-        for (int i = 0; i < allMedicineNames.size(); i++) {
-            string medicineName = allMedicineNames[i];
-            std::transform(medicineName.begin(), medicineName.end(), medicineName.begin(), ::tolower);
-            if(medicineName.find(typed_cpp_string) == 0){
-                NSString* medicineName = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
-                [self.suggestedMedicineNames addObject:medicineName];
-            }
-        }
-        //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
-    }
-    CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
-    NSLog(@"Time needed for autocompletion with LINEAR SEARCH is %f", endTime - startTime);
-    [self.suggestionsTableView reloadData];
-}
-
+#pragma mark - AutocompletionTypingHelper methods
 
 -(BOOL)isMedicineExising:(NSString*)medicineTitle
 {
@@ -245,57 +205,53 @@
     [self.choosedMedicineNames insertObject:newObject atIndex:0];
     self.typedText =  [NSMutableString string];
     [self.textField setText:@""];
-    [self.suggestionsTableView setHidden:YES];
+    [self.autocompletionViewController.view setHidden:YES];
     [self.autocorectionViewController.view setHidden:YES];
     
     [self.tableView reloadData];
     [self.textField resignFirstResponder];
 }
 
-#pragma mark - AutocorectionDataProviderAndPresenter methods
-
--(void)presentAutocorectionViewController
+-(void)handleAutocompletion:(NSString*)autocompletedText
 {
-    [self.autocorectionViewController.view setHidden:NO];
+    [self handleMedicine: autocompletedText isItExistingOne:YES];
 }
 
--(void)hideAutocorectionViewController
+#pragma mark - TypingHelper methods
+
+-(void)presentTypingHelperViewController:(UIViewController*)typeHelperViewController
 {
-    [self.autocorectionViewController.view setHidden:YES];
+    [typeHelperViewController.view setHidden:NO];
 }
 
--(NSString *)typedTextForAutocorrection
+-(void)hideTypingHelperViewController:(UIViewController*)typeHelperViewController
+{
+    [typeHelperViewController.view setHidden:YES];
+}
+
+-(NSString *)typedTextForTypingHelper
 {
     return self.typedText;
 }
+
+#pragma mark - AutocorectionTypingHelper methods
 
 -(void)replaceWrongWords:(NSString *)wrongWord withAutocorectedWords:(NSString *)autocorectedWord
 {
     [self.typedText replaceOccurrencesOfString:wrongWord withString:autocorectedWord options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.typedText.length)];
     self.textField.text = self.typedText;
     
-    if([self.standartsDefaults integerForKey:kAutocompetionType] == AutocompetionType23Tree){
-        [self showApropriateSuggestionsUsing23TreeSearch:self.typedText];
-    }
-    else{
-        [self showApropriateSuggestionsUsingLinearSearch:self.typedText];
-    }
+    [self.autocompletionViewController tryToAutoCompleteTheTypedText];
 }
 
 #pragma mark - UITextFieldDelegate methods
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    //auto completion
     [self.typedText replaceCharactersInRange:range withString:string];
     
-    if([self.standartsDefaults integerForKey:kAutocompetionType] == AutocompetionType23Tree){
-        [self showApropriateSuggestionsUsing23TreeSearch:self.typedText];
-    }
-    else{
-        [self showApropriateSuggestionsUsingLinearSearch:self.typedText];
-        
-    }
+    //auto completion
+    [self.autocompletionViewController tryToAutoCompleteTheTypedText];
     
     //auto correction
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
@@ -320,38 +276,22 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == self.suggestionsTableView) {
-        return self.suggestedMedicineNames.count;
-    }
-    else if(tableView == self.tableView){
-        return self.choosedMedicineNames.count;
-    }
-    return 0;
+    return self.choosedMedicineNames.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView == self.suggestionsTableView){
-        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"SuggestedMedicineCell"];
-        NSString* medicineTitle = self.suggestedMedicineNames[indexPath.row];
-        cell.textLabel.text = medicineTitle;
-        return cell;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MedicineCell"];
+    NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"name"];
+    cell.textLabel.text = medicineTitle;
+    BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:@"isExisting"] boolValue];
+    if (isExisting) {
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
-    else if(tableView == self.tableView)
-    {
-        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MedicineCell"];
-        NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"name"];
-        cell.textLabel.text = medicineTitle;
-        BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:@"isExisting"] boolValue];
-        if (isExisting) {
-            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-        }
-        else{
-            [cell setAccessoryType:UITableViewCellAccessoryNone];
-        }
-        return cell;
+    else{
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
-    return nil;
+    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -381,11 +321,6 @@
                 }
             }
         }
-    }
-    else if(tableView == self.suggestionsTableView){
-        //chose selected medicine
-        NSString* medicineTitle = self.suggestedMedicineNames[indexPath.row];
-        [self handleMedicine: medicineTitle isItExistingOne:YES];
     }
 }
 
