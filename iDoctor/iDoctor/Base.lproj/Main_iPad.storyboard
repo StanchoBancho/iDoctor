@@ -196,29 +196,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ym8-nO-d2A">
-                                <rect key="frame" x="554" y="132" width="450" height="280"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="Mu4-t0-gkg"/>
-                                    <constraint firstAttribute="width" constant="450" id="OXJ-Qi-zqL"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AutocorectedMedicineCell" id="0f5-KH-r1a">
-                                        <rect key="frame" x="0.0" y="22" width="450" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0f5-KH-r1a" id="qJs-aj-HRg">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="od8-MK-NwJ" id="CPm-UR-Ef3"/>
-                                    <outlet property="delegate" destination="od8-MK-NwJ" id="eWK-DM-wAO"/>
-                                </connections>
-                            </tableView>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eII-3n-42L" userLabel="Suggestion Table View">
                                 <rect key="frame" x="20" y="132" width="450" height="280"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,12 +226,10 @@
                             <constraint firstItem="9xp-ek-BfC" firstAttribute="leading" secondItem="7bx-AA-JLQ" secondAttribute="trailing" constant="40" id="2Ag-V7-HSQ"/>
                             <constraint firstItem="Kbm-8C-jbU" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="5ts-LB-LXv"/>
                             <constraint firstAttribute="trailing" secondItem="g73-qc-zD2" secondAttribute="trailing" constant="40" id="5wP-UE-S8e"/>
-                            <constraint firstItem="ym8-nO-d2A" firstAttribute="top" secondItem="7bx-AA-JLQ" secondAttribute="bottom" constant="6" id="ABj-2V-1se"/>
                             <constraint firstItem="eII-3n-42L" firstAttribute="top" secondItem="7bx-AA-JLQ" secondAttribute="bottom" constant="6" id="FE2-uZ-xWz"/>
                             <constraint firstAttribute="centerY" secondItem="g73-qc-zD2" secondAttribute="centerY" id="G9T-mK-Ww5"/>
                             <constraint firstAttribute="trailing" secondItem="Kbm-8C-jbU" secondAttribute="trailing" constant="20" id="IUu-Xq-2Zm"/>
                             <constraint firstItem="eII-3n-42L" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="PDc-aU-Zvg"/>
-                            <constraint firstAttribute="trailing" secondItem="ym8-nO-d2A" secondAttribute="trailing" constant="20" id="R2A-Pv-Lto"/>
                             <constraint firstItem="7bx-AA-JLQ" firstAttribute="leading" secondItem="8aK-tu-44h" secondAttribute="leading" constant="20" id="c4j-QO-Smr"/>
                             <constraint firstItem="Kbm-8C-jbU" firstAttribute="top" secondItem="9xp-ek-BfC" secondAttribute="bottom" constant="30" id="eTh-DB-oGL"/>
                             <constraint firstAttribute="trailing" secondItem="9xp-ek-BfC" secondAttribute="trailing" constant="20" id="k1i-jS-MXB"/>
@@ -282,7 +257,6 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="autocorectionTableView" destination="ym8-nO-d2A" id="eYi-ne-VdM"/>
                         <outlet property="suggestionsTableView" destination="eII-3n-42L" id="g7b-M5-HcE"/>
                         <outlet property="tableView" destination="Kbm-8C-jbU" id="A64-x0-QWp"/>
                         <outlet property="textField" destination="7bx-AA-JLQ" id="vbw-iU-9wu"/>

@@ -12,8 +12,7 @@
 #import "Medicine.h"
 #import "TwoThreeTree.h"
 #import "MedicineDetailViewController.h"
-#import "EditDistance.h"
-#import "NGramsOverlap.h"
+#import "AutocorectionViewController.h"
 #import "Constants.h"
 #import "SettingsViewController.h"
 #include <string>
@@ -21,24 +20,21 @@
 
 #define kAutocorectionCheckDeltaTime 5.0
 
-@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, AutocorectionDataProviderAndPresenter>
 {
     TwoThreeTree* tree;
     vector<string> allMedicineNames;
-    set<string> allMedicineNamesWords;
-    NGramsOverlap *ngramOverlap;
-    dispatch_queue_t workingQueue;
 }
 @property (nonatomic, strong) CoreDataManager* sharedManager;
 
-@property (nonatomic, strong) NSMutableArray* autocorectedMedicineNames;
 @property (nonatomic, strong) NSMutableArray* suggestedMedicineNames;
 @property (nonatomic, strong) NSMutableArray* choosedMedicineNames;
 @property (nonatomic, strong) NSMutableString* typedText;
 @property (nonatomic, assign) CFAbsoluteTime lastTimeTextIsEntered;
 @property (nonatomic, strong) NSTimer* timer;
 
-@property (nonatomic, strong) IBOutlet UITableView* autocorectionTableView;
+@property (nonatomic, strong) AutocorectionViewController* autocorectionViewController;
+
 @property (nonatomic, strong) IBOutlet UITableView* suggestionsTableView;
 @property (nonatomic, strong) IBOutlet UITableView* tableView;
 @property (nonatomic, strong) IBOutlet UITextField* textField;
@@ -66,19 +62,19 @@
     [super viewDidLoad];
     self.choosedMedicineNames = [NSMutableArray array];
     self.typedText = [[NSMutableString alloc] init];
+
+    [self setupAutocorectionPresentation];
     [self loadTree];
+
 	
     [self.suggestionsTableView.layer setCornerRadius:2.0];
     [self.suggestionsTableView.layer setBorderColor:[[UIColor grayColor] CGColor]];
     [self.suggestionsTableView.layer setBorderWidth:1.0];
     
-    [self.autocorectionTableView.layer setCornerRadius:2.0];
-    [self.autocorectionTableView.layer setBorderColor:[[UIColor redColor] CGColor]];
-    [self.autocorectionTableView.layer setBorderWidth:1.0];
-    
     self.standartsDefaults = [NSUserDefaults standardUserDefaults];
     
 }
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -96,7 +92,26 @@
     delete tree;
 }
 
-#pragma mark - Autocompletion methods
+#pragma mark - Initialization
+
+-(void)setupAutocorectionPresentation
+{
+    self.autocorectionViewController = [[AutocorectionViewController alloc] initWithNibName:@"AutocorectionViewController" bundle:nil];
+    [self.autocorectionViewController setDelegate:self];
+    [self addChildViewController:self.autocorectionViewController];
+    [self.view addSubview:self.autocorectionViewController.view];
+    
+    
+    NSDictionary *views = @{@"v1" : self.autocorectionViewController.view, @"v2" : self.textField};
+    [self.autocorectionViewController.view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[v1(280@1000)]" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[v1(450@1000)]" options:0 metrics:nil views:views]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[v1]-20-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[v2]-6-[v1]" options:0 metrics:nil views:views]];
+    [self.autocorectionViewController.view setHidden:YES];
+    [self.autocorectionViewController didMoveToParentViewController:self];
+}
 
 - (void)loadTree
 {
@@ -123,7 +138,8 @@
         //create tree
         // @autoreleasepool {
         tree = new TwoThreeTree();
-        ngramOverlap = new NGramsOverlap();
+        NGramsOverlap* ngramOverlap = new NGramsOverlap();
+        set<string>allMedicineNamesWords;
         for(NSDictionary* m in array){
             if(m[@"name"] == nil || [m[@"name"] isEqualToString:@""]){
                 NSLog(@"a sega");
@@ -146,8 +162,13 @@
             }
             // }
         }
+        [self.autocorectionViewController setNGramDataStructure:ngramOverlap];
+        [self.autocorectionViewController setAllMedicineNamesWords:allMedicineNamesWords];
+        ngramOverlap = NULL;
     }
 }
+
+#pragma mark - Autocompletion methods
 
 -(void)showApropriateSuggestionsUsing23TreeSearch:(NSString*)typedText
 {
@@ -225,102 +246,43 @@
     self.typedText =  [NSMutableString string];
     [self.textField setText:@""];
     [self.suggestionsTableView setHidden:YES];
-    [self.autocorectionTableView setHidden:YES];
+    [self.autocorectionViewController.view setHidden:YES];
     
     [self.tableView reloadData];
     [self.textField resignFirstResponder];
 }
 
-#pragma mark - Autocorection methods
+#pragma mark - AutocorectionDataProviderAndPresenter methods
 
--(void)populateAutoCorectionsWordsViaNgrams
+-(void)presentAutocorectionViewController
 {
-    NSArray* allTypedWords = [self.typedText.lowercaseString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    for (NSString* word in allTypedWords) {
-        if(![word isEqualToString:@""]){
-            NSMutableArray* autocorectionForWord = [NSMutableArray array];
-            string cpp_typed_word([word UTF8String], [word lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-            vector<pair<string, float> > words = ngramOverlap->getNearestWordsForWord(cpp_typed_word);
-            for(int i = 0; i < words.size(); i++){
-                if(cpp_typed_word.compare(words[i].first) == 0){
-                    autocorectionForWord = nil;
-                    break;
-                }
-                NSString* string = [NSString stringWithCString:words[i].first.c_str() encoding:NSUTF8StringEncoding];
-                NSString* cellText = [NSString stringWithFormat:@"%@ -> %@", word, string];
-                [autocorectionForWord addObject:cellText];
-            }
-            [self.autocorectedMedicineNames addObjectsFromArray:autocorectionForWord];
-        }
-    }
+    [self.autocorectionViewController.view setHidden:NO];
 }
 
--(void)populateAutoCorectionsWordsViaEdigDistance
+-(void)hideAutocorectionViewController
 {
-    NSArray* allTypedWords = [self.typedText.lowercaseString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    for (NSString* word in allTypedWords) {
-        if(![word isEqualToString:@""]){
-            int minEditDistance = (int)word.length;
-            string cpp_typed_word([word UTF8String], [word lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-            
-            NSMutableArray* autocorectionForWord = [NSMutableArray array];
-            for (set<string>::iterator it=allMedicineNamesWords.begin(); it!=allMedicineNamesWords.end(); ++it){
-                string existing_word = *it;
-                if(existing_word.compare(cpp_typed_word) == 0){
-                    autocorectionForWord = nil;
-                    break;
-                }
-                int current_distance = edit_distance(cpp_typed_word, existing_word);
-                BOOL areTypedTextCloseToExistingWord = current_distance <= existing_word.length() / 3;
-                if(current_distance < minEditDistance && areTypedTextCloseToExistingWord){
-                    NSString* existingWord = [NSString stringWithCString:existing_word.c_str() encoding:NSUTF8StringEncoding];
-                    NSString* autocorectionText =[NSString stringWithFormat:@"%@ -> %@", word, existingWord];
-                    autocorectionForWord = [NSMutableArray arrayWithObject:autocorectionText];
-                    minEditDistance = current_distance;
-                }
-                else if(current_distance == minEditDistance && areTypedTextCloseToExistingWord){
-                    NSString* existingWord = [NSString stringWithCString:existing_word.c_str() encoding:NSUTF8StringEncoding];
-                    NSString* autocorectionText =[NSString stringWithFormat:@"%@ -> %@", word, existingWord];
-                    [autocorectionForWord addObject:autocorectionText];
-                }
-            }
-            [self.autocorectedMedicineNames addObjectsFromArray:autocorectionForWord];
-        }
-    }
+    [self.autocorectionViewController.view setHidden:YES];
 }
 
--(void)tryToAutoCorrectTheTypedText
+-(NSString *)typedTextForAutocorrection
 {
-    if(!workingQueue){
-        workingQueue = dispatch_queue_create("AutocorectionQueue", DISPATCH_QUEUE_SERIAL);
+    return self.typedText;
+}
+
+-(void)replaceWrongWords:(NSString *)wrongWord withAutocorectedWords:(NSString *)autocorectedWord
+{
+    [self.typedText replaceOccurrencesOfString:wrongWord withString:autocorectedWord options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.typedText.length)];
+    self.textField.text = self.typedText;
+    
+    if([self.standartsDefaults integerForKey:kAutocompetionType] == AutocompetionType23Tree){
+        [self showApropriateSuggestionsUsing23TreeSearch:self.typedText];
     }
-    dispatch_async(workingQueue, ^{
-        
-        self.autocorectedMedicineNames = [[NSMutableArray alloc] init];
-        
-        if ([self.standartsDefaults integerForKey:kAutocorectionType] == AutocorectionEditDistance) {
-            [self populateAutoCorectionsWordsViaEdigDistance];
-        }
-        else if([self.standartsDefaults integerForKey:kAutocorectionType] == AutocorectionTypeNGram){
-            [self populateAutoCorectionsWordsViaNgrams];
-        }
-        
-        //update UI
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if(self.autocorectedMedicineNames.count > 0){
-                [self.autocorectionTableView setHidden:NO];
-                [self.autocorectionTableView reloadData];
-            }
-            else{
-                [self.autocorectionTableView setHidden:YES];
-            }
-        });
-    });
+    else{
+        [self showApropriateSuggestionsUsingLinearSearch:self.typedText];
+    }
 }
 
 #pragma mark - UITextFieldDelegate methods
-
-
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -339,12 +301,12 @@
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     if(newLength < textField.text.length){
         //we are deleting => hide the auto correction
-        [self.autocorectionTableView setHidden:YES];
+        [self.autocorectionViewController.view setHidden:YES];
         [self.timer invalidate];
         self.timer = nil;
     }
     [self.timer invalidate];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tryToAutoCorrectTheTypedText) userInfo:nil repeats:NO];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self.autocorectionViewController selector:@selector(tryToAutoCorrectTheTypedText) userInfo:nil repeats:NO];
     
     return YES;
 }
@@ -364,9 +326,7 @@
     else if(tableView == self.tableView){
         return self.choosedMedicineNames.count;
     }
-    else{
-        return self.autocorectedMedicineNames.count;
-    }
+    return 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -391,12 +351,7 @@
         }
         return cell;
     }
-    else{
-        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"AutocorectedMedicineCell"];
-        NSString* medicineTitle = self.autocorectedMedicineNames[indexPath.row];
-        cell.textLabel.text = medicineTitle;
-        return cell;
-    }
+    return nil;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -430,11 +385,6 @@
     else if(tableView == self.suggestionsTableView){
         //chose selected medicine
         NSString* medicineTitle = self.suggestedMedicineNames[indexPath.row];
-        [self handleMedicine: medicineTitle isItExistingOne:YES];
-    }
-    else {
-        //chose autocorected medicine
-        NSString* medicineTitle = self.autocorectedMedicineNames[indexPath.row];
         [self handleMedicine: medicineTitle isItExistingOne:YES];
     }
 }

@@ -34,6 +34,8 @@
 		2EB086DF186D7695005628BE /* iDoctorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB086DE186D7695005628BE /* iDoctorTests.m */; };
 		94CC4654187C1ABC007534C8 /* NGramNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CC4652187C1ABC007534C8 /* NGramNode.mm */; };
 		A29BE6E4187AF5170099AC5C /* Medicine in Resources */ = {isa = PBXBuildFile; fileRef = A29BE6E3187AF5170099AC5C /* Medicine */; };
+		A2D53FA4188969D60041B654 /* AutocorectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2D53FA2188969D60041B654 /* AutocorectionViewController.mm */; };
+		A2D53FA5188969D60041B654 /* AutocorectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2D53FA3188969D60041B654 /* AutocorectionViewController.xib */; };
 		C7F4439E1872D4A200242E27 /* TwoThreeTree.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F4439A1872D4A200242E27 /* TwoThreeTree.mm */; };
 		C7F4439F1872D4A200242E27 /* Node.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F4439C1872D4A200242E27 /* Node.mm */; };
 		C7F443A51872D4CE00242E27 /* EditDistance.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F443A11872D4CE00242E27 /* EditDistance.mm */; };
@@ -95,6 +97,9 @@
 		A29BE6E3187AF5170099AC5C /* Medicine */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Medicine; sourceTree = "<group>"; };
 		A2A8CBC9187D876B00BE25F3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A2C428A418719386004D2BDB /* LatestURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LatestURLs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A2D53FA1188969D60041B654 /* AutocorectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocorectionViewController.h; sourceTree = "<group>"; };
+		A2D53FA2188969D60041B654 /* AutocorectionViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AutocorectionViewController.mm; sourceTree = "<group>"; };
+		A2D53FA3188969D60041B654 /* AutocorectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocorectionViewController.xib; sourceTree = "<group>"; };
 		C7F4439A1872D4A200242E27 /* TwoThreeTree.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TwoThreeTree.mm; sourceTree = "<group>"; };
 		C7F4439B1872D4A200242E27 /* TwoThreeTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoThreeTree.h; sourceTree = "<group>"; };
 		C7F4439C1872D4A200242E27 /* Node.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Node.mm; sourceTree = "<group>"; };
@@ -239,14 +244,9 @@
 		A2A8CBC7187D85F800BE25F3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2E555A631872C19E00F2D8B8 /* MainViewController.h */,
-				2E555A641872C19E00F2D8B8 /* MainViewController.mm */,
-				2E555A661872C1E900F2D8B8 /* SettingsViewController.h */,
-				2E555A671872C1E900F2D8B8 /* SettingsViewController.m */,
-				2EB086C8186D7695005628BE /* AllMedicinePresentingViewController.h */,
-				2EB086C9186D7695005628BE /* AllMedicinePresentingViewController.m */,
-				2E555A691872C91000F2D8B8 /* MedicineDetailViewController.h */,
-				2E555A6A1872C91000F2D8B8 /* MedicineDetailViewController.m */,
+				A2D53FA6188974460041B654 /* Main scene */,
+				A2D53FA71889745B0041B654 /* Medicine Details */,
+				A2D53FA81889746D0041B654 /* All Medicines */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -256,6 +256,7 @@
 			children = (
 				2EB086C2186D7695005628BE /* Main_iPhone.storyboard */,
 				2EB086C5186D7695005628BE /* Main_iPad.storyboard */,
+				A2D53FA3188969D60041B654 /* AutocorectionViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -267,6 +268,37 @@
 				C7F4439C1872D4A200242E27 /* Node.mm */,
 			);
 			name = Nodes;
+			sourceTree = "<group>";
+		};
+		A2D53FA6188974460041B654 /* Main scene */ = {
+			isa = PBXGroup;
+			children = (
+				2E555A631872C19E00F2D8B8 /* MainViewController.h */,
+				2E555A641872C19E00F2D8B8 /* MainViewController.mm */,
+				2E555A661872C1E900F2D8B8 /* SettingsViewController.h */,
+				2E555A671872C1E900F2D8B8 /* SettingsViewController.m */,
+				A2D53FA1188969D60041B654 /* AutocorectionViewController.h */,
+				A2D53FA2188969D60041B654 /* AutocorectionViewController.mm */,
+			);
+			name = "Main scene";
+			sourceTree = "<group>";
+		};
+		A2D53FA71889745B0041B654 /* Medicine Details */ = {
+			isa = PBXGroup;
+			children = (
+				2E555A691872C91000F2D8B8 /* MedicineDetailViewController.h */,
+				2E555A6A1872C91000F2D8B8 /* MedicineDetailViewController.m */,
+			);
+			name = "Medicine Details";
+			sourceTree = "<group>";
+		};
+		A2D53FA81889746D0041B654 /* All Medicines */ = {
+			isa = PBXGroup;
+			children = (
+				2EB086C8186D7695005628BE /* AllMedicinePresentingViewController.h */,
+				2EB086C9186D7695005628BE /* AllMedicinePresentingViewController.m */,
+			);
+			name = "All Medicines";
 			sourceTree = "<group>";
 		};
 		C7F443991872C20300242E27 /* 23Tree */ = {
@@ -371,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2D53FA5188969D60041B654 /* AutocorectionViewController.xib in Resources */,
 				A29BE6E4187AF5170099AC5C /* Medicine in Resources */,
 				2EB086C7186D7695005628BE /* Main_iPad.storyboard in Resources */,
 				2EB086CC186D7695005628BE /* Images.xcassets in Resources */,
@@ -410,6 +443,7 @@
 				C7F4439E1872D4A200242E27 /* TwoThreeTree.mm in Sources */,
 				2E555A6B1872C91000F2D8B8 /* MedicineDetailViewController.m in Sources */,
 				2EB086C1186D7695005628BE /* AppDelegate.m in Sources */,
+				A2D53FA4188969D60041B654 /* AutocorectionViewController.mm in Sources */,
 				2EB086BD186D7695005628BE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
