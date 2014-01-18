@@ -18,10 +18,11 @@
 #import "SettingsViewController.h"
 #include <string>
 #include <set>
+#import "MedicineCell.h"
 
 #define kAutocorectionCheckDeltaTime 5.0
 
-@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, AutocorectionTypingHelper, AutocompletionTypeHelper>
+@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, AutocorectionTypingHelper, AutocompletionTypeHelper, MedicineCellProtocol>
 {
     
 }
@@ -46,7 +47,7 @@
 
 @implementation MainViewController
 
-#pragma mark - view lifecycle
+#pragma mark - View Lifecycle
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -68,7 +69,11 @@
     [self loadTree];
     
     self.standartsDefaults = [NSUserDefaults standardUserDefaults];
-    
+    UIBarButtonItem* allMedicinesButton = [[UIBarButtonItem alloc] initWithTitle:@"A-Z" style:UIBarButtonItemStylePlain target:self action:@selector(viewAllMedicinesButtonPressed:)];
+    UIBarButtonItem* fixedSpace =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    [fixedSpace setWidth:30];
+    UIBarButtonItem* shareScreenButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(shareRecipeButtonPressed:)];
+    self.navigationItem.rightBarButtonItems = @[shareScreenButton, fixedSpace, allMedicinesButton];
 }
 
 
@@ -267,6 +272,13 @@
     return YES;
 }
 
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self.autocompletionViewController.view setHidden:YES];
+    [self.autocorectionViewController.view setHidden:YES];
+}
+
 #pragma mark - UITableView data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -281,14 +293,17 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MedicineCell"];
+    MedicineCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MedicineCell"];
     NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"name"];
-    cell.textLabel.text = medicineTitle;
+    cell.scrollViewLabel.text = medicineTitle;
+    cell.delegate = self;
     BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:@"isExisting"] boolValue];
     if (isExisting) {
+        cell.hasAccessoryView = YES;
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
     else{
+        cell.hasAccessoryView = NO;
         [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
     return cell;
@@ -347,6 +362,30 @@
         self.settingsPopover = [[UIPopoverController alloc] initWithContentViewController:myController];
     }
     [self.settingsPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
+
+-(IBAction)viewAllMedicinesButtonPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"PresentAllMedicineScreen" sender:sender];
+}
+
+-(IBAction)shareRecipeButtonPressed:(id)sender
+{
+    
+}
+
+#pragma mark - MedicineCell Delegate methods
+
+-(void)deleteButtonPressedForCell:(MedicineCell*)cell
+{
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
+    [self.choosedMedicineNames removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+-(void)addEditNoteButtonPressedForCell:(MedicineCell*)cell
+{
+
 }
 
 @end

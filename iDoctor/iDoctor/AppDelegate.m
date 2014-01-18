@@ -30,7 +30,7 @@
     [[CoreDataManager sharedManager] setupDocument:^(UIManagedDocument *document, NSError *error) {
         if (document && !error) {
             //dissmiss loading screen
-            [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
+           // [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
         }
         else{
             //display error and do nothing
