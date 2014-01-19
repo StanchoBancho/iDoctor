@@ -7,6 +7,8 @@
 //
 
 #import "MedicineCell.h"
+#import "EventPassingScrollView.h"
+
 #define kCatchWidth 150
 
 @interface MedicineCell() <UIScrollViewDelegate>
@@ -30,7 +32,7 @@
 
 -(void)awakeFromNib
 {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
+    EventPassingScrollView *scrollView = [[EventPassingScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
     scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) + kCatchWidth, CGRectGetHeight(self.bounds));
     scrollView.delegate = self;
     scrollView.showsHorizontalScrollIndicator = NO;
@@ -44,6 +46,7 @@
     
     UIButton *noteButton = [UIButton buttonWithType:UIButtonTypeCustom];
     noteButton.backgroundColor = [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0f];
+
     noteButton.frame = CGRectMake(0, 0, kCatchWidth / 2.0f, CGRectGetHeight(self.bounds));
     [noteButton setTitle:@"Note" forState:UIControlStateNormal];
     [noteButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -63,13 +66,23 @@
     
     UIView *scrollViewContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
     scrollViewContentView.backgroundColor = [UIColor whiteColor];
+
     [self.scrollView addSubview:scrollViewContentView];
     self.scrollViewContentView = scrollViewContentView;
     
-    UILabel *scrollViewLabel = [[UILabel alloc] initWithFrame:CGRectInset(self.scrollViewContentView.bounds, 10, 0)];
+    //CGRectInset(self.scrollViewContentView.bounds, 10, 0)
+    UILabel *scrollViewLabel = [[UILabel alloc] initWithFrame:CGRectMake(10., 0.0, scrollViewContentView.bounds.size.width, 20.0)];
+    [scrollViewLabel setFont:[UIFont boldSystemFontOfSize:17.0f]];
     self.scrollViewLabel = scrollViewLabel;
+
     [self.scrollViewContentView addSubview:scrollViewLabel];
+    
+    UILabel *scrollViewNotesLabel = [[UILabel alloc] initWithFrame:CGRectMake(20., 35.0, scrollViewContentView.bounds.size.width, 15.0)];
+    self.scrollViewNotesLabel = scrollViewNotesLabel;
+    [self.scrollViewContentView addSubview:scrollViewNotesLabel];
+
 }
+
 
 - (void)prepareForReuse
 {
@@ -79,7 +92,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-    
     // Configure the view for the selected state
 }
 
@@ -111,7 +123,6 @@
     }
     
     self.scrollViewButtonView.frame = CGRectMake(scrollView.contentOffset.x + (CGRectGetWidth(self.bounds) - kCatchWidth), 0.0f, kCatchWidth, CGRectGetHeight(self.bounds));
-    NSLog(@"%@", NSStringFromCGRect(self.scrollViewButtonView.frame));
     
 }
 
@@ -119,17 +130,20 @@
 
 -(IBAction)addEditNoteButtonPressed:(id)sender
 {
+    [sender setUserInteractionEnabled:NO];
     if([self.delegate respondsToSelector:@selector(addEditNoteButtonPressedForCell:)]){
         [self.delegate addEditNoteButtonPressedForCell:self];
     }
+    [sender setUserInteractionEnabled:YES];
 }
 
 -(IBAction)deleteButtonPressed:(id)sender
 {
+    [sender setUserInteractionEnabled:NO];
     if([self.delegate respondsToSelector:@selector(deleteButtonPressedForCell:)]){
         [self.delegate deleteButtonPressedForCell:self];
     }
-    
+    [sender setUserInteractionEnabled:YES];
 }
 
 

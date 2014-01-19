@@ -22,7 +22,10 @@
 @property (nonatomic, assign) id<MedicineCellProtocol> delegate;
 @property (nonatomic, strong) UIButton *moreButton;
 @property (nonatomic, strong) UIButton *deleteButton;
+
 @property (nonatomic, strong) UILabel* scrollViewLabel;
+@property (nonatomic, strong) UILabel* scrollViewNotesLabel;
+
 @property (nonatomic, assign) BOOL hasAccessoryView;
 
 @end

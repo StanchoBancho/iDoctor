@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E299572188BDD43009E6EBB /* EventPassingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E299571188BDD43009E6EBB /* EventPassingScrollView.m */; };
 		2E32F8B4186D951700B7B79B /* Model0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E32F8B2186D951700B7B79B /* Model0.xcdatamodeld */; };
 		2E32F8B7186D962A00B7B79B /* Medicine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E32F8B6186D962A00B7B79B /* Medicine.m */; };
 		2E32F8BA186D984800B7B79B /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E32F8B9186D984800B7B79B /* CoreDataManager.m */; };
@@ -14,6 +15,7 @@
 		2E32F8C7186DB56F00B7B79B /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E32F8C3186DB56F00B7B79B /* TFHppleElement.m */; };
 		2E32F8C8186DB56F00B7B79B /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E32F8C5186DB56F00B7B79B /* XPathQuery.m */; };
 		2E32F8CA186DB7A800B7B79B /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E32F8C9186DB7A800B7B79B /* libxml2.dylib */; };
+		2E54AA42188B24EC00CC1BC9 /* NotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E54AA41188B24EC00CC1BC9 /* NotesViewController.m */; };
 		2E555A651872C19E00F2D8B8 /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2E555A641872C19E00F2D8B8 /* MainViewController.mm */; };
 		2E555A681872C1E900F2D8B8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E555A671872C1E900F2D8B8 /* SettingsViewController.m */; };
 		2E555A6B1872C91000F2D8B8 /* MedicineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E555A6A1872C91000F2D8B8 /* MedicineDetailViewController.m */; };
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E299570188BDD43009E6EBB /* EventPassingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventPassingScrollView.h; sourceTree = "<group>"; };
+		2E299571188BDD43009E6EBB /* EventPassingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventPassingScrollView.m; sourceTree = "<group>"; };
 		2E32F8B3186D951700B7B79B /* Model0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model0.xcdatamodel; sourceTree = "<group>"; };
 		2E32F8B5186D962A00B7B79B /* Medicine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medicine.h; sourceTree = "<group>"; };
 		2E32F8B6186D962A00B7B79B /* Medicine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medicine.m; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		2E32F8C4186DB56F00B7B79B /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		2E32F8C5186DB56F00B7B79B /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		2E32F8C9186DB7A800B7B79B /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		2E54AA40188B24EC00CC1BC9 /* NotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesViewController.h; sourceTree = "<group>"; };
+		2E54AA41188B24EC00CC1BC9 /* NotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesViewController.m; sourceTree = "<group>"; };
 		2E555A631872C19E00F2D8B8 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		2E555A641872C19E00F2D8B8 /* MainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainViewController.mm; sourceTree = "<group>"; };
 		2E555A661872C1E900F2D8B8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -276,6 +282,8 @@
 		A2A8CBC8187D871800BE25F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E299570188BDD43009E6EBB /* EventPassingScrollView.h */,
+				2E299571188BDD43009E6EBB /* EventPassingScrollView.m */,
 				2EEBC562188AEE5500AC29EF /* MedicineCell.h */,
 				2EEBC563188AEE5500AC29EF /* MedicineCell.m */,
 				2EB086C2186D7695005628BE /* Main_iPhone.storyboard */,
@@ -300,6 +308,8 @@
 			children = (
 				2E555A631872C19E00F2D8B8 /* MainViewController.h */,
 				2E555A641872C19E00F2D8B8 /* MainViewController.mm */,
+				2E54AA40188B24EC00CC1BC9 /* NotesViewController.h */,
+				2E54AA41188B24EC00CC1BC9 /* NotesViewController.m */,
 				2E555A661872C1E900F2D8B8 /* SettingsViewController.h */,
 				2E555A671872C1E900F2D8B8 /* SettingsViewController.m */,
 				A2D53FAE188997D20041B654 /* Typing helpers scenes */,
@@ -476,7 +486,9 @@
 				2E32F8B4186D951700B7B79B /* Model0.xcdatamodeld in Sources */,
 				A2D53FAC188996530041B654 /* AutocompletionViewController.mm in Sources */,
 				2E32F8C8186DB56F00B7B79B /* XPathQuery.m in Sources */,
+				2E54AA42188B24EC00CC1BC9 /* NotesViewController.m in Sources */,
 				2E32F8C6186DB56F00B7B79B /* TFHpple.m in Sources */,
+				2E299572188BDD43009E6EBB /* EventPassingScrollView.m in Sources */,
 				2EB086CA186D7695005628BE /* AllMedicinePresentingViewController.m in Sources */,
 				C7F443A51872D4CE00242E27 /* EditDistance.mm in Sources */,
 				2E555A681872C1E900F2D8B8 /* SettingsViewController.m in Sources */,

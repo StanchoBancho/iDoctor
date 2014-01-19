@@ -6,23 +6,26 @@
 //  Copyright (c) 2013 Stanimir Nikolov. All rights reserved.
 //
 
-#import "MainViewController.h"
 #import "CoreDataManager.h"
 #import <CoreData/CoreData.h>
 #import "Medicine.h"
+
+#import "Constants.h"
+#include <string>
+#include <set>
 #import "TwoThreeTree.h"
+
+#import "MainViewController.h"
 #import "MedicineDetailViewController.h"
 #import "AutocorectionViewController.h"
 #import "AutocompletionViewController.h"
-#import "Constants.h"
+#import "NotesViewController.h"
 #import "SettingsViewController.h"
-#include <string>
-#include <set>
 #import "MedicineCell.h"
 
 #define kAutocorectionCheckDeltaTime 5.0
 
-@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, AutocorectionTypingHelper, AutocompletionTypeHelper, MedicineCellProtocol>
+@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, AutocorectionTypingHelper, AutocompletionTypeHelper, MedicineCellProtocol, NotesHandler>
 {
     
 }
@@ -31,6 +34,8 @@
 @property (nonatomic, strong) NSMutableArray* suggestedMedicineNames;
 @property (nonatomic, strong) NSMutableArray* choosedMedicineNames;
 @property (nonatomic, strong) NSMutableString* typedText;
+@property (nonatomic, strong) NSDictionary* currentlyEditingMedicine;
+@property (nonatomic, strong) NSIndexPath* currentlyEditingIndexPath;
 @property (nonatomic, assign) CFAbsoluteTime lastTimeTextIsEntered;
 @property (nonatomic, strong) NSTimer* timer;
 
@@ -296,6 +301,11 @@
     MedicineCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MedicineCell"];
     NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"name"];
     cell.scrollViewLabel.text = medicineTitle;
+
+    
+    NSString* medicineNotesTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"notes"];
+    cell.scrollViewNotesLabel.text = medicineNotesTitle;
+    
     cell.delegate = self;
     BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:@"isExisting"] boolValue];
     if (isExisting) {
@@ -311,34 +321,36 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(tableView == self.tableView){
-        BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:@"isExisting"] boolValue];
-        if (isExisting) {
-            //fetch the existing medicine
-            NSManagedObjectContext* context = self.sharedManager.document.managedObjectContext;
-            NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Medicine" inManagedObjectContext:context];
-            NSFetchRequest *request = [[NSFetchRequest alloc] init];
-            [request setEntity:entityDescription];
-            NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"name"];
-            [request setPredicate:[NSPredicate predicateWithFormat:@"name like %@", medicineTitle]];
-            NSError *error;
-            NSArray *array = [context executeFetchRequest:request error:&error];
-            if (error || array == nil || array.count < 1){
-                NSLog(@"GOLQM ERROR :%@", error);
-            }
-            else{
-                Medicine * selectedMedicine = [array objectAtIndex:0];
-                if(selectedMedicine && selectedMedicine.descriptionUrl){
-                    MedicineDetailViewController* detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MedicineDetailViewController"];
-                    [detailViewController setMedicineUrl:selectedMedicine.descriptionUrl];
-                    [self.navigationController pushViewController:detailViewController animated:YES];
+    UITableViewCell* pressedCell = [tableView cellForRowAtIndexPath:indexPath];
+    if(pressedCell.accessoryType == UITableViewCellAccessoryDisclosureIndicator){
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        if(tableView == self.tableView){
+            BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:@"isExisting"] boolValue];
+            if (isExisting) {
+                //fetch the existing medicine
+                NSManagedObjectContext* context = self.sharedManager.document.managedObjectContext;
+                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Medicine" inManagedObjectContext:context];
+                NSFetchRequest *request = [[NSFetchRequest alloc] init];
+                [request setEntity:entityDescription];
+                NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"name"];
+                [request setPredicate:[NSPredicate predicateWithFormat:@"name like %@", medicineTitle]];
+                NSError *error;
+                NSArray *array = [context executeFetchRequest:request error:&error];
+                if (error || array == nil || array.count < 1){
+                    NSLog(@"GOLQM ERROR :%@", error);
+                }
+                else{
+                    Medicine * selectedMedicine = [array objectAtIndex:0];
+                    if(selectedMedicine && selectedMedicine.descriptionUrl){
+                        MedicineDetailViewController* detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MedicineDetailViewController"];
+                        [detailViewController setMedicineUrl:selectedMedicine.descriptionUrl];
+                        [self.navigationController pushViewController:detailViewController animated:YES];
+                    }
                 }
             }
         }
     }
 }
-
 #pragma mark - Action methods
 
 -(IBAction)addButtonPressed:(id)sender
@@ -356,8 +368,7 @@
         [self.settingsPopover dismissPopoverAnimated:YES];
         return;
     } else if (!self.settingsPopover) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:[NSBundle mainBundle]];
-        SettingsViewController *myController = [storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+        SettingsViewController *myController = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsViewController"];
         
         self.settingsPopover = [[UIPopoverController alloc] initWithContentViewController:myController];
     }
@@ -385,6 +396,32 @@
 
 -(void)addEditNoteButtonPressedForCell:(MedicineCell*)cell
 {
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
+    self.currentlyEditingMedicine = [self.choosedMedicineNames objectAtIndex:indexPath.row];
+    self.currentlyEditingIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+    NSString* medicine = [self.currentlyEditingMedicine objectForKey:@"name"];
+    NSString* medicineNotes = [self.currentlyEditingMedicine objectForKey:@"notes"];
+    
+    NotesViewController* notesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"notesViewController"];
+    notesViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [notesViewController setDelegate:self];
+    [notesViewController setMedicineTitle:medicine];
+    [notesViewController setMedicineNotes:medicineNotes];
+    [self presentViewController:notesViewController animated:YES completion:^{
+       // [notesViewController.notesTextView becomeFirstResponder];
+    }];
+}
+
+#pragma mark - NotesHandler Delegate methods
+
+-(void)setNotesText:(NSString *)noteText
+{
+    [self.choosedMedicineNames replaceObjectAtIndex:self.currentlyEditingIndexPath.row withObject:@{@"notes": noteText, @"name": [self.currentlyEditingMedicine objectForKey:@"name"], @"isExisting": [self.currentlyEditingMedicine objectForKey:@"isExisting"]}];
+
+    self.currentlyEditingMedicine = nil;
+
+    [self.tableView reloadRowsAtIndexPaths:@[self.currentlyEditingIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    self.currentlyEditingIndexPath = nil;
 
 }
 
