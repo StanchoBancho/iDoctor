@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1C19EF188C4F2600C13308 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E1C19EE188C4F2600C13308 /* CoreText.framework */; };
 		2E299572188BDD43009E6EBB /* EventPassingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E299571188BDD43009E6EBB /* EventPassingScrollView.m */; };
 		2E32F8B4186D951700B7B79B /* Model0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E32F8B2186D951700B7B79B /* Model0.xcdatamodeld */; };
 		2E32F8B7186D962A00B7B79B /* Medicine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E32F8B6186D962A00B7B79B /* Medicine.m */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E1C19EE188C4F2600C13308 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		2E299570188BDD43009E6EBB /* EventPassingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventPassingScrollView.h; sourceTree = "<group>"; };
 		2E299571188BDD43009E6EBB /* EventPassingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventPassingScrollView.m; sourceTree = "<group>"; };
 		2E32F8B3186D951700B7B79B /* Model0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model0.xcdatamodel; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1C19EF188C4F2600C13308 /* CoreText.framework in Frameworks */,
 				2E32F8CA186DB7A800B7B79B /* libxml2.dylib in Frameworks */,
 				2EB086B3186D7695005628BE /* CoreGraphics.framework in Frameworks */,
 				2EB086B5186D7695005628BE /* UIKit.framework in Frameworks */,
@@ -205,6 +208,7 @@
 		2EB086AF186D7695005628BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E1C19EE188C4F2600C13308 /* CoreText.framework */,
 				2E32F8C9186DB7A800B7B79B /* libxml2.dylib */,
 				2EB086B0186D7695005628BE /* Foundation.framework */,
 				2EB086B2186D7695005628BE /* CoreGraphics.framework */,

@@ -383,6 +383,7 @@
 
 -(IBAction)shareRecipeButtonPressed:(id)sender
 {
+    [self performSegueWithIdentifier:@"pushRecipeShareScreen" sender:sender];
     
 }
 

@@ -10,4 +10,6 @@
 
 @interface RecipeShareViewController : UIViewController
 
+@property (nonatomic, strong) NSArray* medicines;
+
 @end

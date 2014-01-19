@@ -261,11 +261,39 @@
                         <outlet property="tableView" destination="Kbm-8C-jbU" id="A64-x0-QWp"/>
                         <outlet property="textField" destination="7bx-AA-JLQ" id="vbw-iU-9wu"/>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="PresentAllMedicineScreen" id="ZPi-Fp-kgD"/>
+                        <segue destination="abQ-qW-Lp5" kind="push" identifier="pushRecipeShareScreen" id="WrE-Ev-oIZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kJ-tz-C7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1288" y="-543"/>
+        </scene>
+        <!--Recipe Share View Controller-->
+        <scene sceneID="FuD-ec-bWF">
+            <objects>
+                <viewController id="abQ-qW-Lp5" customClass="RecipeShareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ipX-Ok-Qng"/>
+                        <viewControllerLayoutGuide type="bottom" id="CtL-aR-m39"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="isr-QM-GRV">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sO3-sQ-1Iv">
+                        <barButtonItem key="rightBarButtonItem" title="Complete" id="ZHh-tc-Z7l">
+                            <connections>
+                                <action selector="savePDFFile:" destination="abQ-qW-Lp5" id="cmE-7m-Zd8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4KH-GW-5il" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="337" y="-1881"/>
         </scene>
         <!--All Medicine Presenting View Controller - All Medicines-->
         <scene sceneID="tne-QT-ifu">
