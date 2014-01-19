@@ -28,9 +28,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.navigationItem setTitle:self.medicineName];
+    
     NSURL* url = [NSURL URLWithString:self.medicineUrl];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self.detailWebView loadRequest:request];
+    
 	// Do any additional setup after loading the view.
 }
 

@@ -140,7 +140,7 @@
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         Medicine* selectedMedicine = [self.fetchedResultsController objectAtIndexPath:path];
         [detailViewController setMedicineUrl:selectedMedicine.descriptionUrl];
-        [detailViewController setTitle:selectedMedicine.name];
+        [detailViewController setMedicineName:selectedMedicine.name];
     }
 }
 

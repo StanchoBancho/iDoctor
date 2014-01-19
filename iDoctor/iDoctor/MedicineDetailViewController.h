@@ -10,6 +10,7 @@
 
 @interface MedicineDetailViewController : UIViewController
 
+@property (nonatomic, strong) NSString* medicineName;
 @property (nonatomic, strong) NSString* medicineUrl;
 
 @end

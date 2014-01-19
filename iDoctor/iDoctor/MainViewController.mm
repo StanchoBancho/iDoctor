@@ -344,6 +344,7 @@
                     if(selectedMedicine && selectedMedicine.descriptionUrl){
                         MedicineDetailViewController* detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MedicineDetailViewController"];
                         [detailViewController setMedicineUrl:selectedMedicine.descriptionUrl];
+                        [detailViewController setMedicineName:selectedMedicine.name];
                         [self.navigationController pushViewController:detailViewController animated:YES];
                     }
                 }
