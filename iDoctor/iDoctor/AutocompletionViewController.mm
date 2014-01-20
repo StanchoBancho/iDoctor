@@ -87,7 +87,7 @@
         }
         //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
         [self.suggestedMedicineNames sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            return [(NSString*)obj1 compare:(NSString*)obj2];
+            return [(NSString*)obj1 compare:(NSString*)obj2 options:NSCaseInsensitiveSearch];
         }];
     }
     CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();

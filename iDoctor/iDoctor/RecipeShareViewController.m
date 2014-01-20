@@ -53,7 +53,7 @@
     NSMutableAttributedString* string = [[NSMutableAttributedString alloc] init];
 
     //add name
-    NSString* nameString = [NSString stringWithFormat:@"\n\nRecipient name: %@\n", self.enteredName];
+    NSString* nameString = [NSString stringWithFormat:@"Recipient name: %@\n", self.enteredName];
     NSMutableAttributedString* recipentName = [[NSMutableAttributedString alloc] initWithString:nameString];
     [recipentName setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:15.0]} range:NSMakeRange(0, recipentName.length)];
     [string appendAttributedString: recipentName];
@@ -189,7 +189,7 @@
 
 - (void)drawPageNumber:(NSInteger)pageNum
 {
-    NSString *pageString = [NSString stringWithFormat:@"Page %d", pageNum];
+    NSString *pageString = [NSString stringWithFormat:@"Page %ld", pageNum];
     CGSize maxSize = CGSizeMake(612, 72);
     
     NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:12] forKey: NSFontAttributeName];

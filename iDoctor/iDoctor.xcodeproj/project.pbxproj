@@ -422,7 +422,7 @@
 				ORGANIZATIONNAME = "Stanimir Nikolov";
 				TargetAttributes = {
 					2EB086AC186D7695005628BE = {
-						DevelopmentTeam = M352RPT82H;
+						DevelopmentTeam = 3BUU954T4W;
 					};
 					2EB086D0186D7695005628BE = {
 						TestTargetID = 2EB086AC186D7695005628BE;

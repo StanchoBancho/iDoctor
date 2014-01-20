@@ -33,12 +33,10 @@
 }
 @property (nonatomic, strong) CoreDataManager* sharedManager;
 
-@property (nonatomic, strong) NSMutableArray* suggestedMedicineNames;
 @property (nonatomic, strong) NSMutableArray* choosedMedicineNames;
 @property (nonatomic, strong) NSMutableString* typedText;
 @property (nonatomic, strong) NSDictionary* currentlyEditingMedicine;
 @property (nonatomic, strong) NSIndexPath* currentlyEditingIndexPath;
-@property (nonatomic, assign) CFAbsoluteTime lastTimeTextIsEntered;
 @property (nonatomic, strong) NSTimer* timer;
 
 @property (nonatomic, strong) AutocorectionViewController* autocorectionViewController;
@@ -153,19 +151,17 @@
     
     NSArray *array = [context executeFetchRequest:request error:&error];
     if (error || array == nil){
-        NSLog(@"GOLQM ERROR :%@", error);
+        NSLog(@"We do not have any medicines or theres is an error when we fetch them :%@", error);
     }
     else{
         //create tree
-        // @autoreleasepool {
         vector<string> allMedicineNames;
         TwoThreeTree* tree = new TwoThreeTree();
         NGramsOverlap* ngramOverlap = new NGramsOverlap();
         set<string>allMedicineNamesWords;
         for(NSDictionary* m in array){
             if(m[kMedicineNameKey] == nil || [m[kMedicineNameKey] isEqualToString:@""]){
-                NSLog(@"a sega");
-                
+                NSLog(@"There is existing medicine");
             }
             string cpp_str([m[kMedicineNameKey] UTF8String], [m[kMedicineNameKey] lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
             tree->insertData(cpp_str);
@@ -182,7 +178,6 @@
                     }
                 }
             }
-            // }
         }
         [self.autocorectionViewController setNGramDataStructure:ngramOverlap];
         [self.autocorectionViewController setAllMedicineNamesWords:allMedicineNamesWords];
@@ -205,7 +200,7 @@
     NSError *error;
     NSArray *array = [context executeFetchRequest:request error:&error];
     if (error || array == nil || array.count != 1){
-        NSLog(@"GOLQM ERROR :%@", error);
+        NSLog(@"We do not have such medicine :%@", error);
         return NO;
     }
     return YES;
