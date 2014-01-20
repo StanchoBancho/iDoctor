@@ -26,4 +26,8 @@ typedef NS_ENUM(NSInteger, AutocompetionType){
     AutocompetionType23Tree
 };
 
+#define kMedicineNameKey @"name"
+#define kMedicineIsExistingKey @"isExisting"
+#define kMedicineNoteKey @"notes"
+
 #endif

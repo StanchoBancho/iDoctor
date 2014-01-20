@@ -22,6 +22,8 @@
 #import "NotesViewController.h"
 #import "SettingsViewController.h"
 #import "MedicineCell.h"
+#import "RecipeShareViewController.h"
+
 
 #define kAutocorectionCheckDeltaTime 5.0
 
@@ -146,7 +148,7 @@
     [request setResultType:NSDictionaryResultType];
     
     [request setEntity:entityDescription];
-    [request setPropertiesToFetch:@[@"name"]];
+    [request setPropertiesToFetch:@[kMedicineNameKey]];
     NSError *error;
     
     NSArray *array = [context executeFetchRequest:request error:&error];
@@ -161,16 +163,16 @@
         NGramsOverlap* ngramOverlap = new NGramsOverlap();
         set<string>allMedicineNamesWords;
         for(NSDictionary* m in array){
-            if(m[@"name"] == nil || [m[@"name"] isEqualToString:@""]){
+            if(m[kMedicineNameKey] == nil || [m[kMedicineNameKey] isEqualToString:@""]){
                 NSLog(@"a sega");
                 
             }
-            string cpp_str([m[@"name"] UTF8String], [m[@"name"] lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+            string cpp_str([m[kMedicineNameKey] UTF8String], [m[kMedicineNameKey] lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
             tree->insertData(cpp_str);
             allMedicineNames.push_back(cpp_str);
             
             //create ngramoverlap structure
-            NSArray* allWordsOfTheMedicine = [((NSString*)m[@"name"]).lowercaseString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSArray* allWordsOfTheMedicine = [((NSString*)m[kMedicineNameKey]).lowercaseString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             for (NSString* word in allWordsOfTheMedicine) {
                 if(![word isEqualToString:@""]){
                     string cpp_word([word UTF8String], [word lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
@@ -211,7 +213,7 @@
 
 -(void)handleMedicine:(NSString*)medicineTitle isItExistingOne:(BOOL)isExisting
 {
-    NSDictionary* newObject = @{@"name":medicineTitle, @"isExisting":@(isExisting)};
+    NSDictionary* newObject = @{kMedicineNameKey:medicineTitle, kMedicineIsExistingKey:@(isExisting)};
     [self.choosedMedicineNames insertObject:newObject atIndex:0];
     self.typedText =  [NSMutableString string];
     [self.textField setText:@""];
@@ -299,15 +301,15 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MedicineCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MedicineCell"];
-    NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"name"];
+    NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:kMedicineNameKey];
     cell.scrollViewLabel.text = medicineTitle;
 
     
-    NSString* medicineNotesTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"notes"];
+    NSString* medicineNotesTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:kMedicineNoteKey];
     cell.scrollViewNotesLabel.text = medicineNotesTitle;
     
     cell.delegate = self;
-    BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:@"isExisting"] boolValue];
+    BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:kMedicineIsExistingKey] boolValue];
     if (isExisting) {
         cell.hasAccessoryView = YES;
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
@@ -325,14 +327,14 @@
     if(pressedCell.accessoryType == UITableViewCellAccessoryDisclosureIndicator){
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         if(tableView == self.tableView){
-            BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:@"isExisting"] boolValue];
+            BOOL isExisting = [[self.choosedMedicineNames[indexPath.row] objectForKey:kMedicineIsExistingKey] boolValue];
             if (isExisting) {
                 //fetch the existing medicine
                 NSManagedObjectContext* context = self.sharedManager.document.managedObjectContext;
                 NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Medicine" inManagedObjectContext:context];
                 NSFetchRequest *request = [[NSFetchRequest alloc] init];
                 [request setEntity:entityDescription];
-                NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:@"name"];
+                NSString* medicineTitle = [self.choosedMedicineNames[indexPath.row] objectForKey:kMedicineNameKey];
                 [request setPredicate:[NSPredicate predicateWithFormat:@"name like %@", medicineTitle]];
                 NSError *error;
                 NSArray *array = [context executeFetchRequest:request error:&error];
@@ -384,7 +386,13 @@
 -(IBAction)shareRecipeButtonPressed:(id)sender
 {
     [self performSegueWithIdentifier:@"pushRecipeShareScreen" sender:sender];
-    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"pushRecipeShareScreen"]){
+        [(RecipeShareViewController*)segue.destinationViewController setMedicines:self.choosedMedicineNames];
+    }
 }
 
 #pragma mark - MedicineCell Delegate methods
@@ -401,8 +409,8 @@
     NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
     self.currentlyEditingMedicine = [self.choosedMedicineNames objectAtIndex:indexPath.row];
     self.currentlyEditingIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
-    NSString* medicine = [self.currentlyEditingMedicine objectForKey:@"name"];
-    NSString* medicineNotes = [self.currentlyEditingMedicine objectForKey:@"notes"];
+    NSString* medicine = [self.currentlyEditingMedicine objectForKey:kMedicineNameKey];
+    NSString* medicineNotes = [self.currentlyEditingMedicine objectForKey:kMedicineNoteKey];
     
     NotesViewController* notesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"notesViewController"];
     notesViewController.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -418,7 +426,7 @@
 
 -(void)setNotesText:(NSString *)noteText
 {
-    [self.choosedMedicineNames replaceObjectAtIndex:self.currentlyEditingIndexPath.row withObject:@{@"notes": noteText, @"name": [self.currentlyEditingMedicine objectForKey:@"name"], @"isExisting": [self.currentlyEditingMedicine objectForKey:@"isExisting"]}];
+    [self.choosedMedicineNames replaceObjectAtIndex:self.currentlyEditingIndexPath.row withObject:@{kMedicineNoteKey: noteText, kMedicineNameKey: [self.currentlyEditingMedicine objectForKey:kMedicineNameKey], kMedicineIsExistingKey: [self.currentlyEditingMedicine objectForKey:kMedicineIsExistingKey]}];
 
     self.currentlyEditingMedicine = nil;
 

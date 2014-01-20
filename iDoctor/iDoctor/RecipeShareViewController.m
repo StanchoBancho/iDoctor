@@ -8,12 +8,22 @@
 
 #import "RecipeShareViewController.h"
 #import "CoreText/CoreText.h"
+#import "Constants.h"
 
 @interface RecipeShareViewController ()
 
+@property (nonatomic, strong) IBOutlet UIWebView* webview;
+@property (nonatomic, strong) IBOutlet UITextField* textField;
+@property (nonatomic, strong) NSString* enteredName;
+@property (nonatomic, strong) NSDate* enteredNameDate;
+
+
+@property (nonatomic, strong) UIPopoverController* sharePopover;
 @end
 
 @implementation RecipeShareViewController
+
+#pragma mark - View Lifecycle
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,22 +46,58 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - PDF creation methods
+
 -(NSAttributedString*)createMedicineList
 {
-    NSMutableAttributedString* string = [[NSMutableAttributedString alloc] initWithString:@"asd test"];
+    NSMutableAttributedString* string = [[NSMutableAttributedString alloc] init];
+
+    //add name
+    NSString* nameString = [NSString stringWithFormat:@"\n\nRecipient name: %@\n", self.enteredName];
+    NSMutableAttributedString* recipentName = [[NSMutableAttributedString alloc] initWithString:nameString];
+    [recipentName setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:15.0]} range:NSMakeRange(0, recipentName.length)];
+    [string appendAttributedString: recipentName];
+
+    //add creation date
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm:ss-dd-MM-yyyy"];
+    NSString* createdOnString = [NSString stringWithFormat:@"Medical Recipe created on: %@\n\n\n", [dateFormatter stringFromDate:self.enteredNameDate]];
+    NSMutableAttributedString* recipeCreatedOn = [[NSMutableAttributedString alloc] initWithString:createdOnString];
+    [recipeCreatedOn setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:15.0]} range:NSMakeRange(0, recipeCreatedOn.length)];
+    [string appendAttributedString: recipeCreatedOn];
+
+    
+    //add medicines
+    for(NSDictionary* medicineInfo in self.medicines){
+        // add name
+        NSMutableAttributedString* medicineName = [[NSMutableAttributedString alloc] initWithString:[medicineInfo objectForKey:kMedicineNameKey]];
+        [medicineName setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:14.0]} range:NSMakeRange(0, medicineName.length)];
+        [string appendAttributedString: medicineName];
+        
+        // add notes
+        NSString *medicineNotesString = [NSString stringWithFormat:@" - %@\n",[medicineInfo objectForKey:kMedicineNoteKey]];
+        NSMutableAttributedString* medicineNotes = [[NSMutableAttributedString alloc] initWithString:medicineNotesString];
+        [medicineNotes setAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0]} range:NSMakeRange(0, medicineNotes.length)];
+        [string appendAttributedString: medicineNotes];
+    }
+    
+    
     return string;
 }
 
 -(NSString*)getPDFFileName
 {
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm:ss-dd-MM-yyyy"];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentPath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-    documentPath = [documentPath stringByAppendingPathComponent:@"MedicineForStanimirNikolov.pdf"];
+    NSString* pdfName = [NSString stringWithFormat:@"%@-%@.pdf", self.enteredName, [dateFormatter stringFromDate:self.enteredNameDate]];
+    documentPath = [documentPath stringByAppendingPathComponent:pdfName];
     return documentPath;
 }
 
-- (IBAction)savePDFFile:(id)sender
+- (void)savePDFFile
 {
     // Prepare the text using a Core Text Framesetter.
     
@@ -96,7 +142,7 @@
             NSLog(@"Could not create the framesetter needed to lay out the atrributed string.");
         }
         // Release the attributed string.
-       //CFRelease(currentText);
+        //CFRelease(currentText);
     } else {
         NSLog(@"Could not create the attributed string for the framesetter");
     }
@@ -156,7 +202,61 @@
     
     [pageString drawInRect:stringRect withAttributes:stringAttributes];
 }
+#pragma mark - Utility methods
 
+-(void)presentPDF
+{
+    NSString* pdfPath = [self getPDFFileName];
+    NSURL *targetURL = [NSURL fileURLWithPath:pdfPath];
+    NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
+    [self.webview loadRequest:request];
+}
 
+#pragma mark - Action methods
+
+-(IBAction)completeNameButtonPressed:(id)sender
+{
+    [sender setEnabled:NO];
+    self.enteredNameDate = [NSDate date];
+    self.enteredName = self.textField.text;
+    if([self.enteredName isEqualToString:@""]){
+        UIAlertView* noNameAlertView = [[UIAlertView alloc] initWithTitle:@"No recipient name enterd" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [noNameAlertView show];
+    }
+    else{
+        [self.textField setEnabled:NO];
+        UIButton* button = (UIButton*)sender;
+        [button setTitle:@"Edit" forState:UIControlStateNormal];
+        [button setTitle:@"Edit" forState:UIControlStateHighlighted];
+        [self savePDFFile];
+        [self presentPDF];
+        [button addTarget:self action:@selector(editNameButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [sender setEnabled:YES];
+    }
+}
+
+-(IBAction)editNameButtonPressed:(id)sender
+{
+    [self.textField setEnabled:YES];
+    UIButton* button = (UIButton*)sender;
+    [button setTitle:@"Complete" forState:UIControlStateNormal];
+    [button setTitle:@"Complete" forState:UIControlStateHighlighted];
+    [self.textField becomeFirstResponder];
+}
+
+-(IBAction)shareButtonPressed:(id)sender
+{
+    if (self.sharePopover.isPopoverVisible) {
+        [self.sharePopover dismissPopoverAnimated:YES];
+        self.sharePopover = nil;
+        return;
+    }
+    NSString* pdfPath = [self getPDFFileName];
+    NSURL *targetURL = [NSURL fileURLWithPath:pdfPath];
+
+    UIActivityViewController* activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[targetURL] applicationActivities:@[]];
+    self.sharePopover = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
+    [self.sharePopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
 
 @end

@@ -279,17 +279,43 @@
                     <view key="view" contentMode="scaleToFill" id="isr-QM-GRV">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recipient Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PPR-K8-Ajl">
+                                <rect key="frame" x="20" y="87" width="878" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7g-A2-0Px">
+                                <rect key="frame" x="928" y="91" width="76" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Complete"/>
+                                <connections>
+                                    <action selector="completeNameButtonPressed:" destination="abQ-qW-Lp5" eventType="touchUpInside" id="10v-jq-Sre"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="97Z-z5-SAZ">
+                                <rect key="frame" x="20" y="142" width="984" height="606"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="sO3-sQ-1Iv">
-                        <barButtonItem key="rightBarButtonItem" title="Complete" id="ZHh-tc-Z7l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="ZHh-tc-Z7l">
                             <connections>
-                                <action selector="savePDFFile:" destination="abQ-qW-Lp5" id="cmE-7m-Zd8"/>
+                                <action selector="shareButtonPressed:" destination="abQ-qW-Lp5" id="hvn-9L-JfG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="textField" destination="PPR-K8-Ajl" id="NJe-Cn-RYc"/>
+                        <outlet property="webview" destination="97Z-z5-SAZ" id="1bI-z9-nyC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4KH-GW-5il" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
