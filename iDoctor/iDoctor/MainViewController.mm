@@ -161,7 +161,7 @@
         set<string>allMedicineNamesWords;
         for(NSDictionary* m in array){
             if(m[kMedicineNameKey] == nil || [m[kMedicineNameKey] isEqualToString:@""]){
-                NSLog(@"There is existing medicine");
+                NSLog(@"There is an existing medicine");
             }
             string cpp_str([m[kMedicineNameKey] UTF8String], [m[kMedicineNameKey] lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
             tree->insertData(cpp_str);
@@ -174,7 +174,7 @@
                     string cpp_word([word UTF8String], [word lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
                     if(allMedicineNamesWords.count(cpp_str) == 0){
                         allMedicineNamesWords.insert(cpp_word);
-                        ngramOverlap->insertWordInNGramTree(cpp_word);
+                        //ngramOverlap->insertWordInNGramTree(cpp_word);
                     }
                 }
             }

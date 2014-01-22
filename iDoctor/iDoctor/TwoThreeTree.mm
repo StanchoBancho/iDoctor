@@ -44,7 +44,7 @@ void TwoThreeTree::insertData(string data) {
                 this->root->minKey.assign(data);
                 this->root->maxKey.assign(temp);
             } else {
-                this->root->maxKey = data;
+                this->root->maxKey.assign(data);
             }
             this->root->numberOfItems = 2;
             //full node, should split
@@ -155,7 +155,7 @@ void TwoThreeTree::insertDataIntoParentTree(Node *parent, string data) {
             leaf->minKey.assign(data);
             leaf->maxKey.assign(temp);
         } else {
-            leaf->maxKey = data;
+            leaf->maxKey.assign(data);
         }
         leaf->numberOfItems = 2;
         //full leaf
@@ -230,6 +230,7 @@ void TwoThreeTree::split(Node *node, string data) {
         }
     }
     
+    node->parent = NULL;
     delete node;
     
     string parentMinKeyLow, newMidKeyLow;
@@ -313,20 +314,37 @@ vector<string> TwoThreeTree::findDataWithPrefix(string prefix) {
             
             q.pop();
             
-            bool shouldAddChildren = false;
             if (checkPrefix(prefix, minKey)) {
                 nodes.push_back(n->minKey);
-                shouldAddChildren = true;
             }
             if (checkPrefix(prefix, maxKey)) {
                 nodes.push_back(n->maxKey);
-                shouldAddChildren = true;
             }
+//            if (n->numberOfChildren != 0) {
+//                string minSubstr = minKey.substr(0, prefix.length());
+//                string maxSubstr = maxKey.substr(0, prefix.length());
+//                if (n->numberOfItems == 1) {
+//                    if (prefix.compare(minSubstr) < 0) {
+//                        q.push(n->children[0]);
+//                    } else {
+//                        q.push(n->children[1]);
+//                    }
+//                } else if (n->numberOfItems == 2) {
+//                    if (prefix.compare(minSubstr) < 0) {
+//                        q.push(n->children[0]);
+//                    } else if (prefix.compare(maxSubstr) < 0) {
+//                        q.push(n->children[0]);
+//                        q.push(n->children[1]);
+//                    } else {
+//                        q.push(n->children[1]);
+//                        q.push(n->children[2]);
+//                    }
+//                }
+//            }
             
-            if (shouldAddChildren) {
-                for (int i = 0; i < n->numberOfChildren; ++i) {
-                    q.push(n->children[i]);
-                }
+            
+            for (int i = 0; i < n->numberOfChildren; ++i) {
+                q.push(n->children[i]);
             }
         }
     }
@@ -350,7 +368,7 @@ Node *TwoThreeTree::findFirstNodeWithPrefix(Node *node, string prefix) {
         return findFirstNodeWithPrefix(node->children[0], prefix);
     } else {
         if (node->numberOfItems == 2) {
-            if (prefix.compare(minKey) > 0 && prefix.compare(maxKey) < 0) {
+            if (prefix.compare(minKey) >= 0 && prefix.compare(maxKey) < 0) {
                 return findFirstNodeWithPrefix(node->children[1], prefix);
             } else {
                 return findFirstNodeWithPrefix(node->children[2], prefix);
@@ -367,7 +385,7 @@ bool TwoThreeTree::checkPrefix(string prefix, string str) {
         return false;
     }
     string strPrefix = str.substr(0, prefix.length());
-    if (prefix == strPrefix) {
+    if (prefix.compare(strPrefix) == 0) {
         return true;
     }
     

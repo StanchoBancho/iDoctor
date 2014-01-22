@@ -81,6 +81,8 @@
         string cpp_str([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
         vector<string> result = tree->findDataWithPrefix(cpp_str);
         
+        Node *n = tree->searchData("Acabak oral");
+        
         for (int i = 0; i < result.size(); i++) {
             NSString* medicineName = [NSString stringWithCString: result[i].c_str() encoding:NSUTF8StringEncoding];
             [self.suggestedMedicineNames addObject:medicineName];

@@ -12,7 +12,7 @@ using namespace std;
 
 Node::Node(string minKey, Node *parent) {
     this->minKey = minKey;
-    this->maxKey = -1;
+    this->maxKey = "";
     this->parent = parent;
     this->numberOfItems = 1;
     this->numberOfChildren = 0;
