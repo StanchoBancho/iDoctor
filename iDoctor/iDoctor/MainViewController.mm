@@ -380,7 +380,13 @@
 
 -(IBAction)shareRecipeButtonPressed:(id)sender
 {
-    [self performSegueWithIdentifier:@"pushRecipeShareScreen" sender:sender];
+    if(self.choosedMedicineNames.count > 0){
+        [self performSegueWithIdentifier:@"pushRecipeShareScreen" sender:sender];
+    }
+    else{
+        UIAlertView* noNameAlertView = [[UIAlertView alloc] initWithTitle:@"There are no entered medicines." message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [noNameAlertView show];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
