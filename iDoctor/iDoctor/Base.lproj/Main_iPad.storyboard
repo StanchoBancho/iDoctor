@@ -313,6 +313,7 @@
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="shareButton" destination="ZHh-tc-Z7l" id="04P-Sz-Ody"/>
                         <outlet property="textField" destination="PPR-K8-Ajl" id="NJe-Cn-RYc"/>
                         <outlet property="webview" destination="97Z-z5-SAZ" id="1bI-z9-nyC"/>
                     </connections>
