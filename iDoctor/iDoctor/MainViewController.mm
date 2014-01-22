@@ -23,11 +23,11 @@
 #import "SettingsViewController.h"
 #import "MedicineCell.h"
 #import "RecipeShareViewController.h"
-
+#import "AllMedicinePresentingViewController.h"
 
 #define kAutocorectionCheckDeltaTime 5.0
 
-@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, AutocorectionTypingHelper, AutocompletionTypeHelper, MedicineCellProtocol, NotesHandler>
+@interface MainViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, AutocorectionTypingHelper, AutocompletionTypeHelper, MedicineCellProtocol, NotesHandler, MedicinePresenter>
 {
     
 }
@@ -388,6 +388,9 @@
     if([segue.identifier isEqualToString:@"pushRecipeShareScreen"]){
         [(RecipeShareViewController*)segue.destinationViewController setMedicines:self.choosedMedicineNames];
     }
+    if([segue.identifier isEqualToString:@"PresentAllMedicineScreen"]){
+        [(AllMedicinePresentingViewController*)segue.destinationViewController setDelegate:self];
+    }
 }
 
 #pragma mark - MedicineCell Delegate methods
@@ -428,6 +431,15 @@
     [self.tableView reloadRowsAtIndexPaths:@[self.currentlyEditingIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     self.currentlyEditingIndexPath = nil;
 
+}
+
+#pragma mark - MedicinePresenter Delegate method
+
+-(void)handleAddingMedicines:(NSArray *)medicinNames
+{
+    for(NSString* name in medicinNames){
+        [self handleMedicine: name isItExistingOne:YES];
+    }
 }
 
 @end

@@ -305,7 +305,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="sO3-sQ-1Iv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="ZHh-tc-Z7l">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="action" id="ZHh-tc-Z7l">
                             <connections>
                                 <action selector="shareButtonPressed:" destination="abQ-qW-Lp5" id="hvn-9L-JfG"/>
                             </connections>
@@ -346,9 +346,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="kxN-cQ-nZs" kind="push" identifier="DetailViewSegue" id="Tae-O6-Sk3"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -366,12 +363,19 @@
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" title="All Medicines" id="FFQ-xr-3Wr"/>
+                    <navigationItem key="navigationItem" title="All Medicines" id="FFQ-xr-3Wr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="84t-of-ebi">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="BYZ-38-t0r" id="qgd-cD-gyg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="tableView" destination="tIj-tN-D0r" id="87s-bF-yCd"/>
+                        <segue destination="kxN-cQ-nZs" kind="push" identifier="DetailViewSegue" id="dh9-T7-SMw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

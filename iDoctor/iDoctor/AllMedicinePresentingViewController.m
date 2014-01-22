@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) IBOutlet UITableView* tableView;
 
+@property(nonatomic, strong) NSMutableArray* chosedMedicines;
+
 @end
 
 @implementation AllMedicinePresentingViewController
@@ -52,12 +54,14 @@
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     request.sortDescriptors = @[ sortDescriptor ];
     [request setFetchBatchSize:20];
-    
+    self.tableView.allowsMultipleSelectionDuringEditing = YES;
+    self.chosedMedicines = [[NSMutableArray alloc] init];
     UIManagedDocument* document = [CoreDataManager sharedManager].document;
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:document.managedObjectContext
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -130,8 +134,35 @@
     Medicine *medicine = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = medicine.name;
+    
+    
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView.isEditing){
+        Medicine* selectedMedicine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        if([self.chosedMedicines containsObject:selectedMedicine.name]){
+            [self.chosedMedicines removeObject:selectedMedicine.name];
+        }
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView.isEditing){
+        Medicine* selectedMedicine = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        if(![self.chosedMedicines containsObject:selectedMedicine.name]){
+            [self.chosedMedicines addObject:selectedMedicine.name];
+        }
+    }
+    else{
+        [self performSegueWithIdentifier:@"DetailViewSegue" sender:self];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -203,5 +234,47 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
 }
+
+#pragma mark - Action
+
+-(IBAction)editButtonPressed:(id)sender
+{
+    UIBarButtonItem* addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed:)];
+    [self.navigationItem setRightBarButtonItem:addButton];
+    
+    
+    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonPressed:)];
+    [self.navigationItem setLeftBarButtonItem:cancelButton];
+    
+    
+    [self.tableView setEditing:YES];
+    self.chosedMedicines = [NSMutableArray array];
+}
+
+-(IBAction)addButtonPressed:(id)sender
+{
+    if(self.chosedMedicines.count > 0){
+        if([self.delegate respondsToSelector:@selector(handleAddingMedicines:)]){
+            [self.delegate handleAddingMedicines:self.chosedMedicines];
+            [self.tableView setEditing:NO];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+    else{
+        UIAlertView* noNameAlertView = [[UIAlertView alloc] initWithTitle:@"No medicine to add" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [noNameAlertView show];
+    }
+    
+}
+
+-(IBAction)cancelButtonPressed:(id)sender
+{
+    UIBarButtonItem* editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editButtonPressed:)];
+    [self.navigationItem setRightBarButtonItem:editButton];
+    self.navigationItem.leftBarButtonItem = nil;
+    [self.tableView setEditing:NO];
+}
+
+
 
 @end

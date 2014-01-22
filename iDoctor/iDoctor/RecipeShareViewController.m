@@ -16,7 +16,7 @@
 @property (nonatomic, strong) IBOutlet UITextField* textField;
 @property (nonatomic, strong) NSString* enteredName;
 @property (nonatomic, strong) NSDate* enteredNameDate;
-
+@property (nonatomic, strong) IBOutlet UIBarButtonItem* shareButton;
 
 @property (nonatomic, strong) UIPopoverController* sharePopover;
 @end
@@ -51,13 +51,13 @@
 -(NSAttributedString*)createMedicineList
 {
     NSMutableAttributedString* string = [[NSMutableAttributedString alloc] init];
-
+    
     //add name
     NSString* nameString = [NSString stringWithFormat:@"Recipient name: %@\n", self.enteredName];
     NSMutableAttributedString* recipentName = [[NSMutableAttributedString alloc] initWithString:nameString];
     [recipentName setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:15.0]} range:NSMakeRange(0, recipentName.length)];
     [string appendAttributedString: recipentName];
-
+    
     //add creation date
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH:mm:ss-dd-MM-yyyy"];
@@ -65,7 +65,7 @@
     NSMutableAttributedString* recipeCreatedOn = [[NSMutableAttributedString alloc] initWithString:createdOnString];
     [recipeCreatedOn setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:15.0]} range:NSMakeRange(0, recipeCreatedOn.length)];
     [string appendAttributedString: recipeCreatedOn];
-
+    
     
     //add medicines
     for(NSDictionary* medicineInfo in self.medicines){
@@ -75,7 +75,11 @@
         [string appendAttributedString: medicineName];
         
         // add notes
-        NSString *medicineNotesString = [NSString stringWithFormat:@" - %@\n",[medicineInfo objectForKey:kMedicineNoteKey]];
+        NSString* description = [medicineInfo objectForKey:kMedicineNoteKey];
+        NSString *medicineNotesString = @"";
+        if(description){
+            medicineNotesString = [NSString stringWithFormat:@" - %@\n",description];
+        }
         NSMutableAttributedString* medicineNotes = [[NSMutableAttributedString alloc] initWithString:medicineNotesString];
         [medicineNotes setAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0]} range:NSMakeRange(0, medicineNotes.length)];
         [string appendAttributedString: medicineNotes];
@@ -189,7 +193,7 @@
 
 - (void)drawPageNumber:(NSInteger)pageNum
 {
-    NSString *pageString = [NSString stringWithFormat:@"Page %ld", pageNum];
+    NSString *pageString = [NSString stringWithFormat:@"Page %ld", (long)pageNum];
     CGSize maxSize = CGSizeMake(612, 72);
     
     NSDictionary *stringAttributes = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:12] forKey: NSFontAttributeName];
@@ -217,6 +221,7 @@
 -(IBAction)completeNameButtonPressed:(id)sender
 {
     [sender setEnabled:NO];
+    [self.textField resignFirstResponder];
     self.enteredNameDate = [NSDate date];
     self.enteredName = self.textField.text;
     if([self.enteredName isEqualToString:@""]){
@@ -224,20 +229,22 @@
         [noNameAlertView show];
     }
     else{
-        [self.textField setEnabled:NO];
         UIButton* button = (UIButton*)sender;
         [button setTitle:@"Edit" forState:UIControlStateNormal];
         [button setTitle:@"Edit" forState:UIControlStateHighlighted];
         [self savePDFFile];
         [self presentPDF];
         [button addTarget:self action:@selector(editNameButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [sender setEnabled:YES];
+        [self.textField setEnabled:NO];
+        [self.shareButton setEnabled:YES];
     }
+    [sender setEnabled:YES];
 }
 
 -(IBAction)editNameButtonPressed:(id)sender
 {
     [self.textField setEnabled:YES];
+    [self.shareButton setEnabled:NO];
     UIButton* button = (UIButton*)sender;
     [button setTitle:@"Complete" forState:UIControlStateNormal];
     [button setTitle:@"Complete" forState:UIControlStateHighlighted];
@@ -253,7 +260,7 @@
     }
     NSString* pdfPath = [self getPDFFileName];
     NSURL *targetURL = [NSURL fileURLWithPath:pdfPath];
-
+    
     UIActivityViewController* activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[targetURL] applicationActivities:@[]];
     self.sharePopover = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
     [self.sharePopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];

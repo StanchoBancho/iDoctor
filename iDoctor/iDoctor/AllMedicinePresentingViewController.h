@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MedicinePresenter<NSObject>
+
+-(void)handleAddingMedicines:(NSArray*)medicinNames;
+
+@end
+
+
 @interface AllMedicinePresentingViewController : UIViewController
+
+@property (nonatomic, strong) id<MedicinePresenter>delegate;
 
 @end
