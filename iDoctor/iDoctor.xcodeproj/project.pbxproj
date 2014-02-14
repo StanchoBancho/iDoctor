@@ -38,6 +38,7 @@
 		2EEBC561188ADFEB00AC29EF /* RecipeShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEBC560188ADFEB00AC29EF /* RecipeShareViewController.m */; };
 		2EEBC564188AEE5500AC29EF /* MedicineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEBC563188AEE5500AC29EF /* MedicineCell.m */; };
 		94CC4654187C1ABC007534C8 /* NGramNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94CC4652187C1ABC007534C8 /* NGramNode.mm */; };
+		A26F55BD18AE852B0092CA82 /* MedicineFinder.mm in Sources */ = {isa = PBXBuildFile; fileRef = A26F55BC18AE852B0092CA82 /* MedicineFinder.mm */; };
 		A29BE6E4187AF5170099AC5C /* Medicine in Resources */ = {isa = PBXBuildFile; fileRef = A29BE6E3187AF5170099AC5C /* Medicine */; };
 		A2D53FA4188969D60041B654 /* AutocorectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A2D53FA2188969D60041B654 /* AutocorectionViewController.mm */; };
 		A2D53FA5188969D60041B654 /* AutocorectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2D53FA3188969D60041B654 /* AutocorectionViewController.xib */; };
@@ -46,7 +47,7 @@
 		C7F4439E1872D4A200242E27 /* TwoThreeTree.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F4439A1872D4A200242E27 /* TwoThreeTree.mm */; };
 		C7F4439F1872D4A200242E27 /* Node.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F4439C1872D4A200242E27 /* Node.mm */; };
 		C7F443A51872D4CE00242E27 /* EditDistance.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F443A11872D4CE00242E27 /* EditDistance.mm */; };
-		C7F443A61872D4CE00242E27 /* NGramsOverlap.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F443A31872D4CE00242E27 /* NGramsOverlap.mm */; };
+		C7F443A61872D4CE00242E27 /* NGramsOverlapWordFinder.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7F443A31872D4CE00242E27 /* NGramsOverlapWordFinder.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,8 @@
 		2EEBC563188AEE5500AC29EF /* MedicineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicineCell.m; sourceTree = "<group>"; };
 		94CC4652187C1ABC007534C8 /* NGramNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NGramNode.mm; sourceTree = "<group>"; };
 		94CC4653187C1ABC007534C8 /* NGramNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGramNode.h; sourceTree = "<group>"; };
+		A26F55BB18AE852B0092CA82 /* MedicineFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicineFinder.h; sourceTree = "<group>"; };
+		A26F55BC18AE852B0092CA82 /* MedicineFinder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MedicineFinder.mm; sourceTree = "<group>"; };
 		A29BE6E3187AF5170099AC5C /* Medicine */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Medicine; sourceTree = "<group>"; };
 		A2A8CBC9187D876B00BE25F3 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A2C428A418719386004D2BDB /* LatestURLs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LatestURLs.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -126,8 +129,8 @@
 		C7F4439D1872D4A200242E27 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		C7F443A11872D4CE00242E27 /* EditDistance.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EditDistance.mm; sourceTree = "<group>"; };
 		C7F443A21872D4CE00242E27 /* EditDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditDistance.h; sourceTree = "<group>"; };
-		C7F443A31872D4CE00242E27 /* NGramsOverlap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NGramsOverlap.mm; sourceTree = "<group>"; };
-		C7F443A41872D4CE00242E27 /* NGramsOverlap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGramsOverlap.h; sourceTree = "<group>"; };
+		C7F443A31872D4CE00242E27 /* NGramsOverlapWordFinder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NGramsOverlapWordFinder.mm; sourceTree = "<group>"; };
+		C7F443A41872D4CE00242E27 /* NGramsOverlapWordFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NGramsOverlapWordFinder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,7 @@
 		2E32F8BE186DB53E00B7B79B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A26F55BE18AE85E10092CA82 /* Autocompetion */,
 				C7F443991872C20300242E27 /* 23Tree */,
 				C7F443A01872D4A900242E27 /* Autocorrection */,
 				A29BE6E3187AF5170099AC5C /* Medicine */,
@@ -272,6 +276,15 @@
 			name = "Share Recipe";
 			sourceTree = "<group>";
 		};
+		A26F55BE18AE85E10092CA82 /* Autocompetion */ = {
+			isa = PBXGroup;
+			children = (
+				A26F55BB18AE852B0092CA82 /* MedicineFinder.h */,
+				A26F55BC18AE852B0092CA82 /* MedicineFinder.mm */,
+			);
+			name = Autocompetion;
+			sourceTree = "<group>";
+		};
 		A2A8CBC7187D85F800BE25F3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,8 +379,8 @@
 			children = (
 				C7F443A21872D4CE00242E27 /* EditDistance.h */,
 				C7F443A11872D4CE00242E27 /* EditDistance.mm */,
-				C7F443A41872D4CE00242E27 /* NGramsOverlap.h */,
-				C7F443A31872D4CE00242E27 /* NGramsOverlap.mm */,
+				C7F443A41872D4CE00242E27 /* NGramsOverlapWordFinder.h */,
+				C7F443A31872D4CE00242E27 /* NGramsOverlapWordFinder.mm */,
 				94CC4653187C1ABC007534C8 /* NGramNode.h */,
 				94CC4652187C1ABC007534C8 /* NGramNode.mm */,
 			);
@@ -479,11 +492,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EEBC561188ADFEB00AC29EF /* RecipeShareViewController.m in Sources */,
+				A26F55BD18AE852B0092CA82 /* MedicineFinder.mm in Sources */,
 				2E32F8C7186DB56F00B7B79B /* TFHppleElement.m in Sources */,
 				C7F4439F1872D4A200242E27 /* Node.mm in Sources */,
 				2EEBC564188AEE5500AC29EF /* MedicineCell.m in Sources */,
 				2E32F8BA186D984800B7B79B /* CoreDataManager.m in Sources */,
-				C7F443A61872D4CE00242E27 /* NGramsOverlap.mm in Sources */,
+				C7F443A61872D4CE00242E27 /* NGramsOverlapWordFinder.mm in Sources */,
 				2E32F8B7186D962A00B7B79B /* Medicine.m in Sources */,
 				2E555A651872C19E00F2D8B8 /* MainViewController.mm in Sources */,
 				94CC4654187C1ABC007534C8 /* NGramNode.mm in Sources */,

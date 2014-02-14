@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AutocorectionViewController">
             <connections>
                 <outlet property="autocorectionTableView" destination="z4W-fE-7Vs" id="Gw9-Xw-neZ"/>
+                <outlet property="navigationTitleItem" destination="8nu-NX-HV9" id="8Vb-ij-aQm"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -28,7 +29,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="450" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem title="Did you meаn:" id="8nu-NX-HV9"/>
+                        <navigationItem title="Did you mean" id="8nu-NX-HV9"/>
                     </items>
                 </navigationBar>
             </subviews>

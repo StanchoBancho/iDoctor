@@ -157,7 +157,7 @@
         //create tree
         vector<string> allMedicineNames;
         TwoThreeTree* tree = new TwoThreeTree();
-        NGramsOverlap* ngramOverlap = new NGramsOverlap();
+        NGramsOverlapWordFinder* ngramOverlap = new NGramsOverlapWordFinder();
         set<string>allMedicineNamesWords;
         for(NSDictionary* m in array){
             if(m[kMedicineNameKey] == nil || [m[kMedicineNameKey] isEqualToString:@""]){

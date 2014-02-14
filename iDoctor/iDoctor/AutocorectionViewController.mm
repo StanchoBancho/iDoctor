@@ -13,13 +13,15 @@
 @interface AutocorectionViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     set<string> allMedicineNamesWords;
-    NGramsOverlap *ngramOverlap;
+    NGramsOverlapWordFinder *ngramOverlap;
     dispatch_queue_t workingQueue;
 }
+
 @property (nonatomic, strong) IBOutlet UITableView* autocorectionTableView;
 @property (nonatomic, strong) NSMutableArray* autocorectedMedicineNames;
 @property (nonatomic, strong) NSString* typedText;
 @property (nonatomic, strong) NSUserDefaults* standartsDefaults;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navigationTitleItem;
 
 @end
 
@@ -55,7 +57,7 @@
 
 #pragma mark - Setters
 
--(void)setNGramDataStructure:(NGramsOverlap*)_ngramOverlap
+-(void)setNGramDataStructure:(NGramsOverlapWordFinder*)_ngramOverlap
 {
     ngramOverlap = _ngramOverlap;
 }
@@ -125,7 +127,7 @@
     if([self.delegate respondsToSelector:@selector(typedTextForTypingHelper)]){
         self.typedText = [self.delegate typedTextForTypingHelper];
     }
-    if(!self.typedText){
+    if(!self.typedText || [self.typedText isEqualToString:@""]){
         if([self.delegate respondsToSelector:@selector(hideTypingHelperViewController:)]){
             [self.delegate hideTypingHelperViewController:self];
         }
@@ -134,6 +136,7 @@
     if(!workingQueue){
         workingQueue = dispatch_queue_create("AutocorectionQueue", DISPATCH_QUEUE_SERIAL);
     }
+
     dispatch_async(workingQueue, ^{
         
         self.autocorectedMedicineNames = [[NSMutableArray alloc] init];
@@ -183,8 +186,15 @@
     }
     NSString* wrongWord =[self.autocorectedMedicineNames[indexPath.row] objectForKey:kWrongWordKey];
     NSString* autocorection =[self.autocorectedMedicineNames[indexPath.row] objectForKey:kAutoCorrectedWordKey];
-    NSString* medicineTitle = [NSString stringWithFormat:@"%@ -> %@", wrongWord, autocorection];
-    cell.textLabel.text = medicineTitle;
+    
+    NSString* medicineTitle = [NSString stringWithFormat:@"not %@ but %@", wrongWord, autocorection];
+    NSMutableAttributedString* medicineAttributedTitle = [[NSMutableAttributedString alloc] initWithString:medicineTitle attributes:nil];
+    
+    //add bigger font and colors
+    [medicineAttributedTitle setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:22], NSForegroundColorAttributeName: [UIColor redColor]} range: NSMakeRange(4, wrongWord.length)];
+    [medicineAttributedTitle setAttributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:22], NSForegroundColorAttributeName: [UIColor blackColor]} range: NSMakeRange(4 + wrongWord.length + 5, autocorection.length)];
+    cell.textLabel.attributedText = medicineAttributedTitle;
+    
     return cell;
 }
 

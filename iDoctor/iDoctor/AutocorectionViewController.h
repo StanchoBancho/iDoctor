@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #include <string>
 #include <set>
-#import "NGramsOverlap.h"
+#import "NGramsOverlapWordFinder.h"
 #import "TypingHelper.h"
 
 using namespace std;
@@ -24,7 +24,7 @@ using namespace std;
 
 @property (nonatomic, assign) id<AutocorectionTypingHelper> delegate;
 
--(void)setNGramDataStructure:(NGramsOverlap*) ngramOverlap;
+-(void)setNGramDataStructure:(NGramsOverlapWordFinder*) ngramOverlap;
 -(void)setAllMedicineNamesWords:(set<string>) allMedicineNamesWords;
 
 -(void)tryToAutoCorrectTheTypedText;

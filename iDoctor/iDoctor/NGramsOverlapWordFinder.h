@@ -18,13 +18,13 @@
 
 using namespace std;
 
-class NGramsOverlap {
+class NGramsOverlapWordFinder {
 public:
     TwoThreeTree *ngramTree;
     void insertWordInNGramTree(string word);
     float jaccardIndex(string word, string otherWord);
     vector<pair<string, float> > getNearestWordsForWord(string word);
-    NGramsOverlap();
+    NGramsOverlapWordFinder();
 private:
     vector<string> getNGramsForWord(string word);
 };

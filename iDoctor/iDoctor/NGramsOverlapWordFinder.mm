@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 Dobrinka Tabakova. All rights reserved.
 //
 
-#include "NGramsOverlap.h"
+#include "NGramsOverlapWordFinder.h"
 #include <vector>
 #include <string>
 #include <algorithm>
 #import <set>
 
-NGramsOverlap::NGramsOverlap() {
+NGramsOverlapWordFinder::NGramsOverlapWordFinder() {
     this->ngramTree = new TwoThreeTree();
 }
 
-void NGramsOverlap::insertWordInNGramTree(string word) {
+void NGramsOverlapWordFinder::insertWordInNGramTree(string word) {
     vector<string> ngrams = getNGramsForWord(word);
     for (int i = 0; i < ngrams.size(); ++i) {
         string ngram = ngrams[i];
@@ -35,7 +35,7 @@ bool wayToSort(pair<string, float>  i, pair<string, float> j) {
     return i.second > j.second;
 }
 
-vector<pair<string, float> > NGramsOverlap::getNearestWordsForWord(string word) {
+vector<pair<string, float> > NGramsOverlapWordFinder::getNearestWordsForWord(string word) {
     vector<pair<string, float> > words;
     set<string> existingWord;
     vector<string> ngrams = getNGramsForWord(word);
@@ -64,7 +64,7 @@ vector<pair<string, float> > NGramsOverlap::getNearestWordsForWord(string word) 
     return words;
 }
 
-vector<string> NGramsOverlap::getNGramsForWord(string word) {
+vector<string> NGramsOverlapWordFinder::getNGramsForWord(string word) {
     vector<string> ngrams;
     
     string wordLow;
@@ -88,7 +88,7 @@ vector<string> NGramsOverlap::getNGramsForWord(string word) {
     return ngrams;
 }
 
-float NGramsOverlap::jaccardIndex(string word, string otherWord) {
+float NGramsOverlapWordFinder::jaccardIndex(string word, string otherWord) {
     if (word.length() == 0 || otherWord.length() == 0) {
         return 0.0;
     }

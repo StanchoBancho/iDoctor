@@ -81,8 +81,6 @@
         string cpp_str([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
         vector<string> result = tree->findDataWithPrefix(cpp_str);
         
-        Node *n = tree->searchData("Acabak oral");
-        
         for (int i = 0; i < result.size(); i++) {
             NSString* medicineName = [NSString stringWithCString: result[i].c_str() encoding:NSUTF8StringEncoding];
             [self.suggestedMedicineNames addObject:medicineName];
@@ -111,9 +109,11 @@
         std::transform(typed_cpp_string.begin(), typed_cpp_string.end(), typed_cpp_string.begin(), ::tolower);
         
         for (int i = 0; i < allMedicineNames.size(); i++) {
+           
+            
             string medicineName = allMedicineNames[i];
             std::transform(medicineName.begin(), medicineName.end(), medicineName.begin(), ::tolower);
-            if(medicineName.find(typed_cpp_string) == 0){
+            if(medicineName.find(typed_cpp_string) != -1){
                 NSString* medicineName = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
                 [self.suggestedMedicineNames addObject:medicineName];
             }
