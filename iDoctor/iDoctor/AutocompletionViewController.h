@@ -24,5 +24,7 @@
 @property (nonatomic, assign) id<AutocompletionTypeHelper>delegate;
 
 -(void)tryToAutoCompleteTheTypedText;
+vector<string> split(string text);
+bool checkPrefix(string prefix, string str);
 
 @end

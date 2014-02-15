@@ -17,10 +17,12 @@ TwoThreeTree::TwoThreeTree() {
     this->root = NULL;
 }
 
-void TwoThreeTree::insertData(string data) {
+void TwoThreeTree::insertData(string data, string word) {
     //empty tree
     if (this->root == NULL) {
         NodeKey *newNode = new NodeKey(data);
+        newNode->words.push_back(word);
+        
         this->root = new Node(newNode, NULL);
         this->root->numberOfItems = 1;
         //one node tree
@@ -41,29 +43,16 @@ void TwoThreeTree::insertData(string data) {
             if (dataLow.compare(minKeyLow) < 0) {
                 NodeKey *temp = this->root->minKey;
                 this->root->minKey = new NodeKey(dataLow);
+                this->root->minKey->words.push_back(word);
                 this->root->maxKey = temp;
             } else {
                 this->root->maxKey = new NodeKey(dataLow);
+                this->root->maxKey->words.push_back(word);
             }
             this->root->numberOfItems = 2;
             
             //full node, should split
         } else if (this->root->numberOfItems == 2) {
-//            string newMinKey, newMidKey, newMaxKey;
-//            if (dataLow.compare(minKeyLow) < 0) {
-//                newMinKey.assign(data);
-//                newMidKey.assign(this->root->minKey->key);
-//                newMaxKey.assign(this->root->maxKey->key);
-//            } else if (minKeyLow.compare(dataLow) <= 0 && dataLow.compare(maxKeyLow) < 0) {
-//                newMinKey.assign(this->root->minKey->key);
-//                newMidKey.assign(data);
-//                newMaxKey.assign(this->root->maxKey->key);
-//            } else {
-//                newMinKey.assign(this->root->minKey->key);
-//                newMidKey.assign(this->root->maxKey->key);
-//                newMaxKey.assign(data);
-//            }
-            
             string newMinKey, newMidKey, newMaxKey;
             
             string minKeyLow, maxKeyLow, dataLow;
@@ -79,16 +68,21 @@ void TwoThreeTree::insertData(string data) {
             
             if (dataLow.compare(minKeyLow) < 0) {
                 newMinNodeKey = new NodeKey(dataLow);
+                newMinNodeKey->words.push_back(word);
+
                 newMidNodeKey = this->root->minKey;
                 newMaxNodeKey = this->root->maxKey;
             } else if (minKeyLow.compare(dataLow) <= 0 && dataLow.compare(maxKeyLow) < 0) {
                 newMinNodeKey = this->root->minKey;
                 newMidNodeKey = new NodeKey(dataLow);
+                newMidNodeKey->words.push_back(word);
+
                 newMaxNodeKey = this->root->maxKey;
             } else {
                 newMinNodeKey = this->root->minKey;
                 newMidNodeKey = this->root->maxKey;
                 newMaxNodeKey = new NodeKey(dataLow);
+                newMaxNodeKey->words.push_back(word);
             }
             
             this->root = new Node(newMidNodeKey, NULL);
@@ -104,7 +98,7 @@ void TwoThreeTree::insertData(string data) {
         }
     } else {
         Node *parent = findParent(this->root, data);
-        insertDataIntoParentTree(parent, data);
+        insertDataIntoParentTree(parent, data, word);
     }
 }
 
@@ -143,7 +137,7 @@ Node *TwoThreeTree::findParent(Node *node, string data) {
     return NULL;
 }
 
-void TwoThreeTree::insertDataIntoParentTree(Node *parent, string data) {
+void TwoThreeTree::insertDataIntoParentTree(Node *parent, string data, string word) {
     Node *leaf = NULL;
     //find leaf node to insert data
     
@@ -179,15 +173,18 @@ void TwoThreeTree::insertDataIntoParentTree(Node *parent, string data) {
         if (dataLow.compare(leafMinKeyLow) < 0) {
             NodeKey *temp = leaf->minKey;
             leaf->minKey = new NodeKey(dataLow);
+            leaf->minKey->words.push_back(word);
             leaf->maxKey = temp;
         } else {
             leaf->maxKey = new NodeKey(dataLow);
+            leaf->maxKey->words.push_back(word);
         }
         leaf->numberOfItems = 2;
         //full leaf
     } else if (leaf->numberOfItems == 2) {
         //should split
         NodeKey *newNode = new NodeKey(data);
+        newNode->words.push_back(word);
 
         split(leaf, newNode);
     }
@@ -370,6 +367,12 @@ vector<string> TwoThreeTree::findDataWithPrefix(string prefix) {
                     nodes.push_back(n->maxKey->words[i]);
                 }
             }
+            
+            //test
+            for (int j = 0; j < n->numberOfChildren; ++j) {
+                q.push(n->children[j]);
+            }
+            continue;
             if (n->numberOfChildren == 0) {
                 continue;
             }
@@ -385,7 +388,7 @@ vector<string> TwoThreeTree::findDataWithPrefix(string prefix) {
                 if (minSubstr.compare(prefix) >= 0) {
                     goLeft = true;
                 }
-                if (minSubstr.compare(prefix) == 0 || maxSubstr.compare(prefix) == 0 || (minSubstr.compare(prefix) > 0 && maxSubstr.compare(prefix) > 0)) {
+                if (minSubstr.compare(prefix) == 0 || maxSubstr.compare(prefix) == 0 || (minSubstr.compare(prefix) < 0 && maxSubstr.compare(prefix) > 0)) {
                     goMiddle = true;
                 }
                 if (maxSubstr.compare(prefix) <= 0) {

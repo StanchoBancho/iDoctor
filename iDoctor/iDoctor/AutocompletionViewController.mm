@@ -113,10 +113,17 @@
             
             string medicineName = allMedicineNames[i];
             std::transform(medicineName.begin(), medicineName.end(), medicineName.begin(), ::tolower);
-            if(medicineName.find(typed_cpp_string) != -1){
-                NSString* medicineName = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
-                [self.suggestedMedicineNames addObject:medicineName];
+            vector<string> tokens = split(medicineName);
+            
+            for (int j = 0; j < tokens.size(); ++j) {
+                trim(tokens[j]);
+                if (checkPrefix(typed_cpp_string, tokens[j])){
+                    NSString* medicineName = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
+                    [self.suggestedMedicineNames addObject:medicineName];
+                    break;
+                }
             }
+            
         }
         //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
         [self.suggestedMedicineNames sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
@@ -196,6 +203,48 @@
     if ([self.delegate respondsToSelector:@selector(hideTypingHelperViewController:)]) {
         [self.delegate hideTypingHelperViewController:self];
     }
+}
+
+#pragma marks - Utilities
+
+// trim from start
+static inline std::string &ltrim(std::string &s) {
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
+    return s;
+}
+
+// trim from end
+static inline std::string &rtrim(std::string &s) {
+    s.erase(std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+    return s;
+}
+
+// trim from both ends
+static inline std::string &trim(std::string &s) {
+    return ltrim(rtrim(s));
+}
+
+vector<string> split(string text) {
+    unsigned long start = 0, end = 0;
+    vector<string> tokens;
+    while ((end = text.find(' ', start)) != string::npos) {
+        tokens.push_back(text.substr(start, end - start));
+        start = end + 1;
+    }
+    tokens.push_back(text.substr(start));
+    return tokens;
+}
+
+bool checkPrefix(string prefix, string str) {
+    if (str == "") {
+        return false;
+    }
+    string strPrefix = str.substr(0, prefix.length());
+    if (prefix.compare(strPrefix) == 0) {
+        return true;
+    }
+    
+    return false;
 }
 
 @end
