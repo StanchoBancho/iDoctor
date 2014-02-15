@@ -16,15 +16,32 @@ NGramsOverlapWordFinder::NGramsOverlapWordFinder() {
 void NGramsOverlapWordFinder::insertWordInNGramTree(string word) {
     vector<string> ngrams = getNGramsForWord(word);
     for (int i = 0; i < ngrams.size(); ++i) {
-//        string ngram = ngrams[i];
-//        Node *ngramNode = ngramTree->searchData(ngram);
-//        if (ngramNode != NULL) {
-//            ngramNode->words.push_back(word);
-//        } else {
-//            ngramTree->insertData(ngram);
-//            Node *ngramNode = ngramTree->searchData(ngram);
-//            ngramNode->words.push_back(word);
-//        }
+        string ngram = ngrams[i];
+        string copiedWord;
+        copiedWord.assign(word);
+        
+        Node *nodeWithThisToken = ngramTree->searchData(ngram);
+        if (nodeWithThisToken != NULL) {
+            string copiedString;
+            copiedString.assign(ngram);
+            transform(copiedString.begin(), copiedString.end(), copiedString.begin(), ::tolower);
+            if (copiedString.compare(nodeWithThisToken->minKey->key) == 0) {
+                nodeWithThisToken->minKey->words.push_back(copiedWord);
+            } else {
+                nodeWithThisToken->maxKey->words.push_back(copiedWord);
+            }
+        } else {
+            string copiedString;
+            copiedString.assign(ngram);
+            transform(copiedString.begin(), copiedString.end(), copiedString.begin(), ::tolower);
+            ngramTree->insertData(copiedString, copiedWord);
+            Node *ngramNode = ngramTree->searchData(copiedString);
+            if (copiedString.compare(ngramNode->minKey->key) == 0) {
+                ngramNode->minKey->words.push_back(copiedWord);
+            } else {
+                ngramNode->maxKey->words.push_back(copiedWord);
+            }
+        }
     }
 }
 
@@ -40,14 +57,27 @@ vector<pair<string, float> > NGramsOverlapWordFinder::getNearestWordsForWord(str
         string ngram = ngrams[i];
         Node *ngramNode = ngramTree->searchData(ngram);
         if (ngramNode != NULL) {
-            for (int j = 0; j < ngramNode->words.size(); ++j) {
-                string autocorectionWord = ngramNode->words[j];
-                const bool is_in = existingWord.find(autocorectionWord) != existingWord.end();
-                
-                if(!is_in){
-                    float distance = this->jaccardIndex(word, autocorectionWord);
-                    words.push_back(make_pair(autocorectionWord, distance));
-                    existingWord.insert(autocorectionWord);
+            if (ngramNode->minKey->key.compare(ngram) == 0) {
+                for (int j = 0; j < ngramNode->minKey->words.size(); ++j) {
+                    string autocorectionWord = ngramNode->minKey->words[j];
+                    const bool is_in = existingWord.find(autocorectionWord) != existingWord.end();
+                    
+                    if(!is_in){
+                        float distance = this->jaccardIndex(word, autocorectionWord);
+                        words.push_back(make_pair(autocorectionWord, distance));
+                        existingWord.insert(autocorectionWord);
+                    }
+                }
+            } else {
+                for (int j = 0; j < ngramNode->maxKey->words.size(); ++j) {
+                    string autocorectionWord = ngramNode->maxKey->words[j];
+                    const bool is_in = existingWord.find(autocorectionWord) != existingWord.end();
+                    
+                    if(!is_in){
+                        float distance = this->jaccardIndex(word, autocorectionWord);
+                        words.push_back(make_pair(autocorectionWord, distance));
+                        existingWord.insert(autocorectionWord);
+                    }
                 }
             }
         }

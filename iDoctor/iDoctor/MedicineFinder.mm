@@ -51,9 +51,6 @@ void MedicineFinder::insertMedicine(string word) {
     
     for (int i = 0; i < tokens.size(); ++i) {
         string token = tokens[i];
-        if (token.compare("Cold") == 0 || token.compare("cold") == 0) {
-            NSLog(@"--- %s", word.c_str());
-        }
         trim(token);
         if(token.compare("") == 0){
             continue;
