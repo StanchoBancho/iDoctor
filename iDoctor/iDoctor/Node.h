@@ -13,18 +13,19 @@
 #import <string>
 #import <vector>
 #import <set>
+#import "NodeKey.h"
 
 using namespace std;
 
 class Node {
     public:
-        string minKey, maxKey;
+        NodeKey *minKey, *maxKey;
         Node *parent;
         vector <Node*> children;
         int numberOfItems;
         int numberOfChildren;
         vector<string> words;
-        Node(string minKey, Node *parent);
+        Node(NodeKey *minKey, Node *parent);
 };
 
 #endif /* defined(___3Tree__Node__) */

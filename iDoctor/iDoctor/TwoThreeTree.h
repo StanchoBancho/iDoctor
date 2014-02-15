@@ -23,7 +23,7 @@ public:
     
 private:
     void insertDataIntoParentTree(Node *parent, string data);
-    void split(Node *node, string data, vector<string> words);
+    void split(Node *node, NodeKey *data);
     Node *findParent(Node *node, string data);
     Node *searchDataInRoot(Node *node, string data);
     bool checkPrefix(string prefix, string str);

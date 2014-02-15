@@ -20,15 +20,16 @@ TwoThreeTree::TwoThreeTree() {
 void TwoThreeTree::insertData(string data) {
     //empty tree
     if (this->root == NULL) {
-        this->root = new Node(data, NULL);
+        NodeKey *newNode = new NodeKey(data);
+        this->root = new Node(newNode, NULL);
         this->root->numberOfItems = 1;
         //one node tree
     } else if (this->root->numberOfChildren == 0) {
         //not full node
         
         string minKeyLow, maxKeyLow, dataLow;
-        minKeyLow.assign(this->root->minKey);
-        maxKeyLow.assign(this->root->maxKey);
+        minKeyLow.assign(this->root->minKey->key);
+        maxKeyLow.assign(this->root->maxKey->key);
         dataLow.assign(data);
         
         transform(minKeyLow.begin(), minKeyLow.end(), minKeyLow.begin(), ::tolower);
@@ -38,36 +39,63 @@ void TwoThreeTree::insertData(string data) {
         
         if (this->root->numberOfItems == 1) {
             if (dataLow.compare(minKeyLow) < 0) {
-                string temp;
-                temp.assign(this->root->minKey);
-                this->root->minKey.assign(data);
-                this->root->maxKey.assign(temp);
+                NodeKey *temp = this->root->minKey;
+                this->root->minKey = new NodeKey(dataLow);
+                this->root->maxKey = temp;
             } else {
-                this->root->maxKey.assign(data);
+                this->root->maxKey = new NodeKey(dataLow);
             }
             this->root->numberOfItems = 2;
+            
             //full node, should split
         } else if (this->root->numberOfItems == 2) {
+//            string newMinKey, newMidKey, newMaxKey;
+//            if (dataLow.compare(minKeyLow) < 0) {
+//                newMinKey.assign(data);
+//                newMidKey.assign(this->root->minKey->key);
+//                newMaxKey.assign(this->root->maxKey->key);
+//            } else if (minKeyLow.compare(dataLow) <= 0 && dataLow.compare(maxKeyLow) < 0) {
+//                newMinKey.assign(this->root->minKey->key);
+//                newMidKey.assign(data);
+//                newMaxKey.assign(this->root->maxKey->key);
+//            } else {
+//                newMinKey.assign(this->root->minKey->key);
+//                newMidKey.assign(this->root->maxKey->key);
+//                newMaxKey.assign(data);
+//            }
+            
             string newMinKey, newMidKey, newMaxKey;
+            
+            string minKeyLow, maxKeyLow, dataLow;
+            minKeyLow.assign(this->root->minKey->key);
+            maxKeyLow.assign(this->root->maxKey->key);
+            dataLow.assign(data);
+            
+            transform(minKeyLow.begin(), minKeyLow.end(), minKeyLow.begin(), ::tolower);
+            transform(maxKeyLow.begin(), maxKeyLow.end(), maxKeyLow.begin(), ::tolower);
+            transform(dataLow.begin(), dataLow.end(), dataLow.begin(), ::tolower);
+            
+            NodeKey *newMinNodeKey, *newMidNodeKey, *newMaxNodeKey;
+            
             if (dataLow.compare(minKeyLow) < 0) {
-                newMinKey.assign(data);
-                newMidKey.assign(this->root->minKey);
-                newMaxKey.assign(this->root->maxKey);
+                newMinNodeKey = new NodeKey(dataLow);
+                newMidNodeKey = this->root->minKey;
+                newMaxNodeKey = this->root->maxKey;
             } else if (minKeyLow.compare(dataLow) <= 0 && dataLow.compare(maxKeyLow) < 0) {
-                newMinKey.assign(this->root->minKey);
-                newMidKey.assign(data);
-                newMaxKey.assign(this->root->maxKey);
+                newMinNodeKey = this->root->minKey;
+                newMidNodeKey = new NodeKey(dataLow);
+                newMaxNodeKey = this->root->maxKey;
             } else {
-                newMinKey.assign(this->root->minKey);
-                newMidKey.assign(this->root->maxKey);
-                newMaxKey.assign(data);
+                newMinNodeKey = this->root->minKey;
+                newMidNodeKey = this->root->maxKey;
+                newMaxNodeKey = new NodeKey(dataLow);
             }
             
-            this->root = new Node(newMidKey, NULL);
+            this->root = new Node(newMidNodeKey, NULL);
             
-            Node *leftChild = new Node(newMinKey, this->root);
+            Node *leftChild = new Node(newMinNodeKey, this->root);
             leftChild->numberOfItems = 1;
-            Node *rightChild = new Node(newMaxKey, this->root);
+            Node *rightChild = new Node(newMaxNodeKey, this->root);
             rightChild->numberOfItems = 1;
             
             this->root->children.insert(this->root->children.begin(), leftChild);
@@ -86,8 +114,8 @@ Node *TwoThreeTree::findParent(Node *node, string data) {
     Node *rightChild = node->children[2];
     
     string minKeyLow, maxKeyLow, dataLow;
-    minKeyLow.assign(node->minKey);
-    maxKeyLow.assign(node->maxKey);
+    minKeyLow.assign(node->minKey->key);
+    maxKeyLow.assign(node->maxKey->key);
     dataLow.assign(data);
     
     transform(minKeyLow.begin(), minKeyLow.end(), minKeyLow.begin(), ::tolower);
@@ -120,8 +148,8 @@ void TwoThreeTree::insertDataIntoParentTree(Node *parent, string data) {
     //find leaf node to insert data
     
     string parentMinKeyLow, parentMaxKeyLow, dataLow;
-    parentMinKeyLow.assign(parent->minKey);
-    parentMaxKeyLow.assign(parent->maxKey);
+    parentMinKeyLow.assign(parent->minKey->key);
+    parentMaxKeyLow.assign(parent->maxKey->key);
     dataLow.assign(data);
     
     transform(parentMinKeyLow.begin(), parentMinKeyLow.end(), parentMinKeyLow.begin(), ::tolower);
@@ -143,34 +171,35 @@ void TwoThreeTree::insertDataIntoParentTree(Node *parent, string data) {
     }
     
     string leafMinKeyLow;
-    leafMinKeyLow.assign(leaf->minKey);
+    leafMinKeyLow.assign(leaf->minKey->key);
     transform(leafMinKeyLow.begin(), leafMinKeyLow.end(), leafMinKeyLow.begin(), ::tolower);
     
     //not full leaf
     if (leaf->numberOfItems == 1) {
         if (dataLow.compare(leafMinKeyLow) < 0) {
-            string temp;
-            temp.assign(leaf->minKey);
-            leaf->minKey.assign(data);
-            leaf->maxKey.assign(temp);
+            NodeKey *temp = leaf->minKey;
+            leaf->minKey = new NodeKey(dataLow);
+            leaf->maxKey = temp;
         } else {
-            leaf->maxKey.assign(data);
+            leaf->maxKey = new NodeKey(dataLow);
         }
         leaf->numberOfItems = 2;
         //full leaf
     } else if (leaf->numberOfItems == 2) {
         //should split
-        vector<string> v;
-        split(leaf, data, v);
+        NodeKey *newNode = new NodeKey(data);
+
+        split(leaf, newNode);
     }
 }
 
-void TwoThreeTree::split(Node *node, string data, vector<string> words) {
+void TwoThreeTree::split(Node *node, NodeKey *data) {
     Node *parent = node->parent;
     bool isNewParent = false;
     if (parent == NULL) {
         isNewParent = true;
-        parent = new Node("", NULL);
+        NodeKey *newNode = new NodeKey("");
+        parent = new Node(newNode, NULL);
         parent->children.insert(parent->children.begin(), node);
         parent->numberOfChildren = 1;
     }
@@ -178,58 +207,42 @@ void TwoThreeTree::split(Node *node, string data, vector<string> words) {
     string newMinKey, newMidKey, newMaxKey;
     
     string minKeyLow, maxKeyLow, dataLow;
-    minKeyLow.assign(node->minKey);
-    maxKeyLow.assign(node->maxKey);
-    dataLow.assign(data);
+    minKeyLow.assign(node->minKey->key);
+    maxKeyLow.assign(node->maxKey->key);
+    dataLow.assign(data->key);
     
     transform(minKeyLow.begin(), minKeyLow.end(), minKeyLow.begin(), ::tolower);
     transform(maxKeyLow.begin(), maxKeyLow.end(), maxKeyLow.begin(), ::tolower);
     transform(dataLow.begin(), dataLow.end(), dataLow.begin(), ::tolower);
     
+    NodeKey *newMinNodeKey, *newMidNodeKey, *newMaxNodeKey;
+    
     if (dataLow.compare(minKeyLow) < 0) {
-        newMinKey.assign(data);
-        newMidKey.assign(node->minKey);
-        newMaxKey.assign(node->maxKey);
+        newMinKey.assign(data->key);
+        newMinNodeKey = data;
+        newMidKey.assign(node->minKey->key);
+        newMidNodeKey = node->minKey;
+        newMaxKey.assign(node->maxKey->key);
+        newMaxNodeKey = node->maxKey;
     } else if (minKeyLow.compare(dataLow) <= 0 && dataLow.compare(maxKeyLow) < 0) {
-        newMinKey.assign(node->minKey);
-        newMidKey.assign(data);
-        newMaxKey.assign(node->maxKey);
+        newMinKey.assign(node->minKey->key);
+        newMinNodeKey = node->minKey;
+        newMidKey.assign(data->key);
+        newMidNodeKey = data;
+        newMaxKey.assign(node->maxKey->key);
+        newMaxNodeKey = node->maxKey;
     } else {
-        newMinKey.assign(node->minKey);
-        newMidKey.assign(node->maxKey);
-        newMaxKey.assign(data);
+        newMinKey.assign(node->minKey->key);
+        newMinNodeKey = node->minKey;
+        newMidKey.assign(node->maxKey->key);
+        newMidNodeKey = node->maxKey;
+        newMaxKey.assign(data->key);
+        newMaxNodeKey = data;
     }
-    if (newMidKey.compare(dataLow) != 0) {
-        words.erase(words.begin(), words.end());
-        for (int i = 0; i < node->words.size(); ++i) {
-            string wordLow;
-            wordLow.assign(node->words[i]);
-            transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
-            if (wordLow.find(newMidKey) != -1) {
-                words.push_back(node->words[i]);
-            }
-        }
-    }
-    Node *node1 = new Node(newMinKey, parent);
+    Node *node1 = new Node(newMinNodeKey, parent);
     node1->numberOfItems = 1;
-    for (int i = 0; i < node->words.size(); ++i) {
-        string wordLow;
-        wordLow.assign(node->words[i]);
-        transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
-        if (wordLow.find(newMinKey) != -1) {
-            node1->words.push_back(node->words[i]);
-        }
-    }
-    Node *node2 = new Node(newMaxKey, parent);
+    Node *node2 = new Node(newMaxNodeKey, parent);
     node2->numberOfItems = 1;
-    for (int i = 0; i < node->words.size(); ++i) {
-        string wordLow;
-        wordLow.assign(node->words[i]);
-        transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
-        if (wordLow.find(newMinKey) != -1) {
-            node2->words.push_back(node->words[i]);
-        }
-    }
     
     for (int i = 0; i < parent->numberOfChildren; ++i) {
         if (parent->children[i] == node) {
@@ -256,48 +269,30 @@ void TwoThreeTree::split(Node *node, string data, vector<string> words) {
         }
     }
     
-    node->parent = NULL;
-    delete node;
-    
+    node->parent = NULL;    
     string parentMinKeyLow, newMidKeyLow;
-    parentMinKeyLow.assign(parent->minKey);
+    parentMinKeyLow.assign(parent->minKey->key);
     newMidKeyLow.assign(newMidKey);
     
     transform(parentMinKeyLow.begin(), parentMinKeyLow.end(), parentMinKeyLow.begin(), ::tolower);
     transform(newMidKeyLow.begin(), newMidKeyLow.end(), newMidKeyLow.begin(), ::tolower);
     
     if (isNewParent) {
-        parent->minKey.assign(newMidKey);
+        parent->minKey = newMidNodeKey;
         parent->numberOfItems = 1;
-        for (int i = 0; i < words.size(); ++i) {
-            string wordLow;
-            wordLow.assign(words[i]);
-            transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
-            if (wordLow.find(newMidKey) != -1) {
-                parent->words.push_back(words[i]);
-            }
-        }
         this->root = parent;
     } else if (parent->numberOfItems == 1) {
         if (newMidKeyLow.compare(parentMinKeyLow) < 0) {
-            string temp;
-            temp.assign(parent->minKey);
-            parent->minKey.assign(newMidKey);
-            parent->maxKey.assign(temp);
+            NodeKey *temp = parent->minKey;
+            parent->minKey = newMidNodeKey;
+            parent->maxKey = temp;
         } else {
-            parent->maxKey.assign(newMidKey);
+            parent->maxKey = newMidNodeKey;
         }
-        for (int i = 0; i < words.size(); ++i) {
-            string wordLow;
-            wordLow.assign(words[i]);
-            transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
-            if (wordLow.find(newMidKey) != -1) {
-                parent->words.push_back(words[i]);
-            }
-        }
+        
         parent->numberOfItems = 2;
     } else {
-        split(parent, newMidKey, words);
+        split(parent, newMidNodeKey);
     }
 }
 
@@ -310,8 +305,8 @@ Node *TwoThreeTree::searchData(string data) {
 
 Node *TwoThreeTree::searchDataInRoot(Node *node, string data) {
     string minKey, maxKey;
-    minKey.assign(node->minKey);
-    maxKey.assign(node->maxKey);
+    minKey.assign(node->minKey->key);
+    maxKey.assign(node->maxKey->key);
     
     transform(minKey.begin(), minKey.end(), minKey.begin(), ::tolower);
     transform(maxKey.begin(), maxKey.end(), maxKey.begin(), ::tolower);
@@ -352,21 +347,27 @@ vector<string> TwoThreeTree::findDataWithPrefix(string prefix) {
             Node *n = q.front();
             
             string minKey, maxKey;
-            minKey.assign(n->minKey);
-            maxKey.assign(n->maxKey);
+            minKey.assign(n->minKey->key);
+            maxKey.assign(n->maxKey->key);
             
             transform(minKey.begin(), minKey.end(), minKey.begin(), ::tolower);
             transform(maxKey.begin(), maxKey.end(), maxKey.begin(), ::tolower);
             
             q.pop();
-            for (int i = 0; i < n->words.size(); ++i) {
-                if (checkPrefix(prefix, minKey) || checkPrefix(prefix, maxKey)) {
+            for (int i = 0; i < n->minKey->words.size(); ++i) {
                     string lowWord;
-                    lowWord.assign(n->words[i]);
+                    lowWord.assign(n->minKey->words[i]);
                     transform(lowWord.begin(), lowWord.end(), lowWord.begin(), ::tolower);
                     if (lowWord.find(prefix) != -1) {
-                        nodes.push_back(n->words[i]);
+                        nodes.push_back(n->minKey->words[i]);
                     }
+            }
+            for (int i = 0; i < n->maxKey->words.size(); ++i) {
+                string lowWord;
+                lowWord.assign(n->maxKey->words[i]);
+                transform(lowWord.begin(), lowWord.end(), lowWord.begin(), ::tolower);
+                if (lowWord.find(prefix) != -1) {
+                    nodes.push_back(n->maxKey->words[i]);
                 }
             }
             if (n->numberOfChildren == 0) {
@@ -425,8 +426,8 @@ vector<string> TwoThreeTree::findDataWithPrefix(string prefix) {
 Node *TwoThreeTree::findFirstNodeWithPrefix(Node *node, string prefix) {
     
     string minKey, maxKey;
-    minKey.assign(node->minKey);
-    maxKey.assign(node->maxKey);
+    minKey.assign(node->minKey->key);
+    maxKey.assign(node->maxKey->key);
     
     transform(minKey.begin(), minKey.end(), minKey.begin(), ::tolower);
     transform(maxKey.begin(), maxKey.end(), maxKey.begin(), ::tolower);

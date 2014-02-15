@@ -10,9 +10,9 @@
 
 using namespace std;
 
-Node::Node(string minKey, Node *parent) {
+Node::Node(NodeKey *minKey, Node *parent) {
     this->minKey = minKey;
-    this->maxKey = "";
+    this->maxKey = new NodeKey("");
     this->parent = parent;
     this->numberOfItems = 1;
     this->numberOfChildren = 0;

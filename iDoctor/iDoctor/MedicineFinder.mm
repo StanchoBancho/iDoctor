@@ -51,9 +51,6 @@ void MedicineFinder::insertMedicine(string word) {
     
     for (int i = 0; i < tokens.size(); ++i) {
         string token = tokens[i];
-        if (token.compare("Accolate") == 0 || token.compare("ac-Zn") == 0) {
-            NSLog(@"");
-        }
         trim(token);
         if(token.compare("") == 0){
             continue;
@@ -70,7 +67,11 @@ void MedicineFinder::insertMedicine(string word) {
             transform(copiedString.begin(), copiedString.end(), copiedString.begin(), ::tolower);
             ngramTree->insertData(copiedString);
             Node *ngramNode = ngramTree->searchData(copiedString);
-            ngramNode->words.push_back(copiedWord);
+            if (copiedString.compare(ngramNode->minKey->key) == 0) {
+                ngramNode->minKey->words.push_back(copiedWord);
+            } else {
+                ngramNode->maxKey->words.push_back(copiedWord);
+            }
         }
     }
 }

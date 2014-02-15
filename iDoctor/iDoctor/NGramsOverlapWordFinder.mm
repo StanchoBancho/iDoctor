@@ -16,15 +16,15 @@ NGramsOverlapWordFinder::NGramsOverlapWordFinder() {
 void NGramsOverlapWordFinder::insertWordInNGramTree(string word) {
     vector<string> ngrams = getNGramsForWord(word);
     for (int i = 0; i < ngrams.size(); ++i) {
-        string ngram = ngrams[i];
-        Node *ngramNode = ngramTree->searchData(ngram);
-        if (ngramNode != NULL) {
-            ngramNode->words.push_back(word);
-        } else {
-            ngramTree->insertData(ngram);
-            Node *ngramNode = ngramTree->searchData(ngram);
-            ngramNode->words.push_back(word);
-        }
+//        string ngram = ngrams[i];
+//        Node *ngramNode = ngramTree->searchData(ngram);
+//        if (ngramNode != NULL) {
+//            ngramNode->words.push_back(word);
+//        } else {
+//            ngramTree->insertData(ngram);
+//            Node *ngramNode = ngramTree->searchData(ngram);
+//            ngramNode->words.push_back(word);
+//        }
     }
 }
 
