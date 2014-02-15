@@ -6,11 +6,8 @@
 //  Copyright (c) 2013 Dobrinka Tabakova. All rights reserved.
 //
 
-#include "NGramsOverlapWordFinder.h"
-#include <vector>
-#include <string>
-#include <algorithm>
-#import <set>
+#import "NGramsOverlapWordFinder.h"
+#import <algorithm>
 
 NGramsOverlapWordFinder::NGramsOverlapWordFinder() {
     this->ngramTree = new TwoThreeTree();

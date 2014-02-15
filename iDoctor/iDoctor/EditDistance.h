@@ -9,9 +9,7 @@
 #ifndef ___3Tree__EditDistance__
 #define ___3Tree__EditDistance__
 
-#include <iostream>
-#include <cstring>
-#include "string.h"
+#import <string>
 
 using namespace std;
 

@@ -6,4 +6,4 @@
 //  Copyright (c) 2014 Stanimir Nikolov. All rights reserved.
 //
 
-#include "NGramNode.h"
+#import "NGramNode.h"

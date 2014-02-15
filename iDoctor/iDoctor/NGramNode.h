@@ -9,11 +9,7 @@
 #ifndef __iDoctor__NGramNode__
 #define __iDoctor__NGramNode__
 
-#include <iostream>
-#include "Node.h"
-#include <vector>
-#include <string>
-
+#import "Node.h"
 
 class NGramNode:public Node {
 public:

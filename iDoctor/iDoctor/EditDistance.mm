@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 Dobrinka Tabakova. All rights reserved.
 //
 
-#include "EditDistance.h"
-#include "stdlib.h"
-#include <iostream>
-#include <vector>
+#import "EditDistance.h"
+#import "stdlib.h"
+#import <vector>
 
 unsigned int edit_distance(const string& s1, const string& s2)
 {

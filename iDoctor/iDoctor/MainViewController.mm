@@ -11,9 +11,8 @@
 #import "Medicine.h"
 
 #import "Constants.h"
-#include <string>
-#include <set>
-#import "TwoThreeTree.h"
+#import "MedicineFinder.h"
+#import "NGramsOverlapWordFinder.h"
 
 #import "MainViewController.h"
 #import "MedicineDetailViewController.h"
@@ -156,15 +155,16 @@
     else{
         //create tree
         vector<string> allMedicineNames;
-        TwoThreeTree* tree = new TwoThreeTree();
+        
         NGramsOverlapWordFinder* ngramOverlap = new NGramsOverlapWordFinder();
+        MedicineFinder* medicineFinder = new MedicineFinder();
         set<string>allMedicineNamesWords;
         for(NSDictionary* m in array){
             if(m[kMedicineNameKey] == nil || [m[kMedicineNameKey] isEqualToString:@""]){
                 NSLog(@"There is an existing medicine");
             }
             string cpp_str([m[kMedicineNameKey] UTF8String], [m[kMedicineNameKey] lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-            tree->insertData(cpp_str);
+            medicineFinder->insertMedicine(cpp_str);
             allMedicineNames.push_back(cpp_str);
             
             //create ngramoverlap structure
@@ -174,7 +174,7 @@
                     string cpp_word([word UTF8String], [word lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
                     if(allMedicineNamesWords.count(cpp_str) == 0){
                         allMedicineNamesWords.insert(cpp_word);
-                        //ngramOverlap->insertWordInNGramTree(cpp_word);
+                        ngramOverlap->insertWordInNGramTree(cpp_word);
                     }
                 }
             }
@@ -183,7 +183,7 @@
         [self.autocorectionViewController setAllMedicineNamesWords:allMedicineNamesWords];
         ngramOverlap = NULL;
         
-        [self.autocompletionViewController setTwoThreeTreeDataStructure:tree];
+        [self.autocompletionViewController setTwoThreeTreeDataStructure:medicineFinder];
         [self.autocompletionViewController setAllMedicineNames:allMedicineNames];
     }
 }

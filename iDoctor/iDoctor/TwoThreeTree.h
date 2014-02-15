@@ -9,8 +9,7 @@
 #ifndef ___3Tree__TwoThreeTree__
 #define ___3Tree__TwoThreeTree__
 
-#include "Node.h"
-#include <vector>
+#import "Node.h"
 
 using namespace std;
 
@@ -24,7 +23,7 @@ public:
     
 private:
     void insertDataIntoParentTree(Node *parent, string data);
-    void split(Node *leaf, string data);
+    void split(Node *node, string data, vector<string> words);
     Node *findParent(Node *node, string data);
     Node *searchDataInRoot(Node *node, string data);
     bool checkPrefix(string prefix, string str);

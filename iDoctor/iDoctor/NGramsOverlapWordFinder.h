@@ -6,15 +6,10 @@
 //  Copyright (c) 2013 Dobrinka Tabakova. All rights reserved.
 //
 
-#ifndef ___3Tree__NGramsOverlap__
-#define ___3Tree__NGramsOverlap__
+#ifndef ___3Tree__NGramsOverlapWordFinder__
+#define ___3Tree__NGramsOverlapWordFinder__
 
-#include <iostream>
-#include <vector>
-#include <string>
-#include "TwoThreeTree.h"
-#include "NGramNode.h"
-
+#import "TwoThreeTree.h"
 
 using namespace std;
 

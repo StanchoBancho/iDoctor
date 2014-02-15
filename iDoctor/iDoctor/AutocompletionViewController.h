@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TypingHelper.h"
-#import "TwoThreeTree.h"
+#import "MedicineFinder.h"
 
 @protocol AutocompletionTypeHelper <TypingHelper>
 
@@ -18,7 +18,7 @@
 
 @interface AutocompletionViewController : UIViewController
 
--(void)setTwoThreeTreeDataStructure:(TwoThreeTree*) twoThreeTree;
+-(void)setTwoThreeTreeDataStructure:(MedicineFinder*) twoThreeTree;
 -(void)setAllMedicineNames:(vector<string>) allMedicineNames;
 
 @property (nonatomic, assign) id<AutocompletionTypeHelper>delegate;

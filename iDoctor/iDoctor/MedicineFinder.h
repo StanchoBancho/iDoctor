@@ -6,26 +6,24 @@
 //  Copyright (c) 2014 Stanimir Nikolov. All rights reserved.
 //
 
-#ifndef ___3Tree__NGramsOverlap__
-#define ___3Tree__NGramsOverlap__
+#ifndef ___3Tree__MedicineFinder__
+#define ___3Tree__MedicineFinder__
 
-#include <iostream>
-#include <vector>
-#include <string>
-#include "TwoThreeTree.h"
-#include "NGramNode.h"
+#ifndef ___3Tree__NGramsOverlapWordFinder__
 
+#import "TwoThreeTree.h"
+
+#endif
 
 using namespace std;
 
-class NGramsOverlapWordFinder {
+class MedicineFinder {
 public:
     TwoThreeTree *ngramTree;
     void insertMedicine(string medicine);
-    float jaccardIndex(string word, string otherWord);
-    vector<pair<string, float> > getMedicinesForWord(string word);
-    NGramsOverlapWordFinder();
+    vector<string> getMedicinesForTypedText(string text);
+    MedicineFinder();
 private:
-    vector<string> split(const string &text);
+    vector<string> split(const string text);
 };
-#endif /* defined(___3Tree__NGramsOverlap__) */
+#endif /* defined(___3Tree__MedicineFinder__) */

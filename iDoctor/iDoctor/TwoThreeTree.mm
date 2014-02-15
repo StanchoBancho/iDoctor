@@ -6,11 +6,10 @@
 //  Copyright (c) 2013 Dobrinka Tabakova. All rights reserved.
 //
 
-#include "TwoThreeTree.h"
-#include <vector>
-#include <queue>
-#include <algorithm>
-#include "stdlib.h"
+#import "TwoThreeTree.h"
+#import <vector>
+#import <queue>
+#import "stdlib.h"
 
 using namespace std;
 
@@ -161,11 +160,12 @@ void TwoThreeTree::insertDataIntoParentTree(Node *parent, string data) {
         //full leaf
     } else if (leaf->numberOfItems == 2) {
         //should split
-        split(leaf, data);
+        vector<string> v;
+        split(leaf, data, v);
     }
 }
 
-void TwoThreeTree::split(Node *node, string data) {
+void TwoThreeTree::split(Node *node, string data, vector<string> words) {
     Node *parent = node->parent;
     bool isNewParent = false;
     if (parent == NULL) {
@@ -199,11 +199,37 @@ void TwoThreeTree::split(Node *node, string data) {
         newMidKey.assign(node->maxKey);
         newMaxKey.assign(data);
     }
-    
+    if (newMidKey.compare(dataLow) != 0) {
+        words.erase(words.begin(), words.end());
+        for (int i = 0; i < node->words.size(); ++i) {
+            string wordLow;
+            wordLow.assign(node->words[i]);
+            transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
+            if (wordLow.find(newMidKey) != -1) {
+                words.push_back(node->words[i]);
+            }
+        }
+    }
     Node *node1 = new Node(newMinKey, parent);
     node1->numberOfItems = 1;
+    for (int i = 0; i < node->words.size(); ++i) {
+        string wordLow;
+        wordLow.assign(node->words[i]);
+        transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
+        if (wordLow.find(newMinKey) != -1) {
+            node1->words.push_back(node->words[i]);
+        }
+    }
     Node *node2 = new Node(newMaxKey, parent);
     node2->numberOfItems = 1;
+    for (int i = 0; i < node->words.size(); ++i) {
+        string wordLow;
+        wordLow.assign(node->words[i]);
+        transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
+        if (wordLow.find(newMinKey) != -1) {
+            node2->words.push_back(node->words[i]);
+        }
+    }
     
     for (int i = 0; i < parent->numberOfChildren; ++i) {
         if (parent->children[i] == node) {
@@ -243,6 +269,14 @@ void TwoThreeTree::split(Node *node, string data) {
     if (isNewParent) {
         parent->minKey.assign(newMidKey);
         parent->numberOfItems = 1;
+        for (int i = 0; i < words.size(); ++i) {
+            string wordLow;
+            wordLow.assign(words[i]);
+            transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
+            if (wordLow.find(newMidKey) != -1) {
+                parent->words.push_back(words[i]);
+            }
+        }
         this->root = parent;
     } else if (parent->numberOfItems == 1) {
         if (newMidKeyLow.compare(parentMinKeyLow) < 0) {
@@ -253,9 +287,17 @@ void TwoThreeTree::split(Node *node, string data) {
         } else {
             parent->maxKey.assign(newMidKey);
         }
+        for (int i = 0; i < words.size(); ++i) {
+            string wordLow;
+            wordLow.assign(words[i]);
+            transform(wordLow.begin(), wordLow.end(), wordLow.begin(), ::tolower);
+            if (wordLow.find(newMidKey) != -1) {
+                parent->words.push_back(words[i]);
+            }
+        }
         parent->numberOfItems = 2;
     } else {
-        split(parent, newMidKey);
+        split(parent, newMidKey, words);
     }
 }
 
@@ -274,15 +316,19 @@ Node *TwoThreeTree::searchDataInRoot(Node *node, string data) {
     transform(minKey.begin(), minKey.end(), minKey.begin(), ::tolower);
     transform(maxKey.begin(), maxKey.end(), maxKey.begin(), ::tolower);
     
-    if (data.compare(minKey) == 0 || data.compare(maxKey) == 0) {
+    string lowData;
+    lowData.assign(data);
+    transform(lowData.begin(), lowData.end(), lowData.begin(), ::tolower);
+
+    if (lowData.compare(minKey) == 0 || lowData.compare(maxKey) == 0) {
         return node;
     } else if (node->numberOfChildren == 0) {
         return NULL;
-    } else if (data.compare(minKey) < 0) {
-        return searchDataInRoot(node->children[0], data);
+    } else if (lowData.compare(minKey) < 0) {
+        return searchDataInRoot(node->children[0], lowData);
     } else {
         if (node->numberOfItems == 2) {
-            if (data.compare(minKey) > 0 && data.compare(maxKey) < 0) {
+            if (lowData.compare(minKey) > 0 && lowData.compare(maxKey) < 0) {
                 return searchDataInRoot(node->children[1], data);
             } else {
                 return searchDataInRoot(node->children[2], data);
@@ -313,38 +359,63 @@ vector<string> TwoThreeTree::findDataWithPrefix(string prefix) {
             transform(maxKey.begin(), maxKey.end(), maxKey.begin(), ::tolower);
             
             q.pop();
-            
-            if (checkPrefix(prefix, minKey)) {
-                nodes.push_back(n->minKey);
+            for (int i = 0; i < n->words.size(); ++i) {
+                if (checkPrefix(prefix, minKey) || checkPrefix(prefix, maxKey)) {
+                    string lowWord;
+                    lowWord.assign(n->words[i]);
+                    transform(lowWord.begin(), lowWord.end(), lowWord.begin(), ::tolower);
+                    if (lowWord.find(prefix) != -1) {
+                        nodes.push_back(n->words[i]);
+                    }
+                }
             }
-            if (checkPrefix(prefix, maxKey)) {
-                nodes.push_back(n->maxKey);
+            if (n->numberOfChildren == 0) {
+                continue;
             }
-//            if (n->numberOfChildren != 0) {
-//                string minSubstr = minKey.substr(0, prefix.length());
-//                string maxSubstr = maxKey.substr(0, prefix.length());
-//                if (n->numberOfItems == 1) {
-//                    if (prefix.compare(minSubstr) < 0) {
-//                        q.push(n->children[0]);
-//                    } else {
-//                        q.push(n->children[1]);
-//                    }
-//                } else if (n->numberOfItems == 2) {
-//                    if (prefix.compare(minSubstr) < 0) {
-//                        q.push(n->children[0]);
-//                    } else if (prefix.compare(maxSubstr) < 0) {
-//                        q.push(n->children[0]);
-//                        q.push(n->children[1]);
-//                    } else {
-//                        q.push(n->children[1]);
-//                        q.push(n->children[2]);
-//                    }
-//                }
-//            }
+            bool goLeft = false;
+            bool goRight = false;
+            bool goMiddle = false;
             
+            string minSubstr = minKey.substr(0, prefix.length());
+            string maxSubstr = maxKey.substr(0, prefix.length());
+            bool hasMaxKey = false;
+            if (n->numberOfItems > 1) {
+                hasMaxKey = true;
+                if (minSubstr.compare(prefix) >= 0) {
+                    goLeft = true;
+                }
+                if (minSubstr.compare(prefix) == 0 || maxSubstr.compare(prefix) == 0 || (minSubstr.compare(prefix) > 0 && maxSubstr.compare(prefix) > 0)) {
+                    goMiddle = true;
+                }
+                if (maxSubstr.compare(prefix) <= 0) {
+                    goRight = true;
+                }
+            } else {
+                if (minSubstr.compare(prefix) >= 0) {
+                    goLeft = true;
+                }
+                if (maxSubstr.compare(prefix) <= 0) {
+                    goRight = true;
+                }
+            }
             
-            for (int i = 0; i < n->numberOfChildren; ++i) {
-                q.push(n->children[i]);
+            if (hasMaxKey) {
+                if (goLeft) {
+                    q.push(n->children[0]);
+                }
+                if (goMiddle) {
+                    q.push(n->children[1]);
+                }
+                if (goRight) {
+                    q.push(n->children[2]);
+                }
+            } else {
+                if (goLeft) {
+                    q.push(n->children[0]);
+                }
+                if (goRight) {
+                    q.push(n->children[1]);
+                }
             }
         }
     }

@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#include <string>
-#include <set>
 #import "NGramsOverlapWordFinder.h"
 #import "TypingHelper.h"
-
 using namespace std;
 
 @protocol AutocorectionTypingHelper <TypingHelper>

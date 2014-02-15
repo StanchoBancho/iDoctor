@@ -11,7 +11,7 @@
 
 @interface AutocompletionViewController ()
 {
-    TwoThreeTree* tree;
+    MedicineFinder* tree;
     vector<string> allMedicineNames;
 }
 @property (nonatomic, strong) NSMutableArray* suggestedMedicineNames;
@@ -56,7 +56,7 @@
 
 #pragma mark - Setters
 
--(void)setTwoThreeTreeDataStructure:(TwoThreeTree*) twoThreeTree
+-(void)setTwoThreeTreeDataStructure:(MedicineFinder*) twoThreeTree
 {
     tree = twoThreeTree;
 }
@@ -79,7 +79,7 @@
         [self.suggestionsTableView setHidden:NO];
         
         string cpp_str([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-        vector<string> result = tree->findDataWithPrefix(cpp_str);
+        vector<string> result = tree->getMedicinesForTypedText(cpp_str);
         
         for (int i = 0; i < result.size(); i++) {
             NSString* medicineName = [NSString stringWithCString: result[i].c_str() encoding:NSUTF8StringEncoding];

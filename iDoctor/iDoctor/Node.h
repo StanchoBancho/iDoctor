@@ -9,9 +9,10 @@
 #ifndef ___3Tree__Node__
 #define ___3Tree__Node__
 
-#include <iostream>
-#include <vector>
-#include <string>
+#import <stdlib.h>
+#import <string>
+#import <vector>
+#import <set>
 
 using namespace std;
 

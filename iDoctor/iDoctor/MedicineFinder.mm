@@ -7,18 +7,34 @@
 //
 
 #import "MedicineFinder.h"
-#include <vector>
-#include <string>
 #include <algorithm>
-#import <set>
+#include <functional>
+#include <cctype>
+#include <locale>
 
-NGramsOverlapWordFinder::NGramsOverlapWordFinder() {
+// trim from start
+static inline std::string &ltrim(std::string &s) {
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<int, int>(std::isspace))));
+    return s;
+}
+
+// trim from end
+static inline std::string &rtrim(std::string &s) {
+    s.erase(std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+    return s;
+}
+
+// trim from both ends
+static inline std::string &trim(std::string &s) {
+    return ltrim(rtrim(s));
+}
+
+MedicineFinder::MedicineFinder() {
     this->ngramTree = new TwoThreeTree();
 }
 
-
-vector<string> NGramsOverlapWordFinder::split(const string &text) {
-    int start = 0, end = 0;
+vector<string> MedicineFinder::split(string text) {
+    unsigned long start = 0, end = 0;
     vector<string> tokens;
     while ((end = text.find(' ', start)) != string::npos) {
         tokens.push_back(text.substr(start, end - start));
@@ -28,105 +44,55 @@ vector<string> NGramsOverlapWordFinder::split(const string &text) {
     return tokens;
 }
 
-void NGramsOverlapWordFinder::insertMedicine(string word) {
+void MedicineFinder::insertMedicine(string word) {
    
     vector<string> tokens = split(word);
+
+    
     for (int i = 0; i < tokens.size(); ++i) {
         string token = tokens[i];
-        Node *ngramNode = ngramTree->searchData(token);
-        if (ngramNode != NULL) {
-            ngramNode->words.push_back(word);
+        if (token.compare("Accolate") == 0 || token.compare("ac-Zn") == 0) {
+            NSLog(@"");
+        }
+        trim(token);
+        if(token.compare("") == 0){
+            continue;
+        }
+        string copiedWord;
+        copiedWord.assign(word);
+        
+        Node *nodeWithThisToken = ngramTree->searchData(token);
+        if (nodeWithThisToken != NULL) {
+            nodeWithThisToken->words.push_back(copiedWord);
         } else {
-            ngramTree->insertData(token);
-            Node *ngramNode = ngramTree->searchData(token);
-            ngramNode->words.push_back(word);
+            string copiedString;
+            copiedString.assign(token);
+            transform(copiedString.begin(), copiedString.end(), copiedString.begin(), ::tolower);
+            ngramTree->insertData(copiedString);
+            Node *ngramNode = ngramTree->searchData(copiedString);
+            ngramNode->words.push_back(copiedWord);
         }
     }
 }
 
-bool wayToSort(pair<string, float>  i, pair<string, float> j) {
-    return i.second > j.second;
-}
+//bool wayToSort(pair<string, float>  i, pair<string, float> j) {
+//    return i.second > j.second;
+//}
 
-vector<pair<string, float> > NGramsOverlapWordFinder::getMedicinesForWord(string word) {
-    vector<pair<string, float> > words;
-    set<string> existingWord;
-    vector<string> ngrams = split(word);
-    for (int i = 0; i < ngrams.size(); ++i) {
-        string ngram = ngrams[i];
-        Node *ngramNode = ngramTree->searchData(ngram);
-        if (ngramNode != NULL) {
-            for (int j = 0; j < ngramNode->words.size(); ++j) {
-                string autocorectionWord = ngramNode->words[j];
-                const bool is_in = existingWord.find(autocorectionWord) != existingWord.end();
-                
+vector<string> MedicineFinder::getMedicinesForTypedText(string text) {
+    vector<string> words;
+    vector<string> tokens = split(text);
+    for (int i = 0; i < tokens.size(); ++i) {
+        string token = tokens[i];
+        vector<string> nodeWithThisToken = ngramTree->findDataWithPrefix(token);
+            for (int j = 0; j < nodeWithThisToken.size(); ++j) {
+                string autocorectionWord = nodeWithThisToken[j];
+                const bool is_in = find(words.begin(), words.end(), autocorectionWord) != words.end();
                 if(!is_in){
-                    float distance = this->jaccardIndex(word, autocorectionWord);
-                    words.push_back(make_pair(autocorectionWord, distance));
-                    existingWord.insert(autocorectionWord);
+                    words.push_back(autocorectionWord);
                 }
             }
-        }
     }
-    sort(words.begin(), words.end(), wayToSort);
-    
-    if(words.size() > 10){
-        words.erase(words.begin() + 10, words.end());
-    }
-    
+    //sort(words.begin(), words.end(), wayToSort);
     return words;
 }
-
-float NGramsOverlapWordFinder::jaccardIndex(string word, string otherWord) {
-    if (word.length() == 0 || otherWord.length() == 0) {
-        return 0.0;
-    }
-    
-    vector<string> wordNGrams = split(word);
-    vector<string> otherWordsNGrams = split(otherWord);
-    
-    vector<string> intersectionSet;
-    for (int i = 0; i < wordNGrams.size(); ++i) {
-        string iNGram = wordNGrams[i];
-        for (int j = 0; j < otherWordsNGrams.size(); ++j) {
-            string jNgram = otherWordsNGrams[j];
-            if (iNGram.compare(jNgram) == 0) {
-                intersectionSet.push_back(iNGram);
-                break;
-            }
-        }
-    }
-    
-    vector<string> unionSet;
-    for (int i = 0; i < wordNGrams.size(); ++i) {
-        string iNGram = wordNGrams[i];
-        bool isIn = false;
-        for (int j = 0; j < unionSet.size(); ++j) {
-            string jNGram = unionSet[j];
-            if (iNGram.compare(jNGram) == 0) {
-                isIn = true;
-                break;
-            }
-        }
-        if (!isIn) {
-            unionSet.push_back(iNGram);
-        }
-    }
-    for (int i = 0; i < otherWordsNGrams.size(); ++i) {
-        string iNGram = otherWordsNGrams[i];
-        bool isIn = false;
-        for (int j = 0; j < unionSet.size(); ++j) {
-            string jNGram = unionSet[j];
-            if (iNGram.compare(jNGram) == 0) {
-                isIn = true;
-                break;
-            }
-        }
-        if (!isIn) {
-            unionSet.push_back(iNGram);
-        }
-    }
-    
-    return (float)intersectionSet.size()/(float)unionSet.size();
-}
-
