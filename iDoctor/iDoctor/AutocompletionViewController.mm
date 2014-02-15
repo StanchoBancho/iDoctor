@@ -13,6 +13,8 @@
 {
     MedicineFinder* tree;
     vector<string> allMedicineNames;
+    dispatch_queue_t workingQueue;
+    
 }
 @property (nonatomic, strong) NSMutableArray* suggestedMedicineNames;
 @property (nonatomic, strong) IBOutlet UITableView* suggestionsTableView;
@@ -71,68 +73,54 @@
 -(void)showApropriateSuggestionsUsing23TreeSearch:(NSString*)typedText
 {
     CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
-    self.suggestedMedicineNames = [NSMutableArray array];
-    if([typedText isEqualToString:@""]){
-        [self.suggestionsTableView setHidden:YES];
+    
+    string cpp_str([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    vector<string> result = tree->getMedicinesForTypedText(cpp_str);
+    
+    for (int i = 0; i < result.size(); i++) {
+        NSString* medicineName = [NSString stringWithCString: result[i].c_str() encoding:NSUTF8StringEncoding];
+        [self.suggestedMedicineNames addObject:medicineName];
     }
-    else{
-        [self.suggestionsTableView setHidden:NO];
-        
-        string cpp_str([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-        vector<string> result = tree->getMedicinesForTypedText(cpp_str);
-        
-        for (int i = 0; i < result.size(); i++) {
-            NSString* medicineName = [NSString stringWithCString: result[i].c_str() encoding:NSUTF8StringEncoding];
-            [self.suggestedMedicineNames addObject:medicineName];
-        }
-        //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
-        [self.suggestedMedicineNames sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            return [(NSString*)obj1 compare:(NSString*)obj2 options:NSCaseInsensitiveSearch];
-        }];
-    }
+    //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
+    [self.suggestedMedicineNames sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [(NSString*)obj1 compare:(NSString*)obj2 options:NSCaseInsensitiveSearch];
+    }];
+    
     CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
-    NSLog(@"Time needed for autocompletion with 2-3 TREE SEARCH is %f", endTime - startTime);
-    [self.suggestionsTableView reloadData];
+    NSLog(@"String: %@  Count: %d Time needed for autocompletion with 2-3 TREE SEARCH is %f",typedText ,self.suggestedMedicineNames.count , endTime - startTime);
 }
 
 -(void)showApropriateSuggestionsUsingLinearSearch:(NSString*)typedText
 {
     CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
-    self.suggestedMedicineNames = [NSMutableArray array];
-    if([typedText isEqualToString:@""]){
-        [self.suggestionsTableView setHidden:YES];
-    }
-    else{
-        [self.suggestionsTableView setHidden:NO];
+    
+    string typed_cpp_string([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
+    std::transform(typed_cpp_string.begin(), typed_cpp_string.end(), typed_cpp_string.begin(), ::tolower);
+    
+    for (int i = 0; i < allMedicineNames.size(); i++) {
         
-        string typed_cpp_string([typedText UTF8String], [typedText lengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
-        std::transform(typed_cpp_string.begin(), typed_cpp_string.end(), typed_cpp_string.begin(), ::tolower);
         
-        for (int i = 0; i < allMedicineNames.size(); i++) {
-           
-            
-            string medicineName = allMedicineNames[i];
-            std::transform(medicineName.begin(), medicineName.end(), medicineName.begin(), ::tolower);
-            vector<string> tokens = split(medicineName);
-            
-            for (int j = 0; j < tokens.size(); ++j) {
-                trim(tokens[j]);
-                if (checkPrefix(typed_cpp_string, tokens[j])){
-                    NSString* medicineName = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
-                    [self.suggestedMedicineNames addObject:medicineName];
-                    break;
-                }
+        string medicineName = allMedicineNames[i];
+        std::transform(medicineName.begin(), medicineName.end(), medicineName.begin(), ::tolower);
+        vector<string> tokens = split(medicineName);
+        
+        for (int j = 0; j < tokens.size(); ++j) {
+            trim(tokens[j]);
+            if (checkPrefix(typed_cpp_string, tokens[j])){
+                NSString* medicineName = [NSString stringWithCString:allMedicineNames[i].c_str() encoding:NSUTF8StringEncoding];
+                [self.suggestedMedicineNames addObject:medicineName];
+                break;
             }
-            
         }
-        //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
-        [self.suggestedMedicineNames sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            return [(NSString*)obj1 compare:(NSString*)obj2];
-        }];
+        
     }
+    //get the suggestion strings for typedText and put them in the self.suggestedMedicineNames
+    [self.suggestedMedicineNames sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [(NSString*)obj1 compare:(NSString*)obj2];
+    }];
+    
     CFAbsoluteTime endTime = CFAbsoluteTimeGetCurrent();
-    NSLog(@"Time needed for autocompletion with LINEAR SEARCH is %f", endTime - startTime);
-    [self.suggestionsTableView reloadData];
+    NSLog(@"String: %@  Count: %d Time needed for autocompletion with LINEAR SEARCH is %f",typedText, self.suggestedMedicineNames.count, endTime - startTime);
 }
 
 -(void)tryToAutoCompleteTheTypedText
@@ -148,24 +136,42 @@
         return;
     }
     
-    if([self.standartsDefaults integerForKey:kAutocompetionType] == AutocompetionType23Tree){
-        [self showApropriateSuggestionsUsing23TreeSearch:self.typedText];
+    
+    self.suggestedMedicineNames = [NSMutableArray array];
+    if([self.typedText isEqualToString:@""]){
+        [self.suggestionsTableView setHidden:YES];
     }
     else{
-        [self showApropriateSuggestionsUsingLinearSearch:self.typedText];
-    }
-    if(self.suggestedMedicineNames.count > 0){
-        if ([self.delegate respondsToSelector:@selector(presentTypingHelperViewController:)]) {
-            [self.delegate presentTypingHelperViewController:self];
+        [self.suggestionsTableView setHidden:NO];
+        
+        if(!workingQueue){
+            workingQueue = dispatch_queue_create("AutocompletionQueue", DISPATCH_QUEUE_SERIAL);
         }
-        [self.suggestionsTableView reloadData];
+        dispatch_async(workingQueue, ^{
+            
+            
+            if([self.standartsDefaults integerForKey:kAutocompetionType] == AutocompetionType23Tree){
+                [self showApropriateSuggestionsUsing23TreeSearch:self.typedText];
+            }
+            else{
+                [self showApropriateSuggestionsUsingLinearSearch:self.typedText];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.suggestionsTableView reloadData];
+                if(self.suggestedMedicineNames.count > 0){
+                    if ([self.delegate respondsToSelector:@selector(presentTypingHelperViewController:)]) {
+                        [self.delegate presentTypingHelperViewController:self];
+                    }
+                    [self.suggestionsTableView reloadData];
+                }
+                else{
+                    if ([self.delegate respondsToSelector:@selector(hideTypingHelperViewController:)]) {
+                        [self.delegate hideTypingHelperViewController:self];
+                    }
+                }
+            });
+        });
     }
-    else{
-        if ([self.delegate respondsToSelector:@selector(hideTypingHelperViewController:)]) {
-            [self.delegate hideTypingHelperViewController:self];
-        }
-    }
-
 }
 
 #pragma mark - UITableView data source

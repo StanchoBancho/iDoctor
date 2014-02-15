@@ -89,15 +89,17 @@ void MedicineFinder::insertMedicine(string word) {
 
 vector<string> MedicineFinder::getMedicinesForTypedText(string text) {
     vector<string> words;
+    set<string> existing_words;
     vector<string> tokens = split(text);
     for (int i = 0; i < tokens.size(); ++i) {
         string token = tokens[i];
         vector<string> nodeWithThisToken = ngramTree->findDataWithPrefix(token);
             for (int j = 0; j < nodeWithThisToken.size(); ++j) {
                 string autocorectionWord = nodeWithThisToken[j];
-                const bool is_in = find(words.begin(), words.end(), autocorectionWord) != words.end();
-                if(!is_in){
+                const bool is_in_set = existing_words.find(autocorectionWord) != existing_words.end();
+                if(!is_in_set){
                     words.push_back(autocorectionWord);
+                    existing_words.insert(autocorectionWord);
                 }
             }
     }
